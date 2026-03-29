@@ -1,4 +1,4 @@
-/* ══════════════════════════════════════════════════════════
+ /* ══════════════════════════════════════════════════════════
    SPRINGFIELD EMERGENCY PLUMBING — PRO LOCAL BUSINESS THEME
    Color Psychology:
    • Deep Navy Blue  → Trust, Authority, Professionalism
@@ -304,4 +304,13 @@ h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
   .split-content { padding: 40px 24px; }
   .related-svc-grid { grid-template-columns: repeat(2,1fr); }
   .ph { padding: 130px 5% 60px; }
+}
+
+/* Blog related links hover */
+.blog-related-link:hover {
+  border-left-color: var(--red) !important;
+}
+.blog-card-link:hover {
+  background: var(--card2) !important;
+  border-bottom-color: var(--red) !important;
 }

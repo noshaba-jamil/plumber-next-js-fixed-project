@@ -1,5 +1,7 @@
-import { buildOpenGraph, buildTwitterCard } from '@/lib/seo'
+ import { buildOpenGraph, buildTwitterCard } from '@/lib/seo'
 import Link from 'next/link'
+
+export const dynamic = 'force-static'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://plumberspringfieldmo.com'
 
@@ -152,10 +154,7 @@ export default function BlogPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 3 }}>
             {BLOG_POSTS.map(post => (
               <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
-                <article style={{ background: 'var(--card)', borderBottom: '3px solid transparent', transition: 'var(--t)', overflow: 'hidden' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--card2)'; e.currentTarget.style.borderBottomColor = 'var(--red)' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'var(--card)'; e.currentTarget.style.borderBottomColor = 'transparent' }}>
-
+                <article style={{ background: 'var(--card)', borderBottom: '3px solid transparent', transition: 'var(--t)', overflow: 'hidden' }} className="blog-card-link">
                   <div style={{ height: 200, overflow: 'hidden' }}>
                     <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>
