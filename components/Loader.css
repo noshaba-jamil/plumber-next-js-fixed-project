@@ -1,0 +1,29 @@
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 20px;
+  transition: opacity 0.8s, visibility 0.8s;
+}
+#loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.ld-ring {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 2px solid rgba(232,50,28,0.2);
+  border-top-color: var(--red);
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.ld-text {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 18px; letter-spacing: 2px;
+  color: rgba(255,255,255,0.7); text-transform: uppercase;
+}
+.ld-text span { color: var(--amber); }
+.ld-bar { width: 160px; height: 2px; background: rgba(255,255,255,0.07); border-radius: 99px; }
+.ld-fill {
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--red), var(--amber));
+  border-radius: 99px;
+  animation: ldfill 2s ease forwards;
+}
+@keyframes ldfill { to { width: 100%; } }

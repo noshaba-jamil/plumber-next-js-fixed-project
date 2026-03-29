@@ -1,0 +1,308 @@
+// ─────────────────────────────────────────────────────────────
+//  SPRINGFIELD EMERGENCY PLUMBING — CRO-OPTIMIZED CONTENT
+// ─────────────────────────────────────────────────────────────
+
+export const SERVICES = [
+  {
+    id: 'emergency',
+    slug: '/emergency-plumber-springfield-mo',
+    name: 'Emergency Plumbing',
+    shortName: 'Emergency Plumbing',
+    icon: 'ri-alarm-warning-fill',
+    h1: 'Emergency Plumber Springfield MO — 24 Hour Plumbing Services',
+    tagline: '24/7 response · We stop the damage fast',
+    desc: 'Pipe burst and water going everywhere? We arrive fast, stop the damage, and fix the issue immediately — so your home is safe again.',
+    intro: 'A plumbing emergency hits at the worst time. Water is spreading. Damage is mounting. Every minute costs money. Our licensed emergency plumber in Springfield MO answers every call — 24 hours a day, 7 days a week — and gets to you FAST. We stop the damage first, then fix the problem right.',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80&fit=crop',
+    features: ['24/7 availability — including weekends & holidays', 'Fast response to stop damage immediately', 'Licensed & insured emergency repairs'],
+    problems: ['Burst pipes — stopped fast', 'Severe water leaks — contained immediately', 'Overflowing toilets — resolved same visit', 'Sewer backups — cleared & sanitized', 'Major drain clogs — removed completely', 'Water heater failure — restored same day'],
+    benefits: ['24/7 availability', 'Fast response times', 'Licensed & insured technicians', 'Reliable, long-lasting repairs', 'Modern professional equipment', 'No hidden fees — you approve pricing first'],
+    longContent: [
+      { h3: 'What Counts as a Plumbing Emergency in Springfield MO?', p: 'A plumbing emergency is any situation where water is actively causing damage to your home or property — or where basic sanitation has failed. Burst pipes, sewage backups, overflowing toilets, failed water heaters, and severe leaks all qualify. If you are unsure whether your situation is an emergency, call us anyway. We will tell you honestly and dispatch immediately if needed.' },
+      { h3: 'What to Do While You Wait for Our Emergency Plumber', p: 'First, shut off your main water supply valve immediately. This stops water flow and limits damage. The main shutoff is typically located near your water meter — in the basement, crawlspace, or near the street. For overflowing toilets, turn the valve behind the toilet base. Next, move electronics and valuables away from the water. Take photos for insurance. Then call us and stay on the line — our dispatcher will guide you through next steps.' },
+      { h3: 'Our Emergency Response Process in Springfield MO', p: 'When you call, a real person picks up — not voicemail. We gather the essential details about your emergency, dispatch the nearest available licensed plumber, and confirm an estimated arrival time. Our vehicles are stocked with common repair parts, so we can fix most emergencies on the first visit without waiting on parts orders. We diagnose, quote upfront, and begin work only after you approve the price.' },
+      { h3: 'Common Emergency Plumbing Situations We Fix Fast', p: 'Our emergency plumbers in Springfield MO handle burst pipes from freezing or age, catastrophic water heater failures, sewer line backups pushing waste into the home, overflowing toilets and sinks, gas line concerns near plumbing, severe hidden leaks causing structural damage, and pump failures in basements. No matter what you are facing, our team has the tools and training to resolve it.' },
+      { h3: 'Why Fast Response Time Matters in a Plumbing Emergency', p: 'Water damage compounds rapidly. A burst pipe releasing just one gallon per minute will fill a bathtub in eight minutes. Over hours, that water saturates flooring, drywall, insulation, and framing — leading to mold within 24–48 hours. The faster an emergency plumber arrives and stops the flow, the lower your repair and remediation costs. This is why we prioritize emergency calls above everything else.' },
+      { h3: 'Serving All of Springfield MO and Surrounding Areas', p: 'Our emergency plumbers serve all neighborhoods in Springfield, MO including downtown, Battlefield, South Springfield, Republic Road corridor, and surrounding communities of Nixa, Ozark, Republic, and Battlefield. If you are within our service area and facing a plumbing emergency right now, call immediately. We will confirm your coverage and dispatch within minutes.' },
+    ],
+  },
+  {
+    id: 'drain',
+    slug: '/drain-cleaning-springfield-mo',
+    name: 'Drain Cleaning',
+    shortName: 'Drain Cleaning',
+    icon: 'ri-drop-fill',
+    h1: 'Drain Cleaning Springfield MO — Professional Drain Unclogging',
+    tagline: 'Slow drain? We clear it completely — not just push it further',
+    desc: 'Slow drain making your sink unusable? We remove the blockage completely using professional equipment — restoring full flow so it does not clog again tomorrow.',
+    intro: 'A clogged drain is more than an annoyance — it can back up into your home and cause real damage. Our professional drain cleaning services in Springfield MO use powerful hydro-jetting and drain snakes to completely remove the blockage, not just push it further down. One visit. Problem solved.',
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&fit=crop',
+    features: ['Clogged drain removed completely', 'Kitchen, bathroom & floor drains', 'Hydro-jetting for stubborn blockages'],
+    problems: ['Grease and oil buildup', 'Hair and soap residue', 'Food waste accumulation', 'Mineral deposits', 'Tree root intrusion in sewer lines'],
+    benefits: ['Slow draining sinks or showers — fixed fast', 'Recurring drain clogs — eliminated', 'Bad drain odors — removed at the source', 'Gurgling sounds in pipes — diagnosed & resolved'],
+    longContent: [
+      { h3: 'Why Professional Drain Cleaning Is Better Than Store-Bought Products', p: 'Chemical drain cleaners from hardware stores dissolve some organic matter but leave residue, damage older pipes, and fail completely against mineral buildup and tree roots. Professional drain cleaning uses mechanical force — either a motorized snake or high-pressure water (hydro-jetting) — to physically remove the entire blockage. The result is a fully clear pipe, not just a temporary opening through a partial clog.' },
+      { h3: 'Hydro-Jetting Drain Cleaning in Springfield MO', p: 'Hydro-jetting uses water pressurized to 3,500–4,000 PSI to blast through blockages and scour the inside walls of your drain pipes. It removes grease, scale, hair, soap residue, and even tree root intrusions completely. This is the most thorough drain cleaning method available and the only one that truly restores full pipe diameter. We use hydro-jetting on both residential and commercial drain systems throughout Springfield MO.' },
+      { h3: 'Kitchen Drain Cleaning in Springfield MO', p: 'Kitchen drains are the most commonly clogged in Springfield homes. Grease, cooking oil, and food particles accumulate on pipe walls over time — even when you run hot water after washing dishes. This buildup narrows the pipe diameter progressively until flow stops completely. Our plumbers clear kitchen drains completely and can inspect the line to identify any other developing blockages before they cause a full backup.' },
+      { h3: 'Bathroom Drain Cleaning — Tubs, Showers, and Sinks', p: 'Bathroom drains accumulate hair, soap scum, and toothpaste buildup that gradually reduces flow. Most bathroom drain clogs are within the first few feet of pipe and can be cleared quickly. However, recurring clogs often indicate a problem further down the line — such as partial blockage in the main stack or a venting issue causing slow drainage. We diagnose the root cause so the clog does not return in two weeks.' },
+      { h3: 'Main Sewer Line Drain Cleaning Springfield MO', p: 'If multiple drains in your home are slow or backing up simultaneously, the problem is likely in your main sewer line — not an individual drain. Main line blockages are caused by tree root intrusion, accumulated grease and debris, or pipe damage. We use camera inspection to diagnose the exact cause and location before clearing it — ensuring the right method is used the first time.' },
+      { h3: 'Drain Cleaning Pricing in Springfield MO', p: 'Drain cleaning costs in Springfield MO vary by the type of drain, severity of the blockage, and method required. Simple drain snaking typically costs $150–$300. Hydro-jetting for stubborn or recurring blockages runs $300–$600 for most residential jobs. Main line clearing costs more depending on length and access. We always provide a full written estimate before starting — you approve the price before we touch a single drain.' },
+    ],
+  },
+  {
+    id: 'leak',
+    slug: '/leak-detection-springfield-mo',
+    name: 'Leak Detection',
+    shortName: 'Leak Detection',
+    icon: 'ri-search-eye-fill',
+    h1: 'Leak Detection Springfield MO — Accurate Water Leak Detection',
+    tagline: 'Hidden leaks cost you money every day — we find them fast',
+    desc: 'Water bill spiking but no visible leak? We use thermal imaging technology to pinpoint hidden leaks inside walls or underground — without tearing your home apart.',
+    intro: 'Hidden water leaks are silent and expensive. They drive up your water bill, destroy walls, and grow mold — often for months before you notice. Our advanced leak detection in Springfield MO uses thermal imaging cameras and acoustic sensors to find the exact source — no unnecessary demolition, no guesswork. We find it. We fix it. You save money.',
+    image: 'https://images.unsplash.com/photo-1617839625591-e5a789593135?w=800&q=80&fit=crop',
+    features: ['Non-invasive thermal imaging detection', 'Acoustic & pressure sensors', 'Mold & water damage prevention'],
+    problems: ['Unexpectedly high water bills', 'Water stains on walls or ceilings', 'Mold or mildew growth', 'Decreased water pressure throughout home'],
+    benefits: ['Thermal imaging — no wall demolition needed', 'Acoustic detection — precise pinpointing', 'Pressure testing — verified results', 'Mold prevention — catch it before it spreads'],
+    longContent: [
+      { h3: 'Signs You May Have a Hidden Water Leak in Your Springfield MO Home', p: 'The most common indicator of a hidden leak is a water bill that has increased without a change in your usage habits. Other signs include water stains or discoloration on walls or ceilings, soft or warped flooring, unexplained mold or mildew growth, a musty smell in certain rooms, and the sound of running water when all fixtures are turned off. Any of these signs warrants a professional leak detection inspection.' },
+      { h3: 'How Thermal Imaging Leak Detection Works', p: 'Thermal imaging cameras detect temperature differences in walls, floors, and ceilings that indicate the presence of moisture. Water cools the surrounding material as it evaporates, creating a distinct thermal signature on the camera display. This allows our technicians to pinpoint the exact location of a leak without opening any walls. The camera is completely non-invasive — no drilling, no cutting, no damage to your home during the inspection.' },
+      { h3: 'Acoustic Leak Detection — Finding Underground and Slab Leaks', p: 'For leaks in underground pipes or pipes running through concrete slabs, we use acoustic detection equipment that listens for the distinct sound frequency of water escaping under pressure. The equipment amplifies the sound and allows our technicians to triangulate the exact leak location — even through several inches of concrete. Slab leaks are particularly damaging in Springfield MO homes because they can erode foundations over time.' },
+      { h3: 'Pressure Testing for Plumbing Leak Confirmation', p: 'After thermal and acoustic detection, we confirm results using pressure testing. We isolate sections of your plumbing system and apply measured air or water pressure. A drop in pressure confirms a leak in that section. This verification step ensures we pinpoint the exact pipe before any repair work begins — eliminating guesswork and reducing unnecessary repair costs.' },
+      { h3: 'The Cost of Ignoring a Hidden Leak in Springfield MO', p: 'A small hidden leak of just one drip per second wastes over 3,000 gallons of water per month — adding $30–$70 to your water bill every month. Over a year, that is $360–$840 in wasted water alone. Far more costly is the structural damage — water-damaged drywall, rotting framing, and mold remediation can cost $5,000–$30,000 or more. Finding and fixing a leak early is always dramatically cheaper than addressing the damage it causes.' },
+      { h3: 'Leak Detection and Repair — Combined Same-Day Service', p: 'In most cases, we can detect the leak location and complete the repair on the same visit. Our service vehicles carry common pipe repair materials for copper, PVC, and PEX systems. Once we pinpoint the leak using our non-invasive equipment, we provide an upfront repair estimate, complete the repair, pressure-test the system to confirm the fix, and document everything for your records — often within a single appointment.' },
+    ],
+  },
+  {
+    id: 'heater',
+    slug: '/water-heater-repair-springfield-mo',
+    name: 'Water Heater Repair',
+    shortName: 'Water Heater',
+    icon: 'ri-fire-fill',
+    h1: 'Water Heater Repair Springfield MO — Hot Water System Experts',
+    tagline: 'No hot water? We restore it — same day in most cases',
+    desc: 'Woke up to cold water this morning? We diagnose and repair your water heater the same day — restoring hot water to your home fast, without the runaround.',
+    intro: 'No hot water means no showers, no dishes, no comfort. When your water heater fails, you need it fixed today — not next week. Our Springfield plumbers repair all tank and tankless water heaters from every major brand. We diagnose fast, quote upfront, and restore your hot water the same visit in most cases.',
+    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80&fit=crop',
+    features: ['Same-day hot water restoration', 'Tank & tankless — all brands repaired', 'Upfront diagnosis — no surprise charges'],
+    problems: ['No hot water at all — restored fast', 'Inconsistent or lukewarm temperature', 'Strange popping or rumbling noises from tank', 'Water pooling around heater base', 'Pilot light keeps going out'],
+    benefits: ['Traditional tank water heaters', 'Modern tankless systems', 'Gas, electric & propane models', 'All major brands serviced'],
+    longContent: [
+      { h3: 'Common Water Heater Problems in Springfield MO Homes', p: 'The most frequent water heater issue we see in Springfield MO is complete loss of hot water — usually caused by a failed heating element in electric heaters or a faulty thermocouple or gas valve in gas models. Other common problems include sediment buildup causing rumbling or popping noises, anode rod failure leading to rust-colored water, pressure relief valve issues, and pilot light failures on older gas units. Most of these are repairable same-day with the right parts.' },
+      { h3: 'Tank Water Heater Repair in Springfield MO', p: 'Traditional tank water heaters store 30–80 gallons of heated water continuously. When they fail, it is typically the heating elements, thermostats, dip tube, or anode rod. Electric heater repairs generally run $150–$400. Gas heater repairs are similar in cost. If the tank itself has corroded or is leaking from the bottom, replacement is necessary — a failing tank cannot be repaired and will eventually fail catastrophically.' },
+      { h3: 'Tankless Water Heater Repair in Springfield MO', p: 'Tankless water heaters heat water on demand and typically last 20+ years. When they develop problems, the culprits are usually mineral scale buildup on the heat exchanger (common in Springfield MO due to moderately hard water), faulty flow sensors, ignition problems in gas models, or error codes indicating overheating. We service and repair all major tankless brands including Navien, Rinnai, Rheem, Noritz, and Bradford White.' },
+      { h3: 'Water Heater Replacement vs. Repair — How to Decide', p: 'If your water heater is under 8 years old, repair is almost always the right choice. Between 8–12 years, we evaluate the repair cost against replacement cost — if repair exceeds 50% of a new unit cost, replacement often makes more sense. Units over 12 years old with significant repairs needed are typically more economically replaced. We give you honest guidance on the right choice — we never recommend replacement when repair is more appropriate.' },
+      { h3: 'How to Extend the Life of Your Water Heater in Springfield MO', p: 'Annual water heater maintenance significantly extends unit life. Key maintenance tasks include flushing the tank to remove sediment (which causes overheating and noise), inspecting and replacing the anode rod every 3–5 years, testing the pressure relief valve annually, and checking all connections for corrosion. Our technicians can perform full water heater maintenance during any service visit.' },
+      { h3: 'Water Heater Repair Costs in Springfield MO', p: 'Water heater repair costs in Springfield MO range from $150 for a simple thermostat replacement to $400 for more complex repairs on gas units. Tankless water heater repairs typically run $200–$600 depending on the issue. New tank water heater installation runs $800–$1,500 fully installed. New tankless installation runs $1,500–$3,000 depending on the unit selected. We provide full written estimates before any work begins.' },
+    ],
+  },
+  {
+    id: 'sewer',
+    slug: '/sewer-line-repair-springfield-mo',
+    name: 'Sewer Line Repair',
+    shortName: 'Sewer Line',
+    icon: 'ri-recycle-fill',
+    h1: 'Sewer Line Repair Springfield MO — Professional Sewer Plumbing Services',
+    tagline: 'Sewage smell or slow drains throughout your home? Call us now',
+    desc: 'Multiple drains backing up or sewage smell in your home? We use camera inspection to find the exact problem — then fix it fast using trenchless methods that protect your yard.',
+    intro: 'Sewer line problems are a health emergency. Sewage backing up into your home, slow drains throughout the house, and foul odors are all warning signs. Our sewer line repair services in Springfield MO start with a high-definition video camera inspection to pinpoint the exact issue — then we fix it using modern techniques, including trenchless options that protect your yard and your wallet.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop',
+    features: ['Video camera inspection — see the exact problem', 'Trenchless repair — yard protected', 'Full pipe replacement when needed'],
+    problems: ['Tree root intrusion', 'Pipe corrosion or cracking', 'Ground shifting & settling', 'Severe blockages & buildup'],
+    benefits: ['HD camera inspection — no guessing', 'Trenchless repair — minimal disruption', 'Root clearing — complete removal', 'Full replacement — done right the first time'],
+    longContent: [
+      { h3: 'Warning Signs of Sewer Line Problems in Springfield MO', p: 'The clearest warning sign is multiple drains throughout your home backing up or draining slowly at the same time. A single slow drain is usually a localized clog. When multiple fixtures are affected, the problem is in the main sewer line. Other indicators include sewage odors inside the home, gurgling sounds coming from toilets when other fixtures drain, water backing up in floor drains when you flush, and soggy or unusually green patches in your yard above the sewer line.' },
+      { h3: 'HD Video Camera Sewer Line Inspection', p: 'Every sewer line repair we perform in Springfield MO begins with a high-definition video camera inspection. We push a waterproof camera through your sewer line and observe the interior in real time. This shows us exactly what is causing the problem — tree root intrusion, pipe collapse, offset joints, grease buildup, or cracking — and exactly where it is located. You can watch the inspection on our monitor and see the problem yourself before we propose any repair.' },
+      { h3: 'Trenchless Sewer Repair — Protect Your Yard', p: 'Traditional sewer line repair required digging a trench the full length of the damaged pipe — destroying landscaping, driveways, and concrete. Trenchless repair methods fix the pipe from the inside using pipe lining (cured-in-place pipe) or pipe bursting. Pipe lining inserts a new resin-coated liner inside the existing pipe. Pipe bursting fragments the old pipe while simultaneously pulling a new pipe into position. Both methods typically require only one or two small access points.' },
+      { h3: 'Tree Root Intrusion in Springfield MO Sewer Lines', p: 'Tree root intrusion is one of the most common sewer line problems in Springfield MO. Tree roots are naturally attracted to the nutrients and moisture in sewer pipes and can enter through any small joint gap or crack. Once inside, they grow rapidly and eventually cause complete blockage or pipe collapse. We clear root intrusions mechanically and then evaluate whether pipe lining is needed to prevent recurrence.' },
+      { h3: 'Full Sewer Line Replacement in Springfield MO', p: 'When a sewer line is severely deteriorated, collapsed, or has multiple points of failure, full replacement is more cost-effective than repeated spot repairs. We replace sewer lines using schedule 40 PVC pipe, which resists root intrusion and corrosion and carries a long service life. We can replace full sewer lines using trenchless methods in most Springfield MO properties — or with traditional open trenching when trenchless is not feasible.' },
+      { h3: 'Sewer Line Repair Costs in Springfield MO', p: 'Camera inspection costs $250–$400 in Springfield MO. Mechanical root clearing runs $350–$600. Pipe lining (trenchless repair) costs $80–$250 per linear foot depending on pipe diameter and access. Full sewer line replacement varies significantly by length and access — most residential jobs in Springfield MO range from $3,000–$10,000. We provide detailed written estimates after camera inspection — so you know exactly what you are paying for.' },
+    ],
+  },
+  {
+    id: 'pipe',
+    slug: '/pipe-repair-installation-springfield-mo',
+    name: 'Pipe Repair & Installation',
+    shortName: 'Pipe Repair',
+    icon: 'ri-tools-fill',
+    h1: 'Pipe Repair & Installation Springfield MO',
+    tagline: 'From a single leak to complete re-piping — done right',
+    desc: 'Leaking pipe causing water damage in your home? We repair or replace the problem pipe using professional materials — stopping the leak and preventing future damage.',
+    intro: 'Whether you have a single leaking joint or aging pipes throughout your entire home, our licensed plumbers in Springfield MO handle pipe repair and installation of every scale. We use professional-grade copper, PVC, and PEX materials — built to last. Every repair comes with a clear upfront price before work begins, and we clean up completely when we are done.',
+    image: 'https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?w=800&q=80&fit=crop',
+    features: ['Leak repaired & tested same visit', 'New installations & re-piping', 'Professional materials — built to last'],
+    problems: ['Copper Piping', 'PVC & CPVC', 'PEX Tubing', 'Full Whole-Home Re-piping', 'Freeze Damage Repairs', 'New Construction Installations'],
+    benefits: ['Copper piping — long-lasting', 'PVC & CPVC — corrosion resistant', 'PEX tubing — flexible & durable', 'Full re-piping — complete system overhaul'],
+    longContent: [
+      { h3: 'Types of Pipes Used in Springfield MO Homes', p: 'Springfield MO homes built before 1970 often have galvanized steel or cast iron pipes — both of which corrode from the inside over decades. Homes from the 1970s–1990s may have copper, CPVC, or early PVC. Newer homes typically use PEX (cross-linked polyethylene) — a flexible plastic pipe that resists freezing better than copper and is significantly less expensive. We work with all pipe materials and recommend the best option for your specific situation.' },
+      { h3: 'Signs Your Springfield MO Home Needs Re-Piping', p: 'If your home has galvanized steel pipes older than 40 years, re-piping is often the most cost-effective long-term solution. Warning signs include brown or rust-colored water from faucets, significantly reduced water pressure throughout the home, multiple pipe leaks in a short period, visible corrosion on exposed pipes, and persistent low pressure that plumbers cannot resolve without addressing the pipes themselves. We evaluate your system and provide an honest recommendation.' },
+      { h3: 'Whole-Home Re-Piping in Springfield MO', p: 'A full home re-pipe in Springfield MO replaces all supply lines from the water meter entry point throughout the home. We typically use PEX for re-piping projects due to its durability, freeze resistance, and cost efficiency. Our process minimizes disruption to your home — we work room by room, restore water service between work periods where possible, and patch all access points before we leave. Most whole-home re-pipes are completed in 2–4 days depending on home size.' },
+      { h3: 'Emergency Pipe Repair — Burst and Leaking Pipes', p: 'A burst pipe is one of the most urgent plumbing emergencies in Springfield MO — particularly after winter freeze events. Our emergency plumbers respond immediately, locate the damaged section, shut off flow to that area, and make a permanent repair on the spot. We carry copper, PVC, and PEX fittings on every truck to repair most pipe types in a single visit. We also advise on pipe insulation to prevent future freeze damage.' },
+      { h3: 'Copper vs. PEX Piping — Which Is Right for Your Home?', p: 'Copper is the traditional premium pipe material — highly durable, naturally antimicrobial, and heat tolerant. However, copper costs significantly more and is vulnerable to freeze cracking in Springfield MO winters. PEX is flexible, freeze-resistant, and costs 25–40% less to install. For most re-piping projects, PEX is the practical choice. Copper may be preferred for specific applications or in homes where matching existing copper is needed. We explain both options clearly and let you decide.' },
+      { h3: 'Pipe Repair and Installation Costs in Springfield MO', p: 'A single pipe repair in Springfield MO typically costs $200–$600 depending on access, pipe type, and repair complexity. Partial re-piping of a specific area runs $500–$2,000. Full whole-home re-piping varies significantly by home size — a typical 1,500 sq ft Springfield home runs $4,000–$8,000 with PEX. All estimates are provided in writing before work begins. We do not start until you approve.' },
+    ],
+  },
+]
+
+export const SERVICE_AREAS = [
+  { name: 'Springfield, MO', label: 'Primary Service Area' },
+  { name: 'Nixa, MO', label: '' },
+  { name: 'Ozark, MO', label: '' },
+  { name: 'Republic, MO', label: '' },
+  { name: 'Battlefield, MO', label: '' },
+]
+
+export const REVIEWS = [
+  { name: 'James R.', initials: 'JR', rating: 5, text: 'Called them at 2am for a burst pipe — they arrived in under an hour. Fixed it fast, no surprise charges, and cleaned everything up. This is the plumber to call in Springfield.', service: 'Emergency Plumbing · Springfield MO' },
+  { name: 'Sarah M.', initials: 'SM', rating: 5, text: 'My kitchen drain was completely backed up. They came out same day, cleared it completely, and explained exactly what caused it. Honest pricing — I approved everything before they started.', service: 'Drain Cleaning · Springfield MO' },
+  { name: 'Mike R.', initials: 'MR', rating: 5, text: 'Had a hidden leak driving up my water bill for months. They found it with their camera without tearing up my walls — then fixed it the same visit. Saved me thousands. Highly recommend.', service: 'Leak Detection · Springfield MO' },
+  { name: 'Linda K.', initials: 'LK', rating: 5, text: 'Water heater stopped working on a Sunday morning. They arrived within 2 hours and had hot water restored before noon. Professional, fast, and fairly priced. Will not use anyone else.', service: 'Water Heater Repair · Springfield MO' },
+  { name: 'Tom B.', initials: 'TB', rating: 5, text: 'Sewer backing up into my basement — absolute nightmare. They came fast, used a camera to show me exactly what was wrong, and fixed it with trenchless repair. Yard untouched. Incredible.', service: 'Sewer Line Repair · Springfield MO' },
+  { name: 'Rachel C.', initials: 'RC', rating: 5, text: 'Had several old pipes leaking throughout my older home. They re-piped the entire house, explained every step, and the price was exactly what they quoted. Trustworthy and professional.', service: 'Pipe Repair & Installation · Springfield MO' },
+]
+
+export const TRUST_BADGES = [
+  { icon: 'ri-shield-check-fill', label: 'Licensed & Insured', sub: 'State Certified Plumber' },
+  { icon: 'ri-award-fill', label: '10+ Years Experience', sub: 'Proven Track Record' },
+  { icon: 'ri-timer-flash-fill', label: '24/7 Emergency Service', sub: 'We Answer Every Call' },
+  { icon: 'ri-price-tag-3-fill', label: 'Upfront Pricing', sub: 'No Hidden Fees — Ever' },
+  { icon: 'ri-map-pin-fill', label: 'Locally Serving Springfield MO', sub: 'Your Neighbors. Your Plumbers.' },
+]
+
+export const TRUST_LINES = [
+  'No hidden charges — you approve pricing before we start any work',
+  'Trusted by homeowners and businesses across Springfield MO',
+  'Honest, transparent plumbing service — no upselling, no surprises',
+  'We show up on time, fix it right, and treat your home with respect',
+]
+
+export const FAQS = [
+  { q: 'How fast can you get to me in a plumbing emergency in Springfield MO?', a: 'We respond to emergency calls immediately — 24 hours a day, 7 days a week, including weekends and holidays. In most Springfield MO locations, we aim to arrive within 60 minutes. The faster you call, the faster we can stop the damage.' },
+  { q: 'Do you really answer calls 24/7 — even at 2am?', a: 'Yes, absolutely. A real person answers every call — not a voicemail. Plumbing emergencies do not wait for business hours, and neither do we. Call us any time and we dispatch immediately.' },
+  { q: 'Will you charge me before telling me the price?', a: 'Never. We diagnose the problem, explain exactly what needs to be done, and give you a clear upfront price — before any work begins. You approve it first. No hidden fees, no surprise charges on your bill.' },
+  { q: 'What should I do if a pipe bursts right now?', a: 'First, immediately turn off your main water shutoff valve to stop the flow. Then call us — we dispatch right away. While you wait, move valuables away from the water. Do not wait to call — every minute of water flow increases damage costs.' },
+  { q: 'Do you offer same-day service for non-emergencies?', a: 'Yes. For standard plumbing repairs and services, we offer same-day and next-morning appointments in most cases throughout Springfield MO and surrounding areas.' },
+  { q: 'How much will it cost? Are your prices fair?', a: 'Every job is different, and we provide a full written estimate after diagnosing the issue — before any work starts. Our prices are competitive and honest. We never inflate emergency pricing, and we never recommend work that is not needed.' },
+  { q: 'Are your plumbers actually licensed and insured?', a: 'Yes. All of our plumbers are licensed by the State of Missouri and carry full liability insurance. You are protected on every job. We also clean up completely after every visit.' },
+  { q: 'Do you serve areas outside of Springfield MO?', a: 'Yes. We serve Springfield and surrounding communities including Nixa, Ozark, Republic, and Battlefield, MO. If you are unsure whether we cover your area, just call — we will tell you right away.' },
+]
+
+export const CONTACT_INFO = {
+  phone: '(417) 000-0000',
+  phoneHref: 'tel:+14170000000',
+  email: 'info@yourplumbingservice.com',
+  location: 'Springfield, MO & Surrounding Areas',
+  hours: '24/7 — We Answer Every Call',
+}
+
+export const HERO_COPY = {
+  badge: '24/7 Emergency Service · Licensed & Insured · Springfield, MO',
+  h1_line1: 'Emergency Plumber',
+  h1_line2: 'in Springfield MO —',
+  h1_line3: '24/7. Fast. Trusted.',
+  subtext: [
+    'Pipe burst? Water leaking? Drain backed up?',
+    'Get fast, reliable help from a licensed emergency plumber in Springfield MO.',
+    'We answer every call — day or night — and get to you FAST.',
+  ],
+  cta_primary: 'CALL NOW — GET HELP FAST',
+  cta_secondary: 'REQUEST EMERGENCY SERVICE',
+  trust_row: [
+    '✓ Licensed & Insured',
+    '✓ 10+ Years Experience',
+    '✓ 24/7 Emergency Service',
+    '✓ Upfront Pricing — No Hidden Fees',
+    '✓ Locally Serving Springfield MO',
+  ],
+  availability_pill: 'Available NOW · Dispatching to Springfield Area',
+}
+
+export const SECTION_COPY = {
+  intro: {
+    tag: 'Reliable Emergency Plumbing',
+    h2: "When Every Minute Counts — We're There",
+    h2_em: 'In Springfield MO',
+    body: [
+      'Plumbing emergencies do not wait. A burst pipe at midnight. A sewer backup on a Sunday. A water heater failing the morning of a big day.',
+      'When it happens, you need ONE thing: a licensed plumber who picks up the phone and gets to you FAST.',
+      'That is exactly what we do. Our emergency plumbers serve all of Springfield MO and surrounding areas — 24 hours a day, 7 days a week, 365 days a year.',
+      'We arrive fully equipped, diagnose the problem honestly, give you a clear upfront price — then fix it right the first time.',
+    ],
+    cta: 'CALL NOW — WE ARE READY',
+  },
+  services: {
+    tag: 'Our Services',
+    h2: 'Our Springfield',
+    h2_em: 'Plumbing Services',
+    body: 'Whatever the problem — we fix it fast, fix it right, and fix it for good. Every service comes with honest upfront pricing and a satisfaction guarantee.',
+  },
+  whyUs: {
+    tag: 'Why Springfield Trusts Us',
+    h2: 'Why Homeowners Choose Us Over',
+    h2_em: 'Every Other Plumber in Springfield',
+    body: 'We know you have options. Here is why Springfield homeowners call us first — and call back every time.',
+    badge_big: '24/7',
+    badge_sm: 'We Answer. Every. Call.',
+    anti_scam: 'No hidden charges · No upselling · No surprises · You approve pricing first',
+  },
+  emergencies: {
+    tag: 'Plumbing Emergencies',
+    h2: 'Common Plumbing Emergencies',
+    h2_em: 'We Fix Fast',
+    body: [
+      'Our emergency plumbers in Springfield MO have seen it all — and fixed it all.',
+      'If water is spreading in your home right now, call us immediately. Every minute of delay increases damage.',
+    ],
+    cta: 'CALL NOW — STOP THE DAMAGE',
+  },
+  reviews: {
+    tag: 'Real Springfield Customers',
+    h2: 'What Springfield Homeowners Say',
+    h2_em: 'About Our Service',
+    body: 'Do not take our word for it. Here is what real Springfield, MO customers say after we have helped them.',
+    platform: 'Verified Google Reviews · Springfield MO',
+  },
+  areas: {
+    tag: 'Service Coverage',
+    h2: 'Areas We Serve Around',
+    h2_em: 'Springfield MO',
+    body: 'We serve all of Springfield and the surrounding communities. Wherever you are — if you are nearby, we are coming. Call us and we will confirm coverage in seconds.',
+  },
+  faq: {
+    tag: 'Common Questions',
+    h2: 'Your Questions,',
+    h2_em: 'Answered Honestly',
+    body: 'We believe in transparency. No runaround — just straight answers about our services, pricing, and process.',
+    cta: 'STILL HAVE QUESTIONS? CALL US NOW',
+  },
+  cta_banner: {
+    h2: 'Plumbing Emergency in Springfield MO?',
+    h2_em: "Don't Wait — Call Us Right Now.",
+    body: 'Every minute of delay means more water damage, more cost, more stress. Our licensed emergency plumber in Springfield MO is standing by — 24/7. Call now and get help fast.',
+    cta_primary: 'CALL NOW — (417) 000-0000',
+    cta_secondary: 'REQUEST EMERGENCY SERVICE',
+  },
+}
+
+export const WHY_US_FEATURES = [
+  { icon: 'ri-timer-flash-fill', title: '24/7 Emergency Response — We Answer Every Call', desc: 'A real person picks up — not voicemail. Day, night, weekend, holiday. We dispatch immediately to minimize your damage and restore your plumbing FAST.' },
+  { icon: 'ri-shield-check-fill', title: 'Licensed, Insured & Background-Checked', desc: 'Every plumber is State of Missouri licensed, fully insured, and professionally trained. You get a qualified expert — not a handyman. Your home is protected.' },
+  { icon: 'ri-roadster-fill', title: 'Fast Arrival — We Come to You', desc: 'We respond quickly to minimize water damage and restore your plumbing system. Most Springfield locations reached promptly after your call.' },
+  { icon: 'ri-price-tag-3-fill', title: 'Upfront Pricing — You Approve It First', desc: 'No surprise charges. No inflated emergency fees. We diagnose the issue, explain everything clearly, give you a written price — and only begin work when YOU say yes.' },
+  { icon: 'ri-tools-fill', title: 'Professional Tools — Fixed Right the First Time', desc: 'We arrive fully equipped with professional-grade tools and parts to fix most problems on the first visit — no second trips, no temporary patches.' },
+]
+
+export const EMERGENCY_ITEMS = [
+  { icon: 'ri-alarm-warning-fill', text: 'Burst pipes — water stopped and pipe repaired immediately' },
+  { icon: 'ri-drop-fill', text: 'Overflowing toilets — cleared and sanitized same visit' },
+  { icon: 'ri-water-flash-fill', text: 'Severely clogged drains — blockage completely removed' },
+  { icon: 'ri-fire-fill', text: 'Water heater failure — hot water restored same day' },
+  { icon: 'ri-search-eye-fill', text: 'Hidden leaks — located with thermal imaging, no wall damage' },
+  { icon: 'ri-recycle-fill', text: 'Sewer backups — cleared, repaired, and sanitized' },
+]
+
+export const PROCESS_STEPS = [
+  { icon: 'ri-phone-fill', num: '01', title: 'Call Us — We Answer', desc: 'A real person picks up immediately — 24/7, including nights, weekends & holidays. Tell us your problem and we dispatch right away.' },
+  { icon: 'ri-roadster-fill', num: '02', title: 'We Arrive Fast', desc: 'Our plumber arrives promptly, fully equipped with professional tools and the parts needed to fix most problems on the spot.' },
+  { icon: 'ri-file-list-3-fill', num: '03', title: 'Honest Diagnosis & Quote', desc: 'We explain the problem clearly and give you a full written price — before any work begins. You say yes first. Always.' },
+  { icon: 'ri-checkbox-circle-fill', num: '04', title: 'Problem Solved. Home Safe.', desc: 'We fix it right the first time, clean up completely, and follow up to make sure you are 100% satisfied.' },
+]

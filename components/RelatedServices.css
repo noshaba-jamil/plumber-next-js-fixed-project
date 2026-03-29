@@ -1,0 +1,10 @@
+.related-svc {
+  background: var(--navy3);
+  padding: 60px 5%;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.related-header {
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap;
+  gap: 16px; margin-bottom: 40px;
+}
