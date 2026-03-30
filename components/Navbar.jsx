@@ -93,7 +93,7 @@ export default function Navbar() {
             <i className="ri-phone-fill" />{CONTACT_INFO.phone}
           </a>
           <Link href="/contact" className="nav-btn">
-            SPEAK WITH A PLUMBER <i className="ri-arrow-right-line" />
+            CONTACT WITH A PLUMBER <i className="ri-arrow-right-line" />
           </Link>
         </div>
 

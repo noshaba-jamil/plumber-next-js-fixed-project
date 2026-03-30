@@ -10,7 +10,7 @@ export default function FAQ() {
   return (
     <>
       <PageHero
-        image="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1400&q=80"
+        image="\faq.webp"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'FAQ' }]}
         h1="Frequently Asked Questions — Emergency Plumber Springfield MO"
         subtitle="Common questions about our emergency plumbing services, pricing, and process in Springfield, Missouri — answered honestly and clearly."

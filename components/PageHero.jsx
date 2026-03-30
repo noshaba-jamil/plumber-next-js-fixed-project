@@ -1,10 +1,18 @@
-import Link from 'next/link'
+ import Link from 'next/link'
 
-export default function PageHero({ image, breadcrumbs = [], h1, subtitle }) {
+export default function PageHero({ image, alt, breadcrumbs = [], h1, subtitle }) {
   return (
     <section className="ph">
       <div className="ph-bg">
-        <img src={image} alt={h1} />
+        <img
+          src={image}
+          alt={alt || h1}
+          width={1400}
+          height={600}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
       </div>
       <div className="ph-inner">
         {breadcrumbs.length > 0 && (

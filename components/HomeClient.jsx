@@ -558,10 +558,60 @@ export default function Home({ h1 }) {
             <p className="ssub">Real work. Real results. Real Springfield homeowners helped.</p>
           </div>
           <div className="gallery-grid" data-aos="fade-up">
-            <div className="gitem tall"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&fit=crop" alt="Drain cleaning Springfield MO" /><div className="gover" /><div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div></div>
-            <div className="gitem"><img src="https://images.unsplash.com/photo-1617839625591-e5a789593135?w=600&q=80&fit=crop" alt="Leak detection Springfield MO" /><div className="gover" /><div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div></div>
-            <div className="gitem"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&fit=crop" alt="Water heater repair Springfield MO" /><div className="gover" /><div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div></div>
-            <div className="gitem wide"><img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=900&q=80&fit=crop" alt="Sewer line repair Springfield MO" /><div className="gover" /><div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div></div>
+            <div className="gitem tall">
+  <img
+    src="/drain-cleaning.jpg"
+    alt="Professional drain cleaning service Springfield MO"
+    width={600}
+    height={800}
+    loading="lazy"
+    decoding="async"
+  />
+  <div className="gover" />
+  <div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div>
+</div>
+
+<div className="gitem">
+  <img
+    src="/leak-detection-springfield-mo.webp"
+    alt="Leak detection specialist Springfield MO"
+    width={600}
+    height={400}
+    loading="lazy"
+    decoding="async"
+  />
+  <div className="gover" />
+  <div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div>
+</div>
+
+<div className="gitem">
+  <img
+    src="/water-heater-repair-springfield-mo.webp"
+    alt="Water heater repair and replacement Springfield MO"
+    width={600}
+    height={400}
+    loading="lazy"
+    decoding="async"
+  />
+  <div className="gover" />
+  <div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div>
+</div>
+
+<div className="gitem wide">
+  <img
+    src="/sewer-line-repair-springfield-mo.webp"
+    alt="Sewer line repair Springfield MO licensed plumber"
+    width={900}
+    height={400}
+    loading="lazy"
+    decoding="async"
+  />
+  <div className="gover" />
+  <div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div>
+</div>
+ 
+
+ 
           </div>
         </div>
       </section>
@@ -642,7 +692,20 @@ export default function Home({ h1 }) {
                 <i className="ri-phone-fill" />{SECTION_COPY.faq.cta}
               </a>
               <div style={{ marginTop: 36 }}>
-                <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=500&q=80&fit=crop&crop=faces" alt="Licensed plumber Springfield MO" style={{ width: '100%', borderRadius: 'var(--rlg)', height: 260, objectFit: 'cover', opacity: 0.65 }} />
+                 <img
+  src="\springfield plumber.webp"
+  alt="Licensed emergency plumber in Springfield MO fixing residential plumbing system"
+  loading="lazy"
+  width="500"
+  height="260"
+  style={{
+    width: '100%',
+    height: '260px',
+    objectFit: 'cover',
+    borderRadius: 'var(--rlg)',
+    opacity: 0.65,
+  }}
+/>
               </div>
             </div>
             <div data-aos="fr"><FAQAccordion faqs={FAQS} /></div>

@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <PageHero
-        image="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=1400&q=80"
+        image="/aboutus.webp"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About Us' }]}
         h1="About Our Plumbing Company in Springfield MO"
         subtitle="Finding a reliable plumber is important when you want dependable service and long-lasting plumbing solutions. Our company is dedicated to providing professional plumbing services for homeowners and businesses in Springfield."
@@ -19,7 +19,14 @@ export default function About() {
       <section style={{ padding: 0 }}>
         <div className="split">
           <div className="split-img">
-            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=85&fit=crop&crop=left" alt="Experienced plumbers Springfield MO" />
+    <img
+  src="/plummberimag.webp"
+  alt="Experienced licensed plumber Springfield MO providing professional plumbing services"
+  width={800}
+  height={600}
+  loading="lazy"
+  decoding="async"
+/>
             <div className="img-overlay" />
             <div className="split-badge"><div className="big">24/7</div><div className="sm">Emergency Service</div></div>
             <div className="split-rating"><div className="stars">★★★★★</div><div className="score">4.8/5</div><div className="cnt">Springfield, MO</div></div>
@@ -126,8 +133,8 @@ export default function About() {
             <h2 className="sh">The Principles That <em>Drive Everything</em></h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 3, marginTop: 52 }}>
-            {[['ri-time-fill', 'Always On Time', 'For emergencies, 60-minute arrival guaranteed — no excuses, no delays, no exceptions.', 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80&fit=crop'],
-              ['ri-shield-check-fill', 'Honest & Transparent', 'Written estimate before any work. We never recommend unnecessary repairs. Integrity first.', 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&fit=crop'],
+            {[['ri-time-fill', 'Always On Time', 'For emergencies, 60-minute arrival guaranteed — no excuses, no delays, no exceptions.', '/time.webp'],
+              ['ri-shield-check-fill', 'Honest & Transparent', 'Written estimate before any work. We never recommend unnecessary repairs. Integrity first.', '/honest.webp'],
               ['ri-trophy-fill', 'Quality Craftsmanship', 'Every repair performed to the highest standard using quality materials for lasting results.', 'https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?w=600&q=80&fit=crop']
             ].map(([icon, title, desc, img], i) => (
               <div key={i} style={{ background: 'var(--card)', overflow: 'hidden', borderBottom: '3px solid transparent', transition: 'var(--t)', cursor: 'default' }}
