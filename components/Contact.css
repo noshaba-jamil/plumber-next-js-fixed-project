@@ -1,46 +1,270 @@
-.contact-layout { display: grid; grid-template-columns: 5fr 7fr; gap: 60px; align-items: start; }
-.cinfo { display: flex; flex-direction: column; gap: 3px; }
+ /* ── CONTACT INTRO ── */
+.contact-intro {
+  margin-bottom: 48px;
+}
+.contact-intro-text {
+  margin-top: 14px;
+  max-width: 700px;
+}
+.contact-reach-heading {
+  margin-bottom: 24px;
+}
+.contact-left {
+  min-width: 0;
+  width: 100%;
+}
+
+/* ── EMERGENCY BUTTON (full width) ── */
+.emerg-btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── SERVICES AVAILABLE DESC ── */
+.services-avail-desc {
+  color: var(--text-dim);
+  font-size: 13.5px;
+  margin-bottom: 14px;
+}
+
+/* ── SERVICE AVAIL ARROW ── */
+.service-avail-arrow {
+  margin-left: auto;
+  color: var(--text-dimmer);
+}
+
+/* ── MAP SECTION ── */
+.contact-map-wrap {
+  margin-top: 64px;
+}
+.contact-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.contact-map-heading {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: #fff;
+}
+.contact-map-btn {
+  font-size: 13px;
+  padding: 10px 20px;
+}
+
+/* ── SCHEDULE CTA ── */
+.contact-schedule-cta {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 40px;
+  margin-top: 3px;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+.contact-schedule-sub {
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+/* ── CONTACT LAYOUT ── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 60px;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── CONTACT INFO CARDS ── */
+.cinfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+
 .ccard {
-  background: var(--card); border: 1px solid rgba(255,255,255,0.06);
-  padding: 22px; display: flex; align-items: flex-start; gap: 16px;
-  transition: var(--t); border-left: 3px solid transparent;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: var(--t);
+  border-left: 3px solid transparent;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .ccard:hover { background: var(--card2); border-left-color: var(--amber); }
+
 .ccard-icon {
-  width: 44px; height: 44px; background: var(--red);
+  width: 44px;
+  height: 44px;
+  background: var(--red);
   border-radius: var(--r);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; box-shadow: var(--glow-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--glow-red);
 }
 .ccard-icon i { color: #fff; font-size: 19px; }
-.ccard-lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
-.ccard a, .ccard span { color: #fff; font-weight: 700; font-size: 15px; transition: var(--t); }
+
+/* Text container next to icon — must shrink not overflow */
+.ccard > div:last-child {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.ccard-lbl {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.ccard a,
+.ccard span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  transition: var(--t);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  display: block;
+  max-width: 100%;
+}
 .ccard a:hover { color: var(--amber); }
+
+/* ── EMERGENCY CTA BLOCK ── */
 .emerg-cta-block {
   background: var(--red);
-  padding: 28px; margin-top: 3px;
+  padding: 28px;
+  margin-top: 3px;
+  width: 100%;
+  box-sizing: border-box;
 }
-.emerg-cta-block h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 900; margin-bottom: 8px; color: #fff; }
-.emerg-cta-block p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 20px; }
+.emerg-cta-block h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.emerg-cta-block p {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* ── SERVICES AVAILABLE BLOCK ── */
 .services-avail-block {
-  background: var(--card); border: 1px solid rgba(255,255,255,0.06); padding: 24px; margin-top: 3px;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 24px;
+  margin-top: 3px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .service-avail-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 13px; color: var(--text-dim);
-  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-  text-decoration: none; transition: var(--t);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-dim);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  text-decoration: none;
+  transition: var(--t);
+  min-width: 0;
 }
 .service-avail-item:last-child { border-bottom: none; }
 .service-avail-item:hover { color: var(--amber); }
-.service-avail-item i.ri-check-line { color: var(--teal); }
+.service-avail-item i.ri-check-line { color: var(--teal); flex-shrink: 0; }
+
+/* ── CONTACT FORM CARD ── */
 .cf-card {
   background: var(--card);
   border: 1px solid rgba(255,255,255,0.07);
   border-top: 3px solid var(--red);
   padding: 48px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
-.cf-card h3 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 900; margin-bottom: 6px; color: #fff; }
-.cf-card > p { color: var(--text-dim); font-size: 14px; margin-bottom: 36px; }
-@media (max-width:1024px) { .contact-layout { grid-template-columns: 1fr; } }
-@media (max-width:768px) { .cf-card { padding: 28px; } }
+.cf-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.cf-card > p {
+  color: var(--text-dim);
+  font-size: 14px;
+  margin-bottom: 36px;
+}
+
+/* ══════════════════════════════════
+   BREAKPOINTS
+══════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-layout {
+    gap: 28px;
+  }
+  .cf-card {
+    padding: 28px;
+  }
+  .cf-card h3 { font-size: 18px; }
+  .ccard { padding: 16px; }
+  .ccard a, .ccard span { font-size: 13.5px; }
+  .emerg-cta-block { padding: 20px; }
+  .services-avail-block { padding: 18px; }
+}
+
+@media (max-width: 480px) {
+  .contact-layout { gap: 20px; }
+  .contact-intro { margin-bottom: 32px; }
+  .cf-card { padding: 20px 16px; }
+  .cf-card h3 { font-size: 16px; }
+  .cf-card > p { font-size: 13px; margin-bottom: 24px; }
+  .ccard { padding: 14px 12px; gap: 12px; }
+  .ccard-icon { width: 36px; height: 36px; }
+  .ccard-icon i { font-size: 16px; }
+  .ccard a, .ccard span { font-size: 13px; }
+  .ccard-lbl { font-size: 9.5px; }
+  .emerg-cta-block { padding: 16px; }
+  .emerg-cta-block h3 { font-size: 15px; }
+  .emerg-cta-block p { font-size: 13px; }
+  .services-avail-block { padding: 14px; }
+  .service-avail-item { font-size: 12.5px; }
+  .contact-map-wrap { margin-top: 40px; }
+  .contact-map-heading { font-size: 22px; }
+  .contact-map-btn { width: 100%; justify-content: center; font-size: 12px; padding: 10px 16px; }
+  .contact-schedule-cta { padding: 28px 16px; }
+  .contact-schedule-sub { font-size: 13px; }
+}

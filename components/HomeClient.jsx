@@ -197,7 +197,15 @@ export default function Home({ h1 }) {
       <section style={{ padding: 0 }}>
         <div className="split">
           <div className="split-img" data-aos="fl">
-            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=85&fit=crop&crop=left" alt="Licensed Emergency Plumber Springfield MO" />
+            <img
+  src="/licensed-emergency-plumber-springfield-mo.webp"
+  alt="Licensed Emergency Plumber Springfield MO"
+  width={800}
+  height={500}
+  loading="eager"
+  decoding="async"
+  fetchpriority="high"
+/>
             <div className="img-overlay" />
             <div className="split-badge"><div className="big">24/7</div><div className="sm">We Answer. Every. Call.</div></div>
             <div className="split-rating"><div className="stars">★★★★★</div><div className="score">4.8/5</div><div className="cnt">Springfield, MO</div></div>
@@ -255,30 +263,291 @@ export default function Home({ h1 }) {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="section">
-        <div className="container">
-          <div className="sec-center" data-aos="fade-up">
-            <div className="stag">How It Works</div>
-            <h2 className="sh">Simple. Honest. <em>Fast.</em></h2>
-            <p className="ssub">From your first call to a fully resolved problem — transparent, fast, and stress-free.</p>
+        {/* ── HOW IT WORKS ── */}
+<section
+  className="section"
+  style={{
+    background: "var(--navy)",
+    padding: "100px 0",
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+  {/* Ambient background glows */}
+  <div style={{ position: "absolute", top: "-80px", left: "-80px", width: "400px", height: "400px", background: "var(--blue)", borderRadius: "50%", filter: "blur(160px)", opacity: 0.12, pointerEvents: "none" }} />
+  <div style={{ position: "absolute", bottom: "-80px", right: "-80px", width: "350px", height: "350px", background: "var(--teal)", borderRadius: "50%", filter: "blur(140px)", opacity: 0.1, pointerEvents: "none" }} />
+  <div style={{ position: "absolute", top: "40%", left: "50%", transform: "translate(-50%,-50%)", width: "500px", height: "200px", background: "var(--gold)", borderRadius: "50%", filter: "blur(180px)", opacity: 0.05, pointerEvents: "none" }} />
+
+  <style>{`
+    .process-grid {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+    .pcon {
+      display: flex !important;
+    }
+    @media (max-width: 1024px) {
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .pcon {
+        display: none !important;
+      }
+    }
+    @media (max-width: 540px) {
+      .process-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .sec-center {
+        margin-bottom: 48px !important;
+      }
+      .process-micro {
+        padding: 12px 18px !important;
+        text-align: center !important;
+      }
+    }
+  `}</style>
+
+  <div className="container">
+
+    {/* Header */}
+    <div className="sec-center" data-aos="fade-up" style={{ textAlign: "center", marginBottom: "72px" }}>
+      <div
+        className="stag"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "8px",
+          fontSize: "11px",
+          fontWeight: 700,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "var(--teal)",
+          background: "rgba(0,229,212,0.08)",
+          border: "1px solid rgba(0,229,212,0.25)",
+          padding: "7px 18px",
+          borderRadius: "99px",
+          marginBottom: "22px",
+        }}
+      >
+        <i className="ri-settings-3-line" style={{ fontSize: "12px" }} />
+        How It Works
+      </div>
+      <h2
+        className="sh"
+        style={{
+          fontSize: "clamp(30px, 4vw, 48px)",
+          fontWeight: 800,
+          color: "#fff",
+          margin: "0 0 18px",
+          lineHeight: 1.15,
+          letterSpacing: "-0.02em",
+        }}
+      >
+        Simple. Honest.{" "}
+        <em
+          style={{
+            fontStyle: "normal",
+            background: "linear-gradient(90deg, var(--teal), var(--blue))",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Fast.
+        </em>
+      </h2>
+      <p
+        className="ssub"
+        style={{
+          fontSize: "16px",
+          color: "rgba(255,255,255,0.45)",
+          maxWidth: "480px",
+          margin: "0 auto",
+          lineHeight: 1.8,
+        }}
+      >
+        From your first call to a fully resolved problem — transparent, fast, and stress-free.
+      </p>
+    </div>
+
+    {/* Steps Grid */}
+    <div
+      className="process-grid"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 1fr)",
+        gap: "16px",
+        position: "relative",
+      }}
+    >
+      {PROCESS_STEPS.map((step, i) => (
+        <div
+          key={i}
+          className="pstep"
+          data-aos="fade-up"
+          data-aos-delay={i * 120}
+          style={{
+            position: "relative",
+            borderRadius: "24px",
+            overflow: "hidden",
+            border: "1px solid rgba(255,255,255,0.08)",
+            background: "rgba(255,255,255,0.03)",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+            cursor: "default",
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.transform = "translateY(-6px)";
+            e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4)`;
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.boxShadow = "none";
+          }}
+        >
+          {/* Image with gradient overlay */}
+          <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
+            <img
+              src={step.image}
+              alt={step.title}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+                filter: "brightness(0.55) saturate(1.2)",
+              }}
+            />
+            {/* Gradient overlay on image */}
+            <div style={{ position: "absolute", inset: 0 }} />
+            {/* Step number top-left */}
+            <div
+              className="pnum"
+              style={{
+                position: "absolute",
+                top: "14px",
+                left: "16px",
+                fontSize: "11px",
+                fontWeight: 800,
+                letterSpacing: "0.1em",
+                color: "rgba(255,255,255,0.6)",
+                background: "rgba(0,0,0,0.25)",
+                padding: "3px 10px",
+                borderRadius: "99px",
+                backdropFilter: "blur(6px)",
+              }}
+            >
+              {step.num}
+            </div>
+            {/* Icon centered on image */}
+            <div
+              className="picon"
+              style={{
+                position: "absolute",
+                bottom: "16px",
+                left: "16px",
+                width: "46px",
+                height: "46px",
+                borderRadius: "12px",
+                background: "#F59B1C",
+                border: "1px solid rgba(189, 25, 25, 0.25)",
+                backdropFilter: "blur(8px)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <i className={step.icon} style={{ fontSize: "20px", color: "#fff" }} />
+            </div>
           </div>
-          <div className="process-grid">
-            {PROCESS_STEPS.map((step, i) => (
-              <div key={i} className="pstep" data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="pnum">{step.num}</div>
-                <div className="picon"><i className={step.icon} /></div>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-                {i < PROCESS_STEPS.length - 1 && <div className="pcon"><i className="ri-arrow-right-s-line" /></div>}
-              </div>
-            ))}
+
+          {/* Card content */}
+          <div style={{ padding: "22px 20px 24px" }}>
+            <h3
+              style={{
+                fontSize: "15px",
+                fontWeight: 700,
+                color: "#fff",
+                margin: "0 0 10px",
+                lineHeight: 1.3,
+              }}
+            >
+              {step.title}
+            </h3>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "rgba(255,255,255,0.45)",
+                lineHeight: 1.75,
+                margin: 0,
+              }}
+            >
+              {step.desc}
+            </p>
+            {/* Accent bottom line */}
+            <div
+              style={{
+                marginTop: "18px",
+                height: "2px",
+                borderRadius: "2px",
+                background: step.gradient,
+                opacity: 0.7,
+              }}
+            />
           </div>
-          <div className="process-micro">
-            <i className="ri-time-fill" />
-            <span><strong>Most calls dispatched in under 5 minutes.</strong> Emergency calls prioritized immediately.</span>
-          </div>
+
+          {/* Connector arrow */}
+          {i < PROCESS_STEPS.length - 1 && (
+            <div
+              className="pcon"
+              style={{
+                position: "absolute",
+                right: "-14px",
+                top: "90px",
+                width: "28px",
+                height: "28px",
+                background: "var(--navy)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 2,
+              }}
+            >
+              <i className="ri-arrow-right-s-line" style={{ fontSize: "16px", color: step.accent }} />
+            </div>
+          )}
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Bottom micro note */}
+    <div
+      className="process-micro"
+      data-aos="fade-up"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "10px",
+        marginTop: "56px",
+        background: "rgba(0,229,212,0.06)",
+        border: "1px solid rgba(0,229,212,0.18)",
+        borderRadius: "99px",
+        padding: "14px 30px",
+        width: "fit-content",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
+      <i className="ri-time-fill" style={{ fontSize: "16px", color: "var(--teal)" }} />
+      <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)" }}>
+        <strong style={{ color: "#fff", fontWeight: 700 }}>Most calls dispatched in under 5 minutes.</strong>{" "}
+        Emergency calls prioritized immediately.
+      </span>
+    </div>
+
+  </div>
+</section>
 
       {/* ── GALLERY ── */}
       <section className="section section-alt">

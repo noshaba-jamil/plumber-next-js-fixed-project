@@ -125,12 +125,35 @@ export default function ContactForm() {
         {errors.message && <span className="err-msg"><i className="ri-error-warning-fill" />{errors.message}</span>}
       </div>
 
-      <button type="submit" className="btn-primary submit-btn" disabled={loading}>
-        {loading
-          ? <><i className="ri-loader-4-line spin" /> Sending your message...</>
-          : <><i className="ri-send-plane-fill" /> GET EMERGENCY SERVICE NOW</>
-        }
-      </button>
+    <button
+  type="submit"
+  className="btn-primary submit-btn"
+  disabled={loading}
+  style={{
+    fontSize: 'clamp(8px, 1vw, 14px)', // ✅ scales nicely, stops overflowing
+    maxWidth: '100%',
+    minWidth: '150px',
+    padding: '12px 16px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+  }}
+>
+  {loading ? (
+    <>
+      <i className="ri-loader-4-line spin" style={{ fontSize: '1em' }} />
+      Sending your message...
+    </>
+  ) : (
+    <>
+      <i className="ri-send-plane-fill" style={{ fontSize: '1em' }} />
+      GET EMERGENCY SERVICE NOW
+    </>
+  )}
+</button>
 
       <p className="cf-disclaimer">
         <i className="ri-lock-line" /> Your information is private and secure. We never share your details.

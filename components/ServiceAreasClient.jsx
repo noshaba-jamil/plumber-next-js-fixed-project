@@ -55,7 +55,13 @@ export default function ServiceAreas() {
           <div style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.06)', padding: '48px 40px', marginTop: 3 }}>
             <div className="stag">Services Available in All Areas</div>
             <h2 className="sh" style={{ marginBottom: 28 }}>Plumbing Services Available <em>Throughout the Region</em></h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 3 }}>
+             <div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '12px'
+  }}
+>
               {SERVICES.map(s => (
                 <Link key={s.id} href={s.slug} style={{ background: 'var(--navy3)', border: '1px solid rgba(255,255,255,0.05)', padding: '20px 22px', display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none', transition: 'var(--t)' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'var(--blue)'; e.currentTarget.style.borderColor = 'var(--blue)' }}

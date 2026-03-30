@@ -27,37 +27,128 @@ export default function Services() {
             {SERVICES.map((s, i) => <ServiceCard key={s.id} service={s} index={i} />)}
           </div>
 
-          {/* Maintenance block */}
-          <div style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.06)', padding: 52, marginTop: 3 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60 }}>
-              <div>
-                <div className="stag">Preventive Care</div>
-                <h2 className="sh">Plumbing Maintenance &amp; <em>Preventive Services</em></h2>
-                <div className="content-block" style={{ marginTop: 16 }}>
-                  <p>Regular plumbing maintenance can help prevent costly repairs and extend the life of your plumbing system. Our plumbers provide inspections and preventive services designed to keep your pipes, fixtures, and water systems working efficiently.</p>
-                  <p>Routine maintenance can help identify small problems before they become serious issues. By keeping your plumbing system in good condition, you can avoid unexpected emergencies and protect your home from water damage.</p>
-                </div>
-                <Link href="/contact" className="btn-primary" style={{ display: 'inline-flex', marginTop: 16 }}>
-                  <i className="ri-calendar-check-line" />Schedule Maintenance
-                </Link>
-              </div>
-              <div>
-                <div className="stag">Why Choose Us</div>
-                <h2 className="sh">Why Choose Our Springfield <em>Plumbing Experts</em></h2>
-                <div className="split-feats" style={{ marginTop: 16 }}>
-                  {[['ri-shield-check-fill', 'Experienced Plumbers', 'Years of experience handling a wide range of plumbing problems.'],
-                    ['ri-roadster-fill', 'Fast Response Times', 'We understand plumbing problems need quick attention.'],
-                    ['ri-tools-fill', 'Modern Equipment', 'Advanced tools to diagnose and perform efficient repairs.']
-                  ].map(([icon, title, desc], i) => (
-                    <div key={i} className="sfeat">
-                      <div className="sfeat-icon"><i className={icon} /></div>
-                      <div><h4>{title}</h4><p>{desc}</p></div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+           <div
+  style={{
+    background: 'var(--card)',
+    border: '1px solid rgba(255,255,255,0.06)',
+    padding: 52,
+    marginTop: 3,
+    boxSizing: 'border-box', // ✅ include padding in width
+  }}
+>
+  <div className="maintenance-grid">
+    {/* Left Column */}
+    <div className="column">
+      <div className="stag">Preventive Care</div>
+      <h2 className="sh">
+        Plumbing Maintenance & <em>Preventive Services</em>
+      </h2>
+      <div className="content-block" style={{ marginTop: 16 }}>
+        <p>
+          Regular plumbing maintenance can help prevent costly repairs and
+          extend the life of your plumbing system. Our plumbers provide
+          inspections and preventive services designed to keep your pipes,
+          fixtures, and water systems working efficiently.
+        </p>
+        <p>
+          Routine maintenance can help identify small problems before they
+          become serious issues. By keeping your plumbing system in good
+          condition, you can avoid unexpected emergencies and protect your
+          home from water damage.
+        </p>
+      </div>
+      <Link
+        href="/contact"
+        className="btn-primary"
+        style={{ display: 'inline-flex', marginTop: 16 }}
+      >
+        <i className="ri-calendar-check-line" /> Schedule Maintenance
+      </Link>
+    </div>
+
+    {/* Right Column */}
+    <div className="column">
+      <div className="stag">Why Choose Us</div>
+      <h2 className="sh">
+        Why Choose Our Springfield <em>Plumbing Experts</em>
+      </h2>
+      <div className="split-feats" style={{ marginTop: 16 }}>
+        {[
+          [
+            'ri-shield-check-fill',
+            'Experienced Plumbers',
+            'Years of experience handling a wide range of plumbing problems.',
+          ],
+          [
+            'ri-roadster-fill',
+            'Fast Response Times',
+            'We understand plumbing problems need quick attention.',
+          ],
+          [
+            'ri-tools-fill',
+            'Modern Equipment',
+            'Advanced tools to diagnose and perform efficient repairs.',
+          ],
+        ].map(([icon, title, desc], i) => (
+          <div key={i} className="sfeat">
+            <div className="sfeat-icon">
+              <i className={icon} />
+            </div>
+            <div>
+              <h4>{title}</h4>
+              <p>{desc}</p>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <style jsx>{`
+    .maintenance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .column {
+      max-width: 100%;
+      overflow-wrap: break-word; /* ✅ wraps long text */
+      word-break: break-word;
+    }
+
+    /* Tablet & smaller screens */
+    @media (max-width: 900px) {
+      .maintenance-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 500px) {
+      .maintenance-grid {
+        padding: 32px 16px;
+      }
+      div.sfeat {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      div.sfeat-icon {
+        margin-bottom: 8px;
+      }
+      h2.sh {
+        font-size: 1.5rem; /* ✅ shrink headings on mobile */
+      }
+      p {
+        font-size: 0.95rem; /* ✅ smaller text fits better */
+      }
+    }
+  `}</style>
+</div>
 
           {/* Internal links */}
           <div className="ilinks-section" style={{ marginTop: 3, padding: '40px 0' }}>

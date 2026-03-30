@@ -68,7 +68,7 @@ export default function Footer() {
 
       <div className="ft-bot">
         <div className="ft-bot-in">
-          <p>© 2024 Springfield Emergency Plumbing · <strong>Emergency Plumber Springfield MO</strong> · All Rights Reserved</p>
+          <p>© 2026 Springfield Emergency Plumbing · <strong>Emergency Plumber Springfield MO</strong> · All Rights Reserved</p>
           <div className="ft-badges">
             <span className="ftb"><i className="ri-shield-check-fill"/>Licensed &amp; Insured</span>
             <span className="ftb"><i className="ri-star-fill"/>4.8★ Google</span>
