@@ -41,7 +41,7 @@ const SERVICE_AREAS_SCHEMA = {
   "@type": "PlumbingBusiness",
   "name": "Springfield Plumbing",
   "url": "https://yoursite.com",
-  "telephone": "+14170000000",
+  "telephone": "+14173734862",
   "description": "Professional plumbing services in Springfield MO and surrounding cities including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, and Strafford.",
   "areaServed": [
     { "@type": "City", "name": "Springfield", "addressRegion": "MO" },
@@ -83,7 +83,7 @@ const AREA_DETAILS = [
   {
     name: 'Springfield, MO', slug: 'springfield-mo', label: 'Primary Service Area',
     population: '~170,000', distance: 'Home Base', zipCodes: '65801, 65802, 65803, 65804, 65806, 65807',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: '/springfield.webp',
     imgAlt: 'Plumber performing emergency plumbing repair in Springfield Missouri home',
     imgTitle: 'Professional Plumbing Services in Springfield, MO',
     h3: 'Plumbing Services in Springfield, MO',
@@ -93,7 +93,7 @@ const AREA_DETAILS = [
   {
     name: 'Nixa, MO', slug: 'nixa-mo', label: '',
     population: '~25,000', distance: '~12 miles south', zipCodes: '65714',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    image: '/nixa.webp',
     imgAlt: 'Licensed plumber fixing water heater in Nixa Missouri residence',
     imgTitle: 'Water Heater Repair and Plumbing Services in Nixa, MO',
     h3: 'Plumbing Services in Nixa, MO',
@@ -103,7 +103,7 @@ const AREA_DETAILS = [
   {
     name: 'Ozark, MO', slug: 'ozark-mo', label: '',
     population: '~20,000', distance: '~14 miles south', zipCodes: '65721',
-    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80',
+    image: '/ozark.webp',
     imgAlt: 'Professional drain cleaning service being performed in Ozark Missouri',
     imgTitle: 'Drain Cleaning and Plumbing Repair in Ozark, MO',
     h3: 'Plumbing Services in Ozark, MO',
@@ -113,7 +113,7 @@ const AREA_DETAILS = [
   {
     name: 'Republic & Battlefield, MO', slug: 'republic-battlefield-mo', label: '',
     population: '~18,000+', distance: '~12 miles SW', zipCodes: '65738, 65619',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+    image: '/Battlefield.webp',
     imgAlt: 'Plumber repairing sewer line for homeowner in Republic Missouri',
     imgTitle: 'Sewer Line Repair and Plumbing Services in Republic and Battlefield, MO',
     h3: 'Plumbing in Republic & Battlefield, MO',
@@ -123,7 +123,7 @@ const AREA_DETAILS = [
   {
     name: 'Willard, MO', slug: 'willard-mo', label: '',
     population: '~6,000', distance: '~13 miles NW', zipCodes: '65781',
-    image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=800&q=80',
+    image: '/Willard Missouri home.webp',
     imgAlt: 'Leak detection specialist inspecting pipes in Willard Missouri home',
     imgTitle: 'Leak Detection and Plumbing Services in Willard, MO',
     h3: 'Plumbing Services in Willard, MO',
@@ -133,7 +133,7 @@ const AREA_DETAILS = [
   {
     name: 'Rogersville, MO', slug: 'rogersville-mo', label: '',
     population: '~4,500', distance: '~18 miles east', zipCodes: '65742',
-    image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80',
+    image: '/Rogersville.webp',
     imgAlt: 'Water heater installation service in Rogersville Missouri',
     imgTitle: 'Water Heater Installation and Plumbing in Rogersville, MO',
     h3: 'Plumbing Services in Rogersville, MO',
@@ -143,7 +143,7 @@ const AREA_DETAILS = [
   {
     name: 'Strafford, MO', slug: 'strafford-mo', label: '',
     population: '~2,500', distance: '~15 miles NE', zipCodes: '65757',
-    image: 'https://images.unsplash.com/photo-1566792124380-5253b0a4dc68?w=800&q=80',
+    image: '/Strafford Missouri.webp',
     imgAlt: 'Plumbing inspection and pipe installation in Strafford Missouri',
     imgTitle: 'Pipe Installation and Plumbing Inspection in Strafford, MO',
     h3: 'Plumbing Services in Strafford, MO',
@@ -153,7 +153,7 @@ const AREA_DETAILS = [
   {
     name: 'Clever & Billings, MO', slug: 'clever-billings-mo', label: '',
     population: '~2,000+', distance: '~20 miles SW', zipCodes: '65631, 65610',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
+    image: '/Billings Missouri.webp',
     imgAlt: 'Emergency plumbing repair service in Clever and Billings Missouri',
     imgTitle: 'Emergency Plumbing and Drain Cleaning in Clever and Billings, MO',
     h3: 'Plumbing Services in Clever & Billings, MO',
