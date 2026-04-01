@@ -62,8 +62,8 @@ export default function ContactForm() {
         <i className="ri-checkbox-circle-fill" />
         <h3>Message Sent Successfully!</h3>
         <p>We will respond as soon as possible. For <strong>IMMEDIATE emergency</strong> plumbing assistance — call us directly:</p>
-        <a href="tel:+14170000000" className="btn-primary" style={{ marginTop: 20, display: 'inline-flex' }}>
-          <i className="ri-phone-fill" /> Call (417) 000-0000 Now
+        <a href="tel:+14173734862" className="btn-primary" style={{ marginTop: 20, display: 'inline-flex' }}>
+          <i className="ri-phone-fill" /> Call +1 (417) 373-4862 Now
         </a>
       </div>
     )

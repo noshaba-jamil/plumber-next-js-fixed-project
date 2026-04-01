@@ -195,8 +195,8 @@ export default function BlogPage() {
             <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 16, marginBottom: 32, maxWidth: 500, margin: '0 auto 32px' }}>
               Don&apos;t wait — call our licensed emergency plumber available 24/7.
             </p>
-            <a href="tel:+14170000000" style={{ background: '#fff', color: 'var(--navy)', padding: '16px 36px', borderRadius: 'var(--r)', fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 15, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 9 }}>
-              <i className="ri-phone-fill" /> Call (417) 000-0000 Now
+            <a href="tel:+14173734862" style={{ background: '#fff', color: 'var(--navy)', padding: '16px 36px', borderRadius: 'var(--r)', fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 15, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 9 }}>
+              <i className="ri-phone-fill" /> Call +1 (417) 373-4862 Now
             </a>
           </div>
         </div>

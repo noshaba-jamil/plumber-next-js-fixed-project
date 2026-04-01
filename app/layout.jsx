@@ -16,7 +16,7 @@ export const metadata = {
     default: 'Emergency Plumber Springfield MO | 24/7',
     template: '%s | Springfield Emergency Plumbing',
   },
-  description: 'Licensed emergency plumber in Springfield MO. 24/7 fast response for burst pipes, leaks & drain issues. No hidden fees. Call now: (417) 000-0000.',
+  description: 'Licensed emergency plumber in Springfield MO. 24/7 fast response for burst pipes, leaks & drain issues. No hidden fees. Call now: +1 (417) 373-4862.',
 }
 
 export default function RootLayout({ children }) {

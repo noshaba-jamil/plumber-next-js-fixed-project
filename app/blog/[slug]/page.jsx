@@ -211,7 +211,7 @@ export default function BlogPostPage({ params }) {
               <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 16, color: '#fff', marginBottom: 4 }}>Need a Plumber in Springfield MO Right Now?</div>
               <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: 14 }}>24/7 emergency service — licensed, insured, upfront pricing.</div>
             </div>
-            <a href="tel:+14170000000" style={{ background: '#fff', color: 'var(--navy)', padding: '12px 24px', borderRadius: 'var(--r)', fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 14, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8, whiteSpace: 'nowrap' }}>
+            <a href="tel:+14173734862" style={{ background: '#fff', color: 'var(--navy)', padding: '12px 24px', borderRadius: 'var(--r)', fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 14, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8, whiteSpace: 'nowrap' }}>
               <i className="ri-phone-fill" /> Call Now
             </a>
           </div>

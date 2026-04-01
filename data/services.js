@@ -187,13 +187,12 @@ export const FAQS = [
 ]
 
 export const CONTACT_INFO = {
-  phone: '(417) 000-0000',
-  phoneHref: 'tel:+14170000000',
+  phone: '+1 (417) 373-4862',
+  phoneHref: 'tel:+14173734862',
   email: 'info@yourplumbingservice.com',
-  location: 'Springfield, MO & Surrounding Areas',
+  location: '220 S Campbell Avenue, Springfield, MO 65806',
   hours: '24/7 — We Answer Every Call',
 }
-
 export const HERO_COPY = {
   badge: '24/7 Emergency Service · Licensed & Insured · Springfield, MO',
   h1_line1: 'Emergency Plumber',
@@ -278,7 +277,7 @@ export const SECTION_COPY = {
     h2: 'Plumbing Emergency in Springfield MO?',
     h2_em: "Don't Wait — Call Us Right Now.",
     body: 'Every minute of delay means more water damage, more cost, more stress. Our licensed emergency plumber in Springfield MO is standing by — 24/7. Call now and get help fast.',
-    cta_primary: 'CALL NOW — (417) 000-0000',
+   cta_primary: 'CALL NOW — +1 (417) 373-4862',  
     cta_secondary: 'REQUEST EMERGENCY SERVICE',
   },
 }

@@ -11,6 +11,9 @@
 h3 {
   color: #ffffff; /* white */
 }
+  .mob-call-btn:hover {
+  color: #fff;
+}
 .cta-acts a {
   display: inline-flex;
   align-items: center;

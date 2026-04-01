@@ -1,73 +1,286 @@
-'use client'
+ 'use client'
 
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import MapEmbed from '@/components/MapEmbed'
 import CtaBanner from '@/components/CtaBanner'
-import { SERVICES, SERVICE_AREAS } from '@/data/services'
+import FAQAccordion from '@/components/FAQAccordion'
+import { SERVICES } from '@/data/services'
 
-const AREA_DETAILS = [
-  { name: 'Springfield, MO', label: 'Primary Service Area', desc: 'Our primary service area. We provide 24/7 emergency plumbing, drain cleaning, leak detection, water heater repair, sewer line repair, and pipe installation throughout all of Springfield, Missouri.' },
-  { name: 'Nixa, MO', label: '', desc: 'Professional plumbing services available in Nixa, MO. Emergency repairs, drain cleaning, leak detection, and water heater repair for homeowners and businesses in Nixa.' },
-  { name: 'Ozark, MO', label: '', desc: 'Reliable plumbing solutions for Ozark, MO residents. Our team provides fast emergency response and quality plumbing repairs throughout Ozark and surrounding neighborhoods.' },
-  { name: 'Republic & Battlefield, MO', label: '', desc: 'Full plumbing services available in Republic and Battlefield, MO. Emergency plumbing, sewer line repair, pipe installation, and more for all property types.' },
+// ─── Service-area FAQs — same { q, a } shape FAQAccordion expects ─────────────
+const AREA_FAQS = [
+  {
+    q: 'What cities near Springfield MO do you serve?',
+    a: 'We serve Springfield MO and all surrounding communities within roughly 20 miles — including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, and Billings. Contact us if you are unsure whether your location is covered.'
+  },
+  {
+    q: 'Do you offer 24/7 emergency plumbing in Nixa and Ozark MO?',
+    a: 'Yes. We provide 24/7 emergency plumbing in Nixa, Ozark, and all nearby cities. Our licensed plumbers are available nights, weekends, and holidays with an average on-site response time under 60 minutes from our Springfield base.'
+  },
+  {
+    q: 'How quickly can a plumber arrive in Republic or Battlefield MO?',
+    a: 'Republic and Battlefield are approximately 12 miles southwest of our Springfield headquarters. For emergency calls we typically have a licensed plumber on-site within 45–60 minutes.'
+  },
+  {
+    q: 'Do you serve rural areas outside Springfield MO?',
+    a: 'Yes. We serve homeowners and businesses in rural Greene, Christian, Webster, and surrounding counties — including Rogersville, Clever, Billings, and Strafford along the I-44 corridor.'
+  },
+  {
+    q: 'Is there an extra charge for service outside Springfield city limits?',
+    a: 'We do not charge trip fees for most areas within our standard 20-mile service radius. For locations beyond that we always confirm pricing before dispatching — no surprises.'
+  },
+  {
+    q: 'Do you handle commercial plumbing in these areas?',
+    a: 'Yes. We serve both homeowners and commercial properties across all service areas including Springfield, Nixa, Ozark, Republic, and surrounding communities.'
+  }
 ]
 
-export default function ServiceAreas() {
+// ─── JSON-LD schemas ──────────────────────────────────────────────────────────
+const SERVICE_AREAS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "PlumbingBusiness",
+  "name": "Springfield Plumbing",
+  "url": "https://yoursite.com",
+  "telephone": "+14170000000",
+  "description": "Professional plumbing services in Springfield MO and surrounding cities including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, and Strafford.",
+  "areaServed": [
+    { "@type": "City", "name": "Springfield", "addressRegion": "MO" },
+    { "@type": "City", "name": "Nixa", "addressRegion": "MO" },
+    { "@type": "City", "name": "Ozark", "addressRegion": "MO" },
+    { "@type": "City", "name": "Republic", "addressRegion": "MO" },
+    { "@type": "City", "name": "Battlefield", "addressRegion": "MO" },
+    { "@type": "City", "name": "Willard", "addressRegion": "MO" },
+    { "@type": "City", "name": "Rogersville", "addressRegion": "MO" },
+    { "@type": "City", "name": "Strafford", "addressRegion": "MO" },
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Springfield",
+    "addressRegion": "MO",
+    "postalCode": "65801",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  }
+}
+
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": AREA_FAQS.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+}
+
+// ─── Area cards ───────────────────────────────────────────────────────────────
+const AREA_DETAILS = [
+  {
+    name: 'Springfield, MO', slug: 'springfield-mo', label: 'Primary Service Area',
+    population: '~170,000', distance: 'Home Base', zipCodes: '65801, 65802, 65803, 65804, 65806, 65807',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    imgAlt: 'Plumber performing emergency plumbing repair in Springfield Missouri home',
+    imgTitle: 'Professional Plumbing Services in Springfield, MO',
+    h3: 'Plumbing Services in Springfield, MO',
+    desc: 'Our primary service area. 24/7 emergency plumbing, drain cleaning, leak detection, water heater repair, sewer line repair, and pipe installation throughout all of Springfield — including Downtown, Midtown, Galloway, Southern Hills, and all 34 city neighborhoods.',
+    neighborhoods: ['Downtown', 'Midtown', 'Galloway', 'Southern Hills', 'SW Springfield'],
+  },
+  {
+    name: 'Nixa, MO', slug: 'nixa-mo', label: '',
+    population: '~25,000', distance: '~12 miles south', zipCodes: '65714',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    imgAlt: 'Licensed plumber fixing water heater in Nixa Missouri residence',
+    imgTitle: 'Water Heater Repair and Plumbing Services in Nixa, MO',
+    h3: 'Plumbing Services in Nixa, MO',
+    desc: 'Professional plumbing in Nixa, MO — emergency repairs, drain cleaning, leak detection, and water heater repair. Typically on-site within 60 minutes from our Springfield base.',
+    neighborhoods: ['Nixa City Center', 'Christian County', 'New Nixa subdivisions'],
+  },
+  {
+    name: 'Ozark, MO', slug: 'ozark-mo', label: '',
+    population: '~20,000', distance: '~14 miles south', zipCodes: '65721',
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80',
+    imgAlt: 'Professional drain cleaning service being performed in Ozark Missouri',
+    imgTitle: 'Drain Cleaning and Plumbing Repair in Ozark, MO',
+    h3: 'Plumbing Services in Ozark, MO',
+    desc: 'Reliable plumbing for Ozark, MO residents — fast emergency response, sewer line inspection, pipe repair, and full residential plumbing throughout Ozark and Christian County.',
+    neighborhoods: ['Ozark City Center', 'Christian County', 'James River corridor'],
+  },
+  {
+    name: 'Republic & Battlefield, MO', slug: 'republic-battlefield-mo', label: '',
+    population: '~18,000+', distance: '~12 miles SW', zipCodes: '65738, 65619',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+    imgAlt: 'Plumber repairing sewer line for homeowner in Republic Missouri',
+    imgTitle: 'Sewer Line Repair and Plumbing Services in Republic and Battlefield, MO',
+    h3: 'Plumbing in Republic & Battlefield, MO',
+    desc: 'Full plumbing services in Republic and Battlefield — emergency plumbing, sewer line repair, pipe installation, and new construction plumbing for all property types.',
+    neighborhoods: ['Republic City', 'Battlefield', 'SW corridor'],
+  },
+  {
+    name: 'Willard, MO', slug: 'willard-mo', label: '',
+    population: '~6,000', distance: '~13 miles NW', zipCodes: '65781',
+    image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=800&q=80',
+    imgAlt: 'Leak detection specialist inspecting pipes in Willard Missouri home',
+    imgTitle: 'Leak Detection and Plumbing Services in Willard, MO',
+    h3: 'Plumbing Services in Willard, MO',
+    desc: 'Expert plumbing for Willard, MO — leak detection, pipe repair, drain cleaning, and emergency plumbing for homes and businesses in Willard and rural Greene County.',
+    neighborhoods: ['Willard city', 'Rural Greene County'],
+  },
+  {
+    name: 'Rogersville, MO', slug: 'rogersville-mo', label: '',
+    population: '~4,500', distance: '~18 miles east', zipCodes: '65742',
+    image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80',
+    imgAlt: 'Water heater installation service in Rogersville Missouri',
+    imgTitle: 'Water Heater Installation and Plumbing in Rogersville, MO',
+    h3: 'Plumbing Services in Rogersville, MO',
+    desc: 'Trusted plumbing in Rogersville, MO — water heater installation, drain cleaning, and emergency leak repairs for Webster County homeowners and businesses.',
+    neighborhoods: ['Rogersville city', 'Webster County', 'James River area'],
+  },
+  {
+    name: 'Strafford, MO', slug: 'strafford-mo', label: '',
+    population: '~2,500', distance: '~15 miles NE', zipCodes: '65757',
+    image: 'https://images.unsplash.com/photo-1566792124380-5253b0a4dc68?w=800&q=80',
+    imgAlt: 'Plumbing inspection and pipe installation in Strafford Missouri',
+    imgTitle: 'Pipe Installation and Plumbing Inspection in Strafford, MO',
+    h3: 'Plumbing Services in Strafford, MO',
+    desc: 'Quality plumbing for Strafford, MO — emergency repairs, pipe installation, water heater service, and drain cleaning along the I-44 corridor northeast of Springfield.',
+    neighborhoods: ['Strafford city', 'I-44 corridor', 'Greene County east'],
+  },
+  {
+    name: 'Clever & Billings, MO', slug: 'clever-billings-mo', label: '',
+    population: '~2,000+', distance: '~20 miles SW', zipCodes: '65631, 65610',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
+    imgAlt: 'Emergency plumbing repair service in Clever and Billings Missouri',
+    imgTitle: 'Emergency Plumbing and Drain Cleaning in Clever and Billings, MO',
+    h3: 'Plumbing Services in Clever & Billings, MO',
+    desc: 'Plumbing in Clever and Billings — emergency plumbing, drain cleaning, and water heater repair for rural Christian County homeowners and small businesses.',
+    neighborhoods: ['Clever city', 'Billings', 'Christian County SW'],
+  }
+]
+
+export default function ServiceAreasClient({ h1 }) {
   return (
     <>
+      {/* JSON-LD */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_AREAS_SCHEMA) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
+
       <PageHero
         image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas' }]}
-        h1="Plumbing Service Areas — Springfield MO & Surrounding Cities"
-        subtitle="Our professional plumbing services are available throughout Springfield, Missouri and the surrounding communities. Fast, reliable plumbing for every home and business in the region."
+        h1={h1 || 'Plumbing Service Areas — Springfield MO & Surrounding Cities'}
+        subtitle="Professional plumbing throughout Springfield, Missouri and all nearby communities. 24/7 emergency response in Nixa, Ozark, Republic, Willard, Rogersville, Strafford, and beyond."
       />
 
+      {/* Coverage quick-bar */}
+      <div style={{ background: 'var(--navy3)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="container">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2, padding: '16px 0' }}>
+            {['Springfield','Nixa','Ozark','Republic','Battlefield','Willard','Rogersville','Strafford','Clever','Billings'].map(city => (
+              <span key={city} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 14px', fontSize: 12, fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', display: 'inline-block' }} />
+                {city}, MO
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* City cards */}
       <section className="section section-alt">
         <div className="container">
           <div className="sec-center">
             <div className="stag">Coverage Area</div>
             <h2 className="sh">Areas We Serve Around <em>Springfield MO</em></h2>
-            <p className="ssub">Our plumbing services are available throughout <strong>Springfield</strong> and surrounding communities. We proudly serve homeowners and businesses in nearby areas. Our goal is to provide reliable plumbing solutions for residents across the region.</p>
+            <p className="ssub">Our licensed plumbers serve <strong>Springfield, Missouri</strong> and all surrounding communities — <strong>Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, and Billings</strong>.</p>
           </div>
 
-          {/* City cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 3, marginTop: 52 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24, marginTop: 52 }}>
             {AREA_DETAILS.map((area, i) => (
-              <div key={i} style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.05)', padding: '40px 36px', transition: 'var(--t)' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'var(--card2)'}
-                onMouseLeave={e => e.currentTarget.style.background = 'var(--card)'}>
-                <div style={{ width: 52, height: 52, background: 'var(--blue)', borderRadius: 'var(--r)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20, boxShadow: '0 8px 32px rgba(39,82,245,0.4)' }}>
-                  <i className="ri-map-pin-fill" style={{ fontSize: 22, color: '#fff' }} />
+              <article key={area.slug}
+                style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.4)' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}>
+
+                {/*
+                  SEO IMAGE ATTRIBUTES EXPLAINED:
+                  • alt         — describes plumbing action + city name for Google Images + screen readers
+                  • title       — keyword tooltip shown on hover; secondary SEO signal
+                  • width/height — tells browser exact dimensions before load → prevents CLS (Core Web Vital)
+                  • loading     — first 2 cards "eager" for LCP score; rest "lazy" to save bandwidth
+                  • fetchpriority — "high" on card 0 = the above-fold hero image; boosts LCP ranking signal
+                  • decoding    — "async" lets browser decode off main thread → faster paint
+                  • style height — matches height attribute exactly to lock aspect ratio and prevent layout shift
+                */}
+                <figure style={{ margin: 0, position: 'relative', overflow: 'hidden' }}>
+                  <img
+                    src={area.image}
+                    alt={area.imgAlt}
+                    title={area.imgTitle}
+                    width={800}
+                    height={200}
+                    loading={i < 2 ? 'eager' : 'lazy'}
+                    fetchpriority={i === 0 ? 'high' : 'auto'}
+                    decoding="async"
+                    style={{
+                      width: '100%',
+                      height: '200px',          /* matches height={200} — prevents CLS */
+                      objectFit: 'cover',
+                      display: 'block',
+                      aspectRatio: '4 / 1',     /* explicit ratio locks space before image loads */
+                    }}
+                  />
+                  {/* aria-hidden: decorative distance label — not meaningful content for screen readers */}
+                  <figcaption
+                    aria-hidden="true"
+                    style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(transparent,rgba(0,0,0,0.75))', padding: '28px 16px 10px', color: '#fff', fontSize: 12, fontWeight: 700 }}>
+                    {area.distance} from Springfield
+                  </figcaption>
+                </figure>
+
+                <div style={{ padding: '28px 28px 24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  {area.label && (
+                    <span style={{ display: 'inline-block', background: 'rgba(212,169,65,0.15)', border: '1px solid rgba(212,169,65,0.4)', color: 'var(--gold)', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 10px', marginBottom: 12 }}>
+                      {area.label}
+                    </span>
+                  )}
+                  <h3 style={{ fontSize: 19, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{area.h3}</h3>
+                  <div style={{ display: 'flex', gap: 14, marginBottom: 10, flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: 11, color: 'var(--text-dimmer)' }}>Pop. {area.population}</span>
+                    <span style={{ fontSize: 11, color: 'var(--text-dimmer)' }}>ZIP: {area.zipCodes}</span>
+                  </div>
+                  <p style={{ color: 'var(--text-dim)', fontSize: 14, lineHeight: 1.75, marginBottom: 14, flex: 1 }}>{area.desc}</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 18 }}>
+                    {area.neighborhoods.map(n => (
+                      <span key={n} style={{ fontSize: 11, padding: '3px 8px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--text-dim)' }}>{n}</span>
+                    ))}
+                  </div>
+                  <a href="tel:+14173734862"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color: 'var(--gold)', fontWeight: 800, fontSize: 13, marginTop: 'auto' }}
+                    aria-label={`Call for plumbing service in ${area.name}`}>
+                    Call for Service in {area.name} <i className="ri-arrow-right-line" />
+                  </a>
                 </div>
-                <h3 style={{ fontSize: 20, marginBottom: 6 }}>
-                  {area.name}{area.label && <span style={{ color: 'var(--gold)', fontWeight: 700, fontSize: 15 }}> — {area.label}</span>}
-                </h3>
-                <p style={{ color: 'var(--text-dim)', fontSize: 14.5, lineHeight: 1.75, marginBottom: 16 }}>{area.desc}</p>
-                <a href="tel:+14170000000" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color: 'var(--gold)', fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 13 }}>
-                  Call Now <i className="ri-arrow-right-line" />
-                </a>
-              </div>
+              </article>
             ))}
           </div>
 
-          {/* Available services in each area */}
+          {/* Services strip */}
           <div style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.06)', padding: '48px 40px', marginTop: 3 }}>
-            <div className="stag">Services Available in All Areas</div>
+            <div className="stag">Available in All Areas</div>
             <h2 className="sh" style={{ marginBottom: 28 }}>Plumbing Services Available <em>Throughout the Region</em></h2>
-             <div
-  style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '12px'
-  }}
->
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}>
               {SERVICES.map(s => (
-                <Link key={s.id} href={s.slug} style={{ background: 'var(--navy3)', border: '1px solid rgba(255,255,255,0.05)', padding: '20px 22px', display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none', transition: 'var(--t)' }}
+                <Link key={s.id} href={s.slug} title={`${s.name} in Springfield MO and nearby cities`}
+                  style={{ background: 'var(--navy3)', border: '1px solid rgba(255,255,255,0.05)', padding: '18px 20px', display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', transition: 'var(--t)' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'var(--blue)'; e.currentTarget.style.borderColor = 'var(--blue)' }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'var(--navy3)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)' }}>
-                  <i className={s.icon} style={{ color: 'var(--gold)', fontSize: 20, flexShrink: 0 }} />
-                  <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13.5, color: '#fff' }}>{s.name}</span>
+                  <i className={s.icon} style={{ color: 'var(--gold)', fontSize: 18, flexShrink: 0 }} />
+                  <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, color: '#fff' }}>{s.name}</span>
                   <i className="ri-arrow-right-s-line" style={{ color: 'var(--text-dimmer)', fontSize: 16, marginLeft: 'auto' }} />
                 </Link>
               ))}
@@ -80,7 +293,7 @@ export default function ServiceAreas() {
               <div>
                 <div className="stag" style={{ marginBottom: 8 }}>Service Map</div>
                 <h3 style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400, fontSize: 28, color: '#fff' }}>
-                  Find Us in <span style={{ color: 'var(--gold)' }}>Springfield, Missouri</span>
+                  Find Us in <span style={{ color: 'var(--gold)' }}>Springfield, Missouri &amp; Region</span>
                 </h3>
               </div>
               <a href="https://maps.google.com/?q=Springfield,MO" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ fontSize: 13, padding: '10px 20px' }}>
@@ -89,25 +302,59 @@ export default function ServiceAreas() {
             </div>
             <MapEmbed height={480} />
           </div>
+        </div>
+      </section>
 
-          {/* Internal links */}
-          <div className="ilinks-section" style={{ marginTop: 3, padding: '40px 0' }}>
-            <div className="ilinks-title">Quick Links — Springfield Plumbing Services</div>
+      {/* ── FAQ — uses FAQAccordion with { q, a } array, same as your FAQ page ── */}
+      <section className="section">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
+            <div>
+              <div className="stag">Common Questions</div>
+              <h2 className="sh">Service Area <em>FAQs</em></h2>
+              <p className="ssub" style={{ maxWidth: '100%', marginBottom: 32 }}>
+                Questions about our coverage, response times, and pricing across Springfield MO and surrounding cities.
+              </p>
+              <a href="tel:+14173734862" className="btn-primary" style={{ display: 'inline-flex' }}>
+                <i className="ri-phone-fill" />Call Us Directly
+              </a>
+            </div>
+
+            {/* ↓ This is the fix — FAQAccordion receives AREA_FAQS directly */}
+            <div>
+              <FAQAccordion faqs={AREA_FAQS} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal links */}
+      <section className="section section-alt" style={{ paddingTop: 40, paddingBottom: 40 }}>
+        <div className="container">
+          <div className="ilinks-section">
+            <div className="ilinks-title">Quick Links — Springfield MO Plumbing &amp; Service Areas</div>
             <div className="ilinks-grid">
               <Link className="ilink" href="/"><i className="ri-home-4-fill" />Home</Link>
+              {AREA_DETAILS.map(area => (
+                <Link key={area.slug} className="ilink" href={`/service-areas/${area.slug}`}>
+                  <i className="ri-map-pin-fill" />Plumber in {area.name}
+                </Link>
+              ))}
               {SERVICES.map(s => (
-                <Link key={s.id} className="ilink" href={s.slug}><i className={s.icon} />{s.name} Springfield MO</Link>
+                <Link key={s.id} className="ilink" href={s.slug}>
+                  <i className={s.icon} />{s.name} Springfield MO
+                </Link>
               ))}
               <Link className="ilink" href="/about"><i className="ri-information-fill" />About Our Company</Link>
-              <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Contact Us — Free Estimate</Link>
+              <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Free Estimate — Contact Us</Link>
             </div>
           </div>
         </div>
       </section>
 
       <CtaBanner
-        title='Need Plumbing Service in <em>Your Area?</em>'
-        subtitle="Contact us today to schedule service. Our plumbers are ready to assist homeowners and businesses throughout the Springfield region."
+        title='Need a Plumber in <em>Your Area?</em>'
+        subtitle="We serve Springfield MO, Nixa, Ozark, Republic, Willard, Rogersville, Strafford and all nearby communities. Call now for fast, professional service."
       />
     </>
   )
