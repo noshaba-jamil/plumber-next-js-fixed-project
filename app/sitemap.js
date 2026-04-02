@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://plumberspringfieldmo.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com/'
 
 // Blog post slugs — must match app/blog/page.jsx BLOG_POSTS
 const BLOG_SLUGS = [

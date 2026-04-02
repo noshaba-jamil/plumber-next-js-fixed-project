@@ -20,7 +20,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://plumberspringfieldmo.com'
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://springfieldmoplumber.com'
   const GA_ID    = process.env.NEXT_PUBLIC_GA_ID    || ''
   const GTM_ID   = process.env.NEXT_PUBLIC_GTM_ID   || ''
 

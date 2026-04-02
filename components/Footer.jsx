@@ -60,6 +60,7 @@ export default function Footer() {
             <div className="fci2"><i className="ri-phone-fill"/><a href={CONTACT_INFO.phoneHref}>{CONTACT_INFO.phone}</a></div>
             <div className="fci2"><i className="ri-mail-fill"/><a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a></div>
             <div className="fci2"><i className="ri-map-pin-fill"/><span>Springfield, MO — Nixa, Ozark, Republic, Battlefield</span></div>
+            <div className="fci2"><i className="ri-map-pin-fill"/><span>220 S Campbell Avenue, Springfield, MO 65806</span></div>
             <div className="fci2"><i className="ri-time-fill"/><span>24/7 — Real Person Answers Every Call</span></div>
           </div>
 

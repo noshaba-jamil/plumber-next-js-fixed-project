@@ -37,7 +37,7 @@ export default function Navbar() {
             <circle cx="20" cy="20" r="3.5" fill="#fff" />
           </svg>
           <div>
-            <div className="brand-name">Springfield Plumbing</div>
+            <div className="brand-name">Springfield Emergency Plumbing</div>
             <div className="brand-sub">24/7 Emergency Response</div>
           </div>
         </Link>

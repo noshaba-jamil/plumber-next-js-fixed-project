@@ -18,7 +18,7 @@ export default function MapEmbed({ height = 480 }) {
       <div className="map-pin-card">
         <div className="mc-title"><i className="ri-map-pin-2-fill" />Springfield Emergency Plumbing</div>
         <div className="mc-row"><i className="ri-time-fill" />Open 24/7 · 365 Days a Year</div>
-        <div className="mc-row"><i className="ri-phone-fill" />(417) 000-0000</div>
+        <div className="mc-row"><i className="ri-phone-fill" />+1 (417) 373-4862</div>
       </div>
       <div className="map-avail">
         <span className="map-avail-dot" />
