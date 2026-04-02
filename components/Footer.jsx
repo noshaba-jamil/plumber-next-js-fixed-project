@@ -16,7 +16,7 @@ export default function Footer() {
                 <polygon points="4,36 20,20 36,36" fill="#F59B1C" opacity="0.9"/>
                 <circle cx="20" cy="20" r="3.5" fill="#fff"/>
               </svg>
-              <span>Springfield Emergency Plumbing</span>
+              <span>Springfield Mo Plumber</span>
             </Link>
             <p>Licensed emergency plumber in Springfield MO — answering every call 24/7. No hidden fees. Upfront pricing. Trusted by homeowners across Springfield, Nixa, Ozark, Republic and Battlefield, MO.</p>
             <div className="ft-socials">
@@ -69,7 +69,7 @@ export default function Footer() {
 
       <div className="ft-bot">
         <div className="ft-bot-in">
-          <p>© 2026 Springfield Emergency Plumbing · <strong>Emergency Plumber Springfield MO</strong> · All Rights Reserved</p>
+          <p>© 2026  Springfield Mo Plumber · <strong>Emergency Plumber Springfield MO</strong> · All Rights Reserved</p>
           <div className="ft-badges">
             <span className="ftb"><i className="ri-shield-check-fill"/>Licensed &amp; Insured</span>
             <span className="ftb"><i className="ri-star-fill"/>4.8★ Google</span>

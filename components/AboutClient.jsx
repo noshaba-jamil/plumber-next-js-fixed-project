@@ -21,7 +21,7 @@ export default function About() {
           <div className="split-img">
     <img
   src="/plummberimag.webp"
-  alt="Experienced licensed plumber Springfield MO providing professional plumbing services"
+  alt="We work with experienced and qualified plumbing professionals and Springfield MO providing professional plumbing services"
   width={800}
   height={600}
   loading="lazy"
@@ -61,7 +61,7 @@ export default function About() {
               <div className="stag">Our Team</div>
               <h2 className="sh">Experienced Plumbing <em>Professionals</em></h2>
               <div className="content-block" style={{ marginTop: 16 }}>
-                <p>Our plumbing technicians are trained to handle a wide range of plumbing issues, from simple repairs to complex system problems. With years of experience working with residential and commercial plumbing systems, our team understands the challenges that property owners face when plumbing problems occur.</p>
+                <p>We work with experienced and qualified plumbing professionals.Our plumbing technicians are trained to handle a wide range of plumbing issues, from simple repairs to complex system problems. With years of experience working with residential and commercial plumbing systems, our team understands the challenges that property owners face when plumbing problems occur.</p>
                 <p>Using modern equipment and proven repair methods, we ensure that every plumbing service is completed safely and effectively. Our goal is to provide reliable solutions that prevent future issues and keep your plumbing system working smoothly.</p>
                 <h3 style={{ color: '#fff', fontSize: 17, marginTop: 20, marginBottom: 8 }}>Commitment to Quality and Customer Satisfaction</h3>
                 <p>Customer satisfaction is the foundation of our business. We believe that clear communication, honest pricing, and professional workmanship are essential to building long-term relationships with our customers.</p>
@@ -110,7 +110,7 @@ export default function About() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24, marginTop: 40 }}>
             {[
-              { icon: "ri-shield-star-fill", title: "Missouri Plumbing License", val: "License: Replace With Real # · Issued by State of Missouri" },
+              { icon: "ri-shield-star-fill", title: "Missouri Plumbing License",   },
               { icon: "ri-award-fill", title: "Fully Insured", val: "General Liability + Workers Comp — Your home is protected on every job" },
               { icon: "ri-map-pin-fill", title: "Local Springfield Business", val: "Serving Springfield MO · Nixa · Ozark · Republic · Battlefield" },
               { icon: "ri-star-fill", title: "4.8★ Google Rating", val: "150+ verified reviews from real Springfield MO homeowners" },

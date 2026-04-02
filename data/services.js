@@ -341,7 +341,7 @@ export const EMERGENCY_ITEMS = [
     icon: "ri-shield-check-line",
     title: "Problem Solved",
     desc: "Work is completed to spec. You confirm satisfaction before we close the job — guaranteed.",
-    image: "/solved plumber.webp",
+    image: "/solved-plumber.webp",
     imageAlt: "Satisfied Springfield MO homeowner after guaranteed plumbing repair completed",
     imageWidth: 600,
     imageHeight: 400,
