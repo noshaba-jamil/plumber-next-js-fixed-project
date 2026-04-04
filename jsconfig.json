@@ -1,14 +1,13 @@
-{
+ {
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
       "@/components/*": ["./components/*"],
-      "@/data/*":       ["./data/*"],
-      "@/lib/*":        ["./lib/*"],
-      "@/styles/*":     ["./styles/*"],
-      "@/admin/*":      ["./admin/*"],
-      "@/models/*":     ["./models/*"]
+      "@/data/*": ["./data/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/styles/*": ["./styles/*"],
+      "@/admin/*": ["./admin/*"],
+      "@/models/*": ["./models/*"]
     }
   }
 }
