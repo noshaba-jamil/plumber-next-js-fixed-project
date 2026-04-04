@@ -30,7 +30,7 @@ const cityPages = [
   lastModified: now,
 }))
 
-return [...staticPages, ...blogPages, ...cityPages]
+ 
 export default function sitemap() {
   const now = new Date()
 
