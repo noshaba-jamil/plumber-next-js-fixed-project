@@ -1,6 +1,5 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com/'
+ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com/'
 
-// Blog post slugs — must match app/blog/page.jsx BLOG_POSTS
 const BLOG_SLUGS = [
   { slug: 'how-much-does-a-plumber-cost-springfield-mo',      date: '2024-11-01' },
   { slug: 'best-plumber-near-me-springfield-mo',              date: '2024-10-15' },
@@ -13,26 +12,26 @@ const BLOG_SLUGS = [
   { slug: 'sewer-line-repair-vs-replacement-springfield-mo',  date: '2024-07-01' },
   { slug: 'leak-detection-springfield-mo-guide',              date: '2024-06-15' },
 ]
-// Individual service area city URLs
-const cityPages = [
-  'springfield-mo',
-  'nixa-mo', 
-  'ozark-mo',
-  'republic-battlefield-mo',
-  'willard-mo',
-  'rogersville-mo',
-  'strafford-mo',
-  'clever-billings-mo',
-].map(city => ({
-  url: `${SITE_URL}/service-areas/${city}`,
-  priority: 0.75,
-  changeFrequency: 'monthly',
-  lastModified: now,
-}))
 
- 
 export default function sitemap() {
   const now = new Date()
+
+  // ✅ cityPages moved INSIDE the function so 'now' is accessible
+  const cityPages = [
+    'springfield-mo',
+    'nixa-mo',
+    'ozark-mo',
+    'republic-battlefield-mo',
+    'willard-mo',
+    'rogersville-mo',
+    'strafford-mo',
+    'clever-billings-mo',
+  ].map(city => ({
+    url: `${SITE_URL}/service-areas/${city}`,
+    priority: 0.75,
+    changeFrequency: 'monthly',
+    lastModified: now,
+  }))
 
   const staticPages = [
     { url: SITE_URL,                                                   priority: 1.0,  changeFrequency: 'weekly',  lastModified: now },
@@ -50,7 +49,6 @@ export default function sitemap() {
     { url: `${SITE_URL}/blog`,                                         priority: 0.7,  changeFrequency: 'weekly',  lastModified: now },
   ]
 
-  // Individual blog post URLs — now included so Google can discover them
   const blogPages = BLOG_SLUGS.map(({ slug, date }) => ({
     url: `${SITE_URL}/blog/${slug}`,
     priority: 0.6,
