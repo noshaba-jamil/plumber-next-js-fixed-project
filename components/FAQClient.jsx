@@ -32,7 +32,7 @@ export default function FAQ() {
 
               <div style={{ marginTop: 36 }}>
                 <img
-                  src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=500&q=80&fit=crop&crop=faces"
+                  src="/plumber2.webp"
                   alt="Plumber Springfield MO"
                   style={{ width: '100%', borderRadius: 'var(--rlg)', height: 260, objectFit: 'cover', opacity: 0.65 }}
                 />

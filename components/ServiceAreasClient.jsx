@@ -167,7 +167,7 @@ export default function ServiceAreasClient({ h1 }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
 
       <PageHero
-        image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80"
+        image="/springfield1.webp"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas' }]}
         h1={h1 || 'Plumbing Service Areas — Springfield MO & Surrounding Cities'}
         subtitle="Professional plumbing throughout Springfield, Missouri and all nearby communities. 24/7 emergency response in Nixa, Ozark, Republic, Willard, Rogersville, Strafford, and beyond."

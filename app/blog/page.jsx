@@ -24,7 +24,7 @@ export const BLOG_POSTS = [
     date: '2024-11-01',
     readTime: '6 min read',
     category: 'Cost Guide',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop',
+    image: '/blog1.webp',
     keywords: ['plumber cost Springfield MO', 'how much does a plumber cost', 'plumbing prices Springfield'],
   },
   {
@@ -34,7 +34,7 @@ export const BLOG_POSTS = [
     date: '2024-10-15',
     readTime: '5 min read',
     category: 'Homeowner Guide',
-    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&fit=crop',
+    image: '/blog2.webp',
     keywords: ['best plumber Springfield MO', 'plumber near me Springfield', 'find plumber Springfield Missouri'],
   },
   {
@@ -44,7 +44,7 @@ export const BLOG_POSTS = [
     date: '2024-10-01',
     readTime: '4 min read',
     category: 'Emergency Tips',
-    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80&fit=crop',
+    image: '/blog3.webp',
     keywords: ['plumber open 24 hours Springfield Missouri', '24 hour plumber Springfield', 'emergency plumber Springfield MO'],
   },
   {
@@ -54,7 +54,7 @@ export const BLOG_POSTS = [
     date: '2024-09-15',
     readTime: '5 min read',
     category: 'Emergency Tips',
-    image: 'https://images.unsplash.com/photo-1617839625591-e5a789593135?w=600&q=80&fit=crop',
+    image: '/blog4.webp',
     keywords: ['burst pipe Springfield MO', 'how to fix burst pipe', 'burst pipe repair Springfield Missouri'],
   },
   {
@@ -64,7 +64,7 @@ export const BLOG_POSTS = [
     date: '2024-09-01',
     readTime: '6 min read',
     category: 'Cost Guide',
-    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&fit=crop',
+    image: '/blog5.webp',
     keywords: ['emergency plumbing cost Springfield MO', 'emergency plumber price Springfield', '24/7 plumber cost Missouri'],
   },
   {
@@ -74,7 +74,7 @@ export const BLOG_POSTS = [
     date: '2024-08-15',
     readTime: '4 min read',
     category: 'Maintenance Tips',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop',
+    image: '/blog6.webp',
     keywords: ['drain cleaning Springfield MO', 'blocked drain Springfield', 'drain cleaning cost Springfield Missouri'],
   },
   {
@@ -84,7 +84,7 @@ export const BLOG_POSTS = [
     date: '2024-08-01',
     readTime: '5 min read',
     category: 'Homeowner Guide',
-    image: 'https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?w=600&q=80&fit=crop',
+    image: '/blog7.webp',
     keywords: ['water heater not working Springfield MO', 'water heater repair Springfield', 'no hot water Springfield Missouri'],
   },
   {
@@ -94,7 +94,7 @@ export const BLOG_POSTS = [
     date: '2024-07-15',
     readTime: '5 min read',
     category: 'Maintenance Tips',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop',
+    image: '/blog8.webp',
     keywords: ['frozen pipes Springfield MO', 'prevent frozen pipes Springfield', 'burst pipe winter Springfield Missouri'],
   },
   {
@@ -104,7 +104,7 @@ export const BLOG_POSTS = [
     date: '2024-07-01',
     readTime: '6 min read',
     category: 'Cost Guide',
-    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80&fit=crop',
+    image: '/blog9.webp',
     keywords: ['sewer line repair Springfield MO', 'sewer line replacement Springfield', 'trenchless sewer repair Springfield Missouri'],
   },
   {
@@ -114,7 +114,7 @@ export const BLOG_POSTS = [
     date: '2024-06-15',
     readTime: '5 min read',
     category: 'Homeowner Guide',
-    image: 'https://images.unsplash.com/photo-1617839625591-e5a789593135?w=600&q=80&fit=crop',
+    image: '/blog10.webp',
     keywords: ['leak detection Springfield MO', 'hidden water leak Springfield', 'water leak detection Springfield Missouri'],
   },
 ]
@@ -156,7 +156,13 @@ export default function BlogPage() {
               <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                 <article style={{ background: 'var(--card)', borderBottom: '3px solid transparent', transition: 'var(--t)', overflow: 'hidden' }} className="blog-card-link">
                   <div style={{ height: 200, overflow: 'hidden' }}>
-                    <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      width={600}
+                      height={200}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
                   </div>
 
                   <div style={{ padding: '24px 24px 32px' }}>
