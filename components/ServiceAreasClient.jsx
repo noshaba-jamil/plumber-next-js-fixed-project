@@ -7,7 +7,6 @@ import CtaBanner from '@/components/CtaBanner'
 import FAQAccordion from '@/components/FAQAccordion'
 import { SERVICES } from '@/data/services'
 
-// ─── Service-area FAQs — same { q, a } shape FAQAccordion expects ─────────────
 const AREA_FAQS = [
   {
     q: 'What cities near Springfield MO do you serve?',
@@ -35,23 +34,22 @@ const AREA_FAQS = [
   }
 ]
 
-// ─── JSON-LD schemas ──────────────────────────────────────────────────────────
 const SERVICE_AREAS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "PlumbingBusiness",
   "name": "Springfield Plumbing",
-  "url": "https://yoursite.com",
+  "url": "https://www.springfieldmoplumber.com",
   "telephone": "+14173734862",
   "description": "Professional plumbing services in Springfield MO and surrounding cities including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, and Strafford.",
   "areaServed": [
-    { "@type": "City", "name": "Springfield", "addressRegion": "MO" },
-    { "@type": "City", "name": "Nixa", "addressRegion": "MO" },
-    { "@type": "City", "name": "Ozark", "addressRegion": "MO" },
-    { "@type": "City", "name": "Republic", "addressRegion": "MO" },
-    { "@type": "City", "name": "Battlefield", "addressRegion": "MO" },
-    { "@type": "City", "name": "Willard", "addressRegion": "MO" },
-    { "@type": "City", "name": "Rogersville", "addressRegion": "MO" },
-    { "@type": "City", "name": "Strafford", "addressRegion": "MO" },
+    { "@type": "City", "name": "Springfield",  "addressRegion": "MO" },
+    { "@type": "City", "name": "Nixa",         "addressRegion": "MO" },
+    { "@type": "City", "name": "Ozark",        "addressRegion": "MO" },
+    { "@type": "City", "name": "Republic",     "addressRegion": "MO" },
+    { "@type": "City", "name": "Battlefield",  "addressRegion": "MO" },
+    { "@type": "City", "name": "Willard",      "addressRegion": "MO" },
+    { "@type": "City", "name": "Rogersville",  "addressRegion": "MO" },
+    { "@type": "City", "name": "Strafford",    "addressRegion": "MO" },
   ],
   "address": {
     "@type": "PostalAddress",
@@ -78,11 +76,10 @@ const FAQ_SCHEMA = {
   }))
 }
 
-// ─── Area cards ───────────────────────────────────────────────────────────────
 const AREA_DETAILS = [
   {
     name: 'Springfield, MO', slug: 'springfield-mo', label: 'Primary Service Area',
-    population: '~170,000', distance: 'Home Base', zipCodes: '65801, 65802, 65803, 65804, 65806, 65807',
+    population: '~170,000', distance: 'Home Base from Springfield', zipCodes: '65801, 65802, 65803, 65804, 65806, 65807',
     image: '/springfield.webp',
     imgAlt: 'Plumber performing emergency plumbing repair in Springfield Missouri home',
     imgTitle: 'Professional Plumbing Services in Springfield, MO',
@@ -92,7 +89,7 @@ const AREA_DETAILS = [
   },
   {
     name: 'Nixa, MO', slug: 'nixa-mo', label: '',
-    population: '~25,000', distance: '~12 miles south', zipCodes: '65714',
+    population: '~25,000', distance: '~12 miles south from Springfield', zipCodes: '65714',
     image: '/nixa.webp',
     imgAlt: 'Licensed plumber fixing water heater in Nixa Missouri residence',
     imgTitle: 'Water Heater Repair and Plumbing Services in Nixa, MO',
@@ -102,7 +99,7 @@ const AREA_DETAILS = [
   },
   {
     name: 'Ozark, MO', slug: 'ozark-mo', label: '',
-    population: '~20,000', distance: '~14 miles south', zipCodes: '65721',
+    population: '~20,000', distance: '~14 miles south from Springfield', zipCodes: '65721',
     image: '/ozark.webp',
     imgAlt: 'Professional drain cleaning service being performed in Ozark Missouri',
     imgTitle: 'Drain Cleaning and Plumbing Repair in Ozark, MO',
@@ -112,7 +109,7 @@ const AREA_DETAILS = [
   },
   {
     name: 'Republic & Battlefield, MO', slug: 'republic-battlefield-mo', label: '',
-    population: '~18,000+', distance: '~12 miles SW', zipCodes: '65738, 65619',
+    population: '~18,000+', distance: '~12 miles SW from Springfield', zipCodes: '65738, 65619',
     image: '/Battlefield.webp',
     imgAlt: 'Plumber repairing sewer line for homeowner in Republic Missouri',
     imgTitle: 'Sewer Line Repair and Plumbing Services in Republic and Battlefield, MO',
@@ -122,7 +119,7 @@ const AREA_DETAILS = [
   },
   {
     name: 'Willard, MO', slug: 'willard-mo', label: '',
-    population: '~6,000', distance: '~13 miles NW', zipCodes: '65781',
+    population: '~6,000', distance: '~13 miles NW from Springfield', zipCodes: '65781',
     image: '/Willard Missouri home.webp',
     imgAlt: 'Leak detection specialist inspecting pipes in Willard Missouri home',
     imgTitle: 'Leak Detection and Plumbing Services in Willard, MO',
@@ -132,7 +129,7 @@ const AREA_DETAILS = [
   },
   {
     name: 'Rogersville, MO', slug: 'rogersville-mo', label: '',
-    population: '~4,500', distance: '~18 miles east', zipCodes: '65742',
+    population: '~4,500', distance: '~18 miles east from Springfield', zipCodes: '65742',
     image: '/Rogersville.webp',
     imgAlt: 'Water heater installation service in Rogersville Missouri',
     imgTitle: 'Water Heater Installation and Plumbing in Rogersville, MO',
@@ -142,7 +139,7 @@ const AREA_DETAILS = [
   },
   {
     name: 'Strafford, MO', slug: 'strafford-mo', label: '',
-    population: '~2,500', distance: '~15 miles NE', zipCodes: '65757',
+    population: '~2,500', distance: '~15 miles NE from Springfield', zipCodes: '65757',
     image: '/Strafford Missouri.webp',
     imgAlt: 'Plumbing inspection and pipe installation in Strafford Missouri',
     imgTitle: 'Pipe Installation and Plumbing Inspection in Strafford, MO',
@@ -152,7 +149,7 @@ const AREA_DETAILS = [
   },
   {
     name: 'Clever & Billings, MO', slug: 'clever-billings-mo', label: '',
-    population: '~2,000+', distance: '~20 miles SW', zipCodes: '65631, 65610',
+    population: '~2,000+', distance: '~20 miles SW from Springfield', zipCodes: '65631, 65610',
     image: '/Billings Missouri.webp',
     imgAlt: 'Emergency plumbing repair service in Clever and Billings Missouri',
     imgTitle: 'Emergency Plumbing and Drain Cleaning in Clever and Billings, MO',
@@ -190,7 +187,7 @@ export default function ServiceAreasClient({ h1 }) {
         </div>
       </div>
 
-      {/* City cards */}
+      {/* City cards — each card is now a clickable Link */}
       <section className="section section-alt">
         <div className="container">
           <div className="sec-center">
@@ -201,76 +198,64 @@ export default function ServiceAreasClient({ h1 }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24, marginTop: 52 }}>
             {AREA_DETAILS.map((area, i) => (
-              <article key={area.slug}
-                style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.4)' }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}>
+              <Link
+                key={area.slug}
+                href={`/service-areas/${area.slug}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <article
+                  style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease', cursor: 'pointer', height: '100%' }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.4)'; e.currentTarget.style.borderColor = 'rgba(212,169,65,0.5)' }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)' }}
+                >
+                  <figure style={{ margin: 0, position: 'relative', overflow: 'hidden' }}>
+                    <img
+                      src={area.image}
+                      alt={area.imgAlt}
+                      title={area.imgTitle}
+                      width={800}
+                      height={200}
+                      loading={i < 2 ? 'eager' : 'lazy'}
+                      fetchpriority={i === 0 ? 'high' : 'auto'}
+                      decoding="async"
+                      style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block', aspectRatio: '4 / 1' }}
+                    />
+                    <figcaption
+                      aria-hidden="true"
+                      style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(transparent,rgba(0,0,0,0.75))', padding: '28px 16px 10px', color: '#fff', fontSize: 12, fontWeight: 700 }}>
+                      {area.distance}
+                    </figcaption>
+                  </figure>
 
-                {/*
-                  SEO IMAGE ATTRIBUTES EXPLAINED:
-                  • alt         — describes plumbing action + city name for Google Images + screen readers
-                  • title       — keyword tooltip shown on hover; secondary SEO signal
-                  • width/height — tells browser exact dimensions before load → prevents CLS (Core Web Vital)
-                  • loading     — first 2 cards "eager" for LCP score; rest "lazy" to save bandwidth
-                  • fetchpriority — "high" on card 0 = the above-fold hero image; boosts LCP ranking signal
-                  • decoding    — "async" lets browser decode off main thread → faster paint
-                  • style height — matches height attribute exactly to lock aspect ratio and prevent layout shift
-                */}
-                <figure style={{ margin: 0, position: 'relative', overflow: 'hidden' }}>
-                  <img
-                    src={area.image}
-                    alt={area.imgAlt}
-                    title={area.imgTitle}
-                    width={800}
-                    height={200}
-                    loading={i < 2 ? 'eager' : 'lazy'}
-                    fetchpriority={i === 0 ? 'high' : 'auto'}
-                    decoding="async"
-                    style={{
-                      width: '100%',
-                      height: '200px',          /* matches height={200} — prevents CLS */
-                      objectFit: 'cover',
-                      display: 'block',
-                      aspectRatio: '4 / 1',     /* explicit ratio locks space before image loads */
-                    }}
-                  />
-                  {/* aria-hidden: decorative distance label — not meaningful content for screen readers */}
-                  <figcaption
-                    aria-hidden="true"
-                    style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(transparent,rgba(0,0,0,0.75))', padding: '28px 16px 10px', color: '#fff', fontSize: 12, fontWeight: 700 }}>
-                    {area.distance} from Springfield
-                  </figcaption>
-                </figure>
-
-                <div style={{ padding: '28px 28px 24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  {area.label && (
-                    <span style={{ display: 'inline-block', background: 'rgba(212,169,65,0.15)', border: '1px solid rgba(212,169,65,0.4)', color: 'var(--gold)', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 10px', marginBottom: 12 }}>
-                      {area.label}
-                    </span>
-                  )}
-                  <h3 style={{ fontSize: 19, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{area.h3}</h3>
-                  <div style={{ display: 'flex', gap: 14, marginBottom: 10, flexWrap: 'wrap' }}>
-                    <span style={{ fontSize: 11, color: 'var(--text-dimmer)' }}>Pop. {area.population}</span>
-                    <span style={{ fontSize: 11, color: 'var(--text-dimmer)' }}>ZIP: {area.zipCodes}</span>
+                  <div style={{ padding: '28px 28px 24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    {area.label && (
+                      <span style={{ display: 'inline-block', background: 'rgba(212,169,65,0.15)', border: '1px solid rgba(212,169,65,0.4)', color: 'var(--gold)', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 10px', marginBottom: 12 }}>
+                        {area.label}
+                      </span>
+                    )}
+                    <h3 style={{ fontSize: 19, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{area.h3}</h3>
+                    <div style={{ display: 'flex', gap: 14, marginBottom: 10, flexWrap: 'wrap' }}>
+                      <span style={{ fontSize: 11, color: 'var(--text-dimmer)' }}>Pop. {area.population}</span>
+                      <span style={{ fontSize: 11, color: 'var(--text-dimmer)' }}>ZIP: {area.zipCodes}</span>
+                    </div>
+                    <p style={{ color: 'var(--text-dim)', fontSize: 14, lineHeight: 1.75, marginBottom: 14, flex: 1 }}>{area.desc}</p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 18 }}>
+                      {area.neighborhoods.map(n => (
+                        <span key={n} style={{ fontSize: 11, padding: '3px 8px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--text-dim)' }}>{n}</span>
+                      ))}
+                    </div>
+                    {/* View city page CTA */}
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color: 'var(--gold)', fontWeight: 800, fontSize: 13, marginTop: 'auto' }}>
+                      <i className="ri-map-pin-fill" /> View Plumbing Services in {area.name} <i className="ri-arrow-right-line" />
+                    </div>
                   </div>
-                  <p style={{ color: 'var(--text-dim)', fontSize: 14, lineHeight: 1.75, marginBottom: 14, flex: 1 }}>{area.desc}</p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 18 }}>
-                    {area.neighborhoods.map(n => (
-                      <span key={n} style={{ fontSize: 11, padding: '3px 8px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--text-dim)' }}>{n}</span>
-                    ))}
-                  </div>
-                  <a href="tel:+14173734862"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color: 'var(--gold)', fontWeight: 800, fontSize: 13, marginTop: 'auto' }}
-                    aria-label={`Call for plumbing service in ${area.name}`}>
-                    Call for Service in {area.name} <i className="ri-arrow-right-line" />
-                  </a>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
 
           {/* Services strip */}
-          <div style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.06)', padding: '48px 40px', marginTop: 3 }}>
+          <div style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.06)', padding: '48px 40px', marginTop: 32 }}>
             <div className="stag">Available in All Areas</div>
             <h2 className="sh" style={{ marginBottom: 28 }}>Plumbing Services Available <em>Throughout the Region</em></h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}>
@@ -305,7 +290,7 @@ export default function ServiceAreasClient({ h1 }) {
         </div>
       </section>
 
-      {/* ── FAQ — uses FAQAccordion with { q, a } array, same as your FAQ page ── */}
+      {/* FAQ */}
       <section className="section">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
@@ -319,8 +304,6 @@ export default function ServiceAreasClient({ h1 }) {
                 <i className="ri-phone-fill" />Call Us Directly
               </a>
             </div>
-
-            {/* ↓ This is the fix — FAQAccordion receives AREA_FAQS directly */}
             <div>
               <FAQAccordion faqs={AREA_FAQS} />
             </div>

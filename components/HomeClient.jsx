@@ -1,4 +1,4 @@
-'use client'
+ 'use client'
 
 import { useEffect } from 'react'
 import Link from 'next/link'
@@ -13,6 +13,25 @@ import {
 } from '@/data/services'
 import '@/components/Home.css'
 
+const CITIES = [
+  { name: 'Springfield, MO',        slug: '/service-areas/springfield-mo',          icon: 'ri-home-4-fill',    label: 'Primary Area' },
+  { name: 'Nixa, MO',               slug: '/service-areas/nixa-mo',                 icon: 'ri-map-pin-fill',   label: '~12 mi south' },
+  { name: 'Ozark, MO',              slug: '/service-areas/ozark-mo',                icon: 'ri-map-pin-fill',   label: '~14 mi south' },
+  { name: 'Republic, MO',           slug: '/service-areas/republic-battlefield-mo', icon: 'ri-map-pin-fill',   label: '~12 mi SW' },
+  { name: 'Battlefield, MO',        slug: '/service-areas/republic-battlefield-mo', icon: 'ri-map-pin-fill',   label: '~12 mi SW' },
+  { name: 'Willard, MO',            slug: '/service-areas/willard-mo',              icon: 'ri-map-pin-fill',   label: '~13 mi NW' },
+  { name: 'Rogersville, MO',        slug: '/service-areas/rogersville-mo',          icon: 'ri-map-pin-fill',   label: '~18 mi east' },
+  { name: 'Strafford, MO',          slug: '/service-areas/strafford-mo',            icon: 'ri-map-pin-fill',   label: '~15 mi NE' },
+  { name: 'Clever & Billings, MO',  slug: '/service-areas/clever-billings-mo',      icon: 'ri-map-pin-fill',   label: '~20 mi SW' },
+]
+
+const BLOG_POSTS = [
+  { title: 'How Much Does a Plumber Cost in Springfield MO?',     slug: '/blog/how-much-does-a-plumber-cost-springfield-mo' },
+  { title: 'Best Plumber Near Me — Springfield MO Guide',         slug: '/blog/best-plumber-near-me-springfield-mo' },
+  { title: 'How to Fix a Burst Pipe — Springfield MO',            slug: '/blog/how-to-fix-burst-pipe-springfield-mo' },
+  { title: 'Signs You Need Drain Cleaning in Springfield MO',     slug: '/blog/signs-you-need-drain-cleaning-springfield-mo' },
+]
+
 export default function Home({ h1 }) {
   useEffect(() => {
     const obs = new IntersectionObserver(entries => {
@@ -24,6 +43,7 @@ export default function Home({ h1 }) {
 
   return (
     <>
+      {/* ── HERO ── */}
       <section id="hero">
         <div className="hero-left-panel">
           <div className="hero-content">
@@ -31,22 +51,14 @@ export default function Home({ h1 }) {
               <span className="hero-badge-dot" />
               <span>{HERO_COPY.availability_pill}</span>
             </div>
-
-            {/* H1 — uses prop from page.jsx for SEO control */}
             <h1 className="hero-h1">
-              {h1 ? (
-                h1
-              ) : (
-                <><em>Emergency Plumber</em><br />in Springfield MO —<br />24/7. Fast. Trusted.</>
-              )}
+              {h1 ? h1 : <><em>Emergency Plumber</em><br />in Springfield MO —<br />24/7. Fast. Trusted.</>}
             </h1>
-
             <div className="hero-sub">
               <p><strong>Pipe burst? Water leaking? Drain backed up?</strong></p>
               <p>Get fast, reliable help from a licensed emergency plumber in Springfield MO.</p>
               <p>We answer every call — day or night — and get to you FAST.</p>
             </div>
-
             <div className="hero-actions">
               <a href={CONTACT_INFO.phoneHref} className="hero-cta-primary">
                 <span className="pulse-ring" />
@@ -58,7 +70,6 @@ export default function Home({ h1 }) {
                 REQUEST EMERGENCY SERVICE
               </Link>
             </div>
-
             <div className="hero-trust">
               {HERO_COPY.trust_row.map((item, i) => (
                 <div key={i} className="trust-row">
@@ -197,15 +208,7 @@ export default function Home({ h1 }) {
       <section style={{ padding: 0 }}>
         <div className="split">
           <div className="split-img" data-aos="fl">
-            <img
-  src="/licensed-emergency-plumber-springfield-mo.webp"
-  alt="Licensed Emergency Plumber Springfield MO"
-  width={800}
-  height={500}
-  loading="eager"
-  decoding="async"
-  fetchpriority="high"
-/>
+            <img src="/licensed-emergency-plumber-springfield-mo.webp" alt="Licensed Emergency Plumber Springfield MO" width={800} height={500} loading="eager" decoding="async" fetchpriority="high" />
             <div className="img-overlay" />
             <div className="split-badge"><div className="big">24/7</div><div className="sm">We Answer. Every. Call.</div></div>
             <div className="split-rating"><div className="stars">★★★★★</div><div className="score">4.8/5</div><div className="cnt">Springfield, MO</div></div>
@@ -263,291 +266,60 @@ export default function Home({ h1 }) {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-        {/* ── HOW IT WORKS ── */}
-<section
-  className="section"
-  style={{
-    background: "var(--navy)",
-    padding: "100px 0",
-    position: "relative",
-    overflow: "hidden",
-  }}
->
-  {/* Ambient background glows */}
-  <div style={{ position: "absolute", top: "-80px", left: "-80px", width: "400px", height: "400px", background: "var(--blue)", borderRadius: "50%", filter: "blur(160px)", opacity: 0.12, pointerEvents: "none" }} />
-  <div style={{ position: "absolute", bottom: "-80px", right: "-80px", width: "350px", height: "350px", background: "var(--teal)", borderRadius: "50%", filter: "blur(140px)", opacity: 0.1, pointerEvents: "none" }} />
-  <div style={{ position: "absolute", top: "40%", left: "50%", transform: "translate(-50%,-50%)", width: "500px", height: "200px", background: "var(--gold)", borderRadius: "50%", filter: "blur(180px)", opacity: 0.05, pointerEvents: "none" }} />
-
-  <style>{`
-    .process-grid {
-      grid-template-columns: repeat(4, 1fr) !important;
-    }
-    .pcon {
-      display: flex !important;
-    }
-    @media (max-width: 1024px) {
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-      .pcon {
-        display: none !important;
-      }
-    }
-    @media (max-width: 540px) {
-      .process-grid {
-        grid-template-columns: 1fr !important;
-      }
-      .sec-center {
-        margin-bottom: 48px !important;
-      }
-      .process-micro {
-        padding: 12px 18px !important;
-        text-align: center !important;
-      }
-    }
-  `}</style>
-
-  <div className="container">
-
-    {/* Header */}
-    <div className="sec-center" data-aos="fade-up" style={{ textAlign: "center", marginBottom: "72px" }}>
-      <div
-        className="stag"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "8px",
-          fontSize: "11px",
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: "var(--teal)",
-          background: "rgba(0,229,212,0.08)",
-          border: "1px solid rgba(0,229,212,0.25)",
-          padding: "7px 18px",
-          borderRadius: "99px",
-          marginBottom: "22px",
-        }}
-      >
-        <i className="ri-settings-3-line" style={{ fontSize: "12px" }} />
-        How It Works
-      </div>
-      <h2
-        className="sh"
-        style={{
-          fontSize: "clamp(30px, 4vw, 48px)",
-          fontWeight: 800,
-          color: "#fff",
-          margin: "0 0 18px",
-          lineHeight: 1.15,
-          letterSpacing: "-0.02em",
-        }}
-      >
-        Simple. Honest.{" "}
-        <em
-          style={{
-            fontStyle: "normal",
-            background: "linear-gradient(90deg, var(--teal), var(--blue))",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Fast.
-        </em>
-      </h2>
-      <p
-        className="ssub"
-        style={{
-          fontSize: "16px",
-          color: "rgba(255,255,255,0.45)",
-          maxWidth: "480px",
-          margin: "0 auto",
-          lineHeight: 1.8,
-        }}
-      >
-        From your first call to a fully resolved problem — transparent, fast, and stress-free.
-      </p>
-    </div>
-
-    {/* Steps Grid */}
-    <div
-      className="process-grid"
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gap: "16px",
-        position: "relative",
-      }}
-    >
-      {PROCESS_STEPS.map((step, i) => (
-        <div
-          key={i}
-          className="pstep"
-          data-aos="fade-up"
-          data-aos-delay={i * 120}
-          style={{
-            position: "relative",
-            borderRadius: "24px",
-            overflow: "hidden",
-            border: "1px solid rgba(255,255,255,0.08)",
-            background: "rgba(255,255,255,0.03)",
-            transition: "transform 0.3s ease, box-shadow 0.3s ease",
-            cursor: "default",
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = "translateY(-6px)";
-            e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4)`;
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "none";
-          }}
-        >
-          {/* Image with gradient overlay */}
-          <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
-            <img
-              src={step.image}
-              alt={step.title}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-                filter: "brightness(0.55) saturate(1.2)",
-              }}
-            />
-            {/* Gradient overlay on image */}
-            <div style={{ position: "absolute", inset: 0 }} />
-            {/* Step number top-left */}
-            <div
-              className="pnum"
-              style={{
-                position: "absolute",
-                top: "14px",
-                left: "16px",
-                fontSize: "11px",
-                fontWeight: 800,
-                letterSpacing: "0.1em",
-                color: "rgba(255,255,255,0.6)",
-                background: "rgba(0,0,0,0.25)",
-                padding: "3px 10px",
-                borderRadius: "99px",
-                backdropFilter: "blur(6px)",
-              }}
-            >
-              {step.num}
+      <section className="section" style={{ background: "var(--navy)", padding: "100px 0", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-80px", left: "-80px", width: "400px", height: "400px", background: "var(--blue)", borderRadius: "50%", filter: "blur(160px)", opacity: 0.12, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-80px", right: "-80px", width: "350px", height: "350px", background: "var(--teal)", borderRadius: "50%", filter: "blur(140px)", opacity: 0.1, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "40%", left: "50%", transform: "translate(-50%,-50%)", width: "500px", height: "200px", background: "var(--gold)", borderRadius: "50%", filter: "blur(180px)", opacity: 0.05, pointerEvents: "none" }} />
+        <style>{`
+          .process-grid { grid-template-columns: repeat(4, 1fr) !important; }
+          .pcon { display: flex !important; }
+          @media (max-width: 1024px) { .process-grid { grid-template-columns: repeat(2, 1fr) !important; } .pcon { display: none !important; } }
+          @media (max-width: 540px) { .process-grid { grid-template-columns: 1fr !important; } .sec-center { margin-bottom: 48px !important; } .process-micro { padding: 12px 18px !important; text-align: center !important; } }
+        `}</style>
+        <div className="container">
+          <div className="sec-center" data-aos="fade-up" style={{ textAlign: "center", marginBottom: "72px" }}>
+            <div className="stag" style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "rgba(0,229,212,0.08)", border: "1px solid rgba(0,229,212,0.25)", padding: "7px 18px", borderRadius: "99px", marginBottom: "22px" }}>
+              <i className="ri-settings-3-line" style={{ fontSize: "12px" }} />How It Works
             </div>
-            {/* Icon centered on image */}
-            <div
-              className="picon"
-              style={{
-                position: "absolute",
-                bottom: "16px",
-                left: "16px",
-                width: "46px",
-                height: "46px",
-                borderRadius: "12px",
-                background: "#F59B1C",
-                border: "1px solid rgba(189, 25, 25, 0.25)",
-                backdropFilter: "blur(8px)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <i className={step.icon} style={{ fontSize: "20px", color: "#fff" }} />
-            </div>
+            <h2 className="sh" style={{ fontSize: "clamp(30px, 4vw, 48px)", fontWeight: 800, color: "#fff", margin: "0 0 18px", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+              Simple. Honest.{" "}<em style={{ fontStyle: "normal", background: "linear-gradient(90deg, var(--teal), var(--blue))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Fast.</em>
+            </h2>
+            <p className="ssub" style={{ fontSize: "16px", color: "rgba(255,255,255,0.45)", maxWidth: "480px", margin: "0 auto", lineHeight: 1.8 }}>From your first call to a fully resolved problem — transparent, fast, and stress-free.</p>
           </div>
-
-          {/* Card content */}
-          <div style={{ padding: "22px 20px 24px" }}>
-            <h3
-              style={{
-                fontSize: "15px",
-                fontWeight: 700,
-                color: "#fff",
-                margin: "0 0 10px",
-                lineHeight: 1.3,
-              }}
-            >
-              {step.title}
-            </h3>
-            <p
-              style={{
-                fontSize: "13px",
-                color: "rgba(255,255,255,0.45)",
-                lineHeight: 1.75,
-                margin: 0,
-              }}
-            >
-              {step.desc}
-            </p>
-            {/* Accent bottom line */}
-            <div
-              style={{
-                marginTop: "18px",
-                height: "2px",
-                borderRadius: "2px",
-                background: step.gradient,
-                opacity: 0.7,
-              }}
-            />
+          <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", position: "relative" }}>
+            {PROCESS_STEPS.map((step, i) => (
+              <div key={i} className="pstep" data-aos="fade-up" data-aos-delay={i * 120}
+                style={{ position: "relative", borderRadius: "24px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", transition: "transform 0.3s ease, box-shadow 0.3s ease", cursor: "default" }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4)` }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none" }}>
+                <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
+                  <img src={step.image} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "brightness(0.55) saturate(1.2)" }} />
+                  <div style={{ position: "absolute", top: "14px", left: "16px", fontSize: "11px", fontWeight: 800, letterSpacing: "0.1em", color: "rgba(255,255,255,0.6)", background: "rgba(0,0,0,0.25)", padding: "3px 10px", borderRadius: "99px", backdropFilter: "blur(6px)" }}>{step.num}</div>
+                  <div style={{ position: "absolute", bottom: "16px", left: "16px", width: "46px", height: "46px", borderRadius: "12px", background: "#F59B1C", border: "1px solid rgba(189,25,25,0.25)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <i className={step.icon} style={{ fontSize: "20px", color: "#fff" }} />
+                  </div>
+                </div>
+                <div style={{ padding: "22px 20px 24px" }}>
+                  <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#fff", margin: "0 0 10px", lineHeight: 1.3 }}>{step.title}</h3>
+                  <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", lineHeight: 1.75, margin: 0 }}>{step.desc}</p>
+                  <div style={{ marginTop: "18px", height: "2px", borderRadius: "2px", background: step.gradient, opacity: 0.7 }} />
+                </div>
+                {i < PROCESS_STEPS.length - 1 && (
+                  <div className="pcon" style={{ position: "absolute", right: "-14px", top: "90px", width: "28px", height: "28px", background: "var(--navy)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2 }}>
+                    <i className="ri-arrow-right-s-line" style={{ fontSize: "16px", color: step.accent }} />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-
-          {/* Connector arrow */}
-          {i < PROCESS_STEPS.length - 1 && (
-            <div
-              className="pcon"
-              style={{
-                position: "absolute",
-                right: "-14px",
-                top: "90px",
-                width: "28px",
-                height: "28px",
-                background: "var(--navy)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                zIndex: 2,
-              }}
-            >
-              <i className="ri-arrow-right-s-line" style={{ fontSize: "16px", color: step.accent }} />
-            </div>
-          )}
+          <div className="process-micro" data-aos="fade-up" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginTop: "56px", background: "rgba(0,229,212,0.06)", border: "1px solid rgba(0,229,212,0.18)", borderRadius: "99px", padding: "14px 30px", width: "fit-content", marginLeft: "auto", marginRight: "auto" }}>
+            <i className="ri-time-fill" style={{ fontSize: "16px", color: "var(--teal)" }} />
+            <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)" }}>
+              <strong style={{ color: "#fff", fontWeight: 700 }}>Most calls dispatched in under 5 minutes.</strong>{" "}Emergency calls prioritized immediately.
+            </span>
+          </div>
         </div>
-      ))}
-    </div>
-
-    {/* Bottom micro note */}
-    <div
-      className="process-micro"
-      data-aos="fade-up"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "10px",
-        marginTop: "56px",
-        background: "rgba(0,229,212,0.06)",
-        border: "1px solid rgba(0,229,212,0.18)",
-        borderRadius: "99px",
-        padding: "14px 30px",
-        width: "fit-content",
-        marginLeft: "auto",
-        marginRight: "auto",
-      }}
-    >
-      <i className="ri-time-fill" style={{ fontSize: "16px", color: "var(--teal)" }} />
-      <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)" }}>
-        <strong style={{ color: "#fff", fontWeight: 700 }}>Most calls dispatched in under 5 minutes.</strong>{" "}
-        Emergency calls prioritized immediately.
-      </span>
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* ── GALLERY ── */}
       <section className="section section-alt">
@@ -558,60 +330,10 @@ export default function Home({ h1 }) {
             <p className="ssub">Real work. Real results. Real Springfield homeowners helped.</p>
           </div>
           <div className="gallery-grid" data-aos="fade-up">
-            <div className="gitem tall">
-  <img
-    src="/drain-cleaning.jpg"
-    alt="Professional drain cleaning service Springfield MO"
-    width={600}
-    height={800}
-    loading="lazy"
-    decoding="async"
-  />
-  <div className="gover" />
-  <div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div>
-</div>
-
-<div className="gitem">
-  <img
-    src="/leak-detection-springfield-mo.webp"
-    alt="Leak detection specialist Springfield MO"
-    width={600}
-    height={400}
-    loading="lazy"
-    decoding="async"
-  />
-  <div className="gover" />
-  <div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div>
-</div>
-
-<div className="gitem">
-  <img
-    src="/water-heater-repair-springfield-mo.webp"
-    alt="Water heater repair and replacement Springfield MO"
-    width={600}
-    height={400}
-    loading="lazy"
-    decoding="async"
-  />
-  <div className="gover" />
-  <div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div>
-</div>
-
-<div className="gitem wide">
-  <img
-    src="/sewer-line-repair-springfield-mo.webp"
-    alt="Sewer line repair Springfield MO licensed plumber"
-    width={900}
-    height={400}
-    loading="lazy"
-    decoding="async"
-  />
-  <div className="gover" />
-  <div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div>
-</div>
- 
-
- 
+            <div className="gitem tall"><img src="/drain-cleaning.jpg" alt="Professional drain cleaning service Springfield MO" width={600} height={800} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div></div>
+            <div className="gitem"><img src="/leak-detection-springfield-mo.webp" alt="Leak detection specialist Springfield MO" width={600} height={400} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div></div>
+            <div className="gitem"><img src="/water-heater-repair-springfield-mo.webp" alt="Water heater repair and replacement Springfield MO" width={600} height={400} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div></div>
+            <div className="gitem wide"><img src="/sewer-line-repair-springfield-mo.webp" alt="Sewer line repair Springfield MO licensed plumber" width={900} height={400} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div></div>
           </div>
         </div>
       </section>
@@ -650,65 +372,170 @@ export default function Home({ h1 }) {
         </div>
       </section>
 
-      {/* ── AREAS + MAP ── */}
-      <section style={{ padding: 0 }}>
-        <div className="am-grid">
-          <div className="am-list" data-aos="fl">
-            <div className="stag">{SECTION_COPY.areas.tag}</div>
-            <h2 className="sh">{SECTION_COPY.areas.h2} <em>{SECTION_COPY.areas.h2_em}</em></h2>
-            <p className="ssub" style={{ maxWidth: '100%', marginBottom: 0 }}>{SECTION_COPY.areas.body}</p>
-            <div className="am-chips">
-              {SERVICE_AREAS.map((a, i) => (
-                <Link key={i} href="/service-areas" className="achip">
-                  <div className="achip-l"><i className="ri-map-pin-fill" />{a.name}{a.label && ` — ${a.label}`}</div>
-                  <i className="ri-arrow-right-s-line" />
-                </Link>
-              ))}
-            </div>
-            <div style={{ marginTop: 28 }}>
-              <Link href="/service-areas" className="btn-primary" style={{ display: 'inline-flex' }}>
-                <i className="ri-map-pin-fill" />View All Service Areas
-              </Link>
-            </div>
-          </div>
-          <div className="am-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105055.62!2d-93.3720556!3d37.215259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf62f0f9116cbb%3A0x62c14e0e4d9ed5e4!2sSpringfield%2C%20MO!5e0!3m2!1sen!2sus!4v1710000000000" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Emergency Plumber Springfield MO" style={{ width: '100%', height: '100%', minHeight: 540, border: 'none', filter: 'hue-rotate(180deg) saturate(1.2) brightness(0.65)' }} />
-            <div className="map-card1"><div className="mc-title"><i className="ri-map-pin-2-fill" />Springfield Emergency Plumbing</div><div className="mc-row"><i className="ri-time-fill" />Open 24/7 · 365 Days a Year</div><div className="mc-row"><i className="ri-phone-fill" />{CONTACT_INFO.phone}</div></div>
-            <div className="map-avail"><span className="map-avail-dot" />Plumbers Available Now — Ready to Dispatch</div>
-            <div className="map-rating-badge"><div className="stars">★★★★★</div><div className="score">4.8/5</div><div className="sub">Springfield, MO</div></div>
-          </div>
-        </div>
-      </section>
+       {/* ── AREAS + MAP (MERGED WITH CITIES) ── */}
+<section style={{ padding: 0 }}>
+  <div className="am-grid">
 
-      {/* ── FAQ ── */}
-      <section className="section section-alt">
-        <div className="container">
-          <div className="faq-layout">
-            <div data-aos="fl">
-              <div className="stag">{SECTION_COPY.faq.tag}</div>
-              <h2 className="sh">{SECTION_COPY.faq.h2} <em>{SECTION_COPY.faq.h2_em}</em></h2>
-              <p className="ssub" style={{ maxWidth: '100%', marginBottom: 32 }}>{SECTION_COPY.faq.body}</p>
-              <a href={CONTACT_INFO.phoneHref} className="btn-primary" style={{ display: 'inline-flex' }}>
-                <i className="ri-phone-fill" />{SECTION_COPY.faq.cta}
-              </a>
-              <div style={{ marginTop: 36 }}>
-                 <img
-  src="\springfield plumber.webp"
-  alt="Licensed emergency plumber in Springfield MO fixing residential plumbing system"
-  loading="lazy"
-  width="500"
-  height="260"
-  style={{
-    width: '100%',
-    height: '260px',
-    objectFit: 'cover',
-    borderRadius: 'var(--rlg)',
-    opacity: 0.65,
-  }}
-/>
+    {/* LEFT SIDE (CONTENT + CITIES) */}
+    <div className="am-list" data-aos="fl">
+      <div className="stag">{SECTION_COPY.areas.tag}</div>
+      <h2 className="sh">
+        {SECTION_COPY.areas.h2} <em>{SECTION_COPY.areas.h2_em}</em>
+      </h2>
+
+      <p className="ssub" style={{ maxWidth: '100%' }}>
+        {SECTION_COPY.areas.body}
+      </p>
+
+      {/* ✅ CITY GRID (MOVED HERE) */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        gap: 12,
+        marginTop: 24,
+        marginBottom: 24
+      }}>
+        {CITIES.map(city => (
+          <Link
+            key={city.slug}
+            href={city.slug}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              background: 'var(--card)',
+              border: '1px solid rgba(255,255,255,0.07)',
+              padding: '16px 18px',
+              textDecoration: 'none',
+              transition: 'var(--t)'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'var(--gold)'
+              e.currentTarget.style.background = 'rgba(212,169,65,0.06)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
+              e.currentTarget.style.background = 'var(--card)'
+            }}
+          >
+            <span style={{
+              width: 36,
+              height: 36,
+              background: 'rgba(212,169,65,0.12)',
+              border: '1px solid rgba(212,169,65,0.25)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
+            }}>
+              <i className={city.icon} style={{ color: 'var(--gold)', fontSize: 16 }} />
+            </span>
+
+            <div style={{ flex: 1 }}>
+              <div style={{
+                fontFamily: "'Syne', sans-serif",
+                fontWeight: 700,
+                fontSize: 13,
+                color: '#fff',
+                lineHeight: 1.3
+              }}>
+                {city.name}
+              </div>
+              <div style={{
+                fontSize: 11,
+                color: 'var(--text-dimmer)',
+                marginTop: 2
+              }}>
+                {city.label}
               </div>
             </div>
-            <div data-aos="fr"><FAQAccordion faqs={FAQS} /></div>
+
+            <i className="ri-arrow-right-s-line"
+              style={{ color: 'var(--text-dimmer)', fontSize: 16, flexShrink: 0 }}
+            />
+          </Link>
+        ))}
+      </div>
+
+      {/* BUTTON */}
+      <div>
+        <Link href="/service-areas" className="btn-primary" style={{ display: 'inline-flex' }}>
+          <i className="ri-map-pin-fill" />View All Service Areas
+        </Link>
+      </div>
+    </div>
+
+    {/* RIGHT SIDE (MAP — UNCHANGED) */}
+    <div className="am-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105055.62!2d-93.3720556!3d37.215259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf62f0f9116cbb%3A0x62c14e0e4d9ed5e4!2sSpringfield%2C%20MO!5e0!3m2!1sen!2sus!4v1710000000000"
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Emergency Plumber Springfield MO"
+        style={{
+          width: '100%',
+          height: '100%',
+          minHeight: 540,
+          border: 'none',
+          filter: 'hue-rotate(180deg) saturate(1.2) brightness(0.65)'
+        }}
+      />
+
+      <div className="map-card1">
+        <div className="mc-title">
+          <i className="ri-map-pin-2-fill" />
+          Springfield Emergency Plumbing
+        </div>
+        <div className="mc-row">
+          <i className="ri-time-fill" />
+          Open 24/7 · 365 Days a Year
+        </div>
+        <div className="mc-row">
+          <i className="ri-phone-fill" />
+          {CONTACT_INFO.phone}
+        </div>
+      </div>
+
+      <div className="map-avail">
+        <span className="map-avail-dot" />
+        Plumbers Available Now — Ready to Dispatch
+      </div>
+
+      <div className="map-rating-badge">
+        <div className="stars">★★★★★</div>
+        <div className="score">4.8/5</div>
+        <div className="sub">Springfield, MO</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+       
+      {/* ── FULL INTERNAL LINKS FOOTER ── */}
+      <section className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
+        <div className="container">
+          <div className="ilinks-section">
+            <div className="ilinks-title">Quick Links — Springfield MO Plumbing Services &amp; Areas</div>
+            <div className="ilinks-grid">
+              <Link className="ilink" href="/"><i className="ri-home-4-fill" />Home</Link>
+              <Link className="ilink" href="/services"><i className="ri-apps-fill" />All Plumbing Services</Link>
+              {SERVICES.map(s => (
+                <Link key={s.id} className="ilink" href={s.slug}><i className={s.icon} />{s.name} Springfield MO</Link>
+              ))}
+              <Link className="ilink" href="/service-areas"><i className="ri-map-fill" />All Service Areas</Link>
+              {CITIES.map(c => (
+                <Link key={c.slug} className="ilink" href={c.slug}><i className="ri-map-pin-fill" />Plumber in {c.name}</Link>
+              ))}
+              <Link className="ilink" href="/blog"><i className="ri-article-fill" />Plumbing Blog &amp; Tips</Link>
+              {BLOG_POSTS.map(p => (
+                <Link key={p.slug} className="ilink" href={p.slug}><i className="ri-file-text-fill" />{p.title}</Link>
+              ))}
+              <Link className="ilink" href="/about"><i className="ri-information-fill" />About Our Company</Link>
+              <Link className="ilink" href="/faq"><i className="ri-question-fill" />FAQ</Link>
+              <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Free Estimate — Contact Us</Link>
+            </div>
           </div>
         </div>
       </section>

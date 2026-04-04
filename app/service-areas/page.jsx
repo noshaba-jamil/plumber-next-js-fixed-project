@@ -33,7 +33,7 @@ export const metadata = {
     ...meta,
     title: 'Plumber Springfield MO & Nearby Cities | Nixa, Ozark, Republic',
     description: 'Professional plumbing in Springfield MO and surrounding cities. Emergency plumbing, drain cleaning, water heater repair. Serving Nixa, Ozark, Republic, Battlefield, Willard, Rogersville & Strafford.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
+    image: '/emergencyplumber.webp',
   }),
   twitter: buildTwitterCard({
     ...meta,

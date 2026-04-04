@@ -13,7 +13,24 @@ const BLOG_SLUGS = [
   { slug: 'sewer-line-repair-vs-replacement-springfield-mo',  date: '2024-07-01' },
   { slug: 'leak-detection-springfield-mo-guide',              date: '2024-06-15' },
 ]
+// Individual service area city URLs
+const cityPages = [
+  'springfield-mo',
+  'nixa-mo', 
+  'ozark-mo',
+  'republic-battlefield-mo',
+  'willard-mo',
+  'rogersville-mo',
+  'strafford-mo',
+  'clever-billings-mo',
+].map(city => ({
+  url: `${SITE_URL}/service-areas/${city}`,
+  priority: 0.75,
+  changeFrequency: 'monthly',
+  lastModified: now,
+}))
 
+return [...staticPages, ...blogPages, ...cityPages]
 export default function sitemap() {
   const now = new Date()
 
@@ -41,5 +58,5 @@ export default function sitemap() {
     lastModified: new Date(date),
   }))
 
-  return [...staticPages, ...blogPages]
+  return [...staticPages, ...blogPages, ...cityPages]
 }
