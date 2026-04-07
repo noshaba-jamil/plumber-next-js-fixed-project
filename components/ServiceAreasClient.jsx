@@ -80,7 +80,7 @@ const AREA_DETAILS = [
   {
     name: 'Springfield, MO', slug: 'springfield-mo', label: 'Primary Service Area',
     population: '~170,000', distance: 'Home Base from Springfield', zipCodes: '65801, 65802, 65803, 65804, 65806, 65807',
-    image: '/springfield.webp',
+    image: '/Springfield.webp',
     imgAlt: 'Plumber performing emergency plumbing repair in Springfield Missouri home',
     imgTitle: 'Professional Plumbing Services in Springfield, MO',
     h3: 'Plumbing Services in Springfield, MO',
@@ -120,7 +120,7 @@ const AREA_DETAILS = [
   {
     name: 'Willard, MO', slug: 'willard-mo', label: '',
     population: '~6,000', distance: '~13 miles NW from Springfield', zipCodes: '65781',
-    image: '/Willard Missouri home.webp',
+    image: '/WillardMissourihome.webp',
     imgAlt: 'Leak detection specialist inspecting pipes in Willard Missouri home',
     imgTitle: 'Leak Detection and Plumbing Services in Willard, MO',
     h3: 'Plumbing Services in Willard, MO',
@@ -140,7 +140,7 @@ const AREA_DETAILS = [
   {
     name: 'Strafford, MO', slug: 'strafford-mo', label: '',
     population: '~2,500', distance: '~15 miles NE from Springfield', zipCodes: '65757',
-    image: '/Strafford Missouri.webp',
+    image: '/StraffordMissouri.webp',
     imgAlt: 'Plumbing inspection and pipe installation in Strafford Missouri',
     imgTitle: 'Pipe Installation and Plumbing Inspection in Strafford, MO',
     h3: 'Plumbing Services in Strafford, MO',
@@ -150,7 +150,7 @@ const AREA_DETAILS = [
   {
     name: 'Clever & Billings, MO', slug: 'clever-billings-mo', label: '',
     population: '~2,000+', distance: '~20 miles SW from Springfield', zipCodes: '65631, 65610',
-    image: '/Billings Missouri.webp',
+    image: '/BillingsMissouri.webp',
     imgAlt: 'Emergency plumbing repair service in Clever and Billings Missouri',
     imgTitle: 'Emergency Plumbing and Drain Cleaning in Clever and Billings, MO',
     h3: 'Plumbing Services in Clever & Billings, MO',

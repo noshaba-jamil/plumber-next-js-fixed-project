@@ -27,7 +27,7 @@ export const metadata = {
     '24/7 emergency plumbing Springfield',
   ].join(', '),
   alternates: {
-    canonical: meta.canonical || 'https://yoursite.com/service-areas',
+    canonical: meta.canonical || 'https://springfieldmoplumber.com/service-areas',
   },
   openGraph: buildOpenGraph({
     ...meta,
@@ -66,12 +66,12 @@ export default function ServiceAreasPage() {
     "@type": "WebPage",
     "name": "Plumbing Service Areas — Springfield MO & Surrounding Cities",
     "description": "Licensed plumbers serving Springfield, Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever and Billings Missouri.",
-    "url": "https://yoursite.com/service-areas",
+    "url": "https://www.springfieldmoplumber.com//service-areas",
     "inLanguage": "en-US",
     "isPartOf": {
       "@type": "WebSite",
       "name": "Springfield Plumbing",
-      "url": "https://yoursite.com"
+      "url": "https://www.springfieldmoplumber.com/"
     },
     "breadcrumb": breadcrumb,
     "speakable": {
