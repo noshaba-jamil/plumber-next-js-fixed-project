@@ -1,4 +1,6 @@
- const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com/'
+ // app/sitemap.js
+
+const SITE_URL = 'https://www.springfieldmoplumber.com'  // ✅ NO trailing slash
 
 const BLOG_SLUGS = [
   { slug: 'how-much-does-a-plumber-cost-springfield-mo',      date: '2024-11-01' },
@@ -16,25 +18,8 @@ const BLOG_SLUGS = [
 export default function sitemap() {
   const now = new Date()
 
-  // ✅ cityPages moved INSIDE the function so 'now' is accessible
-  const cityPages = [
-    'springfield-mo',
-    'nixa-mo',
-    'ozark-mo',
-    'republic-battlefield-mo',
-    'willard-mo',
-    'rogersville-mo',
-    'strafford-mo',
-    'clever-billings-mo',
-  ].map(city => ({
-    url: `${SITE_URL}/service-areas/${city}`,
-    priority: 0.75,
-    changeFrequency: 'monthly',
-    lastModified: now,
-  }))
-
   const staticPages = [
-    { url: SITE_URL,                                                   priority: 1.0,  changeFrequency: 'weekly',  lastModified: now },
+    { url: `${SITE_URL}`,                                              priority: 1.0,  changeFrequency: 'weekly',  lastModified: now },
     { url: `${SITE_URL}/services`,                                     priority: 0.9,  changeFrequency: 'weekly',  lastModified: now },
     { url: `${SITE_URL}/emergency-plumber-springfield-mo`,             priority: 0.95, changeFrequency: 'weekly',  lastModified: now },
     { url: `${SITE_URL}/drain-cleaning-springfield-mo`,                priority: 0.85, changeFrequency: 'weekly',  lastModified: now },
@@ -54,6 +39,22 @@ export default function sitemap() {
     priority: 0.6,
     changeFrequency: 'monthly',
     lastModified: new Date(date),
+  }))
+
+  const cityPages = [
+    'springfield-mo',
+    'nixa-mo',
+    'ozark-mo',
+    'republic-battlefield-mo',
+    'willard-mo',
+    'rogersville-mo',
+    'strafford-mo',
+    'clever-billings-mo',
+  ].map(city => ({
+    url: `${SITE_URL}/service-areas/${city}`,
+    priority: 0.75,
+    changeFrequency: 'monthly',
+    lastModified: now,
   }))
 
   return [...staticPages, ...blogPages, ...cityPages]

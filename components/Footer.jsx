@@ -20,10 +20,19 @@ export default function Footer() {
             </Link>
             <p>Licensed emergency plumber in Springfield MO — answering every call 24/7. No hidden fees. Upfront pricing. Trusted by homeowners across Springfield, Nixa, Ozark, Republic and Battlefield, MO.</p>
             <div className="ft-socials">
-              <a href="#" aria-label="Facebook"><i className="ri-facebook-fill" /></a>
-              <a href="#" aria-label="Google"><i className="ri-google-fill" /></a>
-              <a href="#" aria-label="Instagram"><i className="ri-instagram-line" /></a>
-              <a href="#" aria-label="Yelp"><i className="ri-star-fill" /></a>
+               
+
+<a href="#" target="_blank" rel="noopener noreferrer" aria-label="Google">
+  <i className="ri-google-fill" />
+</a>
+
+<a href="https://www.instagram.com/plumberspringfieldmo?igsh=N2xuOTZ1ZXk5dnVo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+  <i className="ri-instagram-line" />
+</a>
+
+<a href="#" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+  <i className="ri-star-fill" />
+</a>
             </div>
             {/* Emergency strip */}
             <a href={CONTACT_INFO.phoneHref} className="ft-emergency">
@@ -59,7 +68,16 @@ export default function Footer() {
             <h5>Contact</h5>
             <div className="fci2"><i className="ri-phone-fill"/><a href={CONTACT_INFO.phoneHref}>{CONTACT_INFO.phone}</a></div>
             <div className="fci2"><i className="ri-mail-fill"/><a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a></div>
-            <div className="fci2"><i className="ri-map-pin-fill"/><span>Springfield, MO — Nixa, Ozark, Republic, Battlefield</span></div>
+            <div className="fci2"><i className="ri-map-pin-fill"/><span>Springfield ,MO
+Nixa, MO
+Ozark, MO
+Republic, MO
+Battlefield, MO
+Willard, MO
+Rogersville, MO
+Strafford, MO
+Clever, MO
+</span></div>
             <div className="fci2"><i className="ri-map-pin-fill"/><span>220 S Campbell Avenue, Springfield, MO 65806</span></div>
             <div className="fci2"><i className="ri-time-fill"/><span>24/7 — Real Person Answers Every Call</span></div>
           </div>
@@ -69,7 +87,7 @@ export default function Footer() {
 
       <div className="ft-bot">
         <div className="ft-bot-in">
-          <p>© 2026  Springfield Mo Plumber · <strong>Emergency Plumber Springfield MO</strong> · All Rights Reserved</p>
+          <p>© 2026  Springfield Mo Plumber·<strong>Emergency Plumber Springfield MO</strong> · All Rights Reserved</p>
           <div className="ft-badges">
             <span className="ftb"><i className="ri-shield-check-fill"/>Licensed &amp; Insured</span>
             <span className="ftb"><i className="ri-star-fill"/>4.8★ Google</span>

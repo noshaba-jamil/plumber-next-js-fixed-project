@@ -189,7 +189,7 @@ export const FAQS = [
 export const CONTACT_INFO = {
   phone: '+1 (417) 373-4862',
   phoneHref: 'tel:+14173734862',
-  email: ' nosmal1083@gmail.com',
+  email: 'springfieldmoplumber@gmail.com',
   location: '220 S Campbell Avenue, Springfield, MO 65806',
   hours: '24/7 — We Answer Every Call',
 }

@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://springfieldmoplumber.com/'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://springfieldmoplumber.com'
 
 export default function robots() {
   return {
