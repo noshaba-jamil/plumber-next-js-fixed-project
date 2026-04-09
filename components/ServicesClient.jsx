@@ -10,7 +10,7 @@ export default function Services() {
   return (
     <>
       <PageHero
-        image="/plummingservice.webp"
+        image="/plumingservice.webp"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
         h1="Professional Plumbing Services in Springfield MO"
         subtitle="Keeping your plumbing system in good condition is essential for the comfort and safety of your home. Our professional plumbing services in Springfield MO provide reliable solutions for residential and commercial properties."
