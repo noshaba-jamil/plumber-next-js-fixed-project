@@ -337,40 +337,55 @@ export default function Home({ h1 }) {
           </div>
         </div>
       </section>
+ 
 
-      {/* ── REVIEWS ── */}
-      <section className="section">
-        <div className="container">
-          <div className="sec-center" data-aos="fade-up">
-            <div className="stag">{SECTION_COPY.reviews.tag}</div>
-            <h2 className="sh">{SECTION_COPY.reviews.h2} <em>{SECTION_COPY.reviews.h2_em}</em></h2>
-            <p className="ssub">{SECTION_COPY.reviews.body}</p>
-          </div>
-          <div className="rev-top" data-aos="zi">
-            <div className="rev-score">4.8</div>
-            <div><div className="rev-stars-big">★★★★★</div><div className="rev-cnt">{SECTION_COPY.reviews.platform}</div></div>
-            <div className="rev-div" />
-            <div className="rev-platform"><i className="ri-google-fill" />Google Business Profile</div>
-          </div>
-          <div className="rev-grid">
-            {REVIEWS.slice(0, 3).map((r, i) => (
-              <div key={i} className="rcard" data-aos="fade-up" data-aos-delay={i * 100}>
-                <span className="qmark">"</span>
-                <div className="stars">{'★'.repeat(r.rating)}</div>
-                <p className="quote">{r.text}</p>
-                <div className="author">
-                  <div className="avatar">{r.initials}</div>
-                  <div><div className="aname">{r.name}</div><div className="asrc">{r.service}</div></div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="reviews-trust-footer">
-            <i className="ri-verified-badge-fill" />
-            <span>All reviews are from verified Google customers in Springfield MO — we never fabricate testimonials.</span>
+
+
+
+            {/* ── REVIEWS ── 
+<section className="section">
+  <div className="container">
+    <div className="sec-center" data-aos="fade-up">
+      <div className="stag">{SECTION_COPY.reviews.tag}</div>
+      <h2 className="sh">{SECTION_COPY.reviews.h2} <em>{SECTION_COPY.reviews.h2_em}</em></h2>
+      <p className="ssub">{SECTION_COPY.reviews.body}</p>
+    </div>
+    <div className="rev-top" data-aos="zi">
+      <div className="rev-score">4.8</div>
+      <div>
+        <div className="rev-stars-big">★★★★★</div>
+        <div className="rev-cnt">{SECTION_COPY.reviews.platform}</div>
+      </div>
+      <div className="rev-div" />
+      <div className="rev-platform">
+        <i className="ri-google-fill" />Google Business Profile
+      </div>
+    </div>
+    <div className="rev-grid">
+      {REVIEWS.slice(0, 3).map((r, i) => (
+        <div key={i} className="rcard" data-aos="fade-up" data-aos-delay={i * 100}>
+          <span className="qmark">"</span>
+          <div className="stars">{'★'.repeat(r.rating)}</div>
+          <p className="quote">{r.text}</p>
+          <div className="author">
+            <div className="avatar">{r.initials}</div>
+            <div>
+              <div className="aname">{r.name}</div>
+              <div className="asrc">{r.service}</div>
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+    <div className="reviews-trust-footer">
+      <i className="ri-verified-badge-fill" />
+      <span>
+        All reviews are from verified Google customers in Springfield MO — we never fabricate testimonials.
+      </span>
+    </div>
+  </div>
+</section>
+*/}
 
        {/* ── AREAS + MAP (MERGED WITH CITIES) ── */}
 <section style={{ padding: 0 }}>
@@ -386,6 +401,9 @@ export default function Home({ h1 }) {
       <p className="ssub" style={{ maxWidth: '100%' }}>
         {SECTION_COPY.areas.body}
       </p>
+
+
+      
 
       {/* ✅ CITY GRID (MOVED HERE) */}
       <div style={{
