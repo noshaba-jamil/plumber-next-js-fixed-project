@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+ import { Inter } from 'next/font/google'
 import { BASE_METADATA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA } from '@/lib/seo'
 import SiteShell from '@/components/SiteShell'
 import '@/styles/global.css'
@@ -17,16 +17,24 @@ export const metadata = {
     template: '%s | Springfield Emergency Plumbing',
   },
   description: 'Licensed emergency plumber in Springfield MO. 24/7 fast response for burst pipes, leaks & drain issues. No hidden fees. Call now: +1 (417) 373-4862.',
+  // ✅ ADD THIS — canonical for homepage
+  alternates: {
+    canonical: 'https://www.springfieldmoplumber.com',
+  },
+  // ✅ ADD THIS — tells Google your base URL
+  metadataBase: new URL('https://www.springfieldmoplumber.com'),
 }
 
 export default function RootLayout({ children }) {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://springfieldmoplumber.com'
+  // ✅ FIXED — fallback now has www
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com'
   const GA_ID    = process.env.NEXT_PUBLIC_GA_ID    || ''
   const GTM_ID   = process.env.NEXT_PUBLIC_GTM_ID   || ''
 
   return (
     <html lang="en" className={inter.variable}>
       <head>
+
         {/* ── PRECONNECTS (performance) ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -73,7 +81,6 @@ export default function RootLayout({ children }) {
             <script
               dangerouslySetInnerHTML={{
                 __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{send_page_view:true});
-// Track phone clicks
 document.addEventListener('click',function(e){
   const a=e.target.closest('a[href^="tel:"]');
   if(a)gtag('event','phone_click',{event_category:'engagement',event_label:a.href});
@@ -84,7 +91,6 @@ document.addEventListener('click',function(e){
         )}
       </head>
       <body>
-        {/* GTM noscript */}
         {GTM_ID && (
           <noscript>
             <iframe
@@ -94,7 +100,6 @@ document.addEventListener('click',function(e){
             />
           </noscript>
         )}
-
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
