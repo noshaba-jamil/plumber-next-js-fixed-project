@@ -1,16 +1,17 @@
-/** @type {import('next').NextConfig} */
+ /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Security headers — fixes ALL 4 Screaming Frog security warnings
+
+  // ── SECURITY HEADERS ──────────────────────────────────────────
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
-          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-XSS-Protection', value: '1; mode=block' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          { key: 'X-Frame-Options',           value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options',     value: 'nosniff' },
+          { key: 'X-XSS-Protection',           value: '1; mode=block' },
+          { key: 'Referrer-Policy',            value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy',         value: 'camera=(), microphone=(), geolocation=()' },
           {
             key: 'Content-Security-Policy',
             value: [
@@ -19,7 +20,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
               "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net",
               "img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com",
-              "connect-src 'self' https://www.google-analytics.com",
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
               "frame-src https://www.google.com",
             ].join('; '),
           },
@@ -28,9 +29,19 @@ const nextConfig = {
     ]
   },
 
-  // Redirects — 301 from www to non-www
+  // ── REDIRECTS ─────────────────────────────────────────────────
   async redirects() {
     return [
+      // ✅ FIX 1 — Force non-www → www (permanent 301)
+      // This makes Google pick ONE canonical version of your site
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'springfieldmoplumber.com' }],
+        destination: 'https://www.springfieldmoplumber.com/:path*',
+        permanent: true,
+      },
+
+      // ✅ FIX 2 — Keep your existing /index redirect
       {
         source: '/index',
         destination: '/',
@@ -39,16 +50,14 @@ const nextConfig = {
     ]
   },
 
+  // ── IMAGES ───────────────────────────────────────────────────
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
     ],
   },
 
-  // Compress output
-  compress: true,
-
-  // Power powered-by header removal (security)
+  compress:       true,
   poweredByHeader: false,
 }
 

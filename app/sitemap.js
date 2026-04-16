@@ -3,16 +3,16 @@
 const SITE_URL = 'https://www.springfieldmoplumber.com'  // ✅ NO trailing slash
 
 const BLOG_SLUGS = [
-  { slug: 'how-much-does-a-plumber-cost-springfield-mo',      date: '2024-11-01' },
-  { slug: 'best-plumber-near-me-springfield-mo',              date: '2024-10-15' },
-  { slug: 'plumber-open-24-hours-springfield-missouri',       date: '2024-10-01' },
-  { slug: 'how-to-fix-burst-pipe-springfield-mo',             date: '2024-09-15' },
-  { slug: 'emergency-plumbing-cost-springfield-mo',           date: '2024-09-01' },
-  { slug: 'signs-you-need-drain-cleaning-springfield-mo',     date: '2024-08-15' },
-  { slug: 'water-heater-not-working-springfield-mo',          date: '2024-08-01' },
-  { slug: 'how-to-prevent-frozen-pipes-springfield-mo',       date: '2024-07-15' },
-  { slug: 'sewer-line-repair-vs-replacement-springfield-mo',  date: '2024-07-01' },
-  { slug: 'leak-detection-springfield-mo-guide',              date: '2024-06-15' },
+  { slug: 'how-much-does-a-plumber-cost-springfield-mo',      date: '2026-02-01' },
+  { slug: 'best-plumber-near-me-springfield-mo',              date: '2026-03-15' },
+  { slug: 'plumber-open-24-hours-springfield-missouri',       date: '2026-03-01' },
+  { slug: 'how-to-fix-burst-pipe-springfield-mo',             date: '2026-03-15' },
+  { slug: 'emergency-plumbing-cost-springfield-mo',           date: '2026-03-01' },
+  { slug: 'signs-you-need-drain-cleaning-springfield-mo',     date: '2026-03-15' },
+  { slug: 'water-heater-not-working-springfield-mo',          date: '2026-03-01' },
+  { slug: 'how-to-prevent-frozen-pipes-springfield-mo',       date: '2026-03-15' },
+  { slug: 'sewer-line-repair-vs-replacement-springfield-mo',  date: '2026-04-01' },
+  { slug: 'leak-detection-springfield-mo-guide',              date: '2026-04-15' },
 ]
 
 export default function sitemap() {
@@ -34,12 +34,12 @@ export default function sitemap() {
     { url: `${SITE_URL}/blog`,                                         priority: 0.7,  changeFrequency: 'weekly',  lastModified: now },
   ]
 
-  const blogPages = BLOG_SLUGS.map(({ slug, date }) => ({
-    url: `${SITE_URL}/blog/${slug}`,
-    priority: 0.6,
-    changeFrequency: 'monthly',
-    lastModified: new Date(date),
-  }))
+   const blogPages = BLOG_SLUGS.map(({ slug, date }) => ({
+  url: `${SITE_URL}/blog/${slug}`,
+  priority: 0.8,
+  changeFrequency: 'weekly',
+  lastModified: new Date(date),
+}))
 
   const cityPages = [
     'springfield-mo',
