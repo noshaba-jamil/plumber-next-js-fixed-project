@@ -22,16 +22,24 @@ export default function Footer() {
             <div className="ft-socials">
                
 
-<a href="#" target="_blank" rel="noopener noreferrer" aria-label="Google">
-  <i className="ri-google-fill" />
+ <a href="https://www.facebook.com/springfieldmoplumber" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+  <i className="ri-facebook-fill" />
 </a>
 
-<a href="https://www.instagram.com/plumberspringfieldmo?igsh=N2xuOTZ1ZXk5dnVo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<a href="https://www.instagram.com/plumberspringfieldmo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
   <i className="ri-instagram-line" />
 </a>
 
-<a href="#" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
-  <i className="ri-star-fill" />
+<a href="https://www.linkedin.com/company/springfieldmoplumber" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+  <i className="ri-linkedin-fill" />
+</a>
+
+<a href="https://www.pinterest.com/springfieldmoplumber" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+  <i className="ri-pinterest-fill" />
+</a>
+
+<a href="https://www.youtube.com/@springfieldmoplumber" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+  <i className="ri-youtube-fill" />
 </a>
             </div>
             {/* Emergency strip */}
