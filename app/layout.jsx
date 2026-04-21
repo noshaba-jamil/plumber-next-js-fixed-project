@@ -18,9 +18,7 @@ export const metadata = {
   },
   description: 'Licensed emergency plumber in Springfield MO. 24/7 fast response for burst pipes, leaks & drain issues. No hidden fees. Call now: +1 (417) 373-4862.',
   // ✅ ADD THIS — canonical for homepage
-  alternates: {
-    canonical: 'https://www.springfieldmoplumber.com',
-  },
+   
   // ✅ ADD THIS — tells Google your base URL
   metadataBase: new URL('https://www.springfieldmoplumber.com'),
 }
