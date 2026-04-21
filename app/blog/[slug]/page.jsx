@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 
 export const dynamic = 'force-static'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://plumberspringfieldmo.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com'
 
 // Static generation — pre-render all blog posts at build time
 export async function generateStaticParams() {
