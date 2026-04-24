@@ -1,52 +1,29 @@
-/** @type {import('next').NextConfig} */
+ /** @type {import('next').NextConfig} */
 const nextConfig = {
 
-  // ── SECURITY HEADERS ──────────────────────────────────────────
   async headers() {
     return [
-      // ✅ NEW — Allow OG image to be fetched by Facebook, Twitter, Google
+      // ✅ Allow OG images to be fetched by anyone
       {
-        source: '/og-image.png',
-        headers: [
-          { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Cache-Control', value: 'public, max-age=86400' },
-        ],
+        source: '/:path*.jpg',
+        headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
       },
-      // ✅ NEW — same for .png version
       {
-        source: '/og-image.png',
-        headers: [
-          { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Cache-Control', value: 'public, max-age=86400' },
-        ],
+        source: '/:path*.png',
+        headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
       },
       {
         source: '/(.*)',
         headers: [
-          { key: 'X-Frame-Options',           value: 'SAMEORIGIN' },
-          { key: 'X-Content-Type-Options',     value: 'nosniff' },
-          { key: 'X-XSS-Protection',           value: '1; mode=block' },
-          { key: 'Referrer-Policy',            value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy',         value: 'camera=(), microphone=(), geolocation=()' },
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com https://fonts.googleapis.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
-              "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net",
-              // ✅ FIXED — added blob: for images
-              "img-src 'self' data: blob: https://images.unsplash.com https://www.google-analytics.com",
-              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
-              "frame-src https://www.google.com",
-            ].join('; '),
-          },
+          { key: 'X-Frame-Options',       value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy',        value: 'strict-origin-when-cross-origin' },
+          // ✅ REMOVED strict CSP — was blocking Facebook, Twitter, Google bots
         ],
       },
     ]
   },
 
-  // ── REDIRECTS ─────────────────────────────────────────────────
   async redirects() {
     return [
       {
@@ -63,7 +40,6 @@ const nextConfig = {
     ]
   },
 
-  // ── IMAGES ───────────────────────────────────────────────────
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
