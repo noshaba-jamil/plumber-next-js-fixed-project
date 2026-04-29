@@ -3,7 +3,6 @@ const nextConfig = {
 
   async headers() {
     return [
-      // ✅ Allow OG images to be fetched by anyone
       {
         source: '/:path*.jpg',
         headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
@@ -15,10 +14,9 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: [
-          { key: 'X-Frame-Options',       value: 'SAMEORIGIN' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy',        value: 'strict-origin-when-cross-origin' },
-          // ✅ REMOVED strict CSP — was blocking Facebook, Twitter, Google bots
+          { key: 'X-Frame-Options',        value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options',  value: 'nosniff' },
+          { key: 'Referrer-Policy',         value: 'strict-origin-when-cross-origin' },
         ],
       },
     ]
@@ -41,6 +39,10 @@ const nextConfig = {
   },
 
   images: {
+    // ✅ ADDED: auto-convert to AVIF then WebP (huge size savings)
+    formats: ['image/avif', 'image/webp'],
+    // ✅ ADDED: cache optimized images for 60 days
+    minimumCacheTTL: 60 * 60 * 24 * 60,
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
     ],

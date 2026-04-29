@@ -1,0 +1,233 @@
+[33mcommit e9ff874483f33a82e4c7319c5fa054f563000063[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Wed Apr 29 07:59:26 2026 -0700
+
+    perf: optimize fonts, scripts, images for Core Web Vitals
+
+[33mcommit 856b5e4911f4413d48d967808b8a2d43abbbacfe[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Wed Apr 29 07:38:48 2026 -0700
+
+    perf: optimize fonts, scripts, images for Core Web Vitals
+
+[33mcommit ebb3615272f98578a2729db8ccf2b4ceb4c3b1e9[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Fri Apr 24 05:20:47 2026 -0700
+
+    Remove strict CSP - fix Facebook bot 403 error
+
+[33mcommit f868f2c096e9d554d549dc37a39843a3c1a0deed[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Fri Apr 24 05:06:43 2026 -0700
+
+    Allow Facebook and Twitter bots
+
+[33mcommit 63808f5685a336cf2d00a20876663ca464e4c98e[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Fri Apr 24 05:00:57 2026 -0700
+
+    Fix WEBSITE_SCHEMA - remove broken SearchAction
+
+[33mcommit ed13cec872f1b369b02cb8c22c12906fd37bb0c9[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Fri Apr 24 04:48:09 2026 -0700
+
+    Fix OG image access for Facebook scraper
+
+[33mcommit 906e39b791690e309c1f9d730c563fbd8e3bc93a[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Fri Apr 24 04:39:34 2026 -0700
+
+    og fixes
+
+[33mcommit a7c2cc8e7d269904e20cc6cc2db8a8cb059bddef[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Tue Apr 21 07:54:40 2026 -0700
+
+    Fix blog canonical URLs - wrong domain in fallback
+
+[33mcommit cf2c359b69fb83e1f4c49f8fb86743cd4061201a[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Tue Apr 21 03:27:12 2026 -0700
+
+    Day 2 - Add meta descriptions and canonical tags to all pages
+
+[33mcommit 1f08220ea9cca46db3eba1766ef1cf4acdf5cf6e[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Mon Apr 20 08:17:01 2026 -0700
+
+    schema fixed
+
+[33mcommit a3d15c2379c668d677e140e51ba1047a2b5da770[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Fri Apr 17 08:48:27 2026 -0700
+
+    new soical links added
+
+[33mcommit 12e441142b4c4b9f58b526713a691808fcb1de2e[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Thu Apr 16 07:35:50 2026 -0700
+
+    middlelewar added
+
+[33mcommit d2c3e4f3bd43ce76855c66531a6c7a35f49bdc5f[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Thu Apr 16 07:26:04 2026 -0700
+
+    next js config fix
+
+[33mcommit 5f1bbd5bcedf53d98fcee1753ddda695055ff68b[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Tue Apr 14 03:16:27 2026 -0700
+
+    canonicalised
+
+[33mcommit 7ecc8e45b1a14834984ab581f11f7413a4f167af[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Wed Apr 8 23:58:37 2026 -0700
+
+    blog updated
+
+[33mcommit 60924fe4a985fadd5eeea048ac01781aa2bbf9e4[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Wed Apr 8 23:49:51 2026 -0700
+
+    update
+
+[33mcommit f2e14a85d9de4d62bd344d6f8a3adc03c400def3[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Wed Apr 8 23:44:06 2026 -0700
+
+    update
+
+[33mcommit c8b73f0bf436eee19cf2b7a5474c6ed17c091f39[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Tue Apr 7 23:39:26 2026 -0700
+
+    fix images
+
+[33mcommit d318b5e2bef3b6c5e95ab070f926da2bc1412442[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Tue Apr 7 22:45:15 2026 -0700
+
+    new fixes
+
+[33mcommit 003d961d0eefc1f483ee834e98f0955c8b06c1ec[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Tue Apr 7 09:04:30 2026 -0700
+
+    fixes
+
+[33mcommit 6a4d87d829557cd703f030aa9d4496fcf9edba6d[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sat Apr 4 10:28:41 2026 -0700
+
+    replace images
+
+[33mcommit d7742685f4a6777f72a9a516c382b44838c4f2a4[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sat Apr 4 09:55:19 2026 -0700
+
+    fix cityPages scope in sitemap
+
+[33mcommit 9e81c598b764f853a196f65c6ffa11668dca2530[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sat Apr 4 09:47:15 2026 -0700
+
+    fix sitemap syntax error
+
+[33mcommit c5db8f0c499be40358e36950f290bb4d1cdca4ca[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sat Apr 4 09:40:47 2026 -0700
+
+    fiexed
+
+[33mcommit b7a03442d2c16970a9646b76599d1b9c4d1839ce[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sat Apr 4 09:28:24 2026 -0700
+
+    blog page and servises page added
+
+[33mcommit 23f55796e7ae1493c15eee77ca13f24cd44d8117[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Thu Apr 2 10:28:06 2026 -0700
+
+    nap consistency fixed
+
+[33mcommit b15fd787bcef3a57eaadd0e218e3eb6e4df137e4[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Thu Apr 2 07:41:32 2026 -0700
+
+     nap consistency fixed
+
+[33mcommit 40890ff84b3cd1a24112b7e09226381c7ac1ed14[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Wed Apr 1 02:47:48 2026 -0700
+
+    services area images chage
+
+[33mcommit b4dc205bf61674470588661c99d0b09657c68684[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Wed Apr 1 00:20:22 2026 -0700
+
+    address and phone number change
+
+[33mcommit 373e139f93bf7099587152275dde77b14d827e6b[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Mon Mar 30 10:45:06 2026 -0700
+
+    images fiexed
+
+[33mcommit 685dd31d01013eb80d730d97d03dbccce38f03c0[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Mon Mar 30 07:06:08 2026 -0700
+
+    Clean commit without large file
+
+[33mcommit 6dee52391e3e4a464b10fb8f89b28349109b37cf[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Mon Mar 30 07:00:53 2026 -0700
+
+    Removed large file
+
+[33mcommit 00e2480b7ef35258cd29ce2c3351170179f7c338[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Mon Mar 30 02:58:19 2026 -0700
+
+    fixed responsive issues and images
+
+[33mcommit 164f359093a308d92cff37759127a7b893afb53b[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sun Mar 29 04:12:55 2026 -0700
+
+    fix blog errors
+
+[33mcommit eaadc7d05ab23605dc6fcfd2e9974e07d8ff316f[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sun Mar 29 03:48:15 2026 -0700
+
+    remove env.example from tracking
+
+[33mcommit 8cb4f4e75deb19f7262759fa40e05920536213dd[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sun Mar 29 03:43:16 2026 -0700
+
+    fixed vercel deployment
+
+[33mcommit 3627235bf6b1446e443290d322d8bead1039458c[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sun Mar 29 03:39:09 2026 -0700
+
+    first commit
+
+[33mcommit a805103faecc23b98fee31a118761a9aee2c1616[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sun Mar 29 03:39:01 2026 -0700
+
+    first commit
+
+[33mcommit c101ae8bfc6d126795926335b93cc7ca27e0f72e[m
+Author: Noshaba Jamil <nosmal1083@gmail.com>
+Date:   Sun Mar 29 03:38:49 2026 -0700
+
+    first commit

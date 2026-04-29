@@ -8,7 +8,7 @@
    ══════════════════════════════════════════════════════════ */
 /* CTA Button Responsive Fix */
 /* Make all h3 headings white globally */
- 
+@import 'remixicon/fonts/remixicon.css';
 h3 {
   color: #ffffff; /* white */
 }
