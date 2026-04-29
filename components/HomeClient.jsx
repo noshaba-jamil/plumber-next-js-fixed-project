@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import HeroCanvas from '@/components/HeroCanvas'
 import ServiceCard from '@/components/ServiceCard'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -208,7 +209,16 @@ export default function Home({ h1 }) {
       <section style={{ padding: 0 }}>
         <div className="split">
           <div className="split-img" data-aos="fl">
-            <img src="/licensed-emergency-plumber-springfield-mo.webp" alt="Licensed Emergency Plumber Springfield MO" width={800} height={500} loading="eager" decoding="async" fetchpriority="high" />
+            {/* ✅ CHANGED: plain img → next/image with priority (fixes LCP) */}
+            <Image
+              src="/licensed-emergency-plumber-springfield-mo.webp"
+              alt="Licensed Emergency Plumber Springfield MO"
+              width={800}
+              height={500}
+              priority
+              quality={85}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
             <div className="img-overlay" />
             <div className="split-badge"><div className="big">24/7</div><div className="sm">We Answer. Every. Call.</div></div>
             <div className="split-rating"><div className="stars">★★★★★</div><div className="score">4.8/5</div><div className="cnt">Springfield, MO</div></div>
@@ -293,7 +303,14 @@ export default function Home({ h1 }) {
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4)` }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none" }}>
                 <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
-                  <img src={step.image} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "brightness(0.55) saturate(1.2)" }} />
+                  {/* ✅ CHANGED: plain img → next/image */}
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    width={400}
+                    height={180}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "brightness(0.55) saturate(1.2)" }}
+                  />
                   <div style={{ position: "absolute", top: "14px", left: "16px", fontSize: "11px", fontWeight: 800, letterSpacing: "0.1em", color: "rgba(255,255,255,0.6)", background: "rgba(0,0,0,0.25)", padding: "3px 10px", borderRadius: "99px", backdropFilter: "blur(6px)" }}>{step.num}</div>
                   <div style={{ position: "absolute", bottom: "16px", left: "16px", width: "46px", height: "46px", borderRadius: "12px", background: "#F59B1C", border: "1px solid rgba(189,25,25,0.25)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <i className={step.icon} style={{ fontSize: "20px", color: "#fff" }} />
@@ -330,14 +347,29 @@ export default function Home({ h1 }) {
             <p className="ssub">Real work. Real results. Real Springfield homeowners helped.</p>
           </div>
           <div className="gallery-grid" data-aos="fade-up">
-            <div className="gitem tall"><img src="/drain-cleaning.jpg" alt="Professional drain cleaning service Springfield MO" width={600} height={800} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div></div>
-            <div className="gitem"><img src="/leak-detection-springfield-mo.webp" alt="Leak detection specialist Springfield MO" width={600} height={400} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div></div>
-            <div className="gitem"><img src="/water-heater-repair-springfield-mo.webp" alt="Water heater repair and replacement Springfield MO" width={600} height={400} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div></div>
-            <div className="gitem wide"><img src="/sewer-line-repair-springfield-mo.webp" alt="Sewer line repair Springfield MO licensed plumber" width={900} height={400} loading="lazy" decoding="async" /><div className="gover" /><div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div></div>
+            <div className="gitem tall">
+              {/* ✅ CHANGED: plain img → next/image */}
+              <Image src="/drain-cleaning.jpg" alt="Professional drain cleaning service Springfield MO" width={600} height={800} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="gover" /><div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div>
+            </div>
+            <div className="gitem">
+              {/* ✅ CHANGED: plain img → next/image */}
+              <Image src="/leak-detection-springfield-mo.webp" alt="Leak detection specialist Springfield MO" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="gover" /><div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div>
+            </div>
+            <div className="gitem">
+              {/* ✅ CHANGED: plain img → next/image */}
+              <Image src="/water-heater-repair-springfield-mo.webp" alt="Water heater repair and replacement Springfield MO" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="gover" /><div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div>
+            </div>
+            <div className="gitem wide">
+              {/* ✅ CHANGED: plain img → next/image */}
+              <Image src="/sewer-line-repair-springfield-mo.webp" alt="Sewer line repair Springfield MO licensed plumber" width={900} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="gover" /><div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div>
+            </div>
           </div>
         </div>
       </section>
- 
 
 
 
@@ -401,9 +433,6 @@ export default function Home({ h1 }) {
       <p className="ssub" style={{ maxWidth: '100%' }}>
         {SECTION_COPY.areas.body}
       </p>
-
-
-      
 
       {/* ✅ CITY GRID (MOVED HERE) */}
       <div style={{
@@ -530,7 +559,6 @@ export default function Home({ h1 }) {
   </div>
 </section>
 
-       
       {/* ── FULL INTERNAL LINKS FOOTER ── */}
       <section className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
         <div className="container">
