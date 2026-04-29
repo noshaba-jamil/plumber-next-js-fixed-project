@@ -1,5 +1,6 @@
  import { Inter, DM_Serif_Display, Syne } from 'next/font/google'
 import Script from 'next/script'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { BASE_METADATA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA } from '@/lib/seo'
 import SiteShell from '@/components/SiteShell'
 import '@/styles/global.css'
@@ -73,6 +74,7 @@ export default function RootLayout({ children }) {
         )}
 
         <SiteShell>{children}</SiteShell>
+        <SpeedInsights />
 
         {/* ── REMIXICON — loads after page renders ── */}
         <Script
