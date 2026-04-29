@@ -45,6 +45,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${dmSerif.variable} ${syne.variable}`}>
       <head>
+       {/* RemixIcon — preloaded, non-blocking */}
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link
+    rel="preload"
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    as="style"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    media="print"
+    onLoad="this.media='all'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
+  </noscript>
         {/* ── FAVICON ── */}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
