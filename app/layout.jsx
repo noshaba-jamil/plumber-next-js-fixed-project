@@ -27,15 +27,7 @@ const syne = Syne({
   variable: '--font-syne',
 })
 
-export const metadata = {
-  ...BASE_METADATA,
-  title: {
-    default: 'Emergency Plumber Springfield MO | 24/7',
-    template: '%s | Springfield Emergency Plumbing',
-  },
-  description: 'Licensed emergency plumber in Springfield MO. 24/7 fast response for burst pipes, leaks & drain issues. No hidden fees. Call now: +1 (417) 373-4862.',
-  metadataBase: new URL('https://www.springfieldmoplumber.com'),
-}
+ 
 
 export default function RootLayout({ children }) {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com'

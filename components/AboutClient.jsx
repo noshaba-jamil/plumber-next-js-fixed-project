@@ -110,10 +110,10 @@ export default function About() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24, marginTop: 40 }}>
             {[
-              { icon: "ri-shield-star-fill", title: "Missouri Plumbing License",   },
+               
               { icon: "ri-award-fill", title: "Fully Insured", val: "General Liability + Workers Comp — Your home is protected on every job" },
               { icon: "ri-map-pin-fill", title: "Local Springfield Business", val: "Serving Springfield MO · Nixa · Ozark · Republic · Battlefield" },
-              { icon: "ri-star-fill", title: "4.8★ Google Rating", val: "150+ verified reviews from real Springfield MO homeowners" },
+              
             ].map(({ icon, title, val }, i) => (
               <div key={i} style={{ background: "var(--card)", border: "1px solid rgba(255,255,255,0.06)", borderTop: "3px solid var(--teal)", padding: "28px 24px" }}>
                 <i className={icon} style={{ fontSize: 28, color: "var(--teal)", display: "block", marginBottom: 14 }} />

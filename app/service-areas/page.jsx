@@ -4,10 +4,10 @@ import ServiceAreasClient from '@/components/ServiceAreasClient'
 const meta = PAGE_META.areas
 
 // ── Keywords covering all service area cities for Google ──────────────────────
-// Title: ~60 chars, Description: ~155 chars — within Google's display limits
+// Title: 53 chars ✅  Description: 143 chars ✅ — within Google's display limits
 export const metadata = {
-  title: meta.title || 'Plumber Springfield MO | Nixa, Ozark, Republic & Nearby Cities',
-  description: meta.description || 'Licensed plumbers serving Springfield MO, Nixa, Ozark, Republic, Battlefield, Willard, Rogersville & Strafford. 24/7 emergency plumbing, drain cleaning & water heater repair. Fast response.',
+  title: 'Plumber Springfield MO | Nixa, Ozark, Republic & More',
+  description: 'Licensed plumber in Springfield, Nixa, Ozark, Republic & Willard MO. Emergency 24/7, drain cleaning & water heater repair. Call (417) 373-4862.',
   keywords: [
     'plumber Springfield MO',
     'plumbing Springfield Missouri',
@@ -31,14 +31,14 @@ export const metadata = {
   },
   openGraph: buildOpenGraph({
     ...meta,
-    title: 'Plumber Springfield MO & Nearby Cities | Nixa, Ozark, Republic',
-    description: 'Professional plumbing in Springfield MO and surrounding cities. Emergency plumbing, drain cleaning, water heater repair. Serving Nixa, Ozark, Republic, Battlefield, Willard, Rogersville & Strafford.',
+    title: 'Plumber Springfield MO | Nixa, Ozark, Republic & Nearby',
+    description: 'Licensed plumber in Springfield MO and nearby cities. Emergency plumbing 24/7, drain cleaning & water heater repair. Serving Nixa, Ozark, Republic, Battlefield & Willard.',
     image: '/emergencyplumber.webp',
   }),
   twitter: buildTwitterCard({
     ...meta,
     title: 'Plumber Springfield MO & Nearby Cities',
-    description: 'Professional plumbing in Springfield MO and all surrounding communities — Nixa, Ozark, Republic, Battlefield, Willard, Rogersville & Strafford.',
+    description: 'Licensed plumber in Springfield MO — serving Nixa, Ozark, Republic, Battlefield & Willard MO. Emergency 24/7, drain cleaning & water heater repair.',
   }),
   robots: {
     index: true,

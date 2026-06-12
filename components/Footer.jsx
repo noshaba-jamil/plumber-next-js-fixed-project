@@ -95,10 +95,9 @@ Clever, MO
 
       <div className="ft-bot">
         <div className="ft-bot-in">
-          <p>© 2026  Springfield Mo Plumber·<strong>Emergency Plumber Springfield MO</strong> · All Rights Reserved</p>
+          <p>© 2026  Springfield Mo Plumber· All Rights Reserved</p>
           <div className="ft-badges">
             <span className="ftb"><i className="ri-shield-check-fill"/>Licensed &amp; Insured</span>
-            <span className="ftb"><i className="ri-star-fill"/>4.8★ Google</span>
             <span className="ftb"><i className="ri-timer-flash-fill"/>24/7 Emergency</span>
           </div>
         </div>

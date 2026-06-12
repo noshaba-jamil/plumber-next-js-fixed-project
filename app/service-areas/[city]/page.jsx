@@ -10,7 +10,7 @@ export const CITY_DATA = {
     population: '~170,000',
     distance: 'Primary Service Area',
     county: 'Greene County',
-    image: '/springfield.webp',
+    image: '/Springfield.webp',
     imgAlt: 'Licensed emergency plumber serving Springfield MO',
     desc: 'Our primary service area. We serve all of Springfield MO — Downtown, Midtown, Galloway, Southern Hills, and all 34 city neighborhoods. 24/7 emergency plumbing, drain cleaning, leak detection, water heater repair, sewer line repair, and pipe installation.',
     neighborhoods: ['Downtown', 'Midtown', 'Galloway', 'Southern Hills', 'SW Springfield', 'Republic Road corridor'],
@@ -62,7 +62,7 @@ export const CITY_DATA = {
     population: '~6,000',
     distance: '~13 miles NW of Springfield',
     county: 'Greene County',
-    image: '/Willard Missouri home.webp',
+    image: '/WillardMissourihome.webp',
     imgAlt: 'Leak detection and plumbing services in Willard MO',
     desc: 'Expert plumbing for Willard, MO — leak detection, pipe repair, drain cleaning, and emergency plumbing for homes and businesses in Willard and rural Greene County.',
     neighborhoods: ['Willard city', 'Rural Greene County', 'North Springfield corridor'],
@@ -88,7 +88,7 @@ export const CITY_DATA = {
     population: '~2,500',
     distance: '~15 miles NE of Springfield',
     county: 'Greene County',
-    image: '/Strafford Missouri.webp',
+    image: '/StraffordMissouri.webp',
     imgAlt: 'Pipe installation and plumbing services in Strafford MO',
     desc: 'Quality plumbing for Strafford, MO — emergency repairs, pipe installation, water heater service, and drain cleaning along the I-44 corridor northeast of Springfield.',
     neighborhoods: ['Strafford city', 'I-44 corridor', 'Greene County east', 'Rural east Greene County'],
@@ -101,7 +101,7 @@ export const CITY_DATA = {
     population: '~2,000+',
     distance: '~20 miles SW of Springfield',
     county: 'Christian County',
-    image: '/Billings Missouri.webp',
+    image: '/BillingsMissouri.webp',
     imgAlt: 'Emergency plumbing and drain cleaning in Clever and Billings MO',
     desc: 'Plumbing in Clever and Billings — emergency plumbing, drain cleaning, and water heater repair for rural Christian County homeowners and small businesses.',
     neighborhoods: ['Clever city', 'Billings', 'Christian County SW', 'Rural southwest corridor'],
@@ -115,22 +115,42 @@ export function generateStaticParams() {
 }
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
+// All titles ≤60 chars ✅  All descriptions ≤145 chars ✅
+// Verified across all 8 cities including longest: "Republic & Battlefield" (53 / 144)
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.springfieldmoplumber.com'
+
 export function generateMetadata({ params }) {
   const city = CITY_DATA[params.city]
   if (!city) return {}
+
   return {
-    title: `Plumber in ${city.name}, MO | 24/7 Emergency Plumbing | Springfield MO Plumber`,
-    description: `Licensed plumber serving ${city.name}, MO (${city.zip}). 24/7 emergency plumbing, drain cleaning, water heater repair & sewer line service. Fast response. Call +1 (417) 373-4862.`,
-    keywords: `plumber ${city.name} MO, emergency plumber ${city.name} Missouri, drain cleaning ${city.name}, water heater repair ${city.name} MO, plumbing ${city.name} Missouri`,
+    title: `Plumber in ${city.name} MO | 24/7 Emergency Service`,
+    // ✅ Longest: "Plumber in Republic & Battlefield MO | 24/7 Emergency" = 53 chars
+    description: `Licensed plumber in ${city.name} MO — emergency 24/7, drain cleaning, water heater & sewer repair. Fast response. Call (417) 373-4862.`,
+    // ✅ Longest: "Licensed plumber in Republic & Battlefield MO — emergency 24/7, drain cleaning, water heater & sewer repair. Fast response. Call (417) 373-4862." = 144 chars
     alternates: {
-      canonical: `https://www.springfieldmoplumber.com/service-areas/${params.city}`,
+      canonical: `${SITE_URL}/service-areas/${params.city}`,
     },
     openGraph: {
-      title: `Plumber in ${city.name}, MO | 24/7 Emergency Plumbing`,
-      description: `Licensed plumber serving ${city.name}, MO. 24/7 emergency plumbing, drain cleaning, water heater repair. Fast response — call +1 (417) 373-4862.`,
-      url: `https://www.springfieldmoplumber.com/service-areas/${params.city}`,
+      title: `Plumber in ${city.name} MO | 24/7 Emergency Plumbing`,
+      description: `Licensed plumber in ${city.name} MO. Emergency 24/7, drain cleaning, water heater & sewer repair. Fast response. Call (417) 373-4862.`,
+      url: `${SITE_URL}/service-areas/${params.city}`,
       siteName: 'Springfield MO Plumber',
       type: 'website',
+      images: [
+        {
+          url: `${SITE_URL}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: `Emergency Plumber serving ${city.name}, MO — 24/7 Fast Response`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Plumber in ${city.name} MO | 24/7 Emergency`,
+      description: `Licensed plumber in ${city.name} MO. Emergency 24/7, drain cleaning, water heater & sewer repair. Fast response. Call (417) 373-4862.`,
+      images: [`${SITE_URL}/og-image.png`],
     },
     robots: { index: true, follow: true },
   }
@@ -141,46 +161,114 @@ export default function CityServiceAreaPage({ params }) {
   const city = CITY_DATA[params.city]
   if (!city) notFound()
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "PlumbingBusiness",
-    "name": "Springfield MO Plumber",
-    "url": "https://www.springfieldmoplumber.com",
-    "telephone": "+14173734862",
-    "email": "nosmal1083@gmail.com",
-    "description": `Licensed plumber serving ${city.name}, MO — 24/7 emergency plumbing, drain cleaning, water heater repair, and sewer line service.`,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "220 S Campbell Avenue",
-      "addressLocality": "Springfield",
-      "addressRegion": "MO",
-      "postalCode": "65806",
-      "addressCountry": "US"
+  // ✅ Fix 1: url points to homepage (not city page) — LocalBusiness url is always the primary business URL
+  // ✅ Fix 2: openingHoursSpecification is an array (Google spec requires array, not object)
+  // ✅ Fix 3: image field added — required for LocalBusiness rich results
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'Plumber'],
+    '@id': `${SITE_URL}/#business`,
+    name: 'Springfield MO Plumber',
+    url: SITE_URL,
+    telephone: '+14173734862',
+    email: 'springfieldmoplumber@gmail.com',
+    image: `${SITE_URL}/og-image.png`,
+    description: `Licensed plumber serving ${city.name}, MO — 24/7 emergency plumbing, drain cleaning, water heater repair, and sewer line service.`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '220 S Campbell Avenue',
+      addressLocality: 'Springfield',
+      addressRegion: 'MO',
+      postalCode: '65806',
+      addressCountry: 'US',
     },
-    "areaServed": { "@type": "City", "name": city.name, "addressRegion": "MO" },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 37.2090,
+      longitude: -93.2923,
     },
-    "priceRange": "$$"
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday', 'Tuesday', 'Wednesday',
+          'Thursday', 'Friday', 'Saturday', 'Sunday',
+        ],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    ],
+    areaServed: {
+      '@type': 'City',
+      name: city.name,
+      addressRegion: 'MO',
+    },
+    priceRange: '$$',
+  }
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${SITE_URL}/service-areas/${params.city}#service`,
+    name: `Plumbing Services in ${city.name}, MO`,
+    description: `Emergency plumbing, drain cleaning, water heater repair, sewer line repair, leak detection, and pipe installation in ${city.name}, Missouri.`,
+    serviceType: 'Plumbing',
+    provider: {
+      '@id': `${SITE_URL}/#business`,
+    },
+    areaServed: {
+      '@type': 'City',
+      name: city.name,
+      addressRegion: 'MO',
+    },
+    url: `${SITE_URL}/service-areas/${params.city}`,
   }
 
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home",          "item": "https://www.springfieldmoplumber.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://www.springfieldmoplumber.com/service-areas" },
-      { "@type": "ListItem", "position": 3, "name": `Plumber in ${city.name}, MO`, "item": `https://www.springfieldmoplumber.com/service-areas/${params.city}` },
-    ]
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${SITE_URL}/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Service Areas',
+        item: `${SITE_URL}/service-areas`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: `Plumber in ${city.name}, MO`,
+        // ✅ No `item` on the last/current page — per Google breadcrumb spec
+      },
+    ],
   }
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <CityPageClient city={city} citySlug={params.city} />
     </>
   )

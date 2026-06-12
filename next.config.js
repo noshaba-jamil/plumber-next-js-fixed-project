@@ -24,6 +24,13 @@ const nextConfig = {
 
   async redirects() {
     return [
+       // ✅ ADD THIS — forces http → https
+    {
+      source: '/:path*',
+      has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
+      destination: 'https://www.springfieldmoplumber.com/:path*',
+      permanent: true,
+    },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'springfieldmoplumber.com' }],
@@ -50,6 +57,11 @@ const nextConfig = {
 
   compress:        true,
   poweredByHeader: false,
+}
+module.exports = {
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = nextConfig
