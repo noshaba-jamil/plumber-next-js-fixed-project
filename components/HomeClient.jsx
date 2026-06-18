@@ -33,6 +33,50 @@ const BLOG_POSTS = [
   { title: 'Signs You Need Drain Cleaning in Springfield MO',     slug: '/blog/signs-you-need-drain-cleaning-springfield-mo' },
 ]
 
+// CHANGE 4 — FAQPage JSON-LD schema
+const PRICING_FAQS = [
+  {
+    question: 'How much does an emergency plumber cost in Springfield MO?',
+    answer: 'Emergency plumbing costs in Springfield MO typically range from $150–$500 for most repairs. We provide a written upfront price before starting any work. Call (417) 373-4862 for a free estimate.',
+  },
+  {
+    question: 'How fast can you get to me in Springfield MO?',
+    answer: 'We dispatch immediately after your call. Most Springfield MO locations are reached within 30–60 minutes. We prioritize emergency calls 24/7.',
+  },
+  {
+    question: 'Are you licensed and insured in Missouri?',
+    answer: 'Yes. We are licensed plumbing contractors in the State of Missouri and fully insured. Every plumber is professionally trained and background checked.',
+  },
+  {
+    question: 'Do you charge extra for weekend or night calls?',
+    answer: 'We provide upfront pricing on every call. You will always know the full cost before we start — no hidden emergency fees or surprise charges.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: PRICING_FAQS.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
+// CHANGE 3 — Why Us bullet points
+const WHY_CHOOSE_US = [
+  { icon: 'ri-shield-check-fill',      text: 'Licensed & insured plumbing contractor — State of Missouri certified' },
+  { icon: 'ri-time-fill',              text: '24/7 emergency response — we answer every call, including nights, weekends & holidays' },
+  { icon: 'ri-calendar-check-fill',    text: 'Same-day service for most plumbing problems in Springfield MO' },
+  { icon: 'ri-file-list-3-fill',       text: 'Upfront written pricing — you approve the cost before we start any work' },
+  { icon: 'ri-building-4-fill',        text: 'Residential and commercial plumbing services across Springfield and SW Missouri' },
+  { icon: 'ri-user-star-fill',         text: 'Background-checked, uniformed plumbers — we respect your home' },
+  { icon: 'ri-map-pin-2-fill',         text: 'Serving Springfield, Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever & Billings' },
+]
+
 export default function Home({ h1 }) {
   useEffect(() => {
     const obs = new IntersectionObserver(entries => {
@@ -44,6 +88,12 @@ export default function Home({ h1 }) {
 
   return (
     <>
+      {/* CHANGE 4 — FAQPage JSON-LD injected in head via script tag */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* ── HERO ── */}
       <section id="hero">
         <div className="hero-left-panel">
@@ -52,8 +102,9 @@ export default function Home({ h1 }) {
               <span className="hero-badge-dot" />
               <span>{HERO_COPY.availability_pill}</span>
             </div>
+            {/* CHANGE 2 — Updated H1 copy */}
             <h1 className="hero-h1">
-              {h1 ? h1 : <><em>Emergency Plumber</em><br />in Springfield MO —<br />24/7. Fast. Trusted.</>}
+              {h1 ? h1 : <><em>Emergency Plumber</em><br />in Springfield MO —<br />Licensed, 24/7, Same Day</>}
             </h1>
             <div className="hero-sub">
               <p><strong>Pipe burst? Water leaking? Drain backed up?</strong></p>
@@ -190,6 +241,76 @@ export default function Home({ h1 }) {
         </div>
       </section>
 
+      {/* ── CHANGE 3 — WHY SPRINGFIELD HOMEOWNERS CHOOSE US ── */}
+      <section className="section">
+        <div className="container">
+          <div className="sec-center" data-aos="fade-up" style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div className="stag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <i className="ri-trophy-fill" style={{ fontSize: 12 }} />Why Choose Us
+            </div>
+            <h2 className="sh" style={{ marginTop: 16 }}>
+              Why Springfield MO Homeowners Choose Us{' '}
+              <em>Over Every Other Local Plumber</em>
+            </h2>
+          </div>
+
+          <div
+            data-aos="fade-up"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: 16,
+            }}
+          >
+            {WHY_CHOOSE_US.map((item, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 16,
+                  background: 'var(--card)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  borderRadius: 16,
+                  padding: '20px 22px',
+                }}
+              >
+                <span style={{
+                  width: 42,
+                  height: 42,
+                  borderRadius: 10,
+                  background: 'rgba(212,169,65,0.12)',
+                  border: '1px solid rgba(212,169,65,0.25)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}>
+                  <i className={item.icon} style={{ color: 'var(--gold)', fontSize: 18 }} />
+                </span>
+                <p style={{
+                  margin: 0,
+                  fontSize: 14,
+                  lineHeight: 1.65,
+                  color: 'rgba(255,255,255,0.75)',
+                  paddingTop: 10,
+                }}>
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 40 }}>
+            <a href={CONTACT_INFO.phoneHref} className="btn-primary" style={{ display: 'inline-flex' }}>
+              <i className="ri-phone-fill" />CALL NOW — GET HELP FAST
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── SERVICES ── */}
       <section className="section">
         <div className="container">
@@ -209,7 +330,6 @@ export default function Home({ h1 }) {
       <section style={{ padding: 0 }}>
         <div className="split">
           <div className="split-img" data-aos="fl">
-            {/* ✅ CHANGED: plain img → next/image with priority (fixes LCP) */}
             <Image
               src="/licensed-emergency-plumber-springfield-mo.webp"
               alt="Licensed Emergency Plumber Springfield MO"
@@ -303,7 +423,6 @@ export default function Home({ h1 }) {
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4)` }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none" }}>
                 <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
-                  {/* ✅ CHANGED: plain img → next/image */}
                   <Image
                     src={step.image}
                     alt={step.title}
@@ -348,22 +467,18 @@ export default function Home({ h1 }) {
           </div>
           <div className="gallery-grid" data-aos="fade-up">
             <div className="gitem tall">
-              {/* ✅ CHANGED: plain img → next/image */}
               <Image src="/drain-cleaning.jpg" alt="Professional drain cleaning service Springfield MO" width={600} height={800} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="gover" /><div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div>
             </div>
             <div className="gitem">
-              {/* ✅ CHANGED: plain img → next/image */}
               <Image src="/leak-detection-springfield-mo.webp" alt="Leak detection specialist Springfield MO" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="gover" /><div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div>
             </div>
             <div className="gitem">
-              {/* ✅ CHANGED: plain img → next/image */}
               <Image src="/water-heater-repair-springfield-mo.webp" alt="Water heater repair and replacement Springfield MO" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="gover" /><div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div>
             </div>
             <div className="gitem wide">
-              {/* ✅ CHANGED: plain img → next/image */}
               <Image src="/sewer-line-repair-springfield-mo.webp" alt="Sewer line repair Springfield MO licensed plumber" width={900} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="gover" /><div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div>
             </div>
@@ -371,193 +486,236 @@ export default function Home({ h1 }) {
         </div>
       </section>
 
+      {/* ── REVIEWS (commented out) ── 
+      <section className="section">
+        ...
+      </section>
+      */}
 
+      {/* ── AREAS + MAP (MERGED WITH CITIES) ── */}
+      <section style={{ padding: 0 }}>
+        <div className="am-grid">
 
+          {/* LEFT SIDE (CONTENT + CITIES) */}
+          <div className="am-list" data-aos="fl">
+            <div className="stag">{SECTION_COPY.areas.tag}</div>
+            <h2 className="sh">
+              {SECTION_COPY.areas.h2} <em>{SECTION_COPY.areas.h2_em}</em>
+            </h2>
 
-            {/* ── REVIEWS ── 
-<section className="section">
-  <div className="container">
-    <div className="sec-center" data-aos="fade-up">
-      <div className="stag">{SECTION_COPY.reviews.tag}</div>
-      <h2 className="sh">{SECTION_COPY.reviews.h2} <em>{SECTION_COPY.reviews.h2_em}</em></h2>
-      <p className="ssub">{SECTION_COPY.reviews.body}</p>
-    </div>
-    <div className="rev-top" data-aos="zi">
-      <div className="rev-score">4.8</div>
-      <div>
-        <div className="rev-stars-big">★★★★★</div>
-        <div className="rev-cnt">{SECTION_COPY.reviews.platform}</div>
-      </div>
-      <div className="rev-div" />
-      <div className="rev-platform">
-        <i className="ri-google-fill" />Google Business Profile
-      </div>
-    </div>
-    <div className="rev-grid">
-      {REVIEWS.slice(0, 3).map((r, i) => (
-        <div key={i} className="rcard" data-aos="fade-up" data-aos-delay={i * 100}>
-          <span className="qmark">"</span>
-          <div className="stars">{'★'.repeat(r.rating)}</div>
-          <p className="quote">{r.text}</p>
-          <div className="author">
-            <div className="avatar">{r.initials}</div>
+            <p className="ssub" style={{ maxWidth: '100%' }}>
+              {SECTION_COPY.areas.body}
+            </p>
+
+            {/* CITY GRID */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: 12,
+              marginTop: 24,
+              marginBottom: 24
+            }}>
+              {CITIES.map(city => (
+                <Link
+                  key={city.slug}
+                  href={city.slug}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 12,
+                    background: 'var(--card)',
+                    border: '1px solid rgba(255,255,255,0.07)',
+                    padding: '16px 18px',
+                    textDecoration: 'none',
+                    transition: 'var(--t)'
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = 'var(--gold)'
+                    e.currentTarget.style.background = 'rgba(212,169,65,0.06)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
+                    e.currentTarget.style.background = 'var(--card)'
+                  }}
+                >
+                  <span style={{
+                    width: 36,
+                    height: 36,
+                    background: 'rgba(212,169,65,0.12)',
+                    border: '1px solid rgba(212,169,65,0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <i className={city.icon} style={{ color: 'var(--gold)', fontSize: 16 }} />
+                  </span>
+
+                  <div style={{ flex: 1 }}>
+                    <div style={{
+                      fontFamily: "'Syne', sans-serif",
+                      fontWeight: 700,
+                      fontSize: 13,
+                      color: '#fff',
+                      lineHeight: 1.3
+                    }}>
+                      {city.name}
+                    </div>
+                    <div style={{
+                      fontSize: 11,
+                      color: 'var(--text-dimmer)',
+                      marginTop: 2
+                    }}>
+                      {city.label}
+                    </div>
+                  </div>
+
+                  <i className="ri-arrow-right-s-line"
+                    style={{ color: 'var(--text-dimmer)', fontSize: 16, flexShrink: 0 }}
+                  />
+                </Link>
+              ))}
+            </div>
+
+            {/* BUTTON */}
             <div>
-              <div className="aname">{r.name}</div>
-              <div className="asrc">{r.service}</div>
+              <Link href="/service-areas" className="btn-primary" style={{ display: 'inline-flex' }}>
+                <i className="ri-map-pin-fill" />View All Service Areas
+              </Link>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-    <div className="reviews-trust-footer">
-      <i className="ri-verified-badge-fill" />
-      <span>
-        All reviews are from verified Google customers in Springfield MO — we never fabricate testimonials.
-      </span>
-    </div>
-  </div>
-</section>
-*/}
 
-       {/* ── AREAS + MAP (MERGED WITH CITIES) ── */}
-<section style={{ padding: 0 }}>
-  <div className="am-grid">
+          {/* RIGHT SIDE (MAP) */}
+          <div className="am-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105055.62!2d-93.3720556!3d37.215259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf62f0f9116cbb%3A0x62c14e0e4d9ed5e4!2sSpringfield%2C%20MO!5e0!3m2!1sen!2sus!4v1710000000000"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Emergency Plumber Springfield MO"
+              style={{
+                width: '100%',
+                height: '100%',
+                minHeight: 540,
+                border: 'none',
+                filter: 'hue-rotate(180deg) saturate(1.2) brightness(0.65)'
+              }}
+            />
 
-    {/* LEFT SIDE (CONTENT + CITIES) */}
-    <div className="am-list" data-aos="fl">
-      <div className="stag">{SECTION_COPY.areas.tag}</div>
-      <h2 className="sh">
-        {SECTION_COPY.areas.h2} <em>{SECTION_COPY.areas.h2_em}</em>
-      </h2>
-
-      <p className="ssub" style={{ maxWidth: '100%' }}>
-        {SECTION_COPY.areas.body}
-      </p>
-
-      {/* ✅ CITY GRID (MOVED HERE) */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: 12,
-        marginTop: 24,
-        marginBottom: 24
-      }}>
-        {CITIES.map(city => (
-          <Link
-            key={city.slug}
-            href={city.slug}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              background: 'var(--card)',
-              border: '1px solid rgba(255,255,255,0.07)',
-              padding: '16px 18px',
-              textDecoration: 'none',
-              transition: 'var(--t)'
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = 'var(--gold)'
-              e.currentTarget.style.background = 'rgba(212,169,65,0.06)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
-              e.currentTarget.style.background = 'var(--card)'
-            }}
-          >
-            <span style={{
-              width: 36,
-              height: 36,
-              background: 'rgba(212,169,65,0.12)',
-              border: '1px solid rgba(212,169,65,0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0
-            }}>
-              <i className={city.icon} style={{ color: 'var(--gold)', fontSize: 16 }} />
-            </span>
-
-            <div style={{ flex: 1 }}>
-              <div style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 700,
-                fontSize: 13,
-                color: '#fff',
-                lineHeight: 1.3
-              }}>
-                {city.name}
+            <div className="map-card1">
+              <div className="mc-title">
+                <i className="ri-map-pin-2-fill" />
+                Springfield Emergency Plumbing
               </div>
-              <div style={{
-                fontSize: 11,
-                color: 'var(--text-dimmer)',
-                marginTop: 2
-              }}>
-                {city.label}
+              <div className="mc-row">
+                <i className="ri-time-fill" />
+                Open 24/7 · 365 Days a Year
+              </div>
+              <div className="mc-row">
+                <i className="ri-phone-fill" />
+                {CONTACT_INFO.phone}
               </div>
             </div>
 
-            <i className="ri-arrow-right-s-line"
-              style={{ color: 'var(--text-dimmer)', fontSize: 16, flexShrink: 0 }}
-            />
-          </Link>
-        ))}
-      </div>
+            <div className="map-avail">
+              <span className="map-avail-dot" />
+              Plumbers Available Now — Ready to Dispatch
+            </div>
 
-      {/* BUTTON */}
-      <div>
-        <Link href="/service-areas" className="btn-primary" style={{ display: 'inline-flex' }}>
-          <i className="ri-map-pin-fill" />View All Service Areas
-        </Link>
-      </div>
-    </div>
+            <div className="map-rating-badge">
+              <div className="stars">★★★★★</div>
+              <div className="score">4.8/5</div>
+              <div className="sub">Springfield, MO</div>
+            </div>
+          </div>
 
-    {/* RIGHT SIDE (MAP — UNCHANGED) */}
-    <div className="am-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105055.62!2d-93.3720556!3d37.215259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf62f0f9116cbb%3A0x62c14e0e4d9ed5e4!2sSpringfield%2C%20MO!5e0!3m2!1sen!2sus!4v1710000000000"
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        title="Emergency Plumber Springfield MO"
-        style={{
-          width: '100%',
-          height: '100%',
-          minHeight: 540,
-          border: 'none',
-          filter: 'hue-rotate(180deg) saturate(1.2) brightness(0.65)'
-        }}
-      />
-
-      <div className="map-card1">
-        <div className="mc-title">
-          <i className="ri-map-pin-2-fill" />
-          Springfield Emergency Plumbing
         </div>
-        <div className="mc-row">
-          <i className="ri-time-fill" />
-          Open 24/7 · 365 Days a Year
+      </section>
+
+      {/* ── CHANGE 4 — PRICING FAQ SECTION ── */}
+      <section className="section section-alt">
+        <div className="container">
+          <div className="sec-center" data-aos="fade-up" style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div className="stag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <i className="ri-question-fill" style={{ fontSize: 12 }} />FAQ
+            </div>
+            <h2 className="sh" style={{ marginTop: 16 }}>
+              Frequently Asked Questions —{' '}
+              <em>Springfield MO Plumbing Services</em>
+            </h2>
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16,
+              maxWidth: 800,
+              margin: '0 auto',
+            }}
+          >
+            {PRICING_FAQS.map((faq, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+                style={{
+                  background: 'var(--card)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  borderRadius: 16,
+                  padding: '24px 28px',
+                }}
+              >
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 14,
+                  marginBottom: 12,
+                }}>
+                  <span style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 8,
+                    background: 'rgba(212,169,65,0.12)',
+                    border: '1px solid rgba(212,169,65,0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    marginTop: 2,
+                  }}>
+                    <i className="ri-question-line" style={{ color: 'var(--gold)', fontSize: 15 }} />
+                  </span>
+                  <h3 style={{
+                    margin: 0,
+                    fontSize: 15,
+                    fontWeight: 700,
+                    color: '#fff',
+                    lineHeight: 1.45,
+                  }}>
+                    {faq.question}
+                  </h3>
+                </div>
+                <p style={{
+                  margin: 0,
+                  fontSize: 14,
+                  color: 'rgba(255,255,255,0.6)',
+                  lineHeight: 1.75,
+                  paddingLeft: 46,
+                }}>
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 40 }}>
+            <Link href="/faq" className="btn-secondary" style={{ display: 'inline-flex' }}>
+              View All FAQs <i className="ri-arrow-right-line" />
+            </Link>
+          </div>
         </div>
-        <div className="mc-row">
-          <i className="ri-phone-fill" />
-          {CONTACT_INFO.phone}
-        </div>
-      </div>
-
-      <div className="map-avail">
-        <span className="map-avail-dot" />
-        Plumbers Available Now — Ready to Dispatch
-      </div>
-
-      <div className="map-rating-badge">
-        <div className="stars">★★★★★</div>
-        <div className="score">4.8/5</div>
-        <div className="sub">Springfield, MO</div>
-      </div>
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* ── FULL INTERNAL LINKS FOOTER ── */}
       <section className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>

@@ -43,7 +43,7 @@ export const CITY_DATA = {
     longDesc: 'Ozark, Missouri sits 14 miles south of Springfield along the James River corridor. We serve Ozark homeowners and businesses with the same 24/7 availability as our Springfield clients. Emergency plumbing, sewer camera inspections, drain cleaning, pipe repair, and water heater services — all with upfront pricing and no surprise fees.',
   },
   'republic-battlefield-mo': {
-    name: 'Republic & Battlefield',
+    name: 'Republic&Battlefield',
     state: 'MO',
     zip: '65738, 65619',
     population: '~18,000+',
