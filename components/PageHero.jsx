@@ -1,4 +1,5 @@
  import Link from 'next/link'
+import { CONTACT_INFO } from '@/data/services'
 
 export default function PageHero({ image, alt, breadcrumbs = [], h1, subtitle }) {
   return (
@@ -27,6 +28,26 @@ export default function PageHero({ image, alt, breadcrumbs = [], h1, subtitle })
         )}
         <h1>{h1}</h1>
         {subtitle && <p>{subtitle}</p>}
+
+        {/* ── Contact buttons ── */}
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 24 }}>
+          <a
+            href={CONTACT_INFO.phoneHref}
+            className="btn-primary"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+          >
+            <i className="ri-phone-fill" />
+            CALL NOW — {CONTACT_INFO.phone}
+          </a>
+          <Link
+            href="/contact"
+            className="btn-secondary"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+          >
+            <i className="ri-calendar-check-line" />
+            Free Estimate
+          </Link>
+        </div>
       </div>
     </section>
   )
