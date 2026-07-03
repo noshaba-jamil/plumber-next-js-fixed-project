@@ -157,24 +157,31 @@ export const BLOG_POSTS = [
     date: '2026-06-20', readTime: '6 min read', category: 'Homeowner Guide', image: '/blog20.webp',
     keywords: ['low water pressure Springfield MO', 'water pressure problem Springfield', 'fix low water pressure Springfield Missouri'],
   },
+  // ── NEW: DAY 1 ──
+  {
+    slug: 'plumber-nixa-mo',
+    title: 'Emergency Plumber in Nixa MO — Licensed, 24/7, Upfront Pricing',
+    description: 'Need a plumber in Nixa MO? Licensed emergency plumber serving Nixa and Christian County. Same-day service, upfront pricing, no call-out fee. Call (417) 373-4862.',
+    date: '2026-07-01', readTime: '7 min read', category: 'Geo/Local', image: '/blog-nixa.webp',
+    keywords: ['plumber Nixa MO', 'emergency plumber Nixa Missouri', 'plumber near me Nixa', 'drain cleaning Nixa MO', '24 hour plumber Nixa', 'water heater repair Nixa MO'],
+  },
+  // ── NEW: DAY 2 ──
+  {
+    slug: 'plumber-ozark-mo',
+    title: 'Plumber in Ozark MO — Same-Day Service, Licensed & Insured',
+    description: 'Need a plumber in Ozark MO? Licensed emergency plumber serving Ozark and all of Christian County. Same-day response, upfront pricing, $0 call-out fee. Call (417) 373-4862.',
+    date: '2026-07-02', readTime: '7 min read', category: 'Geo/Local', image: '/blog-ozark.webp',
+    keywords: ['plumber Ozark MO', 'emergency plumber Ozark Missouri', 'plumber near me Ozark', 'drain cleaning Ozark MO', '24 hour plumber Ozark', 'water heater repair Ozark MO', 'sewer repair Ozark MO'],
+  },
 ]
 
 const RESPONSIVE_CSS = `
-  /* Force responsive grid — overrides inline style */
-  @media (max-width: 960px) {
-    .bl-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  }
-  @media (max-width: 560px) {
-    .bl-grid { grid-template-columns: 1fr !important; }
-  }
-
-  /* Card image heights */
+  @media (max-width: 960px) { .bl-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 560px) { .bl-grid { grid-template-columns: 1fr !important; } }
   .bl-card-img { height: 200px; }
   @media (max-width: 960px) { .bl-card-img { height: 180px !important; } }
   @media (max-width: 560px) { .bl-card-img { height: 200px !important; } }
   @media (max-width: 400px) { .bl-card-img { height: 170px !important; } }
-
-  /* Card body */
   @media (max-width: 768px) {
     .bl-card-body  { padding: 18px 18px 24px !important; }
     .bl-card-title { font-size: 17px !important; line-height: 1.3 !important; }
@@ -185,39 +192,13 @@ const RESPONSIVE_CSS = `
     .bl-card-title { font-size: 16px !important; margin-bottom: 8px !important; }
     .bl-card-desc  { margin-bottom: 14px !important; }
   }
-
-  /* Hero */
   @media (max-width: 900px) { .bl-hero { padding: 56px 5% 44px !important; } }
-  @media (max-width: 768px) {
-    .bl-hero { padding: 40px 5% 32px !important; }
-    .bl-hero p { font-size: 15px !important; }
-  }
-  @media (max-width: 480px) {
-    .bl-hero { padding: 28px 4% 24px !important; }
-    .bl-hero p { font-size: 14px !important; }
-  }
-
-  /* Filter pills */
-  @media (max-width: 768px) {
-    .bl-filter-row { margin-top: 20px !important; gap: 8px !important; }
-    .bl-filter-row span { font-size: 12px !important; padding: 5px 12px !important; }
-  }
-  @media (max-width: 400px) {
-    .bl-filter-row span { font-size: 11px !important; padding: 4px 10px !important; }
-  }
-
-  /* Bottom CTA */
-  @media (max-width: 768px) {
-    .bl-bottom-cta    { padding: 40px 28px !important; margin-top: 40px !important; }
-    .bl-bottom-cta h2 { font-size: clamp(20px, 4vw, 28px) !important; }
-    .bl-bottom-cta p  { font-size: 14px !important; }
-  }
-  @media (max-width: 560px) {
-    .bl-bottom-cta   { padding: 28px 18px !important; }
-    .bl-bottom-cta a { display: flex !important; width: 100% !important; box-sizing: border-box !important; justify-content: center !important; font-size: 14px !important; padding: 14px 20px !important; }
-  }
-
-  /* Outer top padding */
+  @media (max-width: 768px) { .bl-hero { padding: 40px 5% 32px !important; } .bl-hero p { font-size: 15px !important; } }
+  @media (max-width: 480px) { .bl-hero { padding: 28px 4% 24px !important; } .bl-hero p { font-size: 14px !important; } }
+  @media (max-width: 768px) { .bl-filter-row { margin-top: 20px !important; gap: 8px !important; } .bl-filter-row span { font-size: 12px !important; padding: 5px 12px !important; } }
+  @media (max-width: 400px) { .bl-filter-row span { font-size: 11px !important; padding: 4px 10px !important; } }
+  @media (max-width: 768px) { .bl-bottom-cta { padding: 40px 28px !important; margin-top: 40px !important; } .bl-bottom-cta h2 { font-size: clamp(20px, 4vw, 28px) !important; } .bl-bottom-cta p { font-size: 14px !important; } }
+  @media (max-width: 560px) { .bl-bottom-cta { padding: 28px 18px !important; } .bl-bottom-cta a { display: flex !important; width: 100% !important; box-sizing: border-box !important; justify-content: center !important; font-size: 14px !important; padding: 14px 20px !important; } }
   @media (max-width: 768px) { .bl-outer { padding-top: 70px !important; } }
   @media (max-width: 480px) { .bl-outer { padding-top: 60px !important; } }
 `

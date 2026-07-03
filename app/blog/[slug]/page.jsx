@@ -206,6 +206,34 @@ const HOWTO_SCHEMA = {
       { name: 'Get Written Estimate and Approve', text: 'Never approve work without a written price. A reputable plumber will not pressure you to decide immediately.' },
     ],
   },
+  // ── NEW: DAY 1 ──
+  'plumber-nixa-mo': {
+    name: 'How to Handle a Plumbing Emergency in Nixa MO',
+    description: 'Immediate steps Nixa MO homeowners should take when a plumbing emergency strikes before the plumber arrives.',
+    totalTime: 'PT10M',
+    supply: ['Main water shutoff valve access', 'Phone to call (417) 373-4862'],
+    steps: [
+      { name: 'Shut Off the Main Water Supply', text: 'In most Nixa MO homes the main shutoff valve is in the basement near the front foundation wall or in a crawlspace near the water line entry. Turn clockwise until fully closed.' },
+      { name: 'Turn Off the Water Heater', text: 'Gas heaters: set to pilot. Electric heaters: flip the breaker. Never run a water heater with the supply off.' },
+      { name: 'Open Faucets to Release Pipe Pressure', text: 'Open the lowest faucet in the home. This drains remaining water and confirms the main is fully off.' },
+      { name: 'Document All Water Damage', text: 'Photograph and video all damage before touching anything. Critical for your homeowner insurance claim.' },
+      { name: 'Call a Licensed Nixa MO Plumber', text: 'Call (417) 373-4862 immediately. Our licensed plumbers serve all of Nixa and Christian County with same-day emergency response.' },
+    ],
+  },
+  // ── NEW: DAY 2 ──
+  'plumber-ozark-mo': {
+    name: 'How to Handle a Plumbing Emergency in Ozark MO',
+    description: 'Immediate steps Ozark MO homeowners should take the moment a plumbing emergency happens — before the plumber arrives.',
+    totalTime: 'PT10M',
+    supply: ['Main water shutoff valve access', 'Phone to call (417) 373-4862', 'Camera for documenting damage'],
+    steps: [
+      { name: 'Locate and Close the Main Water Shutoff Valve', text: 'In most Ozark MO homes the main shutoff valve is in the basement near the front foundation wall, in the crawlspace near the water line entry point, or in a utility room. Turn it clockwise until fully closed.' },
+      { name: 'Turn Off the Water Heater', text: 'Gas heaters: turn the thermostat dial to Pilot. Electric heaters: flip the breaker at the panel. Running a water heater without a water supply burns out heating elements within minutes.' },
+      { name: 'Open the Lowest Faucet in the Home', text: 'Open a basement or ground-floor faucet to release remaining pressure in the pipes. This limits further leaking and confirms the main shutoff is fully closed.' },
+      { name: 'Photograph and Video All Damage', text: 'Before touching or cleaning anything, document every area of water damage from multiple angles. This is essential for filing a homeowner insurance claim.' },
+      { name: 'Call (417) 373-4862 Immediately', text: 'Our licensed plumbers serve all of Ozark MO and Christian County. We dispatch immediately and aim to reach Ozark addresses within 30–40 minutes via US-65.' },
+    ],
+  },
 }
 
 // ── FAQ SCHEMA ────────────────────────────────────────────────
@@ -307,6 +335,24 @@ const FAQ_SCHEMA = {
     { q: 'At what temperature do pipes freeze in Springfield MO?', a: 'Pipes can begin to freeze when outdoor temperatures drop below 20°F (-6°C), especially if they run through unheated spaces like crawlspaces, garages, or exterior walls. Springfield MO regularly sees temperatures this low from December through February.' },
     { q: 'How do I know if my pipes are frozen in Springfield MO?', a: 'Signs of frozen pipes: turning on a faucet produces little or no water during freezing weather, frost visible on an exposed pipe, or a bulge in a pipe. If you suspect frozen pipes, do not use an open flame to thaw them — call (417) 373-4862 for safe professional thawing.' },
     { q: 'Will frozen pipes always burst in Springfield MO?', a: 'Not always, but the risk is high. Ice expands and pressurizes the pipe on both sides of the blockage. The most common burst point is actually where there is no ice — in the water between the ice and a closed faucet. Thaw pipes slowly and carefully to avoid bursting.' },
+  ],
+  // ── NEW: DAY 1 ──
+  'plumber-nixa-mo': [
+    { q: 'How fast can a plumber reach Nixa MO in an emergency?', a: 'Our licensed plumbers can reach most Nixa MO addresses within 30–45 minutes from the Springfield service hub via US-160. Call (417) 373-4862 the moment an emergency starts — every minute reduces the damage.' },
+    { q: 'What plumbing services are available in Nixa MO?', a: 'We provide full residential plumbing services in Nixa MO including emergency leak repair, burst pipe repair, drain cleaning, water heater repair and replacement, sewer line inspection and repair, leak detection, toilet repair, and sump pump service. All work is performed by Missouri-licensed plumbers.' },
+    { q: 'Is there a call-out fee for plumbers in Nixa MO?', a: 'We charge $0 call-out fees for Nixa MO service calls. You only pay for the work performed. All pricing is provided in writing before any work begins.' },
+    { q: 'Do Nixa MO homes have specific plumbing problems?', a: 'Yes. Nixa MO homes in Christian County sit on clay-heavy soil similar to Springfield, which stresses sewer lines and causes root intrusion. Nixa also has older subdivisions with galvanized steel supply pipes that corrode from the inside, reducing water pressure over time. Homes built before 2000 in Nixa should have their supply lines inspected.' },
+    { q: 'What does a plumber cost in Nixa MO?', a: 'Plumbing costs in Nixa MO match Springfield MO market rates: drain cleaning $150–$300, water heater replacement $800–$2,000, leak detection $200–$500, emergency service $300–$800 depending on complexity. Always get a written estimate before approving any work.' },
+    { q: 'Do you need a permit for plumbing work in Nixa MO?', a: 'Yes. Nixa MO requires plumbing permits for new installations, water heater replacements, and sewer line work. The City of Nixa Building Department issues permits. Our licensed plumbers handle all permit applications as part of the job — you do not need to file separately.' },
+  ],
+  // ── NEW: DAY 2 ──
+  'plumber-ozark-mo': [
+    { q: 'How fast can a plumber reach Ozark MO in an emergency?', a: 'Our licensed plumbers reach most Ozark MO addresses within 30–40 minutes from the Springfield service hub via US-65 South. Ozark is approximately 15 miles south of Springfield, making it one of our fastest response routes. Call (417) 373-4862 the moment the emergency starts — the sooner you call, the less damage occurs.' },
+    { q: 'What are the most common plumbing problems in Ozark MO homes?', a: 'Ozark MO sits on Ozark plateau clay-heavy soil which stresses sewer lines and causes tree root intrusion over time. The James River corridor creates high water table conditions in some Ozark neighborhoods, increasing the risk of sump pump failures and basement flooding. Older Ozark homes with galvanized steel supply pipes also experience progressive water pressure loss as the interior of the pipe corrodes.' },
+    { q: 'Is there a call-out fee for plumbers serving Ozark MO?', a: 'No. We charge $0 call-out fees for all Ozark MO service calls. You only pay for the work performed, and all pricing is provided in a written estimate before any work begins.' },
+    { q: 'Do you need a plumbing permit in Ozark MO?', a: 'Yes. The City of Ozark Building Department requires permits for water heater replacements, sewer line repairs, new plumbing installations, and gas line work. Our licensed plumbers handle all permit applications as part of every job — you do not need to visit City Hall or file separately.' },
+    { q: 'What does a plumber cost in Ozark MO?', a: 'Plumbing costs in Ozark MO follow Springfield MO regional market rates: drain cleaning $150–$300, water heater replacement $800–$2,000, leak detection $200–$500, sewer camera inspection $200–$400, emergency pipe repair $300–$800. All jobs receive a written estimate before any work begins.' },
+    { q: 'Does the James River affect plumbing in Ozark MO homes?', a: 'Yes, indirectly. Neighborhoods near the James River in Ozark MO have higher water table conditions which puts additional hydrostatic pressure on basement walls, floor drains, and sump pump systems. Sump pump failures in these areas can lead to rapid basement flooding. We recommend annual sump pump inspections for all Ozark MO homes near the James River corridor.' },
   ],
 }
 
@@ -531,15 +577,88 @@ const POST_CONTENT = {
       { h2: 'Leak Detection Costs in Springfield MO', content: `• **Basic leak detection:** $200–$500\n• **Slab leak detection:** $300–$600\n• **Full home inspection:** $400–$700\n\nThe cost of detection is almost always less than one month of damage from an undetected leak.` },
     ],
   },
+  // ── NEW: DAY 1 ──
+  'plumber-nixa-mo': {
+    intro: `If you need a licensed plumber in Nixa MO right now, call (417) 373-4862. We provide 24/7 emergency plumbing service across all of Nixa and Christian County — same-day response, upfront written pricing, zero call-out fees. Nixa MO is one of the fastest-growing cities in Christian County, with a 2026 population of over 27,000 residents. This guide covers the most common plumbing problems specific to Nixa MO homes, honest cost ranges, permit requirements, and exactly what to do when a plumbing emergency strikes.`,
+    sections: [
+      {
+        h2: 'Emergency Plumber in Nixa MO — 24/7, 30–45 Minute Response',
+        content: `Nixa MO is located approximately 12 miles south of Springfield on US-160 — one of our fastest emergency response corridors. When a pipe bursts, a drain backs up with sewage, or a water heater fails on a cold January morning, our licensed plumbers reach your Nixa address in 30–45 minutes from dispatch.\n\nWe serve all Nixa MO neighborhoods and surrounding areas including:\n\n• The US-160 corridor and Nixa city center\n• Neighborhoods near Tracker Road and Aldersgate Road\n• New developments off CC and EE highways\n• All Nixa MO zip codes 65714 and 65775\n\n**Call (417) 373-4862 now.** A real plumber answers — not voicemail, not an answering service.`,
+      },
+      {
+        h2: 'Most Common Plumbing Problems in Nixa MO Homes',
+        content: `**1. Sewer Line Root Intrusion (Most Frequent Call in Nixa MO)**\nNixa MO sits on the same Ozark Plateau clay-heavy soil as Springfield. Tree roots aggressively seek sewer line joints, especially in established neighborhoods. Signs: multiple slow drains simultaneously, sewage smell inside, gurgling toilets. Professional hydro-jetting clears the roots; a camera inspection confirms how far they have spread.\n\n**2. Low Water Pressure from Corroded Galvanized Pipes**\nNixa MO homes built before 2000 frequently have galvanized steel supply lines. After 20 or more years, the interior corrodes and narrows, reducing water pressure throughout the house. Symptoms worsen gradually over years. The permanent fix is repiping in PEX.\n\n**3. Water Heater Failures from Sediment Buildup**\nHard water from Christian County's water supply deposits minerals inside water heater tanks. Most Nixa homeowners hear popping or rumbling sounds before the water heater stops working. Annual flushing prevents this — but most tank units in Nixa homes are never serviced until they fail.\n\n**4. Burst Pipes During Winter Freezes**\nNixa MO regularly sees outdoor temperatures drop below 20°F from December through February. Homes with crawlspaces and uninsulated pipes in exterior walls are at highest risk. A single burst pipe can release hundreds of gallons inside a home before the water is shut off.\n\n**5. Clogged Drains from Grease Buildup**\nFats, oils, and grease poured down kitchen drains cool and solidify inside pipes. Nixa's newer homes often have longer drain runs, giving grease more surface area to adhere to. Recurring kitchen drain clogs almost always require professional hydro-jetting.`,
+      },
+      {
+        h2: 'Plumbing Services We Provide in Nixa MO',
+        content: `**Emergency Plumbing Nixa MO** — Burst pipes, active leaks, sewage backup, no hot water. We dispatch immediately and reach most Nixa addresses within 30–45 minutes.\n\n**Drain Cleaning Nixa MO** — Single drain clogs via snake. Recurring clogs and main sewer line blockages via hydro-jetting.\n\n**Water Heater Repair & Replacement Nixa MO** — All brands, gas and electric, tank and tankless. Same-day service on most water heater calls.\n\n**Sewer Line Camera Inspection & Repair Nixa MO** — Full video inspection from cleanout to city main. Root removal, spot repair, trenchless lining, pipe bursting, and full replacement available.\n\n**Leak Detection Nixa MO** — Thermal imaging and acoustic equipment find leaks behind walls and under slabs without opening anything until the exact location is confirmed.\n\n**Pipe Repair & Repiping Nixa MO** — Single section repairs and full home repiping in PEX for older Nixa homes with corroded galvanized supply lines.\n\n**Toilet & Faucet Repair Nixa MO** — Running toilets, clogs, dripping faucets, supply line leaks, and outdoor hose bib winterization.`,
+      },
+      {
+        h2: 'How Much Does a Plumber Cost in Nixa MO? (2026 Price Guide)',
+        content: `Plumbing costs in Nixa MO are consistent with the broader Springfield MO regional market:\n\n• **Drain snake (single drain):** $150–$300\n• **Hydro-jetting:** $300–$600\n• **Sewer camera inspection:** $200–$400\n• **Water heater repair:** $150–$400\n• **40-gal gas tank installed:** $800–$1,200\n• **Gas tankless installed:** $1,800–$3,000\n• **Burst pipe repair:** $300–$800\n• **Spot sewer repair:** $500–$1,500\n• **Trenchless pipe lining:** $3,000–$8,000\n• **Leak detection:** $200–$500\n\nZero call-out fees. Written estimate before any work begins. No surprise charges on the final bill.`,
+      },
+      {
+        h2: 'Nixa MO Plumbing Permits — What Homeowners Need to Know',
+        content: `The City of Nixa Building Department requires permits for water heater replacements, sewer line repairs, new plumbing installations, and gas line work. Unpermitted plumbing creates problems at resale — home inspectors flag it every time.\n\nOur licensed plumbers pull all required Nixa MO permits as part of every job. Permit cost is included in your written estimate. No extra steps for you.`,
+      },
+      {
+        h2: 'How to Verify a Plumber is Licensed in Nixa MO',
+        content: `Missouri law requires all plumbers to hold a state-issued license. Before hiring any plumber in Nixa MO, verify their license at **pr.mo.gov** in 60 seconds.\n\n**Ask before you hire:** "What is your Missouri plumbing license number?" Any plumber who hesitates is unlicensed.\n\n**Red flags:** No license number, demands full payment upfront, refuses a written estimate before starting, price is dramatically below market rates, no local Google reviews.`,
+      },
+      {
+        h2: 'What to Do in a Plumbing Emergency in Nixa MO',
+        content: `**Step 1:** Shut off the main water valve — clockwise until fully closed. Most Nixa MO homes: basement near front wall or crawlspace near water line entry.\n\n**Step 2:** Turn off the water heater — gas to pilot, electric breaker off.\n\n**Step 3:** Open the lowest faucet to drain pipe pressure.\n\n**Step 4:** Document all water damage with photos and video before cleanup.\n\n**Step 5:** Call **(417) 373-4862** immediately. Licensed plumbers dispatched now. Nixa MO arrival in 30–45 minutes.`,
+      },
+      {
+        h2: 'Frequently Asked Questions — Plumber in Nixa MO',
+        content: `**Q: How fast can a plumber reach Nixa MO?**\nA: 30–45 minutes via US-160 from Springfield. Call immediately — every minute matters.\n\n**Q: Do Nixa MO homes have specific plumbing problems?**\nA: Yes — sewer root intrusion from clay soil, corroded galvanized pipes in pre-2000 homes, and pipe freeze risk every winter.\n\n**Q: Is there a call-out fee?**\nA: No. Zero call-out fees. Pay only for work performed, with a written estimate first.\n\n**Q: Do you need a permit for plumbing in Nixa MO?**\nA: Yes for water heaters, sewer work, new installations, and gas lines. We pull all permits as part of the job.\n\n**Q: Can you fix a burst pipe in Nixa MO same day?**\nA: Yes. Most burst pipe repairs are completed on the first visit.`,
+      },
+    ],
+  },
+  // ── NEW: DAY 2 ──
+  'plumber-ozark-mo': {
+    intro: `If you need a licensed plumber in Ozark MO right now, call (417) 373-4862. We serve all of Ozark and Christian County with 24/7 emergency plumbing response — same-day dispatch, written upfront pricing, $0 call-out fees. Ozark is the county seat of Christian County with a 2026 population of over 24,000 residents. This guide covers the most common plumbing problems specific to Ozark MO homes, honest 2026 cost ranges, permit requirements, and exactly what to do when a plumbing emergency hits.`,
+    sections: [
+      {
+        h2: 'Emergency Plumber in Ozark MO — 24/7, 30–40 Minute Response via US-65',
+        content: `Ozark MO is approximately 15 miles south of Springfield on US-65 — one of our fastest emergency response routes. Our licensed plumbers reach most Ozark addresses in 30–40 minutes from dispatch.\n\nWe serve all Ozark MO neighborhoods including:\n\n• Downtown Ozark and the historic Old Square area\n• Neighborhoods along the James River corridor\n• New residential developments off CC Highway and FF Highway\n• Finley area and rural Christian County addresses\n• All Ozark MO zip code 65721 addresses\n\n**Call (417) 373-4862 now.** A real licensed plumber answers immediately.`,
+      },
+      {
+        h2: 'Most Common Plumbing Problems in Ozark MO Homes',
+        content: `**1. Sewer Line Root Intrusion**\nOzark MO's clay-heavy Ozark Plateau soil stresses sewer line joints over time. Mature trees common in older Ozark neighborhoods send roots toward those joints in search of moisture. Signs: multiple drains slow simultaneously, gurgling when flushing, sewage smell inside, or water in the shower drain when the toilet is flushed.\n\n**2. Sump Pump Failures Near the James River**\nOzark MO neighborhoods near the James River have higher water table conditions. Homes in these areas depend on sump pumps to prevent basement flooding — a pump failure during a spring storm can flood a basement in under an hour. Annual sump pump inspections and battery backup systems are strongly recommended.\n\n**3. Corroded Galvanized Pipes in Pre-2000 Homes**\nA significant portion of Ozark's housing stock was built in the 1980s and 1990s with galvanized steel supply lines. As these pipes age, the interior corrodes and narrows, causing progressively worsening water pressure. The permanent fix is repiping in PEX.\n\n**4. Burst Pipes in Winter**\nMissouri freeze-thaw cycles put Ozark MO crawlspace homes at risk every December through February. Uninsulated pipes in crawlspaces, exterior walls, and attached garages can freeze and burst when temperatures drop below 20°F.\n\n**5. Water Heater Sediment from Hard Water**\nChristian County's moderately hard water deposits minerals inside water heater tanks, causing popping sounds, reduced output, and eventual failure. Annual flushing prevents this.`,
+      },
+      {
+        h2: 'Plumbing Services We Provide in Ozark MO',
+        content: `**Emergency Plumbing Ozark MO** — Burst pipes, active leaks, sewage backup, flooded basements, no hot water. Dispatched immediately, 24/7/365.\n\n**Drain Cleaning Ozark MO** — Single drain clogs via snake. Recurring clogs and main line blockages via hydro-jetting.\n\n**Sump Pump Repair & Installation Ozark MO** — Inspection, repair, replacement, and battery backup installation. Critical for homes near the James River.\n\n**Water Heater Repair & Replacement Ozark MO** — All brands, gas and electric, tank and tankless. Same-day service on most water heater calls.\n\n**Sewer Line Inspection & Repair Ozark MO** — Full video camera inspection. Root removal, spot repair, trenchless lining, pipe bursting, and full replacement.\n\n**Leak Detection Ozark MO** — Thermal imaging and acoustic equipment find leaks behind walls and under slabs.\n\n**Pipe Repair & Repiping Ozark MO** — Single section repairs and full home repiping in PEX for older Ozark homes with corroded galvanized supply lines.`,
+      },
+      {
+        h2: 'How Much Does a Plumber Cost in Ozark MO? (2026 Price Ranges)',
+        content: `• **Drain snake (single drain):** $150–$300\n• **Hydro-jetting:** $300–$600\n• **Sump pump replacement (installed):** $400–$900\n• **Battery backup sump pump (installed):** $300–$700\n• **Sewer camera inspection:** $200–$400\n• **Water heater repair:** $150–$400\n• **40-gal gas tank installed:** $800–$1,200\n• **Gas tankless installed:** $1,800–$3,000\n• **Burst pipe repair:** $300–$800\n• **Spot sewer repair:** $500–$1,500\n• **Trenchless pipe lining:** $3,000–$8,000\n• **Leak detection:** $200–$500\n\nZero call-out fees. Written estimate before any work begins. No hidden charges on the final bill. Call **(417) 373-4862** for a free phone estimate.`,
+      },
+      {
+        h2: 'Ozark MO Plumbing Permits — What Homeowners Need to Know',
+        content: `The City of Ozark Building Department requires permits for water heater replacements, sewer line work, new installations, and gas line work. Unpermitted plumbing gets flagged at resale — home inspectors catch it every time.\n\nOur licensed plumbers pull all required Ozark MO permits as part of every job. Permit cost is included in your written estimate. No extra steps for you.\n\nFor permit questions: City of Ozark Building Department, 205 Third Street, Ozark MO 65721.`,
+      },
+      {
+        h2: 'How to Verify a Plumber is Licensed in Ozark MO',
+        content: `Check any Missouri plumber's license in 60 seconds at **pr.mo.gov** — Missouri Division of Professional Registration. A licensed plumber has passed state exams and carries liability insurance.\n\n**Ask before you hire:** "What is your Missouri plumbing license number?" Any plumber who hesitates or refuses is unlicensed.\n\n**Red flags:** No license number, demands full payment upfront, refuses a written estimate, price is dramatically below market rates, no local Google reviews.`,
+      },
+      {
+        h2: 'What to Do in a Plumbing Emergency in Ozark MO',
+        content: `**Step 1:** Shut off the main water valve — clockwise until fully closed. Most Ozark MO homes: basement near front wall, crawlspace near water line entry, or utility room.\n\n**Step 2:** Turn off the water heater — gas to pilot, electric breaker off.\n\n**Step 3:** Open the lowest faucet to drain remaining pipe pressure.\n\n**Step 4:** Document all water damage with photos and video before cleanup.\n\n**Step 5:** Call **(417) 373-4862** immediately. Licensed plumbers dispatched now. Ozark MO arrival in 30–40 minutes.`,
+      },
+      {
+        h2: 'Frequently Asked Questions — Plumber in Ozark MO',
+        content: `**Q: How fast can a plumber reach Ozark MO?**\nA: 30–40 minutes via US-65 South from Springfield. Call immediately — every minute matters.\n\n**Q: Do Ozark MO homes have specific plumbing problems?**\nA: Yes — sewer root intrusion from clay soil, sump pump risk near the James River, and corroded galvanized pipes in pre-2000 homes.\n\n**Q: Is there a call-out fee?**\nA: No. Zero call-out fees. Pay only for work performed, with a written estimate first.\n\n**Q: Do you need a permit for plumbing in Ozark MO?**\nA: Yes for water heaters, sewer work, new installations, and gas lines. We pull all permits as part of the job.\n\n**Q: Can you fix a burst pipe in Ozark MO same day?**\nA: Yes. Most burst pipe repairs are completed on the first visit.\n\n**Q: Do you service homes near the James River in Ozark MO?**\nA: Yes. We provide sump pump inspection, repair, and replacement specifically for homes in the James River corridor where high water tables create elevated flooding risk.`,
+      },
+    ],
+  },
 }
 
 // ── RESPONSIVE STYLES ─────────────────────────────────────────
 const RESPONSIVE_CSS = `
-  /* ── Outer wrapper ── */
   @media (max-width: 768px) { .bp-outer { padding-top: 70px !important; } }
   @media (max-width: 480px) { .bp-outer { padding-top: 60px !important; } }
-
-  /* ── Hero ── */
   @media (max-width: 900px) { .bp-hero { padding: 48px 5% 36px !important; } }
   @media (max-width: 768px) {
     .bp-hero { padding: 36px 5% 28px !important; }
@@ -552,14 +671,10 @@ const RESPONSIVE_CSS = `
     .bp-hero { padding: 26px 4% 22px !important; }
     .bp-hero h1 { font-size: clamp(20px, 6vw, 26px) !important; }
   }
-
-  /* ── Featured image ── */
   .bp-featured-img { height: 400px; width: 100%; object-fit: cover; display: block; }
   @media (max-width: 900px) { .bp-featured-img { height: 280px !important; } }
   @media (max-width: 768px) { .bp-featured-img { height: 210px !important; } }
   @media (max-width: 480px) { .bp-featured-img { height: 170px !important; } }
-
-  /* ── Article body ── */
   @media (max-width: 900px) { .bp-article { padding: 40px 5% 64px !important; } }
   @media (max-width: 768px) {
     .bp-article { padding: 28px 5% 52px !important; }
@@ -574,8 +689,6 @@ const RESPONSIVE_CSS = `
     .bp-section h2 { font-size: 17px !important; }
     .bp-section p  { font-size: 14px !important; margin-bottom: 10px !important; }
   }
-
-  /* ── Emergency CTA box ── */
   @media (max-width: 768px) { .bp-cta-box { padding: 22px 20px !important; margin-bottom: 32px !important; } }
   @media (max-width: 600px) {
     .bp-cta-box         { flex-direction: column !important; gap: 14px !important; padding: 18px !important; }
@@ -583,8 +696,6 @@ const RESPONSIVE_CSS = `
     .bp-cta-title       { font-size: 15px !important; }
     .bp-cta-sub         { font-size: 13px !important; }
   }
-
-  /* ── Author box ── */
   @media (max-width: 600px) { .bp-author { padding: 20px !important; gap: 14px !important; } }
   @media (max-width: 480px) {
     .bp-author           { flex-direction: column !important; }
@@ -592,8 +703,6 @@ const RESPONSIVE_CSS = `
     .bp-author-name      { font-size: 14px !important; }
     .bp-author-bio       { font-size: 13px !important; }
   }
-
-  /* ── Related posts grid ── */
   .bp-related-grid { grid-template-columns: repeat(2, 1fr) !important; }
   @media (max-width: 600px) {
     .bp-related-grid { grid-template-columns: 1fr !important; }
@@ -604,14 +713,11 @@ const RESPONSIVE_CSS = `
     .bp-related-card     { flex-direction: column !important; }
     .bp-related-card img { width: 100% !important; height: 120px !important; }
   }
-
-  /* ── Related section ── */
   @media (max-width: 768px) {
     .bp-related-wrap { margin-top: 44px !important; }
     .bp-related-head { font-size: 22px !important; margin-bottom: 18px !important; }
   }
-`;
-
+`
 
 export default function BlogPostPage({ params }) {
   const post = BLOG_POSTS.find(p => p.slug === params.slug)

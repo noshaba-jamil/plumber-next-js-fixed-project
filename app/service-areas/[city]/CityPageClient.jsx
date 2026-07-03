@@ -1,4 +1,4 @@
-'use client'
+ 'use client'
 
 import Link from 'next/link'
 
@@ -100,7 +100,10 @@ export default function CityPageClient({ city, citySlug }) {
             <div>
               <div className="stag">About This Area</div>
               <h2 className="sh">Plumbing Services in <em>{city.name}, MO</em></h2>
-              <p style={{ color: 'var(--text-dim)', fontSize: 15, lineHeight: 1.8, marginBottom: 24 }}>{city.longDesc}</p>
+              <p style={{ color: 'var(--text-dim)', fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>{city.longDesc}</p>
+              {city.secondaryDesc && (
+                <p style={{ color: 'var(--text-dim)', fontSize: 15, lineHeight: 1.8, marginBottom: 24 }}>{city.secondaryDesc}</p>
+              )}
 
               {/* City detail cards */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 28 }}>
@@ -129,6 +132,14 @@ export default function CityPageClient({ city, citySlug }) {
                   ))}
                 </div>
               </div>
+
+              {/* Response time */}
+              {city.responseTime && (
+                <div style={{ marginBottom: 28, background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', padding: '18px 20px' }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Response Time</div>
+                  <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.7 }}>{city.responseTime}</p>
+                </div>
+              )}
 
               <a href="tel:+14173734862" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                 <i className="ri-phone-fill" />Call for Service in {city.name}
@@ -170,8 +181,31 @@ export default function CityPageClient({ city, citySlug }) {
         </div>
       </section>
 
+      {/* ── COMMON PROBLEMS ──────────────────────────────────────────────── */}
+      {city.problems && city.problems.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="sec-center">
+              <div className="stag">Local Issues</div>
+              <h2 className="sh">Common Plumbing Problems in <em>{city.name}, {city.state}</em></h2>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginTop: 44 }}>
+              {city.problems.map(p => (
+                <div key={p.title} style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', padding: '28px 24px' }}>
+                  <div style={{ width: 48, height: 48, background: 'rgba(212,169,65,0.12)', border: '1px solid rgba(212,169,65,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 18 }}>
+                    <i className={p.icon} style={{ color: 'var(--gold)', fontSize: 22 }} />
+                  </div>
+                  <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 16, color: '#fff', marginBottom: 10 }}>{p.title}</h3>
+                  <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.7 }}>{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── WHY CHOOSE US ────────────────────────────────────────────────── */}
-      <section className="section">
+      <section className="section section-alt">
         <div className="container">
           <div className="sec-center">
             <div className="stag">Why Choose Us</div>
@@ -195,6 +229,28 @@ export default function CityPageClient({ city, citySlug }) {
           </div>
         </div>
       </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+      {city.faqs && city.faqs.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="sec-center">
+              <div className="stag">Questions & Answers</div>
+              <h2 className="sh">Plumber in <em>{city.name}, {city.state}</em> — FAQs</h2>
+            </div>
+            <div style={{ maxWidth: 780, margin: '44px auto 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {city.faqs.map(f => (
+                <details key={f.q} style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', padding: '18px 22px' }}>
+                  <summary style={{ cursor: 'pointer', fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 15, color: '#fff', listStyle: 'none' }}>
+                    {f.q}
+                  </summary>
+                  <p style={{ marginTop: 12, fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.7 }}>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── CTA BANNER ───────────────────────────────────────────────────── */}
       <section style={{ background: 'var(--blue)', padding: '64px 20px' }}>
