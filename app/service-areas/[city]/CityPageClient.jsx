@@ -25,17 +25,17 @@ const ALL_CITIES = [
 export default function CityPageClient({ city, citySlug }) {
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: 'var(--navy)' }}>
-        <img
-          src={city.image}
-          alt={city.imgAlt}
-          width={1400} height={500}
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.18 }}
-        />
+      {/* ── HERO — proper background-image with gradient overlay ──────────── */}
+      <section
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          backgroundImage: `linear-gradient(180deg, rgba(10,20,40,0.88) 0%, rgba(10,20,40,0.94) 60%, var(--navy) 100%), url(${city.image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div className="container" style={{ padding: '80px 20px 72px' }}>
 
@@ -57,16 +57,16 @@ export default function CityPageClient({ city, citySlug }) {
             </nav>
 
             {/* Distance badge */}
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,169,65,0.12)', border: '1px solid rgba(212,169,65,0.35)', padding: '5px 14px', marginBottom: 20 }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,169,65,0.14)', border: '1px solid rgba(212,169,65,0.4)', padding: '5px 14px', marginBottom: 20, backdropFilter: 'blur(4px)' }}>
               <i className="ri-map-pin-fill" style={{ color: 'var(--gold)', fontSize: 13 }} />
               <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{city.distance}</span>
             </div>
 
-            <h1 style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400, fontSize: 'clamp(32px, 5vw, 52px)', color: '#fff', lineHeight: 1.15, marginBottom: 20, maxWidth: 720 }}>
+            <h1 style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400, fontSize: 'clamp(32px, 5vw, 52px)', color: '#fff', lineHeight: 1.15, marginBottom: 20, maxWidth: 720, textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
               Plumber in <span style={{ color: 'var(--gold)' }}>{city.name}, {city.state}</span> — 24/7 Emergency Plumbing
             </h1>
 
-            <p style={{ fontSize: 18, color: 'var(--text-dim)', lineHeight: 1.7, maxWidth: 620, marginBottom: 36 }}>
+            <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.82)', lineHeight: 1.7, maxWidth: 620, marginBottom: 36 }}>
               Licensed emergency plumber serving {city.name}, MO ({city.zip}). We answer every call 24 hours a day — no voicemail, no hold times. Fast response, upfront pricing, no hidden fees.
             </p>
 
@@ -82,7 +82,7 @@ export default function CityPageClient({ city, citySlug }) {
             {/* Trust badges */}
             <div style={{ display: 'flex', gap: 24, marginTop: 36, flexWrap: 'wrap' }}>
               {['Licensed & Insured', '24/7 Emergency', 'Upfront Pricing', '4.8★ Google'].map(badge => (
-                <span key={badge} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'var(--text-dim)', fontWeight: 600 }}>
+                <span key={badge} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 600 }}>
                   <i className="ri-shield-check-fill" style={{ color: 'var(--gold)', fontSize: 15 }} />{badge}
                 </span>
               ))}
@@ -95,8 +95,6 @@ export default function CityPageClient({ city, citySlug }) {
       <section className="section section-alt">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 64, alignItems: 'start' }}>
-
-            {/* Left — City Info */}
             <div>
               <div className="stag">About This Area</div>
               <h2 className="sh">Plumbing Services in <em>{city.name}, MO</em></h2>
@@ -105,7 +103,6 @@ export default function CityPageClient({ city, citySlug }) {
                 <p style={{ color: 'var(--text-dim)', fontSize: 15, lineHeight: 1.8, marginBottom: 24 }}>{city.secondaryDesc}</p>
               )}
 
-              {/* City detail cards */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 28 }}>
                 {[
                   { icon: 'ri-group-fill',   label: 'Population', value: city.population },
@@ -123,7 +120,6 @@ export default function CityPageClient({ city, citySlug }) {
                 ))}
               </div>
 
-              {/* Neighborhoods */}
               <div style={{ marginBottom: 28 }}>
                 <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-dimmer)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 10 }}>Areas Covered</div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
@@ -133,7 +129,6 @@ export default function CityPageClient({ city, citySlug }) {
                 </div>
               </div>
 
-              {/* Response time */}
               {city.responseTime && (
                 <div style={{ marginBottom: 28, background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', padding: '18px 20px' }}>
                   <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Response Time</div>
@@ -146,7 +141,6 @@ export default function CityPageClient({ city, citySlug }) {
               </a>
             </div>
 
-            {/* Right — Services */}
             <div>
               <div className="stag">What We Do</div>
               <h2 className="sh">Services Available in <em>{city.name}</em></h2>
@@ -165,7 +159,6 @@ export default function CityPageClient({ city, citySlug }) {
                 ))}
               </div>
 
-              {/* Emergency CTA box */}
               <div style={{ marginTop: 20, background: 'rgba(212,169,65,0.08)', border: '1px solid rgba(212,169,65,0.3)', padding: '24px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
                   <i className="ri-alarm-warning-fill" style={{ color: 'var(--gold)', fontSize: 22 }} />
@@ -182,7 +175,7 @@ export default function CityPageClient({ city, citySlug }) {
       </section>
 
       {/* ── COMMON PROBLEMS ──────────────────────────────────────────────── */}
-      {city.problems && city.problems.length > 0 && (
+      {city.problems?.length > 0 && (
         <section className="section">
           <div className="container">
             <div className="sec-center">
@@ -230,21 +223,46 @@ export default function CityPageClient({ city, citySlug }) {
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-      {city.faqs && city.faqs.length > 0 && (
-        <section className="section">
+      {/* ── FAQ — redesigned accordion, matches theme, no dead space ──────── */}
+      {city.faqs?.length > 0 && (
+        <section className="section" style={{ paddingBottom: 0 }}>
           <div className="container">
             <div className="sec-center">
               <div className="stag">Questions & Answers</div>
               <h2 className="sh">Plumber in <em>{city.name}, {city.state}</em> — FAQs</h2>
             </div>
-            <div style={{ maxWidth: 780, margin: '44px auto 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {city.faqs.map(f => (
-                <details key={f.q} style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', padding: '18px 22px' }}>
-                  <summary style={{ cursor: 'pointer', fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 15, color: '#fff', listStyle: 'none' }}>
-                    {f.q}
+            <div style={{ maxWidth: 780, margin: '44px auto 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {city.faqs.map((f) => (
+                <details
+                  key={f.q}
+                  className="faq-item"
+                  style={{
+                    background: 'var(--card)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    borderLeft: '3px solid var(--gold)',
+                    padding: '4px 22px',
+                    borderRadius: 2,
+                  }}
+                >
+                  <summary
+                    style={{
+                      cursor: 'pointer',
+                      fontFamily: "'Syne', sans-serif",
+                      fontWeight: 700,
+                      fontSize: 15,
+                      color: '#fff',
+                      listStyle: 'none',
+                      padding: '16px 0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: 16,
+                    }}
+                  >
+                    <span>{f.q}</span>
+                    <i className="ri-add-line faq-icon" style={{ color: 'var(--gold)', fontSize: 20, flexShrink: 0, transition: 'transform 0.2s' }} />
                   </summary>
-                  <p style={{ marginTop: 12, fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.7 }}>{f.a}</p>
+                  <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.7, paddingBottom: 18, marginTop: -6 }}>{f.a}</p>
                 </details>
               ))}
             </div>
@@ -253,7 +271,7 @@ export default function CityPageClient({ city, citySlug }) {
       )}
 
       {/* ── CTA BANNER ───────────────────────────────────────────────────── */}
-      <section style={{ background: 'var(--blue)', padding: '64px 20px' }}>
+       <section style={{ background: 'var(--blue, #0b1f3a)', padding: 'clamp(32px, 8vw, 56px) 20px', marginTop: 'clamp(24px, 6vw, 40px)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400, fontSize: 'clamp(28px, 4vw, 42px)', color: '#fff', marginBottom: 14 }}>
             Need a Plumber in <span style={{ color: 'var(--gold)' }}>{city.name}, MO?</span>
@@ -294,6 +312,15 @@ export default function CityPageClient({ city, citySlug }) {
           </div>
         </div>
       </section>
+
+      <style jsx global>{`
+        .faq-item[open] > summary .faq-icon {
+          transform: rotate(45deg);
+        }
+        .faq-item summary::-webkit-details-marker {
+          display: none;
+        }
+      `}</style>
     </>
   )
 }
