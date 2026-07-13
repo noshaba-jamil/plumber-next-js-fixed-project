@@ -2,24 +2,49 @@
 
 import Link from 'next/link'
 
-const SERVICES = [
-  { name: 'Emergency Plumbing',      slug: '/emergency-plumber-springfield-mo',        icon: 'ri-alarm-warning-fill' },
-  { name: 'Drain Cleaning',          slug: '/drain-cleaning-springfield-mo',            icon: 'ri-water-flash-fill' },
-  { name: 'Leak Detection',          slug: '/leak-detection-springfield-mo',            icon: 'ri-search-eye-fill' },
-  { name: 'Water Heater Repair',     slug: '/water-heater-repair-springfield-mo',       icon: 'ri-temp-hot-fill' },
-  { name: 'Sewer Line Repair',       slug: '/sewer-line-repair-springfield-mo',         icon: 'ri-arrow-down-circle-fill' },
-  { name: 'Pipe Repair & Install',   slug: '/pipe-repair-installation-springfield-mo',  icon: 'ri-tools-fill' },
+ const SERVICES = [
+  { name: 'Emergency Plumbing',              slug: '/emergency-plumber-springfield-mo',                     icon: 'ri-alarm-warning-fill' },
+  { name: 'Drain Cleaning',                  slug: '/drain-cleaning-springfield-mo',                        icon: 'ri-water-flash-fill' },
+  { name: 'Leak Detection',                  slug: '/leak-detection-springfield-mo',                        icon: 'ri-search-eye-fill' },
+  { name: 'Water Heater Repair',              slug: '/water-heater-repair-springfield-mo',                   icon: 'ri-temp-hot-fill' },
+  { name: 'Sewer Line Repair',                slug: '/sewer-line-repair-springfield-mo',                     icon: 'ri-arrow-down-circle-fill' },
+  { name: 'Pipe Repair & Install',            slug: '/pipe-repair-installation-springfield-mo',              icon: 'ri-tools-fill' },
+  { name: 'Water Heater Installation',        slug: '/water-heater-installation-springfield-mo',             icon: 'ri-fire-line' },
+  { name: 'Tankless Water Heater Install',    slug: '/tankless-water-heater-installation-springfield-mo',    icon: 'ri-flashlight-fill' },
+  { name: 'Water Softener Installation',      slug: '/water-softener-installation-springfield-mo',           icon: 'ri-drop-line' },
+  { name: 'Gas Line Repair & Install',        slug: '/gas-line-repair-installation-springfield-mo',          icon: 'ri-fire-fill' },
+  { name: 'Whole-Home Repiping',              slug: '/repiping-springfield-mo',                              icon: 'ri-git-branch-line' },
+  { name: 'Sewer Camera Inspection',          slug: '/sewer-camera-inspection-springfield-mo',                icon: 'ri-camera-fill' },
+  { name: 'Trenchless Sewer Repair',          slug: '/trenchless-sewer-repair-springfield-mo',                icon: 'ri-git-merge-line' },
+  { name: 'Hydro Jetting',                    slug: '/hydro-jetting-springfield-mo',                          icon: 'ri-water-flash-fill' },
+  { name: 'Slab Leak Repair',                 slug: '/slab-leak-repair-springfield-mo',                       icon: 'ri-home-gear-fill' },
+  { name: 'Sump Pump Installation & Repair',  slug: '/sump-pump-installation-springfield-mo',                 icon: 'ri-rainy-fill' },
+  { name: 'Toilet Repair & Installation',     slug: '/toilet-repair-installation-springfield-mo',             icon: 'ri-checkbox-blank-circle-fill' },
+  { name: 'Faucet & Fixture Installation',    slug: '/faucet-fixture-installation-springfield-mo',            icon: 'ri-shower-fill' },
+  { name: 'Garbage Disposal Repair',          slug: '/garbage-disposal-repair-springfield-mo',                icon: 'ri-delete-bin-5-fill' },
+  { name: 'Backflow Testing & Certification', slug: '/backflow-testing-springfield-mo',                       icon: 'ri-shield-check-line' },
+  { name: 'Frozen Pipe Repair',               slug: '/frozen-pipe-repair-springfield-mo',                     icon: 'ri-snowy-fill' },
+  { name: 'Bathroom & Kitchen Remodel',       slug: '/bathroom-kitchen-remodel-plumbing-springfield-mo',       icon: 'ri-hammer-fill' },
+  { name: 'Commercial Plumbing',              slug: '/commercial-plumber-springfield-mo',                     icon: 'ri-building-4-fill' },
+  { name: 'New Construction Plumbing',        slug: '/new-construction-plumbing-springfield-mo',              icon: 'ri-building-2-fill' },
 ]
-
-const ALL_CITIES = [
-  { slug: 'springfield-mo',          name: 'Springfield' },
-  { slug: 'nixa-mo',                 name: 'Nixa' },
-  { slug: 'ozark-mo',                name: 'Ozark' },
-  { slug: 'republic-battlefield-mo', name: 'Republic & Battlefield' },
-  { slug: 'willard-mo',              name: 'Willard' },
-  { slug: 'rogersville-mo',          name: 'Rogersville' },
-  { slug: 'strafford-mo',            name: 'Strafford' },
-  { slug: 'clever-billings-mo',      name: 'Clever & Billings' },
+ const ALL_CITIES = [
+  { slug: 'springfield-mo',              name: 'Springfield' },
+  { slug: 'nixa-mo',                     name: 'Nixa' },
+  { slug: 'ozark-mo',                    name: 'Ozark' },
+  { slug: 'republic-battlefield-mo',     name: 'Republic & Battlefield' },
+  { slug: 'willard-mo',                  name: 'Willard' },
+  { slug: 'rogersville-mo',              name: 'Rogersville' },
+  { slug: 'strafford-mo',                name: 'Strafford' },
+  { slug: 'clever-billings-mo',          name: 'Clever & Billings' },
+  { slug: 'ash-grove-mo',                name: 'Ash Grove' },
+  { slug: 'walnut-grove-mo',             name: 'Walnut Grove' },
+  { slug: 'fair-grove-mo',               name: 'Fair Grove' },
+  { slug: 'marshfield-mo',               name: 'Marshfield' },
+  { slug: 'bolivar-mo',                  name: 'Bolivar' },
+  { slug: 'mount-vernon-mo',             name: 'Mount Vernon' },
+  { slug: 'aurora-mo',                   name: 'Aurora' },
+  { slug: 'highlandville-spokane-mo',    name: 'Highlandville & Spokane' },
 ]
 
 export default function CityPageClient({ city, citySlug }) {

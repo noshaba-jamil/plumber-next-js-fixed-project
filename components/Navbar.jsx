@@ -17,6 +17,30 @@ const CITIES = [
   { name: 'Clever & Billings, MO',    slug: '/service-areas/clever-billings-mo',      icon: 'ri-map-pin-fill' },
 ]
 
+// ── Group services into categories for the dropdown (client-side only, no data file changes needed) ──
+const SERVICE_CATEGORIES = [
+  {
+    label: 'Emergency & Repairs',
+    ids: ['emergency', 'drain', 'leak', 'pipe', 'frozen-pipe', 'slab-leak'],
+  },
+  {
+    label: 'Water Heaters',
+    ids: ['heater', 'water-heater-install', 'tankless-install'],
+  },
+  {
+    label: 'Sewer & Drain',
+    ids: ['sewer', 'sewer-camera', 'trenchless', 'hydro-jetting'],
+  },
+  {
+    label: 'Fixtures & Installs',
+    ids: ['toilet-repair', 'faucet-fixture', 'garbage-disposal', 'water-softener'],
+  },
+  {
+    label: 'Specialty & Projects',
+    ids: ['gas-line', 'backflow-testing', 'sump-pump', 'repiping', 'remodel-plumbing', 'commercial', 'new-construction'],
+  },
+]
+
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
@@ -38,6 +62,8 @@ export default function Navbar() {
   }, [pathname])
 
   const isActive = (path) => pathname === path || pathname.startsWith(path + '/')
+
+  const svcById = Object.fromEntries(SERVICES.map(s => [s.id, s]))
 
   return (
     <nav id="nav" className={scrolled ? 'scrolled' : ''}>
@@ -68,25 +94,72 @@ export default function Navbar() {
             >
               Services <i className="ri-arrow-down-s-line dd-arrow" />
             </Link>
-            <div className="mega-drop">
-              <div className="mega-header">
+            <div
+              className="mega-drop"
+              style={{
+                width: 'min(880px, 92vw)',
+                maxHeight: '78vh',
+                display: 'flex',
+                flexDirection: 'column',
+                padding: 0,
+                overflow: 'hidden',
+              }}
+            >
+              <div className="mega-header" style={{ flexShrink: 0 }}>
                 <span className="mega-header-title">Our Plumbing Services</span>
                 <Link href="/services" className="mega-header-link">
                   View All Services <i className="ri-arrow-right-line" />
                 </Link>
               </div>
-              <div className="mega-grid">
-                {SERVICES.map(svc => (
-                  <Link key={svc.id} href={svc.slug} className="mega-item">
-                    <div className="mega-item-icon"><i className={svc.icon} /></div>
-                    <div>
-                      <div className="mega-item-name">{svc.name}</div>
-                      <div className="mega-item-desc">{svc.tagline}</div>
+
+              {/* Scrollable body */}
+              <div style={{ overflowY: 'auto', padding: '4px 20px 16px', flex: 1 }}>
+                {SERVICE_CATEGORIES.map(cat => {
+                  const items = cat.ids.map(id => svcById[id]).filter(Boolean)
+                  if (items.length === 0) return null
+                  return (
+                    <div key={cat.label} style={{ marginBottom: 18 }}>
+                      <div
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 800,
+                          letterSpacing: '0.07em',
+                          textTransform: 'uppercase',
+                          color: 'var(--gold, #d4a941)',
+                          marginBottom: 8,
+                          paddingTop: 10,
+                          borderTop: '1px solid rgba(0,0,0,0.06)',
+                        }}
+                      >
+                        {cat.label}
+                      </div>
+                      <div
+                        style={{
+                          display: 'grid',
+                          gridTemplateColumns: 'repeat(2, 1fr)',
+                          gap: 4,
+                        }}
+                      >
+                        {items.map(svc => (
+                          <Link key={svc.id} href={svc.slug} className="mega-item">
+                            <div className="mega-item-icon"><i className={svc.icon} /></div>
+                            <div>
+                              <div className="mega-item-name">{svc.name}</div>
+                              <div className="mega-item-desc">{svc.tagline}</div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  </Link>
-                ))}
+                  )
+                })}
               </div>
-              <div className="mega-cta-row">
+
+              {/* Sticky CTA row — always visible at the bottom of the dropdown */}
+              <div
+                className="mega-cta-row"
+                style={{ position: 'sticky', bottom: 0, flexShrink: 0, zIndex: 2 }}
+              >
                 <span className="mega-cta-text">
                   <i className="ri-phone-fill" style={{ color: 'var(--teal)', marginRight: 6 }} />
                   24/7 Emergency: {CONTACT_INFO.phone}
@@ -173,15 +246,38 @@ export default function Navbar() {
         <div className="mob-svc-toggle" onClick={() => setSvcOpen(!svcOpen)}>
           Services <i className={`ri-arrow-down-s-line ${svcOpen ? 'rotated' : ''}`} />
         </div>
-        <div className={`mob-svc-list ${svcOpen ? 'open' : ''}`}>
+        <div
+          className={`mob-svc-list ${svcOpen ? 'open' : ''}`}
+          style={svcOpen ? { maxHeight: '50vh', overflowY: 'auto' } : undefined}
+        >
           <Link href="/services" onClick={() => setMenuOpen(false)}>
             <i className="ri-apps-fill" />All Services
           </Link>
-          {SERVICES.map(svc => (
-            <Link key={svc.id} href={svc.slug} onClick={() => setMenuOpen(false)}>
-              <i className={svc.icon} />{svc.name}
-            </Link>
-          ))}
+          {SERVICE_CATEGORIES.map(cat => {
+            const items = cat.ids.map(id => svcById[id]).filter(Boolean)
+            if (items.length === 0) return null
+            return (
+              <div key={cat.label}>
+                <div
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 800,
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    color: 'var(--gold, #d4a941)',
+                    padding: '10px 0 4px',
+                  }}
+                >
+                  {cat.label}
+                </div>
+                {items.map(svc => (
+                  <Link key={svc.id} href={svc.slug} onClick={() => setMenuOpen(false)}>
+                    <i className={svc.icon} />{svc.name}
+                  </Link>
+                ))}
+              </div>
+            )
+          })}
         </div>
 
         <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>

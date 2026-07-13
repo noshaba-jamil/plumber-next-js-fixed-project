@@ -142,7 +142,7 @@ export default function Home({ h1 }) {
             <div className="hero-glass-card">
               <div className="hgc-stats">
                 <div className="hgc-stat"><div className="n">24<sup>/7</sup></div><div className="l">We Answer</div></div>
-                <div className="hgc-stat"><div className="n">4.8<sup>★</sup></div><div className="l">Google</div></div>
+                 
                 <div className="hgc-stat"><div className="n">$0<sup></sup></div><div className="l">Call-Out Fee</div></div>
               </div>
             </div>
