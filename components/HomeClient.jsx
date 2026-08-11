@@ -185,18 +185,16 @@ export default function Home({ h1 }) {
           ))}
         </div>
       </div>
-
-      {/* ── STATS BAR ── */}
-      <div className="stats-sec">
-        <div className="stats-in">
-          {[['24', '/7', 'We Answer Every Call'], ['Fast', '⚡', 'Emergency Response'], ['4.8', '★', 'Google Rating'], ['$0', '', 'No Call-Out Fee'], ['100', '%', 'Upfront Pricing']].map(([n, sup, l], i) => (
-            <div key={i} className="scell" data-aos="zi" data-aos-delay={i * 80}>
-              <div className="n">{n}<sup>{sup}</sup></div>
-              <div className="l">{l}</div>
-            </div>
-          ))}
-        </div>
+ <div className="stats-sec">
+  <div className="stats-in">
+    {[['24', '/7', 'We Answer Every Call'], ['Fast', '⚡', 'Emergency Response'], ['Same Day', '', 'Service'], ['$0', '', 'No Call-Out Fee'], ['100', '%', 'Upfront Pricing']].map(([n, sup, l], i) => (
+      <div key={i} className="scell" data-aos="zi" data-aos-delay={i * 80}>
+        <div className="n">{n}<sup>{sup}</sup></div>
+        <div className="l">{l}</div>
       </div>
+    ))}
+  </div>
+</div>
 
       {/* ── INTRO ── */}
       <section className="section section-alt">

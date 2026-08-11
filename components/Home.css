@@ -371,8 +371,7 @@
 @keyframes mq { from{transform:translateX(0);}to{transform:translateX(-50%);} }
 .mitem { display: inline-flex; align-items: center; gap: 10px; padding: 0 28px; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.92); }
 .msep { color: rgba(255,255,255,0.5); font-size: 8px; }
-
-/* ── STATS BAR ── */
+ /* ── STATS BAR ── */
 .stats-sec { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.06); }
 .stats-in { display: grid; grid-template-columns: repeat(5,1fr); max-width: 1300px; margin: 0 auto; }
 .scell { padding: 32px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); transition: var(--t); }
@@ -382,6 +381,22 @@
 .scell .n sup { font-family: 'Syne', sans-serif; font-size: 16px; color: var(--amber); font-weight: 900; }
 .scell .l { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; }
 
+/* ── RESPONSIVE: STATS BAR ── */
+@media (max-width: 900px) {
+  .stats-in { grid-template-columns: repeat(3, 1fr); }
+  .scell:nth-child(3) { border-right: none; }
+  .scell { padding: 24px 12px; }
+  .scell .n { font-size: 30px; }
+}
+
+@media (max-width: 500px) {
+  .stats-in { grid-template-columns: repeat(2, 1fr); }
+  .scell:nth-child(2) { border-right: none; }
+  .scell:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.07); }
+  .scell { padding: 20px 10px; }
+  .scell .n { font-size: 26px; }
+  .scell .l { font-size: 10px; }
+}
 /* ── INTRO GRID ── */
 .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .emerg-list { display: grid; gap: 10px; }
