@@ -1,6 +1,7 @@
 /* ══════════════════════════════════════════
    FOOTER — Deep navy, pro local business
    ══════════════════════════════════════════ */
+   
 #ft { background: var(--navy); border-top: 4px solid var(--red); }
 .ft-top { padding: 80px 5%; }
 .ft-grid {

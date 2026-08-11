@@ -244,7 +244,14 @@ export default function BlogPage() {
       </section>
       <section className="section bl-section">
         <div className="container">
-          <div className="bl-grid" style={{ display: 'grid', gap: '3px' }}>
+         <div
+  className="bl-grid"
+  style={{
+    display: 'grid',
+    gap: '3px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+  }}
+>
             {BLOG_POSTS.map(post => (
               <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                 <article style={{ background: 'var(--card)', borderBottom: '3px solid transparent', transition: 'var(--t)', overflow: 'hidden', height: '100%' }} className="blog-card-link">
