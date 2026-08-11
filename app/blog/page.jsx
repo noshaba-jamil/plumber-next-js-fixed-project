@@ -157,7 +157,7 @@ export const BLOG_POSTS = [
     date: '2026-06-20', readTime: '6 min read', category: 'Homeowner Guide', image: '/blog20.webp',
     keywords: ['low water pressure Springfield MO', 'water pressure problem Springfield', 'fix low water pressure Springfield Missouri'],
   },
-  // ── NEW: DAY 1 ──
+  // ── DAY 1 ──
   {
     slug: 'plumber-nixa-mo',
     title: 'Emergency Plumber in Nixa MO — Licensed, 24/7, Upfront Pricing',
@@ -165,13 +165,29 @@ export const BLOG_POSTS = [
     date: '2026-07-01', readTime: '7 min read', category: 'Geo/Local', image: '/blog-nixa.webp',
     keywords: ['plumber Nixa MO', 'emergency plumber Nixa Missouri', 'plumber near me Nixa', 'drain cleaning Nixa MO', '24 hour plumber Nixa', 'water heater repair Nixa MO'],
   },
-  // ── NEW: DAY 2 ──
+  // ── DAY 2 ──
   {
     slug: 'plumber-ozark-mo',
     title: 'Plumber in Ozark MO — Same-Day Service, Licensed & Insured',
     description: 'Need a plumber in Ozark MO? Licensed emergency plumber serving Ozark and all of Christian County. Same-day response, upfront pricing, $0 call-out fee. Call (417) 373-4862.',
     date: '2026-07-02', readTime: '7 min read', category: 'Geo/Local', image: '/blog-ozark.webp',
     keywords: ['plumber Ozark MO', 'emergency plumber Ozark Missouri', 'plumber near me Ozark', 'drain cleaning Ozark MO', '24 hour plumber Ozark', 'water heater repair Ozark MO', 'sewer repair Ozark MO'],
+  },
+  // ── DAY 3 ──
+  {
+    slug: 'plumber-republic-mo',
+    title: 'Plumber in Republic MO — Licensed, Same-Day Service, 24/7',
+    description: 'Need a plumber in Republic MO? Licensed emergency plumber serving Republic and Greene County. Same-day response, upfront pricing, $0 call-out fee. Call (417) 373-4862.',
+    date: '2026-07-10', readTime: '7 min read', category: 'Geo/Local', image: '/blog-republic.webp',
+    keywords: ['plumber Republic MO', 'emergency plumber Republic Missouri', 'plumber near me Republic MO', 'drain cleaning Republic MO', '24 hour plumber Republic', 'water heater repair Republic MO', 'sewer repair Republic MO'],
+  },
+  // ── DAY 4 ──
+  {
+    slug: 'plumber-battlefield-mo',
+    title: 'Plumber in Battlefield MO — Licensed Emergency Service 24/7',
+    description: 'Need a plumber in Battlefield MO? Licensed emergency plumber serving Battlefield and Greene County. Same-day response, upfront pricing, $0 call-out fee. Call (417) 373-4862.',
+    date: '2026-08-10', readTime: '7 min read', category: 'Geo/Local', image: '/blog-battlefield.webp',
+    keywords: ['plumber Battlefield MO', 'emergency plumber Battlefield Missouri', 'plumber near me Battlefield MO', 'drain cleaning Battlefield MO', '24 hour plumber Battlefield', 'water heater repair Battlefield MO'],
   },
 ]
 

@@ -7,14 +7,22 @@ import { SERVICES, CONTACT_INFO } from '@/data/services'
 import '@/components/Navbar.css'
 
 const CITIES = [
-  { name: 'Springfield, MO',          slug: '/service-areas/springfield-mo',          icon: 'ri-home-4-fill' },
-  { name: 'Nixa, MO',                 slug: '/service-areas/nixa-mo',                 icon: 'ri-map-pin-fill' },
-  { name: 'Ozark, MO',                slug: '/service-areas/ozark-mo',                icon: 'ri-map-pin-fill' },
-  { name: 'Republic & Battlefield',   slug: '/service-areas/republic-battlefield-mo', icon: 'ri-map-pin-fill' },
-  { name: 'Willard, MO',              slug: '/service-areas/willard-mo',              icon: 'ri-map-pin-fill' },
-  { name: 'Rogersville, MO',          slug: '/service-areas/rogersville-mo',          icon: 'ri-map-pin-fill' },
-  { name: 'Strafford, MO',            slug: '/service-areas/strafford-mo',            icon: 'ri-map-pin-fill' },
-  { name: 'Clever & Billings, MO',    slug: '/service-areas/clever-billings-mo',      icon: 'ri-map-pin-fill' },
+  { name: 'Springfield, MO',              slug: '/service-areas/springfield-mo',           icon: 'ri-home-4-fill' },
+  { name: 'Nixa, MO',                     slug: '/service-areas/nixa-mo',                   icon: 'ri-map-pin-fill' },
+  { name: 'Ozark, MO',                    slug: '/service-areas/ozark-mo',                  icon: 'ri-map-pin-fill' },
+  { name: 'Republic & Battlefield',       slug: '/service-areas/republic-battlefield-mo',   icon: 'ri-map-pin-fill' },
+  { name: 'Willard, MO',                  slug: '/service-areas/willard-mo',                icon: 'ri-map-pin-fill' },
+  { name: 'Rogersville, MO',              slug: '/service-areas/rogersville-mo',            icon: 'ri-map-pin-fill' },
+  { name: 'Strafford, MO',                slug: '/service-areas/strafford-mo',              icon: 'ri-map-pin-fill' },
+  { name: 'Clever & Billings, MO',        slug: '/service-areas/clever-billings-mo',        icon: 'ri-map-pin-fill' },
+  { name: 'Ash Grove, MO',                slug: '/service-areas/ash-grove-mo',              icon: 'ri-map-pin-fill' },
+  { name: 'Walnut Grove, MO',             slug: '/service-areas/walnut-grove-mo',           icon: 'ri-map-pin-fill' },
+  { name: 'Fair Grove, MO',               slug: '/service-areas/fair-grove-mo',             icon: 'ri-map-pin-fill' },
+  { name: 'Marshfield, MO',               slug: '/service-areas/marshfield-mo',             icon: 'ri-map-pin-fill' },
+  { name: 'Bolivar, MO',                  slug: '/service-areas/bolivar-mo',                icon: 'ri-map-pin-fill' },
+  { name: 'Mount Vernon, MO',             slug: '/service-areas/mount-vernon-mo',           icon: 'ri-map-pin-fill' },
+  { name: 'Aurora, MO',                   slug: '/service-areas/aurora-mo',                 icon: 'ri-map-pin-fill' },
+  { name: 'Highlandville & Spokane, MO',  slug: '/service-areas/highlandville-spokane-mo',  icon: 'ri-map-pin-fill' },
 ]
 
 // ── Group services into categories for the dropdown (client-side only, no data file changes needed) ──
@@ -181,7 +189,7 @@ export default function Navbar() {
             >
               Service Areas <i className="ri-arrow-down-s-line dd-arrow" />
             </Link>
-            <div className="mega-drop">
+            <div className="mega-drop" style={{ maxHeight: '78vh', overflowY: 'auto' }}>
               <div className="mega-header">
                 <span className="mega-header-title">Areas We Serve</span>
                 <Link href="/service-areas" className="mega-header-link">
@@ -286,7 +294,10 @@ export default function Navbar() {
         <div className="mob-svc-toggle" onClick={() => setAreasOpen(!areasOpen)}>
           Service Areas <i className={`ri-arrow-down-s-line ${areasOpen ? 'rotated' : ''}`} />
         </div>
-        <div className={`mob-svc-list ${areasOpen ? 'open' : ''}`}>
+        <div
+          className={`mob-svc-list ${areasOpen ? 'open' : ''}`}
+          style={areasOpen ? { maxHeight: '50vh', overflowY: 'auto' } : undefined}
+        >
           <Link href="/service-areas" onClick={() => setMenuOpen(false)}>
             <i className="ri-map-fill" />All Service Areas
           </Link>

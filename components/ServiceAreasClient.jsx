@@ -10,7 +10,7 @@ import { SERVICES } from '@/data/services'
 const AREA_FAQS = [
   {
     q: 'What cities near Springfield MO do you serve?',
-    a: 'We serve Springfield MO and all surrounding communities within roughly 20 miles — including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, and Billings. Contact us if you are unsure whether your location is covered.'
+    a: 'We serve Springfield MO and all surrounding communities within roughly 30 miles — including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, and Spokane. Contact us if you are unsure whether your location is covered.'
   },
   {
     q: 'Do you offer 24/7 emergency plumbing in Nixa and Ozark MO?',
@@ -22,15 +22,15 @@ const AREA_FAQS = [
   },
   {
     q: 'Do you serve rural areas outside Springfield MO?',
-    a: 'Yes. We serve homeowners and businesses in rural Greene, Christian, Webster, and surrounding counties — including Rogersville, Clever, Billings, and Strafford along the I-44 corridor.'
+    a: 'Yes. We serve homeowners and businesses in rural Greene, Christian, Webster, Polk, and Lawrence counties — including Rogersville, Clever, Billings, Strafford, Bolivar, Mount Vernon, Aurora, and the Highlandville/Spokane area along with Ash Grove, Walnut Grove, and Fair Grove.'
   },
   {
     q: 'Is there an extra charge for service outside Springfield city limits?',
-    a: 'We do not charge trip fees for most areas within our standard 20-mile service radius. For locations beyond that we always confirm pricing before dispatching — no surprises.'
+    a: 'We do not charge trip fees for most areas within our standard service radius. For locations beyond that we always confirm pricing before dispatching — no surprises.'
   },
   {
     q: 'Do you handle commercial plumbing in these areas?',
-    a: 'Yes. We serve both homeowners and commercial properties across all service areas including Springfield, Nixa, Ozark, Republic, and surrounding communities.'
+    a: 'Yes. We serve both homeowners and commercial properties across all service areas including Springfield, Nixa, Ozark, Republic, Bolivar, Aurora, and surrounding communities.'
   }
 ]
 
@@ -40,22 +40,33 @@ const SERVICE_AREAS_SCHEMA = {
   "name": "Springfield Plumbing",
   "url": "https://www.springfieldmoplumber.com",
   "telephone": "+14173734862",
-  "description": "Professional plumbing services in Springfield MO and surrounding cities including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, and Strafford.",
+  "description": "Professional plumbing services in Springfield MO and surrounding cities including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, and Spokane.",
   "areaServed": [
-    { "@type": "City", "name": "Springfield",  "addressRegion": "MO" },
-    { "@type": "City", "name": "Nixa",         "addressRegion": "MO" },
-    { "@type": "City", "name": "Ozark",        "addressRegion": "MO" },
-    { "@type": "City", "name": "Republic",     "addressRegion": "MO" },
-    { "@type": "City", "name": "Battlefield",  "addressRegion": "MO" },
-    { "@type": "City", "name": "Willard",      "addressRegion": "MO" },
-    { "@type": "City", "name": "Rogersville",  "addressRegion": "MO" },
-    { "@type": "City", "name": "Strafford",    "addressRegion": "MO" },
+    { "@type": "City", "name": "Springfield",   "addressRegion": "MO" },
+    { "@type": "City", "name": "Nixa",          "addressRegion": "MO" },
+    { "@type": "City", "name": "Ozark",         "addressRegion": "MO" },
+    { "@type": "City", "name": "Republic",      "addressRegion": "MO" },
+    { "@type": "City", "name": "Battlefield",   "addressRegion": "MO" },
+    { "@type": "City", "name": "Willard",       "addressRegion": "MO" },
+    { "@type": "City", "name": "Rogersville",   "addressRegion": "MO" },
+    { "@type": "City", "name": "Strafford",     "addressRegion": "MO" },
+    { "@type": "City", "name": "Clever",        "addressRegion": "MO" },
+    { "@type": "City", "name": "Billings",      "addressRegion": "MO" },
+    { "@type": "City", "name": "Ash Grove",     "addressRegion": "MO" },
+    { "@type": "City", "name": "Walnut Grove",  "addressRegion": "MO" },
+    { "@type": "City", "name": "Fair Grove",    "addressRegion": "MO" },
+    { "@type": "City", "name": "Marshfield",    "addressRegion": "MO" },
+    { "@type": "City", "name": "Bolivar",       "addressRegion": "MO" },
+    { "@type": "City", "name": "Mount Vernon",  "addressRegion": "MO" },
+    { "@type": "City", "name": "Aurora",        "addressRegion": "MO" },
+    { "@type": "City", "name": "Highlandville", "addressRegion": "MO" },
+    { "@type": "City", "name": "Spokane",       "addressRegion": "MO" },
   ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Springfield",
     "addressRegion": "MO",
-    "postalCode": "65801",
+    "postalCode": "65806",
     "addressCountry": "US"
   },
   "openingHoursSpecification": {
@@ -79,7 +90,8 @@ const FAQ_SCHEMA = {
 const AREA_DETAILS = [
   {
     name: 'Springfield, MO', slug: 'springfield-mo', label: 'Primary Service Area',
-    population: '~170,000', distance: 'Home Base from Springfield', zipCodes: '65801, 65802, 65803, 65804, 65806, 65807',
+    population: '~170,000', distance: 'Home Base from Springfield',
+    zipCodes: '65801, 65802, 65803, 65804, 65805, 65806, 65807, 65808, 65809, 65810, 65814, 65817, 65890, 65897, 65898, 65899',
     image: '/Springfield.webp',
     imgAlt: 'Plumber performing emergency plumbing repair in Springfield Missouri home',
     imgTitle: 'Professional Plumbing Services in Springfield, MO',
@@ -156,7 +168,87 @@ const AREA_DETAILS = [
     h3: 'Plumbing Services in Clever & Billings, MO',
     desc: 'Plumbing in Clever and Billings — emergency plumbing, drain cleaning, and water heater repair for rural Christian County homeowners and small businesses.',
     neighborhoods: ['Clever city', 'Billings', 'Christian County SW'],
-  }
+  },
+  {
+    name: 'Ash Grove, MO', slug: 'ash-grove-mo', label: '',
+    population: '~1,500', distance: '~18 miles NW of Springfield', zipCodes: '65604',
+    image: '/AshGrove.webp',
+    imgAlt: 'Licensed emergency plumber serving Ash Grove MO',
+    imgTitle: 'Well, Septic, and Rural Plumbing Services in Ash Grove, MO',
+    h3: 'Plumbing Services in Ash Grove, MO',
+    desc: 'Licensed emergency plumber serving Ash Grove, MO — well, septic, and rural plumbing experts with upfront pricing and fast response.',
+    neighborhoods: ['Downtown Ash Grove', 'Highway 265 corridor', 'Rural & acreage properties'],
+  },
+  {
+    name: 'Walnut Grove, MO', slug: 'walnut-grove-mo', label: '',
+    population: '~950', distance: '~20 miles NW of Springfield', zipCodes: '65770',
+    image: '/WalnutGrove.webp',
+    imgAlt: 'Licensed emergency plumber serving Walnut Grove MO',
+    imgTitle: 'Rural Well and Septic Plumbing Services in Walnut Grove, MO',
+    h3: 'Plumbing Services in Walnut Grove, MO',
+    desc: 'Licensed emergency plumber serving Walnut Grove, MO — rural well and septic experts with upfront pricing.',
+    neighborhoods: ['Downtown Walnut Grove', 'Rural farming & acreage properties'],
+  },
+  {
+    name: 'Fair Grove, MO', slug: 'fair-grove-mo', label: '',
+    population: '~1,400', distance: '~15 miles NE of Springfield', zipCodes: '65648',
+    image: '/FairGrove.webp',
+    imgAlt: 'Licensed emergency plumber serving Fair Grove MO',
+    imgTitle: 'Rural and Growing Residential Plumbing Services in Fair Grove, MO',
+    h3: 'Plumbing Services in Fair Grove, MO',
+    desc: 'Licensed emergency plumber serving Fair Grove, MO — rural and growing residential plumbing experts.',
+    neighborhoods: ['Downtown Fair Grove', 'Highway 65 corridor', 'Rural & newer residential properties'],
+  },
+  {
+    name: 'Marshfield, MO', slug: 'marshfield-mo', label: '',
+    population: '~7,500', distance: '~22 miles east of Springfield', zipCodes: '65706',
+    image: '/Marshfield.webp',
+    imgAlt: 'Licensed emergency plumber serving Marshfield MO',
+    imgTitle: 'Rural and Residential Plumbing Services in Marshfield, MO',
+    h3: 'Plumbing Services in Marshfield, MO',
+    desc: 'Licensed emergency plumber serving Marshfield, MO — rural and residential plumbing experts, upfront pricing.',
+    neighborhoods: ['Downtown Marshfield', 'I-44 corridor', 'Rural & newer residential properties'],
+  },
+  {
+    name: 'Bolivar, MO', slug: 'bolivar-mo', label: '',
+    population: '~10,800', distance: '~25 miles north of Springfield', zipCodes: '65613',
+    image: '/Bolivar.webp',
+    imgAlt: 'Licensed emergency plumber serving Bolivar MO',
+    imgTitle: 'Residential, Well and Septic Plumbing Services in Bolivar, MO',
+    h3: 'Plumbing Services in Bolivar, MO',
+    desc: 'Licensed emergency plumber serving Bolivar, MO — residential, well & septic experts, upfront pricing.',
+    neighborhoods: ['Downtown Bolivar', 'Southwest Baptist University area', 'Rural & residential properties'],
+  },
+  {
+    name: 'Mount Vernon, MO', slug: 'mount-vernon-mo', label: '',
+    population: '~4,400', distance: '~25 miles SW of Springfield', zipCodes: '65712',
+    image: '/MountVernon.webp',
+    imgAlt: 'Licensed emergency plumber serving Mount Vernon MO',
+    imgTitle: 'Residential, Well and Septic Plumbing Services in Mount Vernon, MO',
+    h3: 'Plumbing Services in Mount Vernon, MO',
+    desc: 'Licensed emergency plumber serving Mount Vernon, MO — residential, well & septic experts.',
+    neighborhoods: ['Downtown Mount Vernon', 'Historic square area', 'Rural & farming properties'],
+  },
+  {
+    name: 'Aurora, MO', slug: 'aurora-mo', label: '',
+    population: '~7,300', distance: '~30 miles SW of Springfield', zipCodes: '65605',
+    image: '/Aurora.webp',
+    imgAlt: 'Licensed emergency plumber serving Aurora MO',
+    imgTitle: 'Residential, Well, Septic and Commercial Plumbing Services in Aurora, MO',
+    h3: 'Plumbing Services in Aurora, MO',
+    desc: 'Licensed emergency plumber serving Aurora, MO — residential, well, septic & commercial plumbing.',
+    neighborhoods: ['Downtown Aurora', 'Commercial & light-industrial corridor', 'Rural & residential properties'],
+  },
+  {
+    name: 'Highlandville & Spokane, MO', slug: 'highlandville-spokane-mo', label: '',
+    population: '~2,000+', distance: '~15 miles south of Springfield', zipCodes: '65669, 65754',
+    image: '/HighlandvilleSpokane.webp',
+    imgAlt: 'Licensed emergency plumber serving Highlandville and Spokane MO',
+    imgTitle: 'Rural and Growing Residential Plumbing Services in Highlandville & Spokane, MO',
+    h3: 'Plumbing Services in Highlandville & Spokane, MO',
+    desc: 'Licensed emergency plumber serving Highlandville & Spokane, MO — rural and growing residential plumbing experts.',
+    neighborhoods: ['Highway 160 corridor', 'Subdivisions & rural properties'],
+  },
 ]
 
 export default function ServiceAreasClient({ h1 }) {
@@ -170,14 +262,14 @@ export default function ServiceAreasClient({ h1 }) {
         image="/Springfield1.webp"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas' }]}
         h1={h1 || 'Plumbing Service Areas — Springfield MO & Surrounding Cities'}
-        subtitle="Professional plumbing throughout Springfield, Missouri and all nearby communities. 24/7 emergency response in Nixa, Ozark, Republic, Willard, Rogersville, Strafford, and beyond."
+        subtitle="Professional plumbing throughout Springfield, Missouri and all nearby communities. 24/7 emergency response in Nixa, Ozark, Republic, Willard, Rogersville, Strafford, Bolivar, Aurora, and beyond."
       />
 
       {/* Coverage quick-bar */}
       <div style={{ background: 'var(--navy3)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="container">
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2, padding: '16px 0' }}>
-            {['Springfield','Nixa','Ozark','Republic','Battlefield','Willard','Rogersville','Strafford','Clever','Billings'].map(city => (
+            {['Springfield','Nixa','Ozark','Republic','Battlefield','Willard','Rogersville','Strafford','Clever','Billings','Ash Grove','Walnut Grove','Fair Grove','Marshfield','Bolivar','Mount Vernon','Aurora','Highlandville','Spokane'].map(city => (
               <span key={city} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 14px', fontSize: 12, fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', display: 'inline-block' }} />
                 {city}, MO
@@ -193,7 +285,7 @@ export default function ServiceAreasClient({ h1 }) {
           <div className="sec-center">
             <div className="stag">Coverage Area</div>
             <h2 className="sh">Areas We Serve Around <em>Springfield MO</em></h2>
-            <p className="ssub">Our licensed plumbers serve <strong>Springfield, Missouri</strong> and all surrounding communities — <strong>Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, and Billings</strong>.</p>
+            <p className="ssub">Our licensed plumbers serve <strong>Springfield, Missouri</strong> and all surrounding communities — <strong>Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, and Spokane</strong>.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24, marginTop: 52 }}>
@@ -337,7 +429,7 @@ export default function ServiceAreasClient({ h1 }) {
 
       <CtaBanner
         title='Need a Plumber in <em>Your Area?</em>'
-        subtitle="We serve Springfield MO, Nixa, Ozark, Republic, Willard, Rogersville, Strafford and all nearby communities. Call now for fast, professional service."
+        subtitle="We serve Springfield MO, Nixa, Ozark, Republic, Willard, Rogersville, Strafford, Bolivar, Aurora, and all nearby communities. Call now for fast, professional service."
       />
     </>
   )

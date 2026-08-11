@@ -234,6 +234,34 @@ const HOWTO_SCHEMA = {
       { name: 'Call (417) 373-4862 Immediately', text: 'Our licensed plumbers serve all of Ozark MO and Christian County. We dispatch immediately and aim to reach Ozark addresses within 30–40 minutes via US-65.' },
     ],
   },
+  // ── DAY 3 ──
+  'plumber-republic-mo': {
+    name: 'How to Handle a Plumbing Emergency in Republic MO',
+    description: 'Immediate steps Republic MO homeowners should take when a plumbing emergency strikes before the plumber arrives.',
+    totalTime: 'PT10M',
+    supply: ['Main water shutoff valve access', 'Phone to call (417) 373-4862', 'Camera for documenting damage'],
+    steps: [
+      { name: 'Locate and Close the Main Water Shutoff Valve', text: 'In most Republic MO homes the main shutoff valve is in the basement near the front foundation wall, in a crawlspace near the water line entry, or in a utility room. Turn clockwise until fully closed. If you cannot find it, the shutoff is also at the water meter near the street.' },
+      { name: 'Turn Off the Water Heater', text: 'Gas heaters: turn the thermostat to Pilot. Electric heaters: flip the breaker at the panel. Running a water heater without a water supply burns out the heating elements within minutes.' },
+      { name: 'Open the Lowest Faucet in the Home', text: 'Open a basement or ground-floor faucet to release remaining pressure in the pipes. This reduces further leaking and confirms the main shutoff is fully closed.' },
+      { name: 'Document All Water Damage Before Cleanup', text: 'Photograph and video every area of water damage from multiple angles before touching anything. This documentation is required for your homeowner insurance claim.' },
+      { name: 'Call (417) 373-4862 Immediately', text: 'Our licensed plumbers serve all of Republic MO and Greene County. We dispatch immediately and reach Republic addresses within 20–30 minutes via US-60 West.' },
+    ],
+  },
+  // ── DAY 4 ──
+  'plumber-battlefield-mo': {
+    name: 'How to Handle a Plumbing Emergency in Battlefield MO',
+    description: 'Immediate steps Battlefield MO homeowners should take when a plumbing emergency strikes — before the plumber arrives.',
+    totalTime: 'PT10M',
+    supply: ['Main water shutoff valve access', 'Phone to call (417) 373-4862', 'Camera for documenting damage'],
+    steps: [
+      { name: 'Locate and Close the Main Water Shutoff Valve', text: 'In most Battlefield MO homes the main shutoff valve is in the basement near the front foundation wall or in a crawlspace near the water line entry. Battlefield homes are newer on average, so the shutoff may also be in a dedicated utility closet. Turn clockwise until fully closed.' },
+      { name: 'Turn Off the Water Heater', text: 'Gas heaters: turn the thermostat to Pilot. Electric heaters: flip the breaker at the panel. Tankless units: power off at the breaker. Never run a water heater without water supply.' },
+      { name: 'Open the Lowest Faucet in the Home', text: 'Open a ground-floor or basement faucet to release remaining pipe pressure. This limits further leaking and confirms the main shutoff is fully closed.' },
+      { name: 'Document All Water Damage', text: 'Photograph and video every area of water damage before touching or cleaning anything. This is required for your homeowner insurance claim and should not be skipped even in a panic.' },
+      { name: 'Call (417) 373-4862 Immediately', text: 'Our licensed plumbers serve all of Battlefield MO and southern Greene County. We dispatch immediately and reach Battlefield addresses within 15–25 minutes — one of our closest service areas.' },
+    ],
+  },
 }
 
 // ── FAQ SCHEMA ────────────────────────────────────────────────
@@ -353,6 +381,24 @@ const FAQ_SCHEMA = {
     { q: 'Do you need a plumbing permit in Ozark MO?', a: 'Yes. The City of Ozark Building Department requires permits for water heater replacements, sewer line repairs, new plumbing installations, and gas line work. Our licensed plumbers handle all permit applications as part of every job — you do not need to visit City Hall or file separately.' },
     { q: 'What does a plumber cost in Ozark MO?', a: 'Plumbing costs in Ozark MO follow Springfield MO regional market rates: drain cleaning $150–$300, water heater replacement $800–$2,000, leak detection $200–$500, sewer camera inspection $200–$400, emergency pipe repair $300–$800. All jobs receive a written estimate before any work begins.' },
     { q: 'Does the James River affect plumbing in Ozark MO homes?', a: 'Yes, indirectly. Neighborhoods near the James River in Ozark MO have higher water table conditions which puts additional hydrostatic pressure on basement walls, floor drains, and sump pump systems. Sump pump failures in these areas can lead to rapid basement flooding. We recommend annual sump pump inspections for all Ozark MO homes near the James River corridor.' },
+  ],
+  // ── DAY 3 ──
+  'plumber-republic-mo': [
+    { q: 'How fast can a plumber reach Republic MO in an emergency?', a: 'Our licensed plumbers reach most Republic MO addresses within 20–30 minutes from the Springfield service hub via US-60 West. Republic is approximately 10 miles west of Springfield, making it one of our shortest response routes. Call (417) 373-4862 the moment an emergency starts.' },
+    { q: 'What are the most common plumbing problems in Republic MO homes?', a: 'Republic MO has a large inventory of homes built in the 1990s and early 2000s with water heaters now approaching or past end of life. Greene County clay-heavy soil causes sewer line root intrusion in established neighborhoods. Hard water from the Greene County water supply accelerates sediment buildup in water heater tanks.' },
+    { q: 'Is there a call-out fee for plumbers serving Republic MO?', a: 'No. We charge $0 call-out fees for all Republic MO service calls. You only pay for the work performed, and all pricing is provided in a written estimate before any work begins.' },
+    { q: 'Do you need a plumbing permit in Republic MO?', a: 'Yes. The City of Republic Building Department requires permits for water heater replacements, sewer line repairs, new plumbing installations, and gas line work. Our licensed plumbers handle all permit applications as part of every job — you do not need to file separately or visit City Hall.' },
+    { q: 'What does a plumber cost in Republic MO?', a: 'Plumbing costs in Republic MO follow the Springfield MO regional market: drain cleaning $150–$300, water heater replacement $800–$2,000, leak detection $200–$500, sewer camera inspection $200–$400, emergency pipe repair $300–$800. All jobs receive a written estimate before work begins.' },
+    { q: 'Does Republic MO have its own water utility or use Springfield?', a: 'Republic MO has its own water distribution system maintained by the City of Republic Public Works — separate from Springfield City Utilities. If you experience low pressure or discolored water neighborhood-wide, contact Republic Public Works before calling a plumber. If only your home is affected, the cause is inside your property.' },
+  ],
+  // ── DAY 4 ──
+  'plumber-battlefield-mo': [
+    { q: 'How fast can a plumber reach Battlefield MO in an emergency?', a: 'Our licensed plumbers reach most Battlefield MO addresses within 15–25 minutes from Springfield — Battlefield is one of our closest service areas, located directly south of Springfield along Republic Road and Farm Road 182. Call (417) 373-4862 the moment an emergency starts.' },
+    { q: 'What are the most common plumbing problems in Battlefield MO homes?', a: 'Battlefield MO is a newer community with homes predominantly built from the mid-2000s through the present. Common issues include tankless water heater descaling needs, pressure regulator failures in homes now 10–15 years old, and irrigation system leaks from freeze-thaw cycles. Larger lots also mean longer underground water line runs with more exposure to soil movement.' },
+    { q: 'Is there a call-out fee for plumbers in Battlefield MO?', a: 'No. We charge $0 call-out fees for all Battlefield MO service calls. You only pay for the work performed. All pricing is provided in writing before any work begins.' },
+    { q: 'Do you need a plumbing permit in Battlefield MO?', a: 'Yes. The City of Battlefield requires permits for water heater replacements, sewer line repairs, new plumbing installations, and gas line work. Our licensed plumbers handle all permit applications as part of every job.' },
+    { q: 'What does a plumber cost in Battlefield MO?', a: 'Plumbing costs in Battlefield MO match Springfield MO regional rates: drain cleaning $150–$300, water heater replacement $800–$2,000, tankless descaling $150–$250, leak detection $200–$500, emergency pipe repair $300–$800. All jobs receive a written estimate before work begins.' },
+    { q: 'Do Battlefield MO homes need tankless water heater descaling?', a: 'Yes. Many Battlefield MO homes built after 2005 have tankless water heaters that require annual descaling to remove mineral buildup from the heat exchanger. Greene County hard water accelerates this buildup. A tankless unit that has never been descaled loses efficiency and eventually fails. Annual descaling costs $150–$250 and extends unit life significantly.' },
   ],
 }
 
@@ -650,6 +696,82 @@ const POST_CONTENT = {
       {
         h2: 'Frequently Asked Questions — Plumber in Ozark MO',
         content: `**Q: How fast can a plumber reach Ozark MO?**\nA: 30–40 minutes via US-65 South from Springfield. Call immediately — every minute matters.\n\n**Q: Do Ozark MO homes have specific plumbing problems?**\nA: Yes — sewer root intrusion from clay soil, sump pump risk near the James River, and corroded galvanized pipes in pre-2000 homes.\n\n**Q: Is there a call-out fee?**\nA: No. Zero call-out fees. Pay only for work performed, with a written estimate first.\n\n**Q: Do you need a permit for plumbing in Ozark MO?**\nA: Yes for water heaters, sewer work, new installations, and gas lines. We pull all permits as part of the job.\n\n**Q: Can you fix a burst pipe in Ozark MO same day?**\nA: Yes. Most burst pipe repairs are completed on the first visit.\n\n**Q: Do you service homes near the James River in Ozark MO?**\nA: Yes. We provide sump pump inspection, repair, and replacement specifically for homes in the James River corridor where high water tables create elevated flooding risk.`,
+      },
+    ],
+  },
+  // ── DAY 3 ──
+  'plumber-republic-mo': {
+    intro: `If you need a licensed plumber in Republic MO right now, call (417) 373-4862. We serve all of Republic and Greene County with 24/7 emergency plumbing — same-day dispatch, written upfront pricing, $0 call-out fees. Republic MO is located approximately 10 miles west of Springfield on US-60, with a 2026 population of over 18,000 residents and one of the fastest residential growth rates in Greene County. This guide covers the most common plumbing problems in Republic MO homes, honest 2026 cost ranges, permit requirements, and exactly what to do in a plumbing emergency.`,
+    sections: [
+      {
+        h2: 'Emergency Plumber in Republic MO — 20–30 Minute Response via US-60',
+        content: `Republic MO is one of our closest service areas — approximately 10 miles west of Springfield on US-60. Our licensed plumbers reach most Republic addresses in 20–30 minutes from dispatch.\n\nWe serve all Republic MO neighborhoods including:\n\n• Republic city center and downtown area\n• Neighborhoods along US-60 and Farm Road corridors\n• New residential subdivisions off Lawrence 2190 and MM Highway\n• Rural Greene County addresses west of Republic\n• All Republic MO zip code 65738 addresses\n\n**Call (417) 373-4862 now.** A real licensed plumber answers — not voicemail, not a scheduling service.`,
+      },
+      {
+        h2: 'Most Common Plumbing Problems in Republic MO Homes',
+        content: `**1. Aging Water Heaters in 1990s–2000s Homes**\nRepublic experienced rapid residential growth in the 1990s and early 2000s. A large number of Republic homes now have original water heaters from that era — 20 to 25 years old, well past the 8–12 year expected lifespan. Signs of failure: popping sounds, rusty hot water, lukewarm water, or water pooling at the tank base.\n\n**2. Sewer Line Root Intrusion**\nGreene County's clay-heavy soil stresses underground sewer pipe joints over time. Republic's mature tree canopy sends roots toward those joints in search of moisture. Signs: multiple slow drains simultaneously, gurgling toilets, sewage smell inside, or water backing up in the shower when you flush.\n\n**3. Hard Water Sediment Buildup**\nRepublic MO's water supply produces moderately hard water that deposits calcium and magnesium minerals inside water heater tanks, faucet aerators, and showerheads. Annual flushing extends tank life but is rarely done until failure.\n\n**4. Burst Pipes During Winter Freezes**\nRepublic MO sees outdoor temperatures drop below 20°F multiple times each winter. Homes with crawlspaces and pipes in exterior walls are at risk every freeze season.\n\n**5. Aging Builder-Grade Supply Lines**\nRepublic's 1990s–2000s construction era used builder-grade supply lines now reaching end of reliable service life. Braided stainless lines typically last 8–10 years; rubber supply hoses under sinks and to washing machines are a common source of slow leaks in homes of this age.`,
+      },
+      {
+        h2: 'Plumbing Services We Provide in Republic MO',
+        content: `**Emergency Plumbing Republic MO** — Burst pipes, active leaks, sewage backup, no hot water. Dispatched immediately, 24/7/365. Arrival in 20–30 minutes.\n\n**Drain Cleaning Republic MO** — Single drain clogs via snake. Recurring clogs and main sewer line blockages via hydro-jetting.\n\n**Water Heater Repair & Replacement Republic MO** — All brands, gas and electric, tank and tankless. Same-day service on most water heater calls.\n\n**Sewer Line Camera Inspection & Repair Republic MO** — Full video inspection from cleanout to city connection. Root removal, spot repair, trenchless lining, pipe bursting, and full replacement.\n\n**Leak Detection Republic MO** — Thermal imaging and acoustic equipment locate leaks behind walls, under slabs, and underground.\n\n**Supply Line Replacement Republic MO** — Replacement of aging rubber and braided supply lines under sinks, to toilets, and to washing machines. Preventive service that stops leaks before they cause water damage.\n\n**Pipe Repair & Repiping Republic MO** — Single section repairs and full home repiping for Republic homes with aging supply lines.`,
+      },
+      {
+        h2: 'How Much Does a Plumber Cost in Republic MO? (2026 Pricing)',
+        content: `• **Drain snake (single drain):** $150–$300\n• **Hydro-jetting:** $300–$600\n• **Sewer camera inspection:** $200–$400\n• **Water heater repair:** $150–$400\n• **40-gal gas tank installed:** $800–$1,200\n• **50-gal gas tank installed:** $900–$1,400\n• **Gas tankless installed:** $1,800–$3,000\n• **Burst pipe repair:** $300–$800\n• **Supply line replacement (per fixture):** $75–$150\n• **Spot sewer repair:** $500–$1,500\n• **Trenchless pipe lining:** $3,000–$8,000\n• **Leak detection:** $200–$500\n\nZero call-out fees. Written estimate before any work begins. No surprise charges on the final bill.`,
+      },
+      {
+        h2: 'Republic MO Water System — What Homeowners Should Know',
+        content: `Republic MO has its own independent water distribution system maintained by City of Republic Public Works — separate from Springfield's City Utilities.\n\n**If you have low water pressure neighborhood-wide:** Contact Republic Public Works at (417) 732-3140 before calling a plumber — the issue may be on the city distribution side.\n\n**If only your home has low pressure:** The cause is inside your property — most likely a failing pressure regulator, corroded supply pipes, or a partially closed main shutoff.\n\n**Republic MO water hardness:** Republic's water supply is moderately hard. Annual water heater flushing is recommended for all Republic MO homes to prevent sediment buildup.`,
+      },
+      {
+        h2: 'Republic MO Plumbing Permits — What Homeowners Need to Know',
+        content: `The City of Republic Building Department requires permits for water heater replacements, sewer line repairs, new plumbing installations, and gas line work. Unpermitted plumbing work creates problems at resale — home inspectors flag it during buyer inspections.\n\nOur licensed plumbers pull all required Republic MO permits as part of every job. Permit cost is included in the written estimate. No extra steps for you.\n\nFor permit questions: City of Republic Building Department, 213 N. Main Avenue, Republic MO 65738.`,
+      },
+      {
+        h2: 'What to Do in a Plumbing Emergency in Republic MO',
+        content: `**Step 1:** Shut off the main water valve — clockwise until fully closed. Most Republic MO homes: basement near front wall, crawlspace near water line entry, or utility room.\n\n**Step 2:** Turn off the water heater — gas to pilot, electric breaker off.\n\n**Step 3:** Open the lowest faucet in the home to drain remaining pipe pressure.\n\n**Step 4:** Document all water damage with photos and video before cleanup.\n\n**Step 5:** Call **(417) 373-4862** immediately. Licensed plumbers dispatched now. Republic MO arrival in 20–30 minutes via US-60.`,
+      },
+      {
+        h2: 'Frequently Asked Questions — Plumber in Republic MO',
+        content: `**Q: How fast can a plumber reach Republic MO?**\nA: 20–30 minutes via US-60 West from Springfield. One of our fastest response routes.\n\n**Q: Do Republic MO homes have specific plumbing problems?**\nA: Yes — aging water heaters in 1990s–2000s homes, sewer root intrusion from clay soil, hard water sediment buildup, and aging builder-grade supply lines.\n\n**Q: Is there a call-out fee?**\nA: No. Zero call-out fees. Pay only for work performed, with a written estimate first.\n\n**Q: Does Republic MO use Springfield's water system?**\nA: No. Republic has its own independent water system. For neighborhood-wide pressure or quality issues, contact Republic Public Works at (417) 732-3140.\n\n**Q: Do you need a permit for plumbing in Republic MO?**\nA: Yes for water heaters, sewer work, new installations, and gas lines. We pull all permits as part of the job.`,
+      },
+    ],
+  },
+  // ── DAY 4 ──
+  'plumber-battlefield-mo': {
+    intro: `If you need a licensed plumber in Battlefield MO right now, call (417) 373-4862. We serve all of Battlefield and southern Greene County with 24/7 emergency plumbing — same-day dispatch, written upfront pricing, $0 call-out fees. Battlefield MO is one of Springfield's closest southern suburbs, with a 2026 population of approximately 6,500 residents in a primarily newer residential community. This guide covers the plumbing problems most specific to Battlefield MO homes, honest 2026 cost ranges, and exactly what to do in a plumbing emergency.`,
+    sections: [
+      {
+        h2: 'Emergency Plumber in Battlefield MO — 15–25 Minute Response',
+        content: `Battlefield MO is one of our closest service areas — located directly south of Springfield along Republic Road and Farm Road 182. Our licensed plumbers reach most Battlefield addresses in 15–25 minutes from dispatch.\n\nWe serve all Battlefield MO neighborhoods including:\n\n• Battlefield city center and Republic Road corridor\n• Neighborhoods along Farm Road 182 and Farm Road 96\n• Larger lot residential areas in southern Greene County\n• All Battlefield MO zip code 65619 addresses\n\n**Call (417) 373-4862 now.** A real licensed plumber answers immediately.`,
+      },
+      {
+        h2: 'Most Common Plumbing Problems in Battlefield MO Homes',
+        content: `**1. Tankless Water Heater Descaling**\nBattlefield MO has a higher concentration of newer homes — most built after 2005 — many fitted with tankless water heaters as original equipment. Tankless units require annual descaling to remove mineral deposits from the heat exchanger. Greene County's moderately hard water accelerates this buildup. A tankless unit that has never been descaled operates at reduced efficiency and eventually develops heat exchanger failure.\n\n**2. Pressure Regulator Failures in Newer Construction**\nNewer Battlefield MO homes have pressure regulators installed as standard, but these devices have a lifespan of 10–15 years. As Battlefield's 2005–2015 construction era homes age, pressure regulator failures are becoming increasingly common. Symptoms: sudden whole-house pressure drop, pressure that fluctuates throughout the day.\n\n**3. Irrigation System Leaks**\nBattlefield MO homes sit on larger lots with underground irrigation systems. Missouri's freeze-thaw cycles crack irrigation lines every winter. Signs: unexplained water bill spikes in spring and summer, soggy areas in the lawn, or sections of irrigation that fail to pressurize.\n\n**4. Long Water Main Runs from Meter to Home**\nBattlefield MO's larger lot sizes mean longer underground water line runs from the street meter to the home — often 50 to 150 feet. These longer runs have more surface area exposed to soil movement and freeze-thaw stress, increasing the risk of pinhole leaks.\n\n**5. Sewer Line Root Intrusion in Older Sections**\nOlder sections of Battlefield MO near the city center have maturing trees whose roots are beginning to reach sewer line joints — an emerging issue in homes built in the 1990s and early 2000s.`,
+      },
+      {
+        h2: 'Plumbing Services We Provide in Battlefield MO',
+        content: `**Emergency Plumbing Battlefield MO** — Burst pipes, active leaks, sewage backup, no hot water. Dispatched immediately, 24/7/365. Arrival in 15–25 minutes.\n\n**Tankless Water Heater Service Battlefield MO** — Annual descaling, repair, and replacement of all tankless brands including Rinnai, Navien, Noritz, and Rheem.\n\n**Drain Cleaning Battlefield MO** — Single drain clogs via snake. Recurring clogs and main sewer line blockages via hydro-jetting.\n\n**Irrigation System Leak Detection & Repair Battlefield MO** — Underground irrigation line leak detection, pipe repair, and valve replacement.\n\n**Pressure Regulator Testing & Replacement Battlefield MO** — Pressure testing and regulator replacement for Battlefield homes with fluctuating or dropping water pressure.\n\n**Leak Detection Battlefield MO** — Thermal imaging and acoustic equipment locate hidden leaks including long main line runs under larger lots.\n\n**Water Heater Repair & Replacement Battlefield MO** — Tank and tankless, gas and electric. Same-day service on most calls.\n\n**Sewer Line Camera Inspection & Repair Battlefield MO** — Full video inspection. Root removal, spot repair, trenchless lining, and full replacement.`,
+      },
+      {
+        h2: 'How Much Does a Plumber Cost in Battlefield MO? (2026 Pricing)',
+        content: `• **Drain snake (single drain):** $150–$300\n• **Hydro-jetting:** $300–$600\n• **Tankless water heater descaling:** $150–$250\n• **Pressure regulator replacement:** $200–$500\n• **Sewer camera inspection:** $200–$400\n• **Water heater repair:** $150–$400\n• **40-gal gas tank installed:** $800–$1,200\n• **Gas tankless installed:** $1,800–$3,000\n• **Irrigation leak detection & repair:** $200–$600\n• **Burst pipe repair:** $300–$800\n• **Spot sewer repair:** $500–$1,500\n• **Trenchless pipe lining:** $3,000–$8,000\n• **Leak detection:** $200–$500\n\nZero call-out fees. Written estimate before any work begins. No hidden charges.`,
+      },
+      {
+        h2: 'Tankless Water Heater Maintenance in Battlefield MO',
+        content: `Battlefield MO has a higher density of tankless water heaters than most Springfield suburbs due to the prevalence of newer construction. If your Battlefield home has a tankless unit:\n\n**Annual descaling is not optional.** Greene County hard water deposits minerals inside the heat exchanger every year. Without annual descaling, efficiency drops by 20–30% within 3 years and the heat exchanger eventually fails — a repair that can cost $500–$1,200.\n\n**Signs your tankless unit needs descaling:**\n• Longer wait for hot water than when the unit was new\n• Reduced hot water flow rate\n• Error codes on the display panel\n• Popping or crackling sounds during heating cycles\n\n**Descaling cost in Battlefield MO:** $150–$250 annually. Call (417) 373-4862 to schedule.`,
+      },
+      {
+        h2: 'Battlefield MO Plumbing Permits — What Homeowners Need to Know',
+        content: `The City of Battlefield requires permits for water heater replacements, sewer line repairs, new plumbing installations, and gas line work. Our licensed plumbers pull all required Battlefield MO permits as part of every job. Permit cost is included in the written estimate.\n\nFor permit questions: City of Battlefield, 5308 S. State Highway H, Battlefield MO 65619.`,
+      },
+      {
+        h2: 'What to Do in a Plumbing Emergency in Battlefield MO',
+        content: `**Step 1:** Shut off the main water valve — clockwise until fully closed. Most Battlefield MO homes: basement near front wall, crawlspace near water line entry, or utility closet.\n\n**Step 2:** Turn off the water heater — gas to pilot, electric breaker off. Tankless units: power off at the breaker.\n\n**Step 3:** Open the lowest faucet in the home to drain remaining pipe pressure.\n\n**Step 4:** Document all water damage with photos and video before cleanup.\n\n**Step 5:** Call **(417) 373-4862** immediately. Licensed plumbers dispatched now. Battlefield MO arrival in 15–25 minutes.`,
+      },
+      {
+        h2: 'Frequently Asked Questions — Plumber in Battlefield MO',
+        content: `**Q: How fast can a plumber reach Battlefield MO?**\nA: 15–25 minutes from Springfield — one of our fastest response areas. Call (417) 373-4862 immediately.\n\n**Q: Do Battlefield MO homes have unique plumbing issues?**\nA: Yes — tankless water heater descaling needs, pressure regulator failures in 10–15 year old homes, irrigation system leaks, and longer main line runs on larger lots.\n\n**Q: Is there a call-out fee?**\nA: No. Zero call-out fees. Pay only for work performed, with a written estimate first.\n\n**Q: How often should a tankless water heater be descaled in Battlefield MO?**\nA: Once per year. Greene County hard water makes annual descaling essential to maintain efficiency and prevent heat exchanger failure.\n\n**Q: Do you need a permit for plumbing in Battlefield MO?**\nA: Yes for water heaters, sewer work, new installations, and gas lines. We pull all permits as part of the job.\n\n**Q: Can you fix a burst pipe in Battlefield MO same day?**\nA: Yes. Most burst pipe repairs are completed on the first visit.`,
       },
     ],
   },

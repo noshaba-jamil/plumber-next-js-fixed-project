@@ -279,7 +279,7 @@ export const CITY_DATA = {
   'springfield-mo': {
     name: 'Springfield',
     state: 'MO',
-    zip: '65801, 65802, 65803, 65804, 65806, 65807',
+    zip: '65801, 65802, 65803, 65804, 65805, 65806, 65807, 65808, 65809, 65810, 65814, 65817, 65890, 65897, 65898, 65899',
     population: '~170,000',
     distance: 'Primary Service Area',
     county: 'Greene County',
