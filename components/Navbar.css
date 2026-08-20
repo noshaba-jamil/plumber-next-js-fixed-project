@@ -1,4 +1,4 @@
- /* ══════════════════════════════════════════
+/* ══════════════════════════════════════════
    NAVBAR — Pro Local Business Theme
    White scrolled, transparent on hero
    ══════════════════════════════════════════ */
@@ -95,8 +95,8 @@
 .nav-svc-wrap:hover .dd-arrow { transform: rotate(180deg); }
 
 .mega-drop {
-  position: absolute; top: calc(100% + 12px); left: 50%;
-  transform: translateX(-50%) translateY(8px);
+  position: absolute; top: calc(100% + 12px); left: 0;
+  transform: translateY(8px);
   width: 700px;
   max-width: 92vw; /* never overflow viewport, even on odd tablet widths */
   background: #fff;
@@ -111,14 +111,14 @@
 }
 .nav-svc-wrap:hover .mega-drop {
   opacity: 1; visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 .mega-drop::before {
-  content: ''; position: absolute; top: -6px; left: 50%;
+  content: ''; position: absolute; top: -6px; left: 24px;
   width: 12px; height: 12px; background: #fff;
   border-top: 1px solid rgba(11,31,58,0.1);
   border-left: 1px solid rgba(11,31,58,0.1);
-  transform: translateX(-50%) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .mega-header {
