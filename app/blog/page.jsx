@@ -1,4 +1,4 @@
- import { buildOpenGraph } from '@/lib/seo'
+import { buildOpenGraph } from '@/lib/seo'
 import Link from 'next/link'
 
 export const dynamic = 'force-static'
@@ -178,7 +178,7 @@ export const BLOG_POSTS = [
     slug: 'plumber-republic-mo',
     title: 'Plumber in Republic MO — Licensed, Same-Day Service, 24/7',
     description: 'Need a plumber in Republic MO? Licensed emergency plumber serving Republic and Greene County. Same-day response, upfront pricing, $0 call-out fee. Call (417) 373-4862.',
-    date: '2026-07-10', readTime: '7 min read', category: 'Geo/Local', image: '/blog-republic.webp',
+    date: '2026-07-03', readTime: '7 min read', category: 'Geo/Local', image: '/blog-republic.webp',
     keywords: ['plumber Republic MO', 'emergency plumber Republic Missouri', 'plumber near me Republic MO', 'drain cleaning Republic MO', '24 hour plumber Republic', 'water heater repair Republic MO', 'sewer repair Republic MO'],
   },
   // ── DAY 4 ──
@@ -186,8 +186,24 @@ export const BLOG_POSTS = [
     slug: 'plumber-battlefield-mo',
     title: 'Plumber in Battlefield MO — Licensed Emergency Service 24/7',
     description: 'Need a plumber in Battlefield MO? Licensed emergency plumber serving Battlefield and Greene County. Same-day response, upfront pricing, $0 call-out fee. Call (417) 373-4862.',
-    date: '2026-08-10', readTime: '7 min read', category: 'Geo/Local', image: '/blog-battlefield.webp',
+    date: '2026-07-04', readTime: '7 min read', category: 'Geo/Local', image: '/blog-battlefield.webp',
     keywords: ['plumber Battlefield MO', 'emergency plumber Battlefield Missouri', 'plumber near me Battlefield MO', 'drain cleaning Battlefield MO', '24 hour plumber Battlefield', 'water heater repair Battlefield MO'],
+  },
+  // ── DAY 5 ──
+  {
+    slug: 'toilet-running-constantly-springfield-mo',
+    title: 'Why Is My Toilet Running Constantly? Springfield MO Fix Guide',
+    description: 'Toilet running constantly in Springfield MO? Learn the 4 causes, which ones you can fix yourself, and when to call a licensed plumber. Includes repair costs.',
+    date: '2026-08-20', readTime: '6 min read', category: 'Homeowner Guide', image: '/toilet-repair-installation-springfield-mo.webp',
+    keywords: ['toilet running constantly Springfield MO', 'why is my toilet running Springfield MO', 'running toilet repair Springfield MO', 'toilet flapper replacement Springfield MO', 'toilet fill valve repair Springfield MO', 'toilet repair cost Springfield MO'],
+  },
+  // ── DAY 6 ──
+  {
+    slug: 'sump-pump-repair-springfield-mo',
+    title: 'Sump Pump Repair & Replacement Springfield MO — Full Guide',
+    description: 'Sump pump not working in Springfield MO? Learn the warning signs, repair vs replace decision, costs, and when to call a licensed plumber. 24/7 emergency service.',
+    date: '2026-08-20', readTime: '7 min read', category: 'Homeowner Guide', image: '/sump-pump-installation-springfield-mo.webp',
+    keywords: ['sump pump repair Springfield MO', 'sump pump not working Springfield MO', 'sump pump replacement Springfield MO', 'sump pump running constantly Springfield MO', 'battery backup sump pump Springfield MO', 'sump pump cost Springfield MO'],
   },
 ]
 
@@ -244,14 +260,7 @@ export default function BlogPage() {
       </section>
       <section className="section bl-section">
         <div className="container">
-         <div
-  className="bl-grid"
-  style={{
-    display: 'grid',
-    gap: '3px',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-  }}
->
+          <div className="bl-grid" style={{ display: 'grid', gap: '3px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
             {BLOG_POSTS.map(post => (
               <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                 <article style={{ background: 'var(--card)', borderBottom: '3px solid transparent', transition: 'var(--t)', overflow: 'hidden', height: '100%' }} className="blog-card-link">

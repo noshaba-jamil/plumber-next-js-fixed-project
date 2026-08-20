@@ -1,4 +1,4 @@
- import { BLOG_POSTS } from '../page'
+import { BLOG_POSTS } from '../page'
 import { buildBreadcrumbSchema } from '@/lib/seo'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -422,6 +422,171 @@ function buildFaqSchema(slug) {
   }
 }
 
+
+// ── INTERNAL LINKS MAP ────────────────────────────────────────
+// 3-5 contextual internal links per post — satisfies E-E-A-T + master prompt requirement
+const INTERNAL_LINKS = {
+  'why-is-my-water-bill-so-high-springfield-mo': [
+    { text: 'professional leak detection in Springfield MO', href: '/blog/leak-detection-springfield-mo-guide' },
+    { text: 'signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+    { text: 'how to shut off water in an emergency', href: '/blog/how-to-shut-off-water-springfield-mo' },
+    { text: 'emergency plumbing costs in Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+  ],
+  'how-to-shut-off-water-springfield-mo': [
+    { text: 'what to do when a pipe bursts', href: '/blog/how-to-fix-burst-pipe-springfield-mo' },
+    { text: 'emergency plumber in Springfield MO', href: '/blog/plumber-open-24-hours-springfield-missouri' },
+    { text: 'emergency plumbing costs explained', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+  ],
+  'sewer-backup-warning-signs-springfield-mo': [
+    { text: 'sewer line repair vs replacement guide', href: '/blog/sewer-line-repair-vs-replacement-springfield-mo' },
+    { text: 'trenchless sewer repair in Springfield MO', href: '/blog/trenchless-sewer-repair-springfield-mo' },
+    { text: '7 signs you need drain cleaning', href: '/blog/signs-you-need-drain-cleaning-springfield-mo' },
+    { text: 'how much does plumbing cost in Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'tankless-vs-tank-water-heater-springfield-mo': [
+    { text: 'water heater not working guide', href: '/blog/water-heater-not-working-springfield-mo' },
+    { text: 'water heater making noise — what it means', href: '/blog/water-heater-making-noise-springfield-mo' },
+    { text: 'complete 2026 plumbing cost guide', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: 'how to find the best plumber in Springfield MO', href: '/blog/best-plumber-near-me-springfield-mo' },
+  ],
+  'plumbing-cost-springfield-mo-2026': [
+    { text: 'emergency plumbing cost breakdown', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: 'how much does a plumber cost', href: '/blog/how-much-does-a-plumber-cost-springfield-mo' },
+    { text: 'trenchless sewer repair costs', href: '/blog/trenchless-sewer-repair-springfield-mo' },
+    { text: 'tankless vs tank water heater costs', href: '/blog/tankless-vs-tank-water-heater-springfield-mo' },
+    { text: 'how to find the best plumber near you', href: '/blog/best-plumber-near-me-springfield-mo' },
+  ],
+  'trenchless-sewer-repair-springfield-mo': [
+    { text: 'sewer line repair vs full replacement', href: '/blog/sewer-line-repair-vs-replacement-springfield-mo' },
+    { text: '8 sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
+    { text: 'complete plumbing cost guide Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: 'professional leak detection guide', href: '/blog/leak-detection-springfield-mo-guide' },
+  ],
+  'water-heater-making-noise-springfield-mo': [
+    { text: 'water heater not working — full diagnosis guide', href: '/blog/water-heater-not-working-springfield-mo' },
+    { text: 'tankless vs tank water heater comparison', href: '/blog/tankless-vs-tank-water-heater-springfield-mo' },
+    { text: 'why is my water bill so high', href: '/blog/why-is-my-water-bill-so-high-springfield-mo' },
+    { text: 'plumbing costs in Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'how-to-choose-emergency-plumber-springfield-mo': [
+    { text: '24-hour emergency plumber guide', href: '/blog/plumber-open-24-hours-springfield-missouri' },
+    { text: 'emergency plumbing costs explained', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: 'how to find the best plumber near you', href: '/blog/best-plumber-near-me-springfield-mo' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+  ],
+  'signs-you-need-a-plumber-springfield-mo': [
+    { text: '24-hour emergency plumber in Springfield MO', href: '/blog/plumber-open-24-hours-springfield-missouri' },
+    { text: 'how to shut off water in an emergency', href: '/blog/how-to-shut-off-water-springfield-mo' },
+    { text: '8 sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
+    { text: 'what causes low water pressure', href: '/blog/low-water-pressure-springfield-mo' },
+    { text: 'emergency plumbing costs Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+  ],
+  'low-water-pressure-springfield-mo': [
+    { text: 'hidden water leak detection guide', href: '/blog/leak-detection-springfield-mo-guide' },
+    { text: 'why is my water bill so high', href: '/blog/why-is-my-water-bill-so-high-springfield-mo' },
+    { text: 'pipe repair and repiping costs', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+  ],
+  'how-much-does-a-plumber-cost-springfield-mo': [
+    { text: 'emergency plumbing cost breakdown', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: 'complete 2026 plumbing price guide', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: 'how to choose an emergency plumber', href: '/blog/how-to-choose-emergency-plumber-springfield-mo' },
+    { text: 'how to find the best plumber near you', href: '/blog/best-plumber-near-me-springfield-mo' },
+  ],
+  'best-plumber-near-me-springfield-mo': [
+    { text: 'how to choose an emergency plumber', href: '/blog/how-to-choose-emergency-plumber-springfield-mo' },
+    { text: '24-hour emergency plumber Springfield MO', href: '/blog/plumber-open-24-hours-springfield-missouri' },
+    { text: 'how much does a plumber cost', href: '/blog/how-much-does-a-plumber-cost-springfield-mo' },
+    { text: 'emergency plumbing costs explained', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+  ],
+  'plumber-open-24-hours-springfield-missouri': [
+    { text: 'what to do when a pipe bursts', href: '/blog/how-to-fix-burst-pipe-springfield-mo' },
+    { text: 'how to shut off water fast', href: '/blog/how-to-shut-off-water-springfield-mo' },
+    { text: 'emergency plumbing costs Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: 'how to choose an emergency plumber', href: '/blog/how-to-choose-emergency-plumber-springfield-mo' },
+  ],
+  'how-to-fix-burst-pipe-springfield-mo': [
+    { text: 'how to shut off water in your home', href: '/blog/how-to-shut-off-water-springfield-mo' },
+    { text: '24-hour emergency plumber Springfield MO', href: '/blog/plumber-open-24-hours-springfield-missouri' },
+    { text: 'how to prevent frozen pipes', href: '/blog/how-to-prevent-frozen-pipes-springfield-mo' },
+    { text: 'emergency plumbing costs breakdown', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+  ],
+  'emergency-plumbing-cost-springfield-mo': [
+    { text: 'complete 2026 plumbing cost guide', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: 'how to choose an emergency plumber', href: '/blog/how-to-choose-emergency-plumber-springfield-mo' },
+    { text: '24-hour emergency plumber Springfield MO', href: '/blog/plumber-open-24-hours-springfield-missouri' },
+    { text: 'how much does a plumber cost', href: '/blog/how-much-does-a-plumber-cost-springfield-mo' },
+  ],
+  'signs-you-need-drain-cleaning-springfield-mo': [
+    { text: '8 sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
+    { text: 'sewer line repair vs replacement', href: '/blog/sewer-line-repair-vs-replacement-springfield-mo' },
+    { text: 'complete plumbing cost guide', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+  ],
+  'water-heater-not-working-springfield-mo': [
+    { text: 'tankless vs tank water heater comparison', href: '/blog/tankless-vs-tank-water-heater-springfield-mo' },
+    { text: 'water heater making noise — what it means', href: '/blog/water-heater-making-noise-springfield-mo' },
+    { text: 'complete plumbing cost guide Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+  ],
+  'how-to-prevent-frozen-pipes-springfield-mo': [
+    { text: 'what to do when a pipe bursts', href: '/blog/how-to-fix-burst-pipe-springfield-mo' },
+    { text: 'how to shut off water fast in an emergency', href: '/blog/how-to-shut-off-water-springfield-mo' },
+    { text: '24-hour emergency plumber Springfield MO', href: '/blog/plumber-open-24-hours-springfield-missouri' },
+    { text: 'pipe repair costs Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'sewer-line-repair-vs-replacement-springfield-mo': [
+    { text: 'trenchless sewer repair — is it worth it', href: '/blog/trenchless-sewer-repair-springfield-mo' },
+    { text: '8 sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
+    { text: 'sewer line costs in Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
+    { text: 'professional leak detection guide', href: '/blog/leak-detection-springfield-mo-guide' },
+  ],
+  'leak-detection-springfield-mo-guide': [
+    { text: 'why is my water bill so high', href: '/blog/why-is-my-water-bill-so-high-springfield-mo' },
+    { text: 'low water pressure causes and fixes', href: '/blog/low-water-pressure-springfield-mo' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+    { text: 'plumbing costs Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'plumber-nixa-mo': [
+    { text: 'emergency plumbing costs Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: 'sewer backup warning signs to know', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
+    { text: 'how to shut off water fast', href: '/blog/how-to-shut-off-water-springfield-mo' },
+    { text: 'plumbing costs Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'plumber-ozark-mo': [
+    { text: 'sump pump repair Springfield MO', href: '/blog/sump-pump-repair-springfield-mo' },
+    { text: 'emergency plumbing costs explained', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: 'sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
+    { text: 'plumbing costs Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'plumber-republic-mo': [
+    { text: 'water heater repair Springfield MO guide', href: '/blog/water-heater-not-working-springfield-mo' },
+    { text: 'emergency plumbing costs Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: 'why is my water bill so high', href: '/blog/why-is-my-water-bill-so-high-springfield-mo' },
+    { text: 'complete plumbing cost guide 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'plumber-battlefield-mo': [
+    { text: 'sump pump repair and replacement guide', href: '/blog/sump-pump-repair-springfield-mo' },
+    { text: 'tankless water heater comparison guide', href: '/blog/tankless-vs-tank-water-heater-springfield-mo' },
+    { text: 'low water pressure causes and fixes', href: '/blog/low-water-pressure-springfield-mo' },
+    { text: 'plumbing costs Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+  'toilet-running-constantly-springfield-mo': [
+    { text: 'why is my water bill so high in Springfield MO', href: '/blog/why-is-my-water-bill-so-high-springfield-mo' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+    { text: 'how much does a plumber cost in Springfield MO', href: '/blog/how-much-does-a-plumber-cost-springfield-mo' },
+    { text: 'emergency plumbing cost Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+  ],
+  'sump-pump-repair-springfield-mo': [
+    { text: 'plumber in Ozark MO — James River area service', href: '/blog/plumber-ozark-mo' },
+    { text: 'emergency plumbing costs Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
+    { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
+    { text: 'how to shut off water fast in an emergency', href: '/blog/how-to-shut-off-water-springfield-mo' },
+    { text: 'complete plumbing cost guide Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
+  ],
+}
+
 // ── BLOG CONTENT ──────────────────────────────────────────────
 const POST_CONTENT = {
   'why-is-my-water-bill-so-high-springfield-mo': {
@@ -775,6 +940,82 @@ const POST_CONTENT = {
       },
     ],
   },
+  // ── DAY 5 ──
+  'toilet-running-constantly-springfield-mo': {
+    intro: `A toilet that runs constantly is not just annoying — it is wasting 200 gallons of water per day and adding $15–$60 to your Springfield MO water bill every month it goes unfixed. The good news: a running toilet almost always comes down to one of four cheap, fixable components. This guide walks you through exactly how to diagnose which one is failing, which fixes you can do yourself in 20 minutes, and which ones need a licensed Springfield MO plumber. Call (417) 373-4862 for same-day toilet repair across all of Springfield and Greene County.`,
+    sections: [
+      {
+        h2: 'Why Is My Toilet Running? The 4 Causes Explained',
+        content: `Every running toilet in Springfield MO comes down to one of these four components failing.\n\n**Cause 1 — Worn Flapper Valve (Most Common)**\nThe flapper is the rubber seal at the bottom of the tank that opens when you flush and closes to hold water for the next flush. When the rubber wears out, warps, or gets coated with mineral deposits from Springfield's hard water, it no longer seals completely. Water silently drains from the tank into the bowl 24 hours a day. A leaking flapper wastes 200 gallons per day — the #1 cause of unexplained high water bills in Springfield MO homes.\n\n**Cause 2 — Float Set Too High**\nThe float ball or cup float controls when the fill valve shuts off. If the float is set too high, the water level rises above the overflow tube and constantly drains into the bowl. You'll hear a faint trickle even when no one has flushed. Adjustment takes 30 seconds and costs nothing.\n\n**Cause 3 — Failing Fill Valve**\nThe fill valve refills the tank after each flush. When it wears out — usually after 5–10 years — it cannot fully shut off water flow. The tank overfills, water drains constantly into the overflow tube, and the toilet runs without stopping.\n\n**Cause 4 — Damaged Flush Valve Seat**\nThe flush valve seat is the opening the flapper presses against to seal. If it is cracked, pitted, or has mineral buildup, even a brand new flapper will not seal properly. This requires a plumber to inspect and resurface or replace.`,
+      },
+      {
+        h2: 'The Food Dye Test — Diagnose a Leaking Flapper in 15 Minutes',
+        content: `**Step 1:** Add several drops of food coloring or a dye tablet into the toilet tank. Do not flush.\n\n**Step 2:** Wait 15 minutes without using the toilet.\n\n**Step 3:** Look at the bowl. If you see color in the bowl water without flushing, your flapper is leaking — water is seeping past the seal continuously.\n\n**No color in the bowl** after 15 minutes means the flapper is sealing and the problem is the fill valve or float — the tank is overfilling and draining through the overflow tube instead.\n\nThis test takes 15 minutes and costs nothing. It tells you exactly which component to replace.`,
+      },
+      {
+        h2: 'DIY Fixes vs When to Call a Plumber in Springfield MO',
+        content: `**DIY Fix: Replacing the Flapper**\nFlappers cost $5–$15 at any Springfield MO hardware store. Turn off the supply valve behind the toilet, flush to empty the tank, unhook the old flapper from the overflow tube ears, attach the new one, reconnect the chain with 1/2 inch of slack, and turn the water back on.\n\n**DIY Fix: Adjusting the Float**\nFor a ball float: bend the float arm slightly downward so the water shuts off 1 inch below the overflow tube top. For a cup float: pinch the clip on the side of the fill valve shaft and slide the float down.\n\n**Call a Plumber For:**\n• Running continues after replacing the flapper — flush valve seat may be damaged\n• Water leaking at the base of the toilet during or after flushing\n• Toilet rocks or wobbles — wax ring failure\n• Fill valve replacement needed — water keeps running regardless of float position\n• Toilet is 15+ years old with recurring problems\n\nCall (417) 373-4862 for same-day toilet repair anywhere in Springfield MO, Nixa, Ozark, Republic, and Battlefield.`,
+      },
+      {
+        h2: 'How Much Does Toilet Repair Cost in Springfield MO?',
+        content: `• **Flapper replacement (parts + labor):** $75–$150\n• **Fill valve replacement:** $100–$200\n• **Float adjustment:** $75–$100 (usually included in a diagnostic call)\n• **Flush valve seat repair or replacement:** $150–$300\n• **Full flush mechanism rebuild (all components):** $200–$400\n• **Toilet replacement (new fixture, installed):** $400–$800\n\nAll work includes a written estimate before we start. Zero call-out fees. Warranted work.`,
+      },
+      {
+        h2: 'How a Running Toilet Affects Your Springfield MO Water Bill',
+        content: `City Utilities of Springfield charges approximately $0.007–$0.009 per gallon (2026 rates). A toilet leaking at 200 gallons per day uses 6,000 extra gallons per month — adding $42–$54 to your monthly water bill. A severely running toilet can waste 400–500 gallons per day, adding $84–$135 per month.\n\nOver 12 months, that is **$500–$1,600 in wasted water** from a single running toilet.\n\nIf your Springfield MO water bill has increased by 20% or more without explanation, check every toilet in the house using the dye test before calling for leak detection. A running toilet is the most common and most overlooked cause of high water bills we find on service calls.`,
+      },
+      {
+        h2: 'Repair vs Replace — How to Decide for Your Springfield MO Toilet',
+        content: `**Repair if:**\n• Toilet is under 15 years old\n• Problem is a single isolated component (flapper, fill valve, or float)\n• No cracks in the porcelain\n• No leaking at the base\n\n**Replace if:**\n• Toilet is 15+ years old\n• You have repaired the same component more than twice\n• Porcelain is cracked or stained beyond cleaning\n• Water leaks at the base after multiple wax ring replacements\n• Toilet uses 3.5+ gallons per flush — replacing with a 1.28 GPF model saves $100–$200/year in water costs`,
+      },
+      {
+        h2: 'Signs Your Toilet Needs a Plumber Right Now',
+        content: `Call (417) 373-4862 today — do not attempt DIY — if you notice:\n\n• **Water on the floor around the base** — wax ring failure or cracked base. Do not use the toilet until repaired.\n• **Toilet rocks or moves** when you sit — flange or floor damage underneath.\n• **Sewage smell from the toilet** — wax ring failure allowing sewer gas into the home.\n• **Running toilet in a home with a septic system** — continuously fills and overloads the septic tank, leading to a system failure that costs $3,000–$15,000 to repair.`,
+      },
+      {
+        h2: 'Frequently Asked Questions — Running Toilet Springfield MO',
+        content: `**Q: Why does my toilet keep running after I flush?**\nA: The three most common causes are a worn flapper, a float set too high, or a failing fill valve. Do the food dye test first — color in the bowl without flushing confirms a leaking flapper.\n\n**Q: Can a running toilet increase my water bill?**\nA: Yes — by $15–$135 per month depending on severity. A leaking flapper wastes 200 gallons per day. At Springfield MO City Utilities rates, that is $40–$55 extra per month.\n\n**Q: How much does toilet repair cost in Springfield MO?**\nA: Flapper replacement: $75–$150. Fill valve replacement: $100–$200. Full rebuild: $200–$400. Toilet replacement: $400–$800 installed.\n\n**Q: How do I know if my toilet flapper is bad?**\nA: Put food coloring in the tank, wait 15 minutes without flushing. Color in the bowl = flapper leak. This test takes 15 minutes and costs nothing.\n\n**Q: Is it worth fixing a running toilet or replace it?**\nA: Repair if it is under 15 years old with an isolated component failure. Replace if it is older, cracked, or has had multiple repairs.`,
+      },
+    ],
+  },
+  // ── DAY 6 ──
+  'sump-pump-repair-springfield-mo': {
+    intro: `If your sump pump is not working in Springfield MO, call (417) 373-4862 right now — do not wait for the next storm. A failed sump pump means an unprotected basement, and Springfield MO gets heavy spring and summer storms that can flood an unprotected basement in under an hour. This guide covers every sump pump warning sign, the repair vs replace decision, exactly what failure costs you, and what licensed Springfield MO plumbers charge for repair and replacement.`,
+    sections: [
+      {
+        h2: 'How to Know If Your Sump Pump Is Failing — 7 Warning Signs',
+        content: `**Warning Sign 1 — Pump Does Not Activate During Rain**\nPour a bucket of water into the pit. If the pump does not turn on as the float rises, the float switch has failed. This is the most common sump pump failure point.\n\n**Warning Sign 2 — Pump Runs Constantly But Pit Does Not Empty**\nIf the pump motor runs but water level does not drop, the impeller is damaged or the discharge line is blocked. A running motor with no water movement burns out within hours.\n\n**Warning Sign 3 — Pump Starts and Stops Rapidly (Short Cycling)**\nRapid on-off cycling indicates a stuck or mispositioned float switch. This behavior destroys the motor over weeks.\n\n**Warning Sign 4 — Grinding, Rattling, or Loud Humming**\nGrinding = damaged impeller. Rattling = debris in the pit or loose components. Loud humming with no water movement = seized motor. None of these sounds are normal.\n\n**Warning Sign 5 — Pump Is 7+ Years Old and Has Never Been Serviced**\nMost Springfield MO sump pumps last 7–10 years. An unserviced pump will fail exactly when you need it most — during a storm.\n\n**Warning Sign 6 — Basement Flooded Despite Pump Being Present**\nIf your basement flooded during heavy rain, the pump either failed, was undersized, or the discharge line was frozen or blocked. All three require immediate professional attention.\n\n**Warning Sign 7 — Musty Smell or Mold in Basement**\nRecurring basement moisture suggests the pump is not keeping up.`,
+      },
+      {
+        h2: 'Why Springfield MO Homes Need Reliable Sump Pump Protection',
+        content: `**James River Corridor** — Neighborhoods in Ozark MO along the James River corridor have high water table conditions. Homes in these areas depend on sump pumps year-round, not just during storm events.\n\n**Missouri Spring Storm Season** — April through June brings the highest rainfall totals in the Springfield MO area, often with fast-moving storms that dump 2–4 inches of rain in a few hours. This volume overwhelms any sump pump that is not properly maintained and sized.\n\n**Power Outages During Storms** — Missouri thunderstorms frequently knock out power — exactly when the sump pump needs to run most. Without a battery backup, your basement is unprotected the moment the power goes out.\n\n**Clay Soil** — Greene County's clay-heavy soil does not absorb water quickly. Rainwater finds its way toward foundation walls and into sump pits rapidly after heavy rain.\n\nA basement flood in Springfield MO causes an average of $10,000–$30,000 in water damage, mold remediation, and personal property loss. A properly maintained sump pump and battery backup costs $700–$1,400 installed.`,
+      },
+      {
+        h2: 'Sump Pump Repair vs Replacement — How to Decide',
+        content: `**Repair if:**\n• Pump is under 7 years old\n• Problem is an isolated component — float switch, check valve, or discharge line\n• Motor runs and pump moves water, just not activating at right level\n• Repair cost is less than 50% of replacement cost\n\n**Replace if:**\n• Pump is 7+ years old\n• Motor is seized, grinding, or humming without pumping\n• Pump cannot keep up with water volume during moderate rain\n• Multiple components have failed\n• Pump failed during a storm — a pump that fails once is statistically likely to fail again\n\n**The Springfield MO Rule of Thumb:** If your sump pump is over 7 years old and has never been serviced, replace it proactively before spring storm season. The cost of replacement ($400–$900 installed) is a fraction of one basement flood claim.`,
+      },
+      {
+        h2: 'Battery Backup Sump Pump — Do You Need One in Springfield MO?',
+        content: `The short answer: yes, for any Springfield MO home with a basement.\n\nMissouri storms cause power outages. Power outages happen most frequently during the exact same storm events that produce the most rainfall. Without a battery backup, your primary sump pump goes offline the moment power cuts.\n\n**Types available in Springfield MO:**\n• **Standard battery backup:** $300–$500 installed. Activates on power failure only.\n• **Combination primary + backup unit:** $700–$1,200 installed. Replaces both units in one system.\n• **Water-powered backup:** Uses water pressure to power the backup pump — no battery required. Cost: $250–$450 installed.\n\n**Recommendation:** For Springfield MO homes in flood-prone areas or near the James River corridor, a combination primary + backup system is the best investment.`,
+      },
+      {
+        h2: 'Sump Pump Repair & Replacement Costs in Springfield MO (2026)',
+        content: `• **Float switch replacement:** $100–$200\n• **Check valve replacement:** $75–$150\n• **Discharge line repair or rerouting:** $150–$350\n• **Sump pump cleaning and maintenance:** $75–$150\n• **Sump pump replacement — submersible (installed):** $400–$900\n• **Battery backup installation (added to existing pump):** $300–$700\n• **Combination primary + battery backup (installed):** $700–$1,400\n\nAll work includes a written estimate before starting. Zero call-out fees. Call (417) 373-4862 for a free phone estimate.`,
+      },
+      {
+        h2: 'Annual Sump Pump Maintenance — What Springfield MO Homeowners Should Do',
+        content: `**Test the pump** — Pour a bucket of water into the pit and confirm the pump activates and discharges properly. Do this every spring before storm season.\n\n**Clean the pit** — Remove debris, mud, and any buildup that can clog the inlet screen.\n\n**Check the discharge line** — Confirm the exterior discharge point is clear and draining away from the foundation. A discharge line that terminates too close to the foundation recirculates water back into the pit.\n\n**Check the check valve** — The check valve prevents pumped water from flowing back into the pit when the pump shuts off. If you hear a loud thud when the pump stops, the check valve is failing.\n\n**Test the battery backup** — Disconnect the primary pump's power and confirm the backup activates. Replace the battery every 3–5 years even if the backup has never been used.\n\n**Professional annual inspection cost:** $75–$150. Worth doing every spring in Springfield MO before the April–June storm season peak.`,
+      },
+      {
+        h2: 'What to Do When Your Sump Pump Fails During a Storm',
+        content: `**Step 1 — Call (417) 373-4862 immediately.** Do not wait until the storm passes. Every minute of pump failure during active rain increases the water level in your basement.\n\n**Step 2 — Move valuables off the floor.** Appliances, storage boxes, furniture — get everything you can off basement floor level while the plumber is in transit.\n\n**Step 3 — Do NOT use a shop vac or bucket as a substitute.** You cannot manually remove water fast enough during a serious storm event.\n\n**Step 4 — Document any water intrusion** with photos and video before the plumber arrives and before any cleanup. Required for your homeowner insurance claim.\n\n**Step 5 — Do not enter standing water** if it has contacted electrical outlets, panels, or appliances. Turn off the basement circuit breaker from the main panel before entering.`,
+      },
+      {
+        h2: 'Frequently Asked Questions — Sump Pump Repair Springfield MO',
+        content: `**Q: How do I know if my sump pump is failing?**\nA: Signs include: does not activate when water rises, runs constantly without draining the pit, makes grinding or rattling sounds, your basement flooded despite the pump being present, or the unit is 7+ years old and unserviced.\n\n**Q: How long does a sump pump last in Springfield MO?**\nA: 7–10 years with annual maintenance. High water table areas like the James River corridor wear pumps out faster — 5–7 years. Any pump over 10 years old should be replaced proactively.\n\n**Q: Should I repair or replace my sump pump?**\nA: Repair if under 7 years old with an isolated component failure. Replace if 7+ years old, motor is failing, or it has flooded your basement once already.\n\n**Q: Do I need a battery backup sump pump in Springfield MO?**\nA: Yes. Missouri storms cause power outages during the same events that produce the most rain. A battery backup protects your basement for 5–8 hours.\n\n**Q: What does sump pump repair cost in Springfield MO?**\nA: Float switch: $100–$200. Check valve: $75–$150. Full pump replacement: $400–$900 installed. Battery backup: $300–$700. All with written estimates before work starts.\n\n**Q: Why is my sump pump running constantly?**\nA: Most common causes: failed check valve allowing pumped water back into the pit, float switch stuck in on position, or pump is undersized. A constantly running pump will burn out its motor within weeks — call (417) 373-4862 for same-day diagnosis.`,
+      },
+    ],
+  },
 }
 
 // ── RESPONSIVE STYLES ─────────────────────────────────────────
@@ -848,12 +1089,26 @@ export default function BlogPostPage({ params }) {
   const breadcrumb = buildBreadcrumbSchema([
     { name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }, { name: post.title, path: `/blog/${post.slug}` },
   ])
+  const today = new Date().toISOString().split('T')[0]
   const articleSchema = {
     '@context': 'https://schema.org', '@type': 'Article',
-    headline: post.title, description: post.description, image: post.image,
-    datePublished: post.date, dateModified: post.date,
-    author: { '@type': 'Organization', name: 'Springfield Emergency Plumbing' },
-    publisher: { '@type': 'Organization', name: 'Springfield Emergency Plumbing', logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` } },
+    headline: post.title, description: post.description,
+    image: { '@type': 'ImageObject', url: `${SITE_URL}${post.image}`, width: 800, height: 500, caption: post.title },
+    datePublished: post.date, dateModified: today,
+    author: { '@type': 'Organization', name: 'Springfield Emergency Plumbing', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'Springfield Emergency Plumbing', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${params.slug}` },
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.bp-intro', '.bp-section h2'] },
+  }
+  const localBusinessSchema = {
+    '@context': 'https://schema.org', '@type': 'Plumber',
+    name: 'Springfield Emergency Plumbing',
+    url: SITE_URL,
+    telephone: '+14173734862',
+    priceRange: '$$',
+    address: { '@type': 'PostalAddress', addressLocality: 'Springfield', addressRegion: 'MO', addressCountry: 'US' },
+    areaServed: ['Springfield MO', 'Nixa MO', 'Ozark MO', 'Republic MO', 'Battlefield MO', 'Greene County MO', 'Christian County MO'],
+    openingHours: 'Mo-Su 00:00-24:00',
   }
   const howToSchema = buildHowToSchema(params.slug, post)
   const faqSchema = buildFaqSchema(params.slug)
@@ -865,6 +1120,7 @@ export default function BlogPostPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       {howToSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />}
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
 
       <div className="bp-outer" style={{ paddingTop: 90, background: 'var(--navy)', minHeight: '100vh' }}>
         <section className="bp-hero" style={{ background: 'var(--navy2)', padding: '64px 5% 48px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
@@ -918,6 +1174,20 @@ export default function BlogPostPage({ params }) {
               </div>
             </section>
           ))}
+
+          {INTERNAL_LINKS[params.slug] && (
+            <div style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 'var(--rlg)', padding: '28px 32px', marginTop: 48, marginBottom: 0 }}>
+              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 13, color: 'var(--amber)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 16 }}>Related Guides</div>
+              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {INTERNAL_LINKS[params.slug].map((link, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ color: 'var(--amber)', fontSize: 14, flexShrink: 0 }}>→</span>
+                    <Link href={link.href} style={{ color: 'rgba(255,255,255,0.78)', fontSize: 15, textDecoration: 'none', lineHeight: 1.4 }}>{link.text}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="bp-author" style={{ background: 'var(--card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 'var(--rlg)', padding: '28px 32px', marginTop: 48, display: 'flex', gap: 20, alignItems: 'flex-start' }}>
             <div className="bp-author-avatar" style={{ width: 52, height: 52, borderRadius: '50%', background: 'var(--red)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
