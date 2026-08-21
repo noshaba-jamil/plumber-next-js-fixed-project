@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 
 import { useEffect } from 'react'
 import Link from 'next/link'
@@ -14,16 +14,25 @@ import {
 } from '@/data/services'
 import '@/components/Home.css'
 
+// ── UPDATED: now includes all 16 service areas, matching Navbar.jsx and
+// ServiceAreasClient.jsx exactly (same slugs, same combined cities) ──
 const CITIES = [
-  { name: 'Springfield, MO',        slug: '/service-areas/springfield-mo',          icon: 'ri-home-4-fill',    label: 'Primary Area' },
-  { name: 'Nixa, MO',               slug: '/service-areas/nixa-mo',                 icon: 'ri-map-pin-fill',   label: '~12 mi south' },
-  { name: 'Ozark, MO',              slug: '/service-areas/ozark-mo',                icon: 'ri-map-pin-fill',   label: '~14 mi south' },
-  { name: 'Republic, MO',           slug: '/service-areas/republic-battlefield-mo', icon: 'ri-map-pin-fill',   label: '~12 mi SW' },
-  { name: 'Battlefield, MO',        slug: '/service-areas/republic-battlefield-mo', icon: 'ri-map-pin-fill',   label: '~12 mi SW' },
-  { name: 'Willard, MO',            slug: '/service-areas/willard-mo',              icon: 'ri-map-pin-fill',   label: '~13 mi NW' },
-  { name: 'Rogersville, MO',        slug: '/service-areas/rogersville-mo',          icon: 'ri-map-pin-fill',   label: '~18 mi east' },
-  { name: 'Strafford, MO',          slug: '/service-areas/strafford-mo',            icon: 'ri-map-pin-fill',   label: '~15 mi NE' },
-  { name: 'Clever & Billings, MO',  slug: '/service-areas/clever-billings-mo',      icon: 'ri-map-pin-fill',   label: '~20 mi SW' },
+  { name: 'Springfield, MO',              slug: '/service-areas/springfield-mo',           icon: 'ri-home-4-fill',  label: 'Primary Area' },
+  { name: 'Nixa, MO',                     slug: '/service-areas/nixa-mo',                  icon: 'ri-map-pin-fill', label: '~12 mi south' },
+  { name: 'Ozark, MO',                    slug: '/service-areas/ozark-mo',                 icon: 'ri-map-pin-fill', label: '~14 mi south' },
+  { name: 'Republic & Battlefield, MO',   slug: '/service-areas/republic-battlefield-mo',  icon: 'ri-map-pin-fill', label: '~12 mi SW' },
+  { name: 'Willard, MO',                  slug: '/service-areas/willard-mo',               icon: 'ri-map-pin-fill', label: '~13 mi NW' },
+  { name: 'Rogersville, MO',              slug: '/service-areas/rogersville-mo',           icon: 'ri-map-pin-fill', label: '~18 mi east' },
+  { name: 'Strafford, MO',                slug: '/service-areas/strafford-mo',             icon: 'ri-map-pin-fill', label: '~15 mi NE' },
+  { name: 'Clever & Billings, MO',        slug: '/service-areas/clever-billings-mo',       icon: 'ri-map-pin-fill', label: '~20 mi SW' },
+  { name: 'Ash Grove, MO',                slug: '/service-areas/ash-grove-mo',             icon: 'ri-map-pin-fill', label: '~18 mi NW' },
+  { name: 'Walnut Grove, MO',             slug: '/service-areas/walnut-grove-mo',          icon: 'ri-map-pin-fill', label: '~20 mi NW' },
+  { name: 'Fair Grove, MO',               slug: '/service-areas/fair-grove-mo',            icon: 'ri-map-pin-fill', label: '~15 mi NE' },
+  { name: 'Marshfield, MO',               slug: '/service-areas/marshfield-mo',            icon: 'ri-map-pin-fill', label: '~22 mi east' },
+  { name: 'Bolivar, MO',                  slug: '/service-areas/bolivar-mo',               icon: 'ri-map-pin-fill', label: '~25 mi north' },
+  { name: 'Mount Vernon, MO',             slug: '/service-areas/mount-vernon-mo',          icon: 'ri-map-pin-fill', label: '~25 mi SW' },
+  { name: 'Aurora, MO',                   slug: '/service-areas/aurora-mo',                icon: 'ri-map-pin-fill', label: '~30 mi SW' },
+  { name: 'Highlandville & Spokane, MO',  slug: '/service-areas/highlandville-spokane-mo', icon: 'ri-map-pin-fill', label: '~15 mi south' },
 ]
 
 const BLOG_POSTS = [
@@ -73,7 +82,7 @@ const faqSchema = {
   })),
 }
 
-export default function Home({ h1 }) {
+export default function Home() {
   useEffect(() => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target) } })
@@ -99,8 +108,9 @@ export default function Home({ h1 }) {
               <span>{HERO_COPY.availability_pill}</span>
             </div>
             <h1 className="hero-h1">
-              {h1 ? h1 : <><em>Emergency Plumber</em><br />in Springfield MO —<br />Licensed, 24/7, Same Day</>}
-            </h1>
+  Springfield MO's Trusted <em>24/7 Plumber</em><br />
+  — Upfront Pricing, No Hidden Fees
+</h1>
             <div className="hero-sub">
               <p><strong>Pipe burst? Water leaking? Drain backed up?</strong></p>
               <p>Get fast, reliable help from a licensed emergency plumber in Springfield MO.</p>
@@ -546,7 +556,7 @@ export default function Home({ h1 }) {
         {SECTION_COPY.areas.body}
       </p>
 
-      {/* ✅ CITY GRID (MOVED HERE) */}
+      {/* ✅ CITY GRID (MOVED HERE) — now all 16 areas */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',

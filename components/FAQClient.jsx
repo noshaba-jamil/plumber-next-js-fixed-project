@@ -6,14 +6,14 @@ import FAQAccordion from '@/components/FAQAccordion'
 import CtaBanner from '@/components/CtaBanner'
 import { FAQS, SERVICES, CONTACT_INFO } from '@/data/services'
 
-export default function FAQ() {
+export default function FAQClient({ h1 }) {
   return (
     <>
       <PageHero
         image="\faq.webp"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'FAQ' }]}
-        h1="Frequently Asked Questions — Emergency Plumber Springfield MO"
-        subtitle="Common questions about our emergency plumbing services, pricing, and process in Springfield, Missouri — answered honestly and clearly."
+       h1="Frequently Asked Plumbing Questions"
+        subtitle="Common questions about our plumbing services, pricing, and process in Springfield, Missouri — answered honestly and clearly."
       />
 
       <section className="section section-alt">
@@ -24,7 +24,11 @@ export default function FAQ() {
               <div className="stag">FAQ</div>
               <h2 className="sh">Your Questions, <em>Answered</em></h2>
               <p className="ssub" style={{ maxWidth: '100%', marginBottom: 32 }}>
-                We believe in transparent communication. Here are the most common questions about our plumbing services in Springfield, MO.
+                We believe in transparent communication. Here are the most common questions about our plumbing services in Springfield, MO. Dealing with a burst pipe or active leak right now? Talk to our{' '}
+                <Link href="/emergency-plumber-springfield-mo" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>
+                  emergency plumber
+                </Link>{' '}
+                for immediate help.
               </p>
               <a href={CONTACT_INFO.phoneHref} className="btn-primary" style={{ display: 'inline-flex' }}>
                 <i className="ri-phone-fill" />Call Us Directly

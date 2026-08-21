@@ -11,15 +11,8 @@ export const metadata = {
   twitter: buildTwitterCard(meta),
 }
 
-// Dedicated FAQ schema for the /faq page — combines home + emergency FAQs
-const FAQ_PAGE_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    ...FAQ_SCHEMAS.home.mainEntity,
-    ...FAQ_SCHEMAS.emergency.mainEntity,
-  ],
-}
+// Dedicated FAQ schema for the /faq page
+const FAQ_PAGE_SCHEMA = FAQ_SCHEMAS.faq
 
 export default function FAQPage() {
   const breadcrumb = buildBreadcrumbSchema([
@@ -28,7 +21,6 @@ export default function FAQPage() {
   ])
   return (
     <>
-      {/* Correct: uses dedicated FAQ page schema, not homepage schema */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_PAGE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <FAQClient h1={meta.h1} />

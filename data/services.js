@@ -521,12 +521,28 @@ export const SERVICES = [
   },
 ]
 
+// ── UPDATED: expanded from 5 to all 16 service areas, matching the
+// canonical city list used in Navbar.jsx, Home page.jsx, and
+// ServiceAreasClient.jsx (same names/groupings, e.g. Republic & Battlefield
+// combined). This export was previously only feeding a small 5-city list
+// wherever it's consumed, undercounting actual coverage. ──
 export const SERVICE_AREAS = [
   { name: 'Springfield, MO', label: 'Primary Service Area' },
   { name: 'Nixa, MO', label: '' },
   { name: 'Ozark, MO', label: '' },
-  { name: 'Republic, MO', label: '' },
-  { name: 'Battlefield, MO', label: '' },
+  { name: 'Republic & Battlefield, MO', label: '' },
+  { name: 'Willard, MO', label: '' },
+  { name: 'Rogersville, MO', label: '' },
+  { name: 'Strafford, MO', label: '' },
+  { name: 'Clever & Billings, MO', label: '' },
+  { name: 'Ash Grove, MO', label: '' },
+  { name: 'Walnut Grove, MO', label: '' },
+  { name: 'Fair Grove, MO', label: '' },
+  { name: 'Marshfield, MO', label: '' },
+  { name: 'Bolivar, MO', label: '' },
+  { name: 'Mount Vernon, MO', label: '' },
+  { name: 'Aurora, MO', label: '' },
+  { name: 'Highlandville & Spokane, MO', label: '' },
 ]
 
 export const REVIEWS = [

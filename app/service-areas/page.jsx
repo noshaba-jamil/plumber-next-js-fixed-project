@@ -1,43 +1,27 @@
- import { PAGE_META, buildOpenGraph, buildTwitterCard, buildBreadcrumbSchema } from '@/lib/seo'
+import { PAGE_META, buildOpenGraph, buildTwitterCard, buildBreadcrumbSchema } from '@/lib/seo'
 import ServiceAreasClient from '@/components/ServiceAreasClient'
 
 const meta = PAGE_META.areas
 
-// ── Keywords covering all service area cities for Google ──────────────────────
-// Title: 53 chars ✅  Description: 143 chars ✅ — within Google's display limits
+// ── UPDATED: title changed to a hub-style listing (city names, not a
+// repeated "Plumber [City]" lead phrase) to stop competing with
+// /emergency-plumber-springfield-mo. Meta keywords tag removed — it's not
+// a Google ranking factor and was pure keyword-stuffing risk. ──
 export const metadata = {
-  title: 'Plumber Springfield MO | Nixa, Ozark, Republic & More',
+  title: 'Plumbing Service Areas | Springfield, Nixa, Ozark & More',
   description: 'Licensed plumber in Springfield, Nixa, Ozark, Republic & Willard MO. Emergency 24/7, drain cleaning & water heater repair. Call (417) 373-4862.',
-  keywords: [
-    'plumber Springfield MO',
-    'plumbing Springfield Missouri',
-    'emergency plumber Springfield MO',
-    'plumber Nixa MO',
-    'plumbing Nixa Missouri',
-    'plumber Ozark MO',
-    'plumbing Ozark Missouri',
-    'plumber Republic MO',
-    'plumber Battlefield MO',
-    'plumber Willard MO',
-    'plumber Rogersville MO',
-    'plumber Strafford MO',
-    'drain cleaning Springfield MO',
-    'water heater repair Springfield MO',
-    'sewer line repair Springfield MO',
-    '24/7 emergency plumbing Springfield',
-  ].join(', '),
   alternates: {
     canonical: meta.canonical || 'https://springfieldmoplumber.com/service-areas',
   },
   openGraph: buildOpenGraph({
     ...meta,
-    title: 'Plumber Springfield MO | Nixa, Ozark, Republic & Nearby',
+    title: 'Plumbing Service Areas | Springfield MO & Nearby Cities',
     description: 'Licensed plumber in Springfield MO and nearby cities. Emergency plumbing 24/7, drain cleaning & water heater repair. Serving Nixa, Ozark, Republic, Battlefield & Willard.',
     image: '/emergencyplumber.webp',
   }),
   twitter: buildTwitterCard({
     ...meta,
-    title: 'Plumber Springfield MO & Nearby Cities',
+    title: 'Plumbing Service Areas | Springfield MO & Nearby Cities',
     description: 'Licensed plumber in Springfield MO — serving Nixa, Ozark, Republic, Battlefield & Willard MO. Emergency 24/7, drain cleaning & water heater repair.',
   }),
   robots: {
