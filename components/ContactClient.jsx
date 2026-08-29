@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
@@ -7,14 +7,21 @@ import MapEmbed from '@/components/MapEmbed'
 import { SERVICES, CONTACT_INFO } from '@/data/services'
 import '@/components/Contact.css'
 
-export default function Contact() {
+// ── UPDATED: now accepts h1 as a prop instead of hardcoding it. The
+// hardcoded version was "Contact Our Emergency Plumber in Springfield MO" —
+// an exact duplicate of the /emergency-plumber-springfield-mo target page's
+// H1, silently undoing the Day 5 cannibalization fix (PAGE_META.contact.h1
+// was already changed to "Get in Touch — Request Service" in seo.js, but
+// this component never read it). Falls back to the old text only if no
+// prop is passed, so nothing breaks if the route file isn't updated yet. ──
+export default function ContactClient({ h1 }) {
   return (
     <>
       <PageHero
         image="\contactus.webp"
         alt="Emergency plumber Springfield MO contact page"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
-        h1="Contact Our Emergency Plumber in Springfield MO"
+        h1={h1 || 'Get in Touch — Request Service'}
         subtitle="If you need fast and reliable plumbing services, our team is ready to help. Whether you are dealing with a plumbing emergency, clogged drain, water heater problem, or hidden leak, our experienced plumbers are available to provide professional assistance."
       />
 
@@ -27,7 +34,12 @@ export default function Contact() {
             <h2 className="sh">Request Plumbing <em>Service</em></h2>
             <div className="content-block contact-intro-text">
               <p>Homeowners and businesses in <strong>Springfield</strong> rely on our team for quick response times and dependable plumbing solutions. If you are experiencing a plumbing issue, contact our team to schedule service.</p>
-              <p>We recommend contacting us immediately if you are facing urgent plumbing issues such as burst pipes, overflowing fixtures, or sewer backups.</p>
+              <p>We recommend contacting us immediately if you are facing urgent plumbing issues such as burst pipes, overflowing fixtures, or sewer backups. Need help right now? Visit our{' '}
+                <Link href="/emergency-plumber-springfield-mo" style={{ color: 'var(--amber)', textDecoration: 'underline' }}>
+                  emergency plumber
+                </Link>{' '}
+                page for immediate steps to take while help is on the way.
+              </p>
             </div>
           </div>
 
@@ -57,7 +69,12 @@ export default function Contact() {
               {/* Emergency block */}
               <div className="emerg-cta-block">
                 <h3>Emergency Plumbing Assistance</h3>
-                <p>Plumbing emergencies can happen at any time. If you are dealing with burst pipes, severe leaks, or major drain blockages in <strong>Springfield</strong>, contact us right away.</p>
+                <p>Plumbing emergencies can happen at any time. If you are dealing with burst pipes, severe leaks, or major drain blockages in <strong>Springfield</strong>, contact our{' '}
+                  <Link href="/emergency-plumber-springfield-mo" style={{ color: 'var(--amber)', textDecoration: 'underline' }}>
+                    emergency plumber
+                  </Link>{' '}
+                  right away.
+                </p>
                 <a
   href={CONTACT_INFO.phoneHref}
   className="btn-gold emerg-btn"

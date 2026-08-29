@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 
 import Link from 'next/link'
 
@@ -87,12 +87,20 @@ export default function CityPageClient({ city, citySlug }) {
               <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{city.distance}</span>
             </div>
 
+            {/* ── UPDATED H1 — removed "24/7 Emergency Plumbing" from the H1
+                template. This template renders for ALL 16 city pages, and for
+                Springfield specifically it was rendering almost word-for-word
+                as the target /emergency-plumber-springfield-mo page's H1 — the
+                real source of the cannibalization flagged for
+                /service-areas/springfield-mo and /service-areas/ozark-mo.
+                "24/7 emergency" language moved into the paragraph below, plus
+                an explicit "emergency plumber" link to the target page. ── */}
             <h1 style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400, fontSize: 'clamp(32px, 5vw, 52px)', color: '#fff', lineHeight: 1.15, marginBottom: 20, maxWidth: 720, textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
-              Plumber in <span style={{ color: 'var(--gold)' }}>{city.name}, {city.state}</span> — 24/7 Emergency Plumbing
+              Trusted Local Plumber in <span style={{ color: 'var(--gold)' }}>{city.name}, {city.state}</span>
             </h1>
 
             <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.82)', lineHeight: 1.7, maxWidth: 620, marginBottom: 36 }}>
-              Licensed emergency plumber serving {city.name}, MO ({city.zip}). We answer every call 24 hours a day — no voicemail, no hold times. Fast response, upfront pricing, no hidden fees.
+              Licensed plumber serving {city.name}, MO ({city.zip}) with 24/7 emergency response — no voicemail, no hold times. Fast dispatch, upfront pricing, no hidden fees. Have an urgent issue right now? Contact our <Link href="/emergency-plumber-springfield-mo" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>emergency plumber</Link>.
             </p>
 
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>

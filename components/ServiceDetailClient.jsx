@@ -158,7 +158,6 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                 </p>
               </div>
             )}
-
             {/* ── NEW: Water heater sections — only shown on heater page ── */}
             {service.id === 'heater' && (
               <div className="content-block" style={{ marginTop: 36 }}>

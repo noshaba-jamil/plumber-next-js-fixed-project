@@ -438,12 +438,7 @@ const INTERNAL_LINKS = {
     { text: 'emergency plumbing costs explained', href: '/blog/emergency-plumbing-cost-springfield-mo' },
     { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
   ],
-  'sewer-backup-warning-signs-springfield-mo': [
-    { text: 'sewer line repair vs replacement guide', href: '/blog/sewer-line-repair-vs-replacement-springfield-mo' },
-    { text: 'trenchless sewer repair in Springfield MO', href: '/blog/trenchless-sewer-repair-springfield-mo' },
-    { text: '7 signs you need drain cleaning', href: '/blog/signs-you-need-drain-cleaning-springfield-mo' },
-    { text: 'how much does plumbing cost in Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
-  ],
+
   'tankless-vs-tank-water-heater-springfield-mo': [
     { text: 'water heater not working guide', href: '/blog/water-heater-not-working-springfield-mo' },
     { text: 'water heater making noise — what it means', href: '/blog/water-heater-making-noise-springfield-mo' },
@@ -458,12 +453,14 @@ const INTERNAL_LINKS = {
     { text: 'how to find the best plumber near you', href: '/blog/best-plumber-near-me-springfield-mo' },
   ],
   'trenchless-sewer-repair-springfield-mo': [
+    { text: 'trenchless sewer repair services in Springfield MO', href: '/trenchless-sewer-repair-springfield-mo' },
     { text: 'sewer line repair vs full replacement', href: '/blog/sewer-line-repair-vs-replacement-springfield-mo' },
     { text: '8 sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
     { text: 'complete plumbing cost guide Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
     { text: 'professional leak detection guide', href: '/blog/leak-detection-springfield-mo-guide' },
   ],
   'water-heater-making-noise-springfield-mo': [
+    { text: 'water heater repair in Springfield MO', href: '/water-heater-repair-springfield-mo' },
     { text: 'water heater not working — full diagnosis guide', href: '/blog/water-heater-not-working-springfield-mo' },
     { text: 'tankless vs tank water heater comparison', href: '/blog/tankless-vs-tank-water-heater-springfield-mo' },
     { text: 'why is my water bill so high', href: '/blog/why-is-my-water-bill-so-high-springfield-mo' },
@@ -525,6 +522,7 @@ const INTERNAL_LINKS = {
     { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
   ],
   'water-heater-not-working-springfield-mo': [
+    { text: 'water heater repair in Springfield MO', href: '/water-heater-repair-springfield-mo' },
     { text: 'tankless vs tank water heater comparison', href: '/blog/tankless-vs-tank-water-heater-springfield-mo' },
     { text: 'water heater making noise — what it means', href: '/blog/water-heater-making-noise-springfield-mo' },
     { text: 'complete plumbing cost guide Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
@@ -536,7 +534,8 @@ const INTERNAL_LINKS = {
     { text: '24-hour emergency plumber Springfield MO', href: '/blog/plumber-open-24-hours-springfield-missouri' },
     { text: 'pipe repair costs Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
   ],
-  'sewer-line-repair-vs-replacement-springfield-mo': [
+   'sewer-line-repair-vs-replacement-springfield-mo': [
+    { text: 'sewer line repair services in Springfield MO', href: '/sewer-line-repair-springfield-mo' },
     { text: 'trenchless sewer repair — is it worth it', href: '/blog/trenchless-sewer-repair-springfield-mo' },
     { text: '8 sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
     { text: 'sewer line costs in Springfield MO', href: '/blog/plumbing-cost-springfield-mo-2026' },
@@ -547,26 +546,29 @@ const INTERNAL_LINKS = {
     { text: 'low water pressure causes and fixes', href: '/blog/low-water-pressure-springfield-mo' },
     { text: '5 signs you need a plumber right now', href: '/blog/signs-you-need-a-plumber-springfield-mo' },
     { text: 'plumbing costs Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
-  ],
-  'plumber-nixa-mo': [
+  ],  'plumber-nixa-mo': [
+    { text: 'view our Nixa MO service area page', href: '/service-areas/nixa-mo' },
     { text: 'emergency plumbing costs Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
     { text: 'sewer backup warning signs to know', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
     { text: 'how to shut off water fast', href: '/blog/how-to-shut-off-water-springfield-mo' },
     { text: 'plumbing costs Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
   ],
   'plumber-ozark-mo': [
+    { text: 'view our Ozark MO service area page', href: '/service-areas/ozark-mo' },
     { text: 'sump pump repair Springfield MO', href: '/blog/sump-pump-repair-springfield-mo' },
     { text: 'emergency plumbing costs explained', href: '/blog/emergency-plumbing-cost-springfield-mo' },
     { text: 'sewer backup warning signs', href: '/blog/sewer-backup-warning-signs-springfield-mo' },
     { text: 'plumbing costs Springfield MO 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
   ],
-  'plumber-republic-mo': [
+   'plumber-republic-mo': [
+    { text: 'view our Republic & Battlefield MO service area page', href: '/service-areas/republic-battlefield-mo' },
     { text: 'water heater repair Springfield MO guide', href: '/blog/water-heater-not-working-springfield-mo' },
     { text: 'emergency plumbing costs Springfield MO', href: '/blog/emergency-plumbing-cost-springfield-mo' },
     { text: 'why is my water bill so high', href: '/blog/why-is-my-water-bill-so-high-springfield-mo' },
     { text: 'complete plumbing cost guide 2026', href: '/blog/plumbing-cost-springfield-mo-2026' },
   ],
-  'plumber-battlefield-mo': [
+    'plumber-battlefield-mo': [
+    { text: 'view our Republic & Battlefield MO service area page', href: '/service-areas/republic-battlefield-mo' },
     { text: 'sump pump repair and replacement guide', href: '/blog/sump-pump-repair-springfield-mo' },
     { text: 'tankless water heater comparison guide', href: '/blog/tankless-vs-tank-water-heater-springfield-mo' },
     { text: 'low water pressure causes and fixes', href: '/blog/low-water-pressure-springfield-mo' },
