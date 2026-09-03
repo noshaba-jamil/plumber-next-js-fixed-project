@@ -1,95 +1,234 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import HeroCanvas from '@/components/HeroCanvas'
-import ServiceCard from '@/components/ServiceCard'
-import FAQAccordion from '@/components/FAQAccordion'
-import CtaBanner from '@/components/CtaBanner'
+import { useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import HeroCanvas from "@/components/HeroCanvas";
+import ServiceCard from "@/components/ServiceCard";
+import FAQAccordion from "@/components/FAQAccordion";
+import CtaBanner from "@/components/CtaBanner";
 import {
-  SERVICES, SERVICE_AREAS, REVIEWS, FAQS, CONTACT_INFO,
-  HERO_COPY, SECTION_COPY, WHY_US_FEATURES, EMERGENCY_ITEMS, PROCESS_STEPS,
-  TRUST_LINES
-} from '@/data/services'
-import '@/components/Home.css'
+  SERVICES,
+  SERVICE_AREAS,
+  REVIEWS,
+  FAQS,
+  CONTACT_INFO,
+  HERO_COPY,
+  SECTION_COPY,
+  WHY_US_FEATURES,
+  EMERGENCY_ITEMS,
+  PROCESS_STEPS,
+  TRUST_LINES,
+} from "@/data/services";
+import "@/components/Home.css";
 
 // ── UPDATED: now includes all 16 service areas, matching Navbar.jsx and
 // ServiceAreasClient.jsx exactly (same slugs, same combined cities) ──
 const CITIES = [
-  { name: 'Springfield, MO',              slug: '/service-areas/springfield-mo',           icon: 'ri-home-4-fill',  label: 'Primary Area' },
-  { name: 'Nixa, MO',                     slug: '/service-areas/nixa-mo',                  icon: 'ri-map-pin-fill', label: '~12 mi south' },
-  { name: 'Ozark, MO',                    slug: '/service-areas/ozark-mo',                 icon: 'ri-map-pin-fill', label: '~14 mi south' },
-  { name: 'Republic & Battlefield, MO',   slug: '/service-areas/republic-battlefield-mo',  icon: 'ri-map-pin-fill', label: '~12 mi SW' },
-  { name: 'Willard, MO',                  slug: '/service-areas/willard-mo',               icon: 'ri-map-pin-fill', label: '~13 mi NW' },
-  { name: 'Rogersville, MO',              slug: '/service-areas/rogersville-mo',           icon: 'ri-map-pin-fill', label: '~18 mi east' },
-  { name: 'Strafford, MO',                slug: '/service-areas/strafford-mo',             icon: 'ri-map-pin-fill', label: '~15 mi NE' },
-  { name: 'Clever & Billings, MO',        slug: '/service-areas/clever-billings-mo',       icon: 'ri-map-pin-fill', label: '~20 mi SW' },
-  { name: 'Ash Grove, MO',                slug: '/service-areas/ash-grove-mo',             icon: 'ri-map-pin-fill', label: '~18 mi NW' },
-  { name: 'Walnut Grove, MO',             slug: '/service-areas/walnut-grove-mo',          icon: 'ri-map-pin-fill', label: '~20 mi NW' },
-  { name: 'Fair Grove, MO',               slug: '/service-areas/fair-grove-mo',            icon: 'ri-map-pin-fill', label: '~15 mi NE' },
-  { name: 'Marshfield, MO',               slug: '/service-areas/marshfield-mo',            icon: 'ri-map-pin-fill', label: '~22 mi east' },
-  { name: 'Bolivar, MO',                  slug: '/service-areas/bolivar-mo',               icon: 'ri-map-pin-fill', label: '~25 mi north' },
-  { name: 'Mount Vernon, MO',             slug: '/service-areas/mount-vernon-mo',          icon: 'ri-map-pin-fill', label: '~25 mi SW' },
-  { name: 'Aurora, MO',                   slug: '/service-areas/aurora-mo',                icon: 'ri-map-pin-fill', label: '~30 mi SW' },
-  { name: 'Highlandville & Spokane, MO',  slug: '/service-areas/highlandville-spokane-mo', icon: 'ri-map-pin-fill', label: '~15 mi south' },
-]
+  {
+    name: "Springfield, MO",
+    slug: "/service-areas/springfield-mo",
+    icon: "ri-home-4-fill",
+    label: "Primary Area",
+  },
+  {
+    name: "Nixa, MO",
+    slug: "/service-areas/nixa-mo",
+    icon: "ri-map-pin-fill",
+    label: "~12 mi south",
+  },
+  {
+    name: "Ozark, MO",
+    slug: "/service-areas/ozark-mo",
+    icon: "ri-map-pin-fill",
+    label: "~14 mi south",
+  },
+  {
+    name: "Republic & Battlefield, MO",
+    slug: "/service-areas/republic-battlefield-mo",
+    icon: "ri-map-pin-fill",
+    label: "~12 mi SW",
+  },
+  {
+    name: "Willard, MO",
+    slug: "/service-areas/willard-mo",
+    icon: "ri-map-pin-fill",
+    label: "~13 mi NW",
+  },
+  {
+    name: "Rogersville, MO",
+    slug: "/service-areas/rogersville-mo",
+    icon: "ri-map-pin-fill",
+    label: "~18 mi east",
+  },
+  {
+    name: "Strafford, MO",
+    slug: "/service-areas/strafford-mo",
+    icon: "ri-map-pin-fill",
+    label: "~15 mi NE",
+  },
+  {
+    name: "Clever & Billings, MO",
+    slug: "/service-areas/clever-billings-mo",
+    icon: "ri-map-pin-fill",
+    label: "~20 mi SW",
+  },
+  {
+    name: "Ash Grove, MO",
+    slug: "/service-areas/ash-grove-mo",
+    icon: "ri-map-pin-fill",
+    label: "~18 mi NW",
+  },
+  {
+    name: "Walnut Grove, MO",
+    slug: "/service-areas/walnut-grove-mo",
+    icon: "ri-map-pin-fill",
+    label: "~20 mi NW",
+  },
+  {
+    name: "Fair Grove, MO",
+    slug: "/service-areas/fair-grove-mo",
+    icon: "ri-map-pin-fill",
+    label: "~15 mi NE",
+  },
+  {
+    name: "Marshfield, MO",
+    slug: "/service-areas/marshfield-mo",
+    icon: "ri-map-pin-fill",
+    label: "~22 mi east",
+  },
+  {
+    name: "Bolivar, MO",
+    slug: "/service-areas/bolivar-mo",
+    icon: "ri-map-pin-fill",
+    label: "~25 mi north",
+  },
+  {
+    name: "Mount Vernon, MO",
+    slug: "/service-areas/mount-vernon-mo",
+    icon: "ri-map-pin-fill",
+    label: "~25 mi SW",
+  },
+  {
+    name: "Aurora, MO",
+    slug: "/service-areas/aurora-mo",
+    icon: "ri-map-pin-fill",
+    label: "~30 mi SW",
+  },
+  {
+    name: "Highlandville & Spokane, MO",
+    slug: "/service-areas/highlandville-spokane-mo",
+    icon: "ri-map-pin-fill",
+    label: "~15 mi south",
+  },
+  {
+    name: "Neosho, MO",
+    slug: "/service-areas/neosho-mo",
+    icon: "ri-map-pin-fill",
+    label: "~50 mi SW",
+  },
+];
 
 const BLOG_POSTS = [
-  { title: 'How Much Does a Plumber Cost in Springfield MO?',     slug: '/blog/how-much-does-a-plumber-cost-springfield-mo' },
-  { title: 'Best Plumber Near Me — Springfield MO Guide',         slug: '/blog/best-plumber-near-me-springfield-mo' },
-  { title: 'How to Fix a Burst Pipe — Springfield MO',            slug: '/blog/how-to-fix-burst-pipe-springfield-mo' },
-  { title: 'Signs You Need Drain Cleaning in Springfield MO',     slug: '/blog/signs-you-need-drain-cleaning-springfield-mo' },
-]
+  {
+    title: "How Much Does a Plumber Cost in Springfield MO?",
+    slug: "/blog/how-much-does-a-plumber-cost-springfield-mo",
+  },
+  {
+    title: "Best Plumber Near Me — Springfield MO Guide",
+    slug: "/blog/best-plumber-near-me-springfield-mo",
+  },
+  {
+    title: "How to Fix a Burst Pipe — Springfield MO",
+    slug: "/blog/how-to-fix-burst-pipe-springfield-mo",
+  },
+  {
+    title: "Signs You Need Drain Cleaning in Springfield MO",
+    slug: "/blog/signs-you-need-drain-cleaning-springfield-mo",
+  },
+];
 
 // ── CHANGE 3 & 4 additions only ──
 const WHY_CHOOSE_US = [
-  { icon: 'ri-shield-check-fill',   text: 'Licensed & insured plumbing contractor — State of Missouri certified' },
-  { icon: 'ri-time-fill',           text: '24/7 emergency response — we answer every call, including nights, weekends & holidays' },
-  { icon: 'ri-calendar-check-fill', text: 'Same-day service for most plumbing problems in Springfield MO' },
-  { icon: 'ri-file-list-3-fill',    text: 'Upfront written pricing — you approve the cost before we start any work' },
-  { icon: 'ri-building-4-fill',     text: 'Residential and commercial plumbing services across Springfield and SW Missouri' },
-  { icon: 'ri-user-star-fill',      text: 'Background-checked, uniformed plumbers — we respect your home' },
-  { icon: 'ri-map-pin-2-fill',      text: 'Serving Springfield, Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever & Billings' },
-]
+  {
+    icon: "ri-shield-check-fill",
+    text: "Licensed & insured plumbing contractor — State of Missouri certified",
+  },
+  {
+    icon: "ri-time-fill",
+    text: "24/7 emergency response — we answer every call, including nights, weekends & holidays",
+  },
+  {
+    icon: "ri-calendar-check-fill",
+    text: "Same-day service for most plumbing problems in Springfield MO",
+  },
+  {
+    icon: "ri-file-list-3-fill",
+    text: "Upfront written pricing — you approve the cost before we start any work",
+  },
+  {
+    icon: "ri-building-4-fill",
+    text: "Residential and commercial plumbing services across Springfield and SW Missouri",
+  },
+  {
+    icon: "ri-user-star-fill",
+    text: "Background-checked, uniformed plumbers — we respect your home",
+  },
+  {
+    icon: "ri-map-pin-2-fill",
+    text: "Serving Springfield, Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever & Billings",
+  },
+];
 
 const PRICING_FAQS = [
   {
-    question: 'How much does an emergency plumber cost in Springfield MO?',
-    answer: 'Emergency plumbing costs in Springfield MO typically range from $150–$500 for most repairs. We provide a written upfront price before starting any work. Call (417) 373-4862 for a free estimate.',
+    question: "How much does an emergency plumber cost in Springfield MO?",
+    answer:
+      "Emergency plumbing costs in Springfield MO typically range from $150–$500 for most repairs. We provide a written upfront price before starting any work. Call (417) 373-4862 for a free estimate.",
   },
   {
-    question: 'How fast can you get to me in Springfield MO?',
-    answer: 'We dispatch immediately after your call. Most Springfield MO locations are reached within 30–60 minutes. We prioritize emergency calls 24/7.',
+    question: "How fast can you get to me in Springfield MO?",
+    answer:
+      "We dispatch immediately after your call. Most Springfield MO locations are reached within 30–60 minutes. We prioritize emergency calls 24/7.",
   },
   {
-    question: 'Are you licensed and insured in Missouri?',
-    answer: 'Yes. We are licensed plumbing contractors in the State of Missouri and fully insured. Every plumber is professionally trained and background checked.',
+    question: "Are you licensed and insured in Missouri?",
+    answer:
+      "Yes. We are licensed plumbing contractors in the State of Missouri and fully insured. Every plumber is professionally trained and background checked.",
   },
   {
-    question: 'Do you charge extra for weekend or night calls?',
-    answer: 'We provide upfront pricing on every call. You will always know the full cost before we start — no hidden emergency fees or surprise charges.',
+    question: "Do you charge extra for weekend or night calls?",
+    answer:
+      "We provide upfront pricing on every call. You will always know the full cost before we start — no hidden emergency fees or surprise charges.",
   },
-]
+];
 
 const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: PRICING_FAQS.map(faq => ({
-    '@type': 'Question',
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: PRICING_FAQS.map((faq) => ({
+    "@type": "Question",
     name: faq.question,
-    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
   })),
-}
+};
 
 export default function Home() {
   useEffect(() => {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target) } })
-    }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' })
-    document.querySelectorAll('[data-aos]').forEach(el => obs.observe(el))
-    return () => obs.disconnect()
-  }, [])
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("on");
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.07, rootMargin: "0px 0px -30px 0px" },
+    );
+    document.querySelectorAll("[data-aos]").forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
@@ -108,12 +247,17 @@ export default function Home() {
               <span>{HERO_COPY.availability_pill}</span>
             </div>
             <h1 className="hero-h1">
-  Springfield MO's Trusted <em>24/7 Plumber</em><br />
-  — Upfront Pricing, No Hidden Fees
-</h1>
+              Springfield MO's Trusted <em>24/7 Plumber</em>
+              <br />— Upfront Pricing, No Hidden Fees
+            </h1>
             <div className="hero-sub">
-              <p><strong>Pipe burst? Water leaking? Drain backed up?</strong></p>
-              <p>Get fast, reliable help from a licensed emergency plumber in Springfield MO.</p>
+              <p>
+                <strong>Pipe burst? Water leaking? Drain backed up?</strong>
+              </p>
+              <p>
+                Get fast, reliable help from a licensed emergency plumber in
+                Springfield MO.
+              </p>
               <p>We answer every call — day or night — and get to you FAST.</p>
             </div>
             <div className="hero-actions">
@@ -130,7 +274,9 @@ export default function Home() {
             <div className="hero-trust">
               {HERO_COPY.trust_row.map((item, i) => (
                 <div key={i} className="trust-row">
-                  <div className="trust-icon"><i className="ri-check-line" /></div>
+                  <div className="trust-icon">
+                    <i className="ri-check-line" />
+                  </div>
                   <span className="trust-text">{item}</span>
                 </div>
               ))}
@@ -142,40 +288,65 @@ export default function Home() {
           <HeroCanvas />
           <div className="hero-cards">
             <a href={CONTACT_INFO.phoneHref} className="hgc-phone">
-              <div className="hgc-phone-icon"><i className="ri-phone-fill" /></div>
+              <div className="hgc-phone-icon">
+                <i className="ri-phone-fill" />
+              </div>
               <div className="hgc-phone-text">
                 <div className="lbl">Emergency Hotline — Answers Instantly</div>
                 <div className="num">{CONTACT_INFO.phone}</div>
               </div>
-              <div className="hgc-phone-arrow"><i className="ri-arrow-right-line" /></div>
+              <div className="hgc-phone-arrow">
+                <i className="ri-arrow-right-line" />
+              </div>
             </a>
             <div className="hero-glass-card">
               <div className="hgc-stats">
-                <div className="hgc-stat"><div className="n">24<sup>/7</sup></div><div className="l">We Answer</div></div>
-                 
-                <div className="hgc-stat"><div className="n">$0<sup></sup></div><div className="l">Call-Out Fee</div></div>
+                <div className="hgc-stat">
+                  <div className="n">
+                    24<sup>/7</sup>
+                  </div>
+                  <div className="l">We Answer</div>
+                </div>
+
+                <div className="hgc-stat">
+                  <div className="n">
+                    $0<sup></sup>
+                  </div>
+                  <div className="l">Call-Out Fee</div>
+                </div>
               </div>
             </div>
             <div className="hero-glass-card">
               <div className="hgc-avail">
                 <span className="avail-dot" />
                 <span className="avail-text">
-                  <strong>No hidden fees.</strong> You approve pricing before we start — every time.
+                  <strong>No hidden fees.</strong> You approve pricing before we
+                  start — every time.
                 </span>
               </div>
             </div>
-            <div className="hero-glass-card" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div className="shield-icon"><i className="ri-shield-check-fill" /></div>
+            <div
+              className="hero-glass-card"
+              style={{ display: "flex", alignItems: "center", gap: 14 }}
+            >
+              <div className="shield-icon">
+                <i className="ri-shield-check-fill" />
+              </div>
               <div>
                 <div className="shield-title">Licensed &amp; Insured</div>
-                <div className="shield-sub">State of Missouri Certified · Trusted by Springfield Homeowners</div>
+                <div className="shield-sub">
+                  State of Missouri Certified · Trusted by Springfield
+                  Homeowners
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div className="scroll-hint">
-          <div className="scroll-mouse"><div className="scroll-wheel" /></div>
+          <div className="scroll-mouse">
+            <div className="scroll-wheel" />
+          </div>
           <span>Scroll</span>
         </div>
       </section>
@@ -184,27 +355,56 @@ export default function Home() {
       <div className="mq-wrap">
         <div className="mq-track">
           {[
-            'Emergency Plumber Springfield MO','24/7 — Real Person Answers','Drain Cleaning Springfield',
-            'Leak Detection Springfield MO','No Hidden Fees — Upfront Pricing','Water Heater Repair Springfield',
-            'Licensed & Insured Plumbers','Sewer Line Repair Springfield MO','Fast Response — Same Day Service',
-            'Emergency Plumber Springfield MO','24/7 — Real Person Answers','Drain Cleaning Springfield',
-            'Leak Detection Springfield MO','No Hidden Fees — Upfront Pricing','Water Heater Repair Springfield',
-            'Licensed & Insured Plumbers','Sewer Line Repair Springfield MO','Fast Response — Same Day Service',
+            "Emergency Plumber Springfield MO",
+            "24/7 — Real Person Answers",
+            "Drain Cleaning Springfield",
+            "Leak Detection Springfield MO",
+            "No Hidden Fees — Upfront Pricing",
+            "Water Heater Repair Springfield",
+            "Licensed & Insured Plumbers",
+            "Sewer Line Repair Springfield MO",
+            "Fast Response — Same Day Service",
+            "Emergency Plumber Springfield MO",
+            "24/7 — Real Person Answers",
+            "Drain Cleaning Springfield",
+            "Leak Detection Springfield MO",
+            "No Hidden Fees — Upfront Pricing",
+            "Water Heater Repair Springfield",
+            "Licensed & Insured Plumbers",
+            "Sewer Line Repair Springfield MO",
+            "Fast Response — Same Day Service",
           ].map((t, i) => (
-            <span key={i} className="mitem"><span className="msep">◆</span>{t}</span>
+            <span key={i} className="mitem">
+              <span className="msep">◆</span>
+              {t}
+            </span>
           ))}
         </div>
       </div>
- <div className="stats-sec">
-  <div className="stats-in">
-    {[['24', '/7', 'We Answer Every Call'], ['Fast', '⚡', 'Emergency Response'], ['Same Day', '', 'Service'], ['$0', '', 'No Call-Out Fee'], ['100', '%', 'Upfront Pricing']].map(([n, sup, l], i) => (
-      <div key={i} className="scell" data-aos="zi" data-aos-delay={i * 80}>
-        <div className="n">{n}<sup>{sup}</sup></div>
-        <div className="l">{l}</div>
+      <div className="stats-sec">
+        <div className="stats-in">
+          {[
+            ["24", "/7", "We Answer Every Call"],
+            ["Fast", "⚡", "Emergency Response"],
+            ["Same Day", "", "Service"],
+            ["$0", "", "No Call-Out Fee"],
+            ["100", "%", "Upfront Pricing"],
+          ].map(([n, sup, l], i) => (
+            <div
+              key={i}
+              className="scell"
+              data-aos="zi"
+              data-aos-delay={i * 80}
+            >
+              <div className="n">
+                {n}
+                <sup>{sup}</sup>
+              </div>
+              <div className="l">{l}</div>
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
       {/* ── INTRO ── */}
       <section className="section section-alt">
@@ -212,32 +412,59 @@ export default function Home() {
           <div className="intro-grid">
             <div data-aos="fl">
               <div className="stag">{SECTION_COPY.intro.tag}</div>
-              <h2 className="sh">{SECTION_COPY.intro.h2} <em>{SECTION_COPY.intro.h2_em}</em></h2>
+              <h2 className="sh">
+                {SECTION_COPY.intro.h2} <em>{SECTION_COPY.intro.h2_em}</em>
+              </h2>
               <div className="content-block" style={{ marginTop: 20 }}>
                 <p>{SECTION_COPY.intro.body[0]}</p>
-                <p><strong style={{ color: '#fff' }}>{SECTION_COPY.intro.body[1]}</strong></p>
+                <p>
+                  <strong style={{ color: "#fff" }}>
+                    {SECTION_COPY.intro.body[1]}
+                  </strong>
+                </p>
                 <p>{SECTION_COPY.intro.body[2]}</p>
                 <p>{SECTION_COPY.intro.body[3]}</p>
                 <div className="trust-lines-block">
                   {TRUST_LINES.map((line, i) => (
-                    <div key={i} className="trust-line-item"><i className="ri-check-double-line" />{line}</div>
+                    <div key={i} className="trust-line-item">
+                      <i className="ri-check-double-line" />
+                      {line}
+                    </div>
                   ))}
                 </div>
               </div>
-              <div style={{ marginTop: 28, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-                <a href={CONTACT_INFO.phoneHref} className="btn-primary"><i className="ri-phone-fill" />{SECTION_COPY.intro.cta}</a>
-                <Link href="/services" className="btn-secondary">See All Services <i className="ri-arrow-right-line" /></Link>
+              <div
+                style={{
+                  marginTop: 28,
+                  display: "flex",
+                  gap: 14,
+                  flexWrap: "wrap",
+                }}
+              >
+                <a href={CONTACT_INFO.phoneHref} className="btn-primary">
+                  <i className="ri-phone-fill" />
+                  {SECTION_COPY.intro.cta}
+                </a>
+                <Link href="/services" className="btn-secondary">
+                  See All Services <i className="ri-arrow-right-line" />
+                </Link>
               </div>
             </div>
             <div data-aos="fr">
               <div className="emerg-list">
                 {EMERGENCY_ITEMS.map((item, i) => (
-                  <div key={i} className="emerg-item"><i className={item.icon} /><span>{item.text}</span></div>
+                  <div key={i} className="emerg-item">
+                    <i className={item.icon} />
+                    <span>{item.text}</span>
+                  </div>
                 ))}
               </div>
               <div className="micro-cta-row">
                 <i className="ri-alarm-warning-fill" />
-                <span><strong>Same-day service available.</strong> Emergency calls prioritized immediately.</span>
+                <span>
+                  <strong>Same-day service available.</strong> Emergency calls
+                  prioritized immediately.
+                </span>
               </div>
             </div>
           </div>
@@ -247,20 +474,28 @@ export default function Home() {
       {/* ── CHANGE 3 — WHY SPRINGFIELD HOMEOWNERS CHOOSE US (NEW SECTION) ── */}
       <section className="section">
         <div className="container">
-          <div className="sec-center" data-aos="fade-up" style={{ textAlign: 'center', marginBottom: 56 }}>
-            <div className="stag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <i className="ri-trophy-fill" style={{ fontSize: 12 }} />Why Choose Us
+          <div
+            className="sec-center"
+            data-aos="fade-up"
+            style={{ textAlign: "center", marginBottom: 56 }}
+          >
+            <div
+              className="stag"
+              style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+            >
+              <i className="ri-trophy-fill" style={{ fontSize: 12 }} />
+              Why Choose Us
             </div>
             <h2 className="sh" style={{ marginTop: 16 }}>
-              Why Springfield MO Homeowners Choose Us{' '}
+              Why Springfield MO Homeowners Choose Us{" "}
               <em>Over Every Other Local Plumber</em>
             </h2>
           </div>
           <div
             data-aos="fade-up"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
               gap: 16,
             }}
           >
@@ -270,43 +505,55 @@ export default function Home() {
                 data-aos="fade-up"
                 data-aos-delay={i * 80}
                 style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
+                  display: "flex",
+                  alignItems: "flex-start",
                   gap: 16,
-                  background: 'var(--card)',
-                  border: '1px solid rgba(255,255,255,0.07)',
+                  background: "var(--card)",
+                  border: "1px solid rgba(255,255,255,0.07)",
                   borderRadius: 16,
-                  padding: '20px 22px',
+                  padding: "20px 22px",
                 }}
               >
-                <span style={{
-                  width: 42,
-                  height: 42,
-                  borderRadius: 10,
-                  background: 'rgba(212,169,65,0.12)',
-                  border: '1px solid rgba(212,169,65,0.25)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}>
-                  <i className={item.icon} style={{ color: 'var(--gold)', fontSize: 18 }} />
+                <span
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: 10,
+                    background: "rgba(212,169,65,0.12)",
+                    border: "1px solid rgba(212,169,65,0.25)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <i
+                    className={item.icon}
+                    style={{ color: "var(--gold)", fontSize: 18 }}
+                  />
                 </span>
-                <p style={{
-                  margin: 0,
-                  fontSize: 14,
-                  lineHeight: 1.65,
-                  color: 'rgba(255,255,255,0.75)',
-                  paddingTop: 10,
-                }}>
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: 14,
+                    lineHeight: 1.65,
+                    color: "rgba(255,255,255,0.75)",
+                    paddingTop: 10,
+                  }}
+                >
                   {item.text}
                 </p>
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: 40 }}>
-            <a href={CONTACT_INFO.phoneHref} className="btn-primary" style={{ display: 'inline-flex' }}>
-              <i className="ri-phone-fill" />CALL NOW — GET HELP FAST
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <a
+              href={CONTACT_INFO.phoneHref}
+              className="btn-primary"
+              style={{ display: "inline-flex" }}
+            >
+              <i className="ri-phone-fill" />
+              CALL NOW — GET HELP FAST
             </a>
           </div>
         </div>
@@ -317,12 +564,24 @@ export default function Home() {
         <div className="container">
           <div className="sec-center" data-aos="fade-up">
             <div className="stag">{SECTION_COPY.services.tag}</div>
-            <h2 className="sh">{SECTION_COPY.services.h2} <em>{SECTION_COPY.services.h2_em}</em></h2>
+            <h2 className="sh">
+              {SECTION_COPY.services.h2} <em>{SECTION_COPY.services.h2_em}</em>
+            </h2>
             <p className="ssub">{SECTION_COPY.services.body}</p>
           </div>
-          <div className="svc-grid">{SERVICES.map((s, i) => <ServiceCard key={s.id} service={s} index={i} />)}</div>
-          <div style={{ textAlign: 'center', marginTop: 40 }}>
-            <Link href="/services" className="btn-secondary" style={{ display: 'inline-flex' }}>View All Services <i className="ri-arrow-right-line" /></Link>
+          <div className="svc-grid">
+            {SERVICES.map((s, i) => (
+              <ServiceCard key={s.id} service={s} index={i} />
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link
+              href="/services"
+              className="btn-secondary"
+              style={{ display: "inline-flex" }}
+            >
+              View All Services <i className="ri-arrow-right-line" />
+            </Link>
           </div>
         </div>
       </section>
@@ -339,16 +598,27 @@ export default function Home() {
               height={500}
               priority
               quality={85}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
             <div className="img-overlay" />
-            <div className="split-badge"><div className="big">24/7</div><div className="sm">We Answer. Every. Call.</div></div>
-            <div className="split-rating"><div className="stars">★★★★★</div><div className="score">4.8/5</div><div className="cnt">Springfield, MO</div></div>
+            <div className="split-badge">
+              <div className="big">24/7</div>
+              <div className="sm">We Answer. Every. Call.</div>
+            </div>
+            <div className="split-rating">
+              <div className="stars">★★★★★</div>
+              <div className="score">4.8/5</div>
+              <div className="cnt">Springfield, MO</div>
+            </div>
           </div>
           <div className="split-content" data-aos="fr">
             <div className="stag">{SECTION_COPY.whyUs.tag}</div>
-            <h2 className="sh">{SECTION_COPY.whyUs.h2} <em>{SECTION_COPY.whyUs.h2_em}</em></h2>
-            <p className="ssub" style={{ maxWidth: '100%' }}>{SECTION_COPY.whyUs.body}</p>
+            <h2 className="sh">
+              {SECTION_COPY.whyUs.h2} <em>{SECTION_COPY.whyUs.h2_em}</em>
+            </h2>
+            <p className="ssub" style={{ maxWidth: "100%" }}>
+              {SECTION_COPY.whyUs.body}
+            </p>
             <div className="anti-scam-bar">
               <i className="ri-shield-check-fill" />
               <span>{SECTION_COPY.whyUs.anti_scam}</span>
@@ -356,14 +626,31 @@ export default function Home() {
             <div className="split-feats">
               {WHY_US_FEATURES.map((f, i) => (
                 <div key={i} className="sfeat">
-                  <div className="sfeat-icon"><i className={f.icon} /></div>
-                  <div><h3>{f.title}</h3><p>{f.desc}</p></div>
+                  <div className="sfeat-icon">
+                    <i className={f.icon} />
+                  </div>
+                  <div>
+                    <h3>{f.title}</h3>
+                    <p>{f.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: 32, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-              <a href={CONTACT_INFO.phoneHref} className="btn-primary"><i className="ri-phone-fill" />CALL NOW — GET HELP FAST</a>
-              <Link href="/about" className="btn-secondary">About Us</Link>
+            <div
+              style={{
+                marginTop: 32,
+                display: "flex",
+                gap: 14,
+                flexWrap: "wrap",
+              }}
+            >
+              <a href={CONTACT_INFO.phoneHref} className="btn-primary">
+                <i className="ri-phone-fill" />
+                CALL NOW — GET HELP FAST
+              </a>
+              <Link href="/about" className="btn-secondary">
+                About Us
+              </Link>
             </div>
           </div>
         </div>
@@ -375,21 +662,38 @@ export default function Home() {
           <div className="intro-grid">
             <div data-aos="fl">
               <div className="stag">{SECTION_COPY.emergencies.tag}</div>
-              <h2 className="sh">{SECTION_COPY.emergencies.h2} <em>{SECTION_COPY.emergencies.h2_em}</em></h2>
+              <h2 className="sh">
+                {SECTION_COPY.emergencies.h2}{" "}
+                <em>{SECTION_COPY.emergencies.h2_em}</em>
+              </h2>
               <div className="content-block" style={{ marginTop: 20 }}>
-                {SECTION_COPY.emergencies.body.map((line, i) => <p key={i}>{line}</p>)}
+                {SECTION_COPY.emergencies.body.map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
               </div>
               <div style={{ marginTop: 28 }}>
-                <a href={CONTACT_INFO.phoneHref} className="btn-primary"><i className="ri-phone-fill" />{SECTION_COPY.emergencies.cta}</a>
+                <a href={CONTACT_INFO.phoneHref} className="btn-primary">
+                  <i className="ri-phone-fill" />
+                  {SECTION_COPY.emergencies.cta}
+                </a>
               </div>
-              <p style={{ color: 'var(--text-dimmer)', fontSize: 12.5, marginTop: 14 }}>
+              <p
+                style={{
+                  color: "var(--text-dimmer)",
+                  fontSize: 12.5,
+                  marginTop: 14,
+                }}
+              >
                 Serving Springfield, Nixa, Ozark, Republic &amp; Battlefield, MO
               </p>
             </div>
             <div data-aos="fr">
               <div className="emerg-list">
                 {EMERGENCY_ITEMS.map((item, i) => (
-                  <div key={i} className="emerg-item"><i className={item.icon} /><span>{item.text}</span></div>
+                  <div key={i} className="emerg-item">
+                    <i className={item.icon} />
+                    <span>{item.text}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -398,10 +702,58 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="section" style={{ background: "var(--navy)", padding: "100px 0", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-80px", left: "-80px", width: "400px", height: "400px", background: "var(--blue)", borderRadius: "50%", filter: "blur(160px)", opacity: 0.12, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "-80px", right: "-80px", width: "350px", height: "350px", background: "var(--teal)", borderRadius: "50%", filter: "blur(140px)", opacity: 0.1, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "40%", left: "50%", transform: "translate(-50%,-50%)", width: "500px", height: "200px", background: "var(--gold)", borderRadius: "50%", filter: "blur(180px)", opacity: 0.05, pointerEvents: "none" }} />
+      <section
+        className="section"
+        style={{
+          background: "var(--navy)",
+          padding: "100px 0",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            left: "-80px",
+            width: "400px",
+            height: "400px",
+            background: "var(--blue)",
+            borderRadius: "50%",
+            filter: "blur(160px)",
+            opacity: 0.12,
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-80px",
+            right: "-80px",
+            width: "350px",
+            height: "350px",
+            background: "var(--teal)",
+            borderRadius: "50%",
+            filter: "blur(140px)",
+            opacity: 0.1,
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "40%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+            width: "500px",
+            height: "200px",
+            background: "var(--gold)",
+            borderRadius: "50%",
+            filter: "blur(180px)",
+            opacity: 0.05,
+            pointerEvents: "none",
+          }}
+        />
         <style>{`
           .process-grid { grid-template-columns: repeat(4, 1fr) !important; }
           .pcon { display: flex !important; }
@@ -409,52 +761,249 @@ export default function Home() {
           @media (max-width: 540px) { .process-grid { grid-template-columns: 1fr !important; } .sec-center { margin-bottom: 48px !important; } .process-micro { padding: 12px 18px !important; text-align: center !important; } }
         `}</style>
         <div className="container">
-          <div className="sec-center" data-aos="fade-up" style={{ textAlign: "center", marginBottom: "72px" }}>
-            <div className="stag" style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "rgba(0,229,212,0.08)", border: "1px solid rgba(0,229,212,0.25)", padding: "7px 18px", borderRadius: "99px", marginBottom: "22px" }}>
-              <i className="ri-settings-3-line" style={{ fontSize: "12px" }} />How It Works
+          <div
+            className="sec-center"
+            data-aos="fade-up"
+            style={{ textAlign: "center", marginBottom: "72px" }}
+          >
+            <div
+              className="stag"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--teal)",
+                background: "rgba(0,229,212,0.08)",
+                border: "1px solid rgba(0,229,212,0.25)",
+                padding: "7px 18px",
+                borderRadius: "99px",
+                marginBottom: "22px",
+              }}
+            >
+              <i className="ri-settings-3-line" style={{ fontSize: "12px" }} />
+              How It Works
             </div>
-            <h2 className="sh" style={{ fontSize: "clamp(30px, 4vw, 48px)", fontWeight: 800, color: "#fff", margin: "0 0 18px", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
-              Simple. Honest.{" "}<em style={{ fontStyle: "normal", background: "linear-gradient(90deg, var(--teal), var(--blue))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Fast.</em>
+            <h2
+              className="sh"
+              style={{
+                fontSize: "clamp(30px, 4vw, 48px)",
+                fontWeight: 800,
+                color: "#fff",
+                margin: "0 0 18px",
+                lineHeight: 1.15,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Simple. Honest.{" "}
+              <em
+                style={{
+                  fontStyle: "normal",
+                  background:
+                    "linear-gradient(90deg, var(--teal), var(--blue))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Fast.
+              </em>
             </h2>
-            <p className="ssub" style={{ fontSize: "16px", color: "rgba(255,255,255,0.45)", maxWidth: "480px", margin: "0 auto", lineHeight: 1.8 }}>From your first call to a fully resolved problem — transparent, fast, and stress-free.</p>
+            <p
+              className="ssub"
+              style={{
+                fontSize: "16px",
+                color: "rgba(255,255,255,0.45)",
+                maxWidth: "480px",
+                margin: "0 auto",
+                lineHeight: 1.8,
+              }}
+            >
+              From your first call to a fully resolved problem — transparent,
+              fast, and stress-free.
+            </p>
           </div>
-          <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", position: "relative" }}>
+          <div
+            className="process-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: "16px",
+              position: "relative",
+            }}
+          >
             {PROCESS_STEPS.map((step, i) => (
-              <div key={i} className="pstep" data-aos="fade-up" data-aos-delay={i * 120}
-                style={{ position: "relative", borderRadius: "24px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", transition: "transform 0.3s ease, box-shadow 0.3s ease", cursor: "default" }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4)` }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none" }}>
-                <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
+              <div
+                key={i}
+                className="pstep"
+                data-aos="fade-up"
+                data-aos-delay={i * 120}
+                style={{
+                  position: "relative",
+                  borderRadius: "24px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(255,255,255,0.03)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  cursor: "default",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.4)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <div
+                  style={{
+                    position: "relative",
+                    height: "180px",
+                    overflow: "hidden",
+                  }}
+                >
                   {/* ✅ CHANGED: plain img → next/image */}
                   <Image
                     src={step.image}
                     alt={step.title}
                     width={400}
                     height={180}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "brightness(0.55) saturate(1.2)" }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                      filter: "brightness(0.55) saturate(1.2)",
+                    }}
                   />
-                  <div style={{ position: "absolute", top: "14px", left: "16px", fontSize: "11px", fontWeight: 800, letterSpacing: "0.1em", color: "rgba(255,255,255,0.6)", background: "rgba(0,0,0,0.25)", padding: "3px 10px", borderRadius: "99px", backdropFilter: "blur(6px)" }}>{step.num}</div>
-                  <div style={{ position: "absolute", bottom: "16px", left: "16px", width: "46px", height: "46px", borderRadius: "12px", background: "#F59B1C", border: "1px solid rgba(189,25,25,0.25)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <i className={step.icon} style={{ fontSize: "20px", color: "#fff" }} />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "14px",
+                      left: "16px",
+                      fontSize: "11px",
+                      fontWeight: 800,
+                      letterSpacing: "0.1em",
+                      color: "rgba(255,255,255,0.6)",
+                      background: "rgba(0,0,0,0.25)",
+                      padding: "3px 10px",
+                      borderRadius: "99px",
+                      backdropFilter: "blur(6px)",
+                    }}
+                  >
+                    {step.num}
+                  </div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "16px",
+                      left: "16px",
+                      width: "46px",
+                      height: "46px",
+                      borderRadius: "12px",
+                      background: "#F59B1C",
+                      border: "1px solid rgba(189,25,25,0.25)",
+                      backdropFilter: "blur(8px)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <i
+                      className={step.icon}
+                      style={{ fontSize: "20px", color: "#fff" }}
+                    />
                   </div>
                 </div>
                 <div style={{ padding: "22px 20px 24px" }}>
-                  <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#fff", margin: "0 0 10px", lineHeight: 1.3 }}>{step.title}</h3>
-                  <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", lineHeight: 1.75, margin: 0 }}>{step.desc}</p>
-                  <div style={{ marginTop: "18px", height: "2px", borderRadius: "2px", background: step.gradient, opacity: 0.7 }} />
+                  <h3
+                    style={{
+                      fontSize: "15px",
+                      fontWeight: 700,
+                      color: "#fff",
+                      margin: "0 0 10px",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      color: "rgba(255,255,255,0.45)",
+                      lineHeight: 1.75,
+                      margin: 0,
+                    }}
+                  >
+                    {step.desc}
+                  </p>
+                  <div
+                    style={{
+                      marginTop: "18px",
+                      height: "2px",
+                      borderRadius: "2px",
+                      background: step.gradient,
+                      opacity: 0.7,
+                    }}
+                  />
                 </div>
                 {i < PROCESS_STEPS.length - 1 && (
-                  <div className="pcon" style={{ position: "absolute", right: "-14px", top: "90px", width: "28px", height: "28px", background: "var(--navy)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2 }}>
-                    <i className="ri-arrow-right-s-line" style={{ fontSize: "16px", color: step.accent }} />
+                  <div
+                    className="pcon"
+                    style={{
+                      position: "absolute",
+                      right: "-14px",
+                      top: "90px",
+                      width: "28px",
+                      height: "28px",
+                      background: "var(--navy)",
+                      border: "1px solid rgba(255,255,255,0.12)",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      zIndex: 2,
+                    }}
+                  >
+                    <i
+                      className="ri-arrow-right-s-line"
+                      style={{ fontSize: "16px", color: step.accent }}
+                    />
                   </div>
                 )}
               </div>
             ))}
           </div>
-          <div className="process-micro" data-aos="fade-up" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginTop: "56px", background: "rgba(0,229,212,0.06)", border: "1px solid rgba(0,229,212,0.18)", borderRadius: "99px", padding: "14px 30px", width: "fit-content", marginLeft: "auto", marginRight: "auto" }}>
-            <i className="ri-time-fill" style={{ fontSize: "16px", color: "var(--teal)" }} />
+          <div
+            className="process-micro"
+            data-aos="fade-up"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "10px",
+              marginTop: "56px",
+              background: "rgba(0,229,212,0.06)",
+              border: "1px solid rgba(0,229,212,0.18)",
+              borderRadius: "99px",
+              padding: "14px 30px",
+              width: "fit-content",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            <i
+              className="ri-time-fill"
+              style={{ fontSize: "16px", color: "var(--teal)" }}
+            />
             <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)" }}>
-              <strong style={{ color: "#fff", fontWeight: 700 }}>Most calls dispatched in under 5 minutes.</strong>{" "}Emergency calls prioritized immediately.
+              <strong style={{ color: "#fff", fontWeight: 700 }}>
+                Most calls dispatched in under 5 minutes.
+              </strong>{" "}
+              Emergency calls prioritized immediately.
             </span>
           </div>
         </div>
@@ -465,38 +1014,79 @@ export default function Home() {
         <div className="container">
           <div className="sec-center" data-aos="fade-up">
             <div className="stag">Our Work</div>
-            <h2 className="sh">Professional Plumbing <em>Done Right</em></h2>
-            <p className="ssub">Real work. Real results. Real Springfield homeowners helped.</p>
+            <h2 className="sh">
+              Professional Plumbing <em>Done Right</em>
+            </h2>
+            <p className="ssub">
+              Real work. Real results. Real Springfield homeowners helped.
+            </p>
           </div>
           <div className="gallery-grid" data-aos="fade-up">
             <div className="gitem tall">
               {/* ✅ CHANGED: plain img → next/image */}
-              <Image src="/drain-cleaning.jpg" alt="Professional drain cleaning service Springfield MO" width={600} height={800} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="gover" /><div className="gitem-label"><i className="ri-drop-fill" />Drain Cleaning</div>
+              <Image
+                src="/drain-cleaning.jpg"
+                alt="Professional drain cleaning service Springfield MO"
+                width={600}
+                height={800}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+              <div className="gover" />
+              <div className="gitem-label">
+                <i className="ri-drop-fill" />
+                Drain Cleaning
+              </div>
             </div>
             <div className="gitem">
               {/* ✅ CHANGED: plain img → next/image */}
-              <Image src="/leak-detection-springfield-mo.webp" alt="Leak detection specialist Springfield MO" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="gover" /><div className="gitem-label"><i className="ri-search-eye-fill" />Leak Detection</div>
+              <Image
+                src="/leak-detection-springfield-mo.webp"
+                alt="Leak detection specialist Springfield MO"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+              <div className="gover" />
+              <div className="gitem-label">
+                <i className="ri-search-eye-fill" />
+                Leak Detection
+              </div>
             </div>
             <div className="gitem">
               {/* ✅ CHANGED: plain img → next/image */}
-              <Image src="/water-heater-repair-springfield-mo.webp" alt="Water heater repair and replacement Springfield MO" width={600} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="gover" /><div className="gitem-label"><i className="ri-fire-fill" />Water Heater</div>
+              <Image
+                src="/water-heater-repair-springfield-mo.webp"
+                alt="Water heater repair and replacement Springfield MO"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+              <div className="gover" />
+              <div className="gitem-label">
+                <i className="ri-fire-fill" />
+                Water Heater
+              </div>
             </div>
             <div className="gitem wide">
               {/* ✅ CHANGED: plain img → next/image */}
-              <Image src="/sewer-line-repair-springfield-mo.webp" alt="Sewer line repair Springfield MO licensed plumber" width={900} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="gover" /><div className="gitem-label"><i className="ri-recycle-fill" />Sewer Line Repair</div>
+              <Image
+                src="/sewer-line-repair-springfield-mo.webp"
+                alt="Sewer line repair Springfield MO licensed plumber"
+                width={900}
+                height={400}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+              <div className="gover" />
+              <div className="gitem-label">
+                <i className="ri-recycle-fill" />
+                Sewer Line Repair
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-
-
-
-            {/* ── REVIEWS ── 
+      {/* ── REVIEWS ── 
 <section className="section">
   <div className="container">
     <div className="sec-center" data-aos="fade-up">
@@ -541,193 +1131,266 @@ export default function Home() {
 </section>
 */}
 
-       {/* ── AREAS + MAP (MERGED WITH CITIES) ── */}
-<section style={{ padding: 0 }}>
-  <div className="am-grid">
+      {/* ── AREAS + MAP (MERGED WITH CITIES) ── */}
+      <section style={{ padding: 0 }}>
+        <div className="am-grid">
+          {/* LEFT SIDE (CONTENT + CITIES) */}
+          <div className="am-list" data-aos="fl">
+            <div className="stag">{SECTION_COPY.areas.tag}</div>
+            <h2 className="sh">
+              {SECTION_COPY.areas.h2} <em>{SECTION_COPY.areas.h2_em}</em>
+            </h2>
 
-    {/* LEFT SIDE (CONTENT + CITIES) */}
-    <div className="am-list" data-aos="fl">
-      <div className="stag">{SECTION_COPY.areas.tag}</div>
-      <h2 className="sh">
-        {SECTION_COPY.areas.h2} <em>{SECTION_COPY.areas.h2_em}</em>
-      </h2>
+            <p className="ssub" style={{ maxWidth: "100%" }}>
+              {SECTION_COPY.areas.body}
+            </p>
 
-      <p className="ssub" style={{ maxWidth: '100%' }}>
-        {SECTION_COPY.areas.body}
-      </p>
+            {/* ✅ CITY GRID (MOVED HERE) — now all 16 areas */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gap: 12,
+                marginTop: 24,
+                marginBottom: 24,
+              }}
+            >
+              {CITIES.map((city) => (
+                <Link
+                  key={city.slug}
+                  href={city.slug}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12,
+                    background: "var(--card)",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    padding: "16px 18px",
+                    textDecoration: "none",
+                    transition: "var(--t)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--gold)";
+                    e.currentTarget.style.background = "rgba(212,169,65,0.06)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor =
+                      "rgba(255,255,255,0.07)";
+                    e.currentTarget.style.background = "var(--card)";
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 36,
+                      height: 36,
+                      background: "rgba(212,169,65,0.12)",
+                      border: "1px solid rgba(212,169,65,0.25)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <i
+                      className={city.icon}
+                      style={{ color: "var(--gold)", fontSize: 16 }}
+                    />
+                  </span>
 
-      {/* ✅ CITY GRID (MOVED HERE) — now all 16 areas */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: 12,
-        marginTop: 24,
-        marginBottom: 24
-      }}>
-        {CITIES.map(city => (
-          <Link
-            key={city.slug}
-            href={city.slug}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              background: 'var(--card)',
-              border: '1px solid rgba(255,255,255,0.07)',
-              padding: '16px 18px',
-              textDecoration: 'none',
-              transition: 'var(--t)'
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = 'var(--gold)'
-              e.currentTarget.style.background = 'rgba(212,169,65,0.06)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
-              e.currentTarget.style.background = 'var(--card)'
-            }}
-          >
-            <span style={{
-              width: 36,
-              height: 36,
-              background: 'rgba(212,169,65,0.12)',
-              border: '1px solid rgba(212,169,65,0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0
-            }}>
-              <i className={city.icon} style={{ color: 'var(--gold)', fontSize: 16 }} />
-            </span>
+                  <div style={{ flex: 1 }}>
+                    <div
+                      style={{
+                        fontFamily: "'Syne', sans-serif",
+                        fontWeight: 700,
+                        fontSize: 13,
+                        color: "#fff",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {city.name}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 11,
+                        color: "var(--text-dimmer)",
+                        marginTop: 2,
+                      }}
+                    >
+                      {city.label}
+                    </div>
+                  </div>
 
-            <div style={{ flex: 1 }}>
-              <div style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 700,
-                fontSize: 13,
-                color: '#fff',
-                lineHeight: 1.3
-              }}>
-                {city.name}
+                  <i
+                    className="ri-arrow-right-s-line"
+                    style={{
+                      color: "var(--text-dimmer)",
+                      fontSize: 16,
+                      flexShrink: 0,
+                    }}
+                  />
+                </Link>
+              ))}
+            </div>
+
+            {/* BUTTON */}
+            <div>
+              <Link
+                href="/service-areas"
+                className="btn-primary"
+                style={{ display: "inline-flex" }}
+              >
+                <i className="ri-map-pin-fill" />
+                View All Service Areas
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT SIDE (MAP — UNCHANGED) */}
+          <div className="am-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105055.62!2d-93.3720556!3d37.215259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf62f0f9116cbb%3A0x62c14e0e4d9ed5e4!2sSpringfield%2C%20MO!5e0!3m2!1sen!2sus!4v1710000000000"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Emergency Plumber Springfield MO"
+              style={{
+                width: "100%",
+                height: "100%",
+                minHeight: 540,
+                border: "none",
+                filter: "hue-rotate(180deg) saturate(1.2) brightness(0.65)",
+              }}
+            />
+
+            <div className="map-card1">
+              <div className="mc-title">
+                <i className="ri-map-pin-2-fill" />
+                Springfield Emergency Plumbing
               </div>
-              <div style={{
-                fontSize: 11,
-                color: 'var(--text-dimmer)',
-                marginTop: 2
-              }}>
-                {city.label}
+              <div className="mc-row">
+                <i className="ri-time-fill" />
+                Open 24/7 · 365 Days a Year
+              </div>
+              <div className="mc-row">
+                <i className="ri-phone-fill" />
+                {CONTACT_INFO.phone}
               </div>
             </div>
 
-            <i className="ri-arrow-right-s-line"
-              style={{ color: 'var(--text-dimmer)', fontSize: 16, flexShrink: 0 }}
-            />
-          </Link>
-        ))}
-      </div>
+            <div className="map-avail">
+              <span className="map-avail-dot" />
+              Plumbers Available Now — Ready to Dispatch
+            </div>
 
-      {/* BUTTON */}
-      <div>
-        <Link href="/service-areas" className="btn-primary" style={{ display: 'inline-flex' }}>
-          <i className="ri-map-pin-fill" />View All Service Areas
-        </Link>
-      </div>
-    </div>
-
-    {/* RIGHT SIDE (MAP — UNCHANGED) */}
-    <div className="am-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105055.62!2d-93.3720556!3d37.215259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf62f0f9116cbb%3A0x62c14e0e4d9ed5e4!2sSpringfield%2C%20MO!5e0!3m2!1sen!2sus!4v1710000000000"
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        title="Emergency Plumber Springfield MO"
-        style={{
-          width: '100%',
-          height: '100%',
-          minHeight: 540,
-          border: 'none',
-          filter: 'hue-rotate(180deg) saturate(1.2) brightness(0.65)'
-        }}
-      />
-
-      <div className="map-card1">
-        <div className="mc-title">
-          <i className="ri-map-pin-2-fill" />
-          Springfield Emergency Plumbing
+            <div className="map-rating-badge">
+              <div className="stars">★★★★★</div>
+              <div className="score">4.8/5</div>
+              <div className="sub">Springfield, MO</div>
+            </div>
+          </div>
         </div>
-        <div className="mc-row">
-          <i className="ri-time-fill" />
-          Open 24/7 · 365 Days a Year
-        </div>
-        <div className="mc-row">
-          <i className="ri-phone-fill" />
-          {CONTACT_INFO.phone}
-        </div>
-      </div>
-
-      <div className="map-avail">
-        <span className="map-avail-dot" />
-        Plumbers Available Now — Ready to Dispatch
-      </div>
-
-      <div className="map-rating-badge">
-        <div className="stars">★★★★★</div>
-        <div className="score">4.8/5</div>
-        <div className="sub">Springfield, MO</div>
-      </div>
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* ── CHANGE 4 — PRICING FAQ SECTION (NEW) ── */}
       <section className="section section-alt">
         <div className="container">
-          <div className="sec-center" data-aos="fade-up" style={{ textAlign: 'center', marginBottom: 56 }}>
-            <div className="stag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <i className="ri-question-fill" style={{ fontSize: 12 }} />FAQ
+          <div
+            className="sec-center"
+            data-aos="fade-up"
+            style={{ textAlign: "center", marginBottom: 56 }}
+          >
+            <div
+              className="stag"
+              style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+            >
+              <i className="ri-question-fill" style={{ fontSize: 12 }} />
+              FAQ
             </div>
             <h2 className="sh" style={{ marginTop: 16 }}>
-              Frequently Asked Questions —{' '}
+              Frequently Asked Questions —{" "}
               <em>Springfield MO Plumbing Services</em>
             </h2>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 800, margin: '0 auto' }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+              maxWidth: 800,
+              margin: "0 auto",
+            }}
+          >
             {PRICING_FAQS.map((faq, i) => (
               <div
                 key={i}
                 data-aos="fade-up"
                 data-aos-delay={i * 80}
                 style={{
-                  background: 'var(--card)',
-                  border: '1px solid rgba(255,255,255,0.07)',
+                  background: "var(--card)",
+                  border: "1px solid rgba(255,255,255,0.07)",
                   borderRadius: 16,
-                  padding: '24px 28px',
+                  padding: "24px 28px",
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, marginBottom: 12 }}>
-                  <span style={{
-                    width: 32, height: 32, borderRadius: 8,
-                    background: 'rgba(212,169,65,0.12)',
-                    border: '1px solid rgba(212,169,65,0.25)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0, marginTop: 2,
-                  }}>
-                    <i className="ri-question-line" style={{ color: 'var(--gold)', fontSize: 15 }} />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 14,
+                    marginBottom: 12,
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 32,
+                      height: 32,
+                      borderRadius: 8,
+                      background: "rgba(212,169,65,0.12)",
+                      border: "1px solid rgba(212,169,65,0.25)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      marginTop: 2,
+                    }}
+                  >
+                    <i
+                      className="ri-question-line"
+                      style={{ color: "var(--gold)", fontSize: 15 }}
+                    />
                   </span>
-                  <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: '#fff', lineHeight: 1.45 }}>
+                  <h3
+                    style={{
+                      margin: 0,
+                      fontSize: 15,
+                      fontWeight: 700,
+                      color: "#fff",
+                      lineHeight: 1.45,
+                    }}
+                  >
                     {faq.question}
                   </h3>
                 </div>
-                <p style={{ margin: 0, fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, paddingLeft: 46 }}>
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: 14,
+                    color: "rgba(255,255,255,0.6)",
+                    lineHeight: 1.75,
+                    paddingLeft: 46,
+                  }}
+                >
                   {faq.answer}
                 </p>
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: 40 }}>
-            <Link href="/faq" className="btn-secondary" style={{ display: 'inline-flex' }}>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link
+              href="/faq"
+              className="btn-secondary"
+              style={{ display: "inline-flex" }}
+            >
               View All FAQs <i className="ri-arrow-right-line" />
             </Link>
           </div>
@@ -735,27 +1398,62 @@ export default function Home() {
       </section>
 
       {/* ── FULL INTERNAL LINKS FOOTER ── */}
-      <section className="section" style={{ paddingTop: 40, paddingBottom: 40 }}>
+      <section
+        className="section"
+        style={{ paddingTop: 40, paddingBottom: 40 }}
+      >
         <div className="container">
           <div className="ilinks-section">
-            <div className="ilinks-title">Quick Links — Springfield MO Plumbing Services &amp; Areas</div>
+            <div className="ilinks-title">
+              Quick Links — Springfield MO Plumbing Services &amp; Areas
+            </div>
             <div className="ilinks-grid">
-              <Link className="ilink" href="/"><i className="ri-home-4-fill" />Home</Link>
-              <Link className="ilink" href="/services"><i className="ri-apps-fill" />All Plumbing Services</Link>
-              {SERVICES.map(s => (
-                <Link key={s.id} className="ilink" href={s.slug}><i className={s.icon} />{s.name} Springfield MO</Link>
+              <Link className="ilink" href="/">
+                <i className="ri-home-4-fill" />
+                Home
+              </Link>
+              <Link className="ilink" href="/services">
+                <i className="ri-apps-fill" />
+                All Plumbing Services
+              </Link>
+              {SERVICES.map((s) => (
+                <Link key={s.id} className="ilink" href={s.slug}>
+                  <i className={s.icon} />
+                  {s.name} Springfield MO
+                </Link>
               ))}
-              <Link className="ilink" href="/service-areas"><i className="ri-map-fill" />All Service Areas</Link>
-              {CITIES.map(c => (
-                <Link key={c.slug} className="ilink" href={c.slug}><i className="ri-map-pin-fill" />Plumber in {c.name}</Link>
+              <Link className="ilink" href="/service-areas">
+                <i className="ri-map-fill" />
+                All Service Areas
+              </Link>
+              {CITIES.map((c) => (
+                <Link key={c.slug} className="ilink" href={c.slug}>
+                  <i className="ri-map-pin-fill" />
+                  Plumber in {c.name}
+                </Link>
               ))}
-              <Link className="ilink" href="/blog"><i className="ri-article-fill" />Plumbing Blog &amp; Tips</Link>
-              {BLOG_POSTS.map(p => (
-                <Link key={p.slug} className="ilink" href={p.slug}><i className="ri-file-text-fill" />{p.title}</Link>
+              <Link className="ilink" href="/blog">
+                <i className="ri-article-fill" />
+                Plumbing Blog &amp; Tips
+              </Link>
+              {BLOG_POSTS.map((p) => (
+                <Link key={p.slug} className="ilink" href={p.slug}>
+                  <i className="ri-file-text-fill" />
+                  {p.title}
+                </Link>
               ))}
-              <Link className="ilink" href="/about"><i className="ri-information-fill" />About Our Company</Link>
-              <Link className="ilink" href="/faq"><i className="ri-question-fill" />FAQ</Link>
-              <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Free Estimate — Contact Us</Link>
+              <Link className="ilink" href="/about">
+                <i className="ri-information-fill" />
+                About Our Company
+              </Link>
+              <Link className="ilink" href="/faq">
+                <i className="ri-question-fill" />
+                FAQ
+              </Link>
+              <Link className="ilink" href="/contact">
+                <i className="ri-phone-fill" />
+                Free Estimate — Contact Us
+              </Link>
             </div>
           </div>
         </div>
@@ -769,5 +1467,5 @@ export default function Home() {
         secondaryLabel={SECTION_COPY.cta_banner.cta_secondary}
       />
     </>
-  )
+  );
 }

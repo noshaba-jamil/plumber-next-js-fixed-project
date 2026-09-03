@@ -85,6 +85,7 @@ Willard, MO
 Rogersville, MO
 Strafford, MO
 Clever, MO
+Neosho, MO
 </span></div>
             <div className="fci2"><i className="ri-map-pin-fill"/><span>220 S Campbell Avenue, Springfield, MO 65806</span></div>
             <div className="fci2"><i className="ri-time-fill"/><span>24/7 — Real Person Answers Every Call</span></div>

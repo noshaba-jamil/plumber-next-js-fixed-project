@@ -1,4 +1,4 @@
- import { notFound } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import CityPageClient from './CityPageClient'
 
 // ─── City Data ────────────────────────────────────────────────────────────────
@@ -7,6 +7,8 @@ export const CITY_DATA = {
   'ash-grove-mo': {
     name: 'Ash Grove',
     state: 'MO',
+    title: 'Ash Grove, MO Plumber | Well & Septic Specialists',
+    h1: 'Ash Grove, MO\'s Rural Plumbing Experts',
     zip: '65604',
     population: '~1,500',
     distance: '~18 miles NW of Springfield',
@@ -41,6 +43,8 @@ export const CITY_DATA = {
   'walnut-grove-mo': {
     name: 'Walnut Grove',
     state: 'MO',
+    title: 'Walnut Grove, MO Plumber | Rural & Farm Plumbing',
+    h1: 'Walnut Grove, MO\'s Local Plumbing Team',
     zip: '65770',
     population: '~950',
     distance: '~20 miles NW of Springfield',
@@ -75,6 +79,8 @@ export const CITY_DATA = {
   'fair-grove-mo': {
     name: 'Fair Grove',
     state: 'MO',
+    title: 'Plumber in Fair Grove, MO | Local & Reliable',
+    h1: 'Fair Grove, MO\'s Trusted Plumbing Pros',
     zip: '65648',
     population: '~1,400',
     distance: '~15 miles NE of Springfield',
@@ -109,6 +115,8 @@ export const CITY_DATA = {
   'marshfield-mo': {
     name: 'Marshfield',
     state: 'MO',
+    title: 'Marshfield, MO Plumber | Residential & Rural Service',
+    h1: 'Marshfield, MO\'s Local Plumbing Experts',
     zip: '65706',
     population: '~7,500',
     distance: '~22 miles east of Springfield',
@@ -143,6 +151,8 @@ export const CITY_DATA = {
   'bolivar-mo': {
     name: 'Bolivar',
     state: 'MO',
+    title: 'Plumber in Bolivar, MO | Local & Reliable Service',
+    h1: 'Bolivar, MO\'s Trusted Plumbing Team',
     zip: '65613',
     population: '~10,800',
     distance: '~25 miles north of Springfield',
@@ -177,6 +187,8 @@ export const CITY_DATA = {
   'mount-vernon-mo': {
     name: 'Mount Vernon',
     state: 'MO',
+    title: 'Mount Vernon, MO Plumber | Local Plumbing Repair',
+    h1: 'Mount Vernon, MO\'s Local Plumbing Experts',
     zip: '65712',
     population: '~4,400',
     distance: '~25 miles SW of Springfield',
@@ -211,6 +223,8 @@ export const CITY_DATA = {
   'aurora-mo': {
     name: 'Aurora',
     state: 'MO',
+    title: 'Plumber in Aurora, MO | Residential & Commercial',
+    h1: 'Aurora, MO\'s Trusted Plumbing Pros',
     zip: '65605',
     population: '~7,300',
     distance: '~30 miles SW of Springfield',
@@ -245,6 +259,8 @@ export const CITY_DATA = {
   'highlandville-spokane-mo': {
     name: 'Highlandville & Spokane',
     state: 'MO',
+    title: 'Highlandville & Spokane, MO Plumber | Local Service',
+    h1: 'Trusted Plumber Serving Highlandville & Spokane, MO',
     zip: '65669, 65754',
     population: '~2,000+',
     distance: '~15 miles south of Springfield',
@@ -279,6 +295,8 @@ export const CITY_DATA = {
   'springfield-mo': {
     name: 'Springfield',
     state: 'MO',
+    title: 'Plumber in Springfield, MO | Licensed & Local',
+    h1: 'Springfield, MO\'s Local Plumbing Experts',
     zip: '65801, 65802, 65803, 65804, 65805, 65806, 65807, 65808, 65809, 65810, 65814, 65817, 65890, 65897, 65898, 65899',
     population: '~170,000',
     distance: 'Primary Service Area',
@@ -313,6 +331,8 @@ export const CITY_DATA = {
   'nixa-mo': {
     name: 'Nixa',
     state: 'MO',
+    title: 'Nixa, MO Plumber | Local Plumbing Repair & Service',
+    h1: 'Nixa, MO\'s Trusted Local Plumber',
     zip: '65714',
     population: '~25,000',
     distance: '~12 miles south of Springfield',
@@ -347,6 +367,8 @@ export const CITY_DATA = {
   'ozark-mo': {
     name: 'Ozark',
     state: 'MO',
+    title: 'Plumber in Ozark, MO | Sump Pump & Plumbing Pros',
+    h1: 'Ozark, MO\'s Local Plumbing & Sump Pump Experts',
     zip: '65721',
     population: '~20,000',
     distance: '~14 miles south of Springfield',
@@ -381,6 +403,8 @@ export const CITY_DATA = {
   'republic-battlefield-mo': {
     name: 'Republic & Battlefield',
     state: 'MO',
+    title: 'Plumber in Republic & Battlefield, MO | New Construction Pros',
+    h1: 'Trusted Plumber Serving Republic & Battlefield, MO',
     zip: '65738, 65619',
     population: '~18,000+',
     distance: '~12 miles SW of Springfield',
@@ -415,6 +439,8 @@ export const CITY_DATA = {
   'willard-mo': {
     name: 'Willard',
     state: 'MO',
+    title: 'Willard, MO Plumber | Well, Septic & Home Repair',
+    h1: 'Willard, MO\'s Local Plumbing Experts',
     zip: '65781',
     population: '~6,000',
     distance: '~13 miles NW of Springfield',
@@ -449,6 +475,8 @@ export const CITY_DATA = {
   'rogersville-mo': {
     name: 'Rogersville',
     state: 'MO',
+    title: 'Plumber in Rogersville, MO | Local & Reliable',
+    h1: 'Rogersville, MO\'s Trusted Plumbing Team',
     zip: '65742',
     population: '~4,500',
     distance: '~18 miles east of Springfield',
@@ -483,6 +511,8 @@ export const CITY_DATA = {
   'strafford-mo': {
     name: 'Strafford',
     state: 'MO',
+    title: 'Strafford, MO Plumber | Fast Local Response',
+    h1: 'Strafford, MO\'s Local Plumbing Pros',
     zip: '65757',
     population: '~2,500',
     distance: '~15 miles NE of Springfield',
@@ -517,6 +547,8 @@ export const CITY_DATA = {
   'clever-billings-mo': {
     name: 'Clever & Billings',
     state: 'MO',
+    title: 'Plumber in Clever & Billings, MO | Local Service',
+    h1: 'Trusted Plumber for Clever & Billings, MO',
     zip: '65631, 65610',
     population: '~2,000+',
     distance: '~20 miles SW of Springfield',
@@ -548,6 +580,42 @@ export const CITY_DATA = {
       { q: 'Can you handle plumbing in outbuildings on rural Clever/Billings properties?', a: "Yes, we service plumbing in outbuildings, detached garages, and other structures common on the area's larger rural and acreage properties." },
     ],
   },
+  'neosho-mo': {
+    name: 'Neosho',
+    state: 'MO',
+    zip: '64850',
+    population: '~13,000',
+    distance: '~70 miles SW of Springfield',
+    county: 'Newton County',
+    title: 'Neosho, MO Plumber | Historic Downtown & Rural Service',
+    h1: "Neosho, MO's Trusted Local Plumber",
+    image: '/Neosho.webp',
+    imgAlt: 'Licensed plumber serving Neosho MO',
+    desc: 'Licensed plumber serving Neosho, MO — the Newton County seat, known as the "City of Springs." Residential, well & septic, and light-industrial plumbing.',
+    neighborhoods: ['Historic Downtown Neosho', 'Big Spring Park area', 'Highway 60/71 corridor', 'Crowder College area', 'Surrounding rural Newton County properties'],
+    longDesc: "Neosho is the Newton County seat, sitting about 70 miles southwest of Springfield near the Joplin metro area. Known locally as the \"City of Springs\" for its natural springs and home to Big Spring Park, it's one of the farthest communities in our service area — our plumbers make the trip on a scheduled basis, with emergency calls prioritized and dispatched as quickly as the distance allows.",
+    secondaryDesc: "Because Neosho sits well outside our normal Springfield-metro radius, response times here run longer than in our closer service areas — we're upfront about that rather than promising a speed we can't deliver from 70 miles away. The city's historic downtown around the Newton County Courthouse has homes and buildings with older plumbing systems, while Neosho's designated industrial park and surrounding rural Newton County properties bring a mix of light-commercial and private well/septic work. We recommend scheduling non-emergency work in advance where possible.",
+    responseTime: 'Neosho is approximately 70 miles southwest of our Springfield base — our farthest service area. Most calls are reached within 75–100 minutes depending on traffic and route; we recommend scheduling non-emergency work in advance, and we prioritize emergency dispatches as quickly as the distance allows.',
+    problems: [
+      { icon: 'ri-home-4-fill', title: 'Aging Plumbing Near Historic Downtown', desc: "Homes and buildings near Neosho's historic downtown and the Newton County Courthouse frequently still have original supply lines and aging sewer laterals, leading to corrosion, low pressure, and potential root intrusion." },
+      { icon: 'ri-water-flash-fill', title: 'Well & Septic Systems on Rural Properties', desc: 'A significant share of properties outside Neosho city limits, throughout rural Newton County, rely on private wells and septic systems, requiring plumbers experienced with both.' },
+      { icon: 'ri-building-2-fill', title: 'Light-Industrial & Commercial Plumbing', desc: "Neosho's designated industrial park and local businesses create demand for commercial-grade repairs and larger-capacity water heater service that residential-only plumbers often aren't equipped to handle." },
+      { icon: 'ri-snowy-fill', title: 'Freeze Damage on Rural Properties', desc: 'Rural Newton County properties with longer exposed pipe runs to outbuildings face elevated freeze risk during Missouri winters.' },
+      { icon: 'ri-flask-fill', title: 'Hard Water & Mineral Buildup', desc: "Water hardness in the Neosho area can accelerate wear on water heaters and fixtures, and Neosho's natural spring-fed water sources can carry mineral content worth testing for." },
+    ],
+    faqs: [
+      { q: 'Do you actually serve Neosho, MO? It seems far from Springfield.', a: "Yes, but it's honest to say Neosho is our farthest service area at roughly 70 miles. We serve it on a scheduled basis for non-emergency work, and we dispatch emergency calls as quickly as the distance allows." },
+      { q: 'How fast can you get to my home in Neosho, MO?', a: 'Most Neosho calls are reached within 75–100 minutes depending on traffic and route. We recommend scheduling non-emergency work in advance rather than expecting the same response time as our closer service areas.' },
+      { q: 'Do you service well and septic systems in Neosho?', a: 'Yes, our plumbers are experienced with private well pumps, pressure tanks, and septic systems common throughout rural Newton County, alongside municipal-connected plumbing in town.' },
+      { q: 'Do you work on commercial or industrial properties in Neosho?', a: "Yes, we handle commercial plumbing for businesses in and around Neosho's industrial park, including larger-capacity water heater work and backflow testing." },
+      { q: 'How much does plumbing service cost in Neosho, MO?', a: 'Most repairs range from $150–$500, with rural well/septic-related and commercial repairs quoted individually after diagnosis. Given the distance, we recommend confirming scheduling and any trip-related costs when you call.' },
+      { q: "Why does my older home near Neosho's downtown have low water pressure?", a: 'This is often caused by internal corrosion in original galvanized supply lines, common in homes near the historic downtown and courthouse square. We can evaluate whether a targeted repair or full re-pipe makes more sense.' },
+      { q: 'Are frozen pipes a common issue on rural Neosho-area properties?', a: 'Yes, rural Newton County properties with longer exposed pipe runs to outbuildings face elevated freeze risk during Missouri winters. We repair freeze damage and advise on prevention.' },
+      { q: 'Are you licensed to work in Neosho, MO?', a: 'Yes, all of our plumbers are licensed by the State of Missouri, fully insured, and background-checked.' },
+      { q: 'Do you offer same-day service in Neosho?', a: "Given the distance, same-day service in Neosho depends on scheduling — call ahead when possible. Genuine emergencies are still prioritized and dispatched as quickly as we can." },
+      { q: 'Do you serve areas near Neosho, like Newton County more broadly?', a: 'Yes, we serve Neosho and the surrounding rural Newton County area, including properties along the Highway 60/71 corridor.' },
+    ],
+  },
 }
 
 // ─── Static Params ────────────────────────────────────────────────────────────
@@ -562,14 +630,17 @@ export function generateMetadata({ params }) {
   const city = CITY_DATA[params.city]
   if (!city) return {}
 
+  // Falls back to the old templated title if a city is ever missing the field
+  const pageTitle = city.title || `Plumber in ${city.name} MO | 24/7 Emergency Service`
+
   return {
-    title: `Plumber in ${city.name} MO | 24/7 Emergency Service`,
+    title: pageTitle,
     description: `Licensed plumber in ${city.name} MO — emergency 24/7, drain cleaning, water heater & sewer repair. Fast response. Call (417) 373-4862.`,
     alternates: {
       canonical: `${SITE_URL}/service-areas/${params.city}`,
     },
     openGraph: {
-      title: `Plumber in ${city.name} MO | 24/7 Emergency Plumbing`,
+      title: pageTitle,
       description: `Licensed plumber in ${city.name} MO. Emergency 24/7, drain cleaning, water heater & sewer repair. Fast response. Call (417) 373-4862.`,
       url: `${SITE_URL}/service-areas/${params.city}`,
       siteName: 'Springfield MO Plumber',
@@ -585,7 +656,7 @@ export function generateMetadata({ params }) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Plumber in ${city.name} MO | 24/7 Emergency`,
+      title: pageTitle,
       description: `Licensed plumber in ${city.name} MO. Emergency 24/7, drain cleaning, water heater & sewer repair. Fast response. Call (417) 373-4862.`,
       images: [`${SITE_URL}/og-image.png`],
     },

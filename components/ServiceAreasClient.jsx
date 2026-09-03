@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
@@ -10,7 +10,7 @@ import { SERVICES } from '@/data/services'
 const AREA_FAQS = [
   {
     q: 'What cities near Springfield MO do you serve?',
-    a: 'We serve Springfield MO and all surrounding communities within roughly 30 miles — including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, and Spokane. Contact us if you are unsure whether your location is covered.'
+    a: 'We serve Springfield MO and surrounding communities across southwest Missouri — including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, Spokane, and Neosho (our farthest service area, roughly 70 miles away). Contact us if you are unsure whether your location is covered.'
   },
   {
     q: 'Do you offer 24/7 emergency plumbing in Nixa and Ozark MO?',
@@ -32,6 +32,7 @@ const AREA_FAQS = [
     q: 'Do you handle commercial plumbing in these areas?',
     a: 'Yes. We serve both homeowners and commercial properties across all service areas including Springfield, Nixa, Ozark, Republic, Bolivar, Aurora, and surrounding communities.'
   }
+  
 ]
 
 const SERVICE_AREAS_SCHEMA = {
@@ -40,7 +41,7 @@ const SERVICE_AREAS_SCHEMA = {
   "name": "Springfield Plumbing",
   "url": "https://www.springfieldmoplumber.com",
   "telephone": "+14173734862",
-  "description": "Professional plumbing services in Springfield MO and surrounding cities including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, and Spokane.",
+  "description": "Professional plumbing services in Springfield MO and surrounding cities including Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, Spokane, and Neosho.",
   "areaServed": [
     { "@type": "City", "name": "Springfield",   "addressRegion": "MO" },
     { "@type": "City", "name": "Nixa",          "addressRegion": "MO" },
@@ -61,6 +62,8 @@ const SERVICE_AREAS_SCHEMA = {
     { "@type": "City", "name": "Aurora",        "addressRegion": "MO" },
     { "@type": "City", "name": "Highlandville", "addressRegion": "MO" },
     { "@type": "City", "name": "Spokane",       "addressRegion": "MO" },
+     { "@type": "City", "name": "Neosho",       "addressRegion": "MO" },
+
   ],
   "address": {
     "@type": "PostalAddress",
@@ -249,6 +252,16 @@ const AREA_DETAILS = [
     desc: 'Licensed emergency plumber serving Highlandville & Spokane, MO — rural and growing residential plumbing experts.',
     neighborhoods: ['Highway 160 corridor', 'Subdivisions & rural properties'],
   },
+    {
+    name: 'Neosho, MO', slug: 'neosho-mo', label: '',
+    population: '~13,000', distance: '~70 miles SW of Springfield', zipCodes: '64850',
+    image: '/Neosho.webp',
+    imgAlt: 'Licensed emergency plumber serving Neosho MO',
+    imgTitle: 'Residential and Commercial Plumbing Services in Neosho, MO',
+    h3: 'Plumbing Services in Neosho, MO',
+    desc: 'Licensed plumber serving Neosho, MO — the Newton County seat and gateway to the Ozarks. Emergency repairs, drain cleaning, water heater service, and full residential and commercial plumbing for Neosho and surrounding Newton County.',
+    neighborhoods: ['Downtown Neosho', 'Newton County Courthouse area', 'Rural & agricultural properties'],
+  },
 ]
 
 export default function ServiceAreasClient({ h1 }) {
@@ -269,7 +282,7 @@ export default function ServiceAreasClient({ h1 }) {
       <div style={{ background: 'var(--navy3)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="container">
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2, padding: '16px 0' }}>
-            {['Springfield','Nixa','Ozark','Republic','Battlefield','Willard','Rogersville','Strafford','Clever','Billings','Ash Grove','Walnut Grove','Fair Grove','Marshfield','Bolivar','Mount Vernon','Aurora','Highlandville','Spokane'].map(city => (
+            {['Springfield','Nixa','Ozark','Republic','Battlefield','Willard','Rogersville','Strafford','Clever','Billings','Ash Grove','Walnut Grove','Fair Grove','Marshfield','Bolivar','Mount Vernon','Aurora','Highlandville','Spokane','Neosho'].map(city => (
               <span key={city} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 14px', fontSize: 12, fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', display: 'inline-block' }} />
                 {city}, MO
@@ -285,7 +298,7 @@ export default function ServiceAreasClient({ h1 }) {
           <div className="sec-center">
             <div className="stag">Coverage Area</div>
             <h2 className="sh">Areas We Serve Around <em>Springfield MO</em></h2>
-            <p className="ssub">Our licensed plumbers serve <strong>Springfield, Missouri</strong> and all surrounding communities — <strong>Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, and Spokane</strong>.</p>
+            <p className="ssub">Our licensed plumbers serve <strong>Springfield, Missouri</strong> and all surrounding communities — <strong>Nixa, Ozark, Republic, Battlefield, Willard, Rogersville, Strafford, Clever, Billings, Ash Grove, Walnut Grove, Fair Grove, Marshfield, Bolivar, Mount Vernon, Aurora, Highlandville, Spokane, and Neosho</strong>.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24, marginTop: 52 }}>

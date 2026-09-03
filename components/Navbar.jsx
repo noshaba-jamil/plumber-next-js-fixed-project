@@ -23,6 +23,7 @@ const CITIES = [
   { name: 'Mount Vernon, MO',             slug: '/service-areas/mount-vernon-mo',           icon: 'ri-map-pin-fill' },
   { name: 'Aurora, MO',                   slug: '/service-areas/aurora-mo',                 icon: 'ri-map-pin-fill' },
   { name: 'Highlandville & Spokane, MO',  slug: '/service-areas/highlandville-spokane-mo',  icon: 'ri-map-pin-fill' },
+  { name: 'Neosho, MO', slug: '/service-areas/neosho-mo', icon: 'ri-map-pin-fill', label: '24/7 Plumbing Service' },
 ]
 
 // ── Group services into categories for the dropdown (client-side only, no data file changes needed) ──

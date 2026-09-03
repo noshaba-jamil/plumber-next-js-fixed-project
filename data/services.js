@@ -147,19 +147,19 @@ export const SERVICES = [
     name: 'Water Heater Installation',
     shortName: 'Heater Install',
     icon: 'ri-fire-line',
-    h1: 'Water Heater Installation Springfield MO — Same-Week Install',
+    h1: 'Water Heater Installation & Replacement Springfield MO — Same-Week Install',
     tagline: 'New water heater — sized right, installed right, same-week',
     desc: 'Water heater beyond repair, or building/remodeling? We size, select, and install your new unit correctly — old unit removed, full code compliance included.',
-    intro: 'When your water heater is beyond repair — or you are building, remodeling, or want a more efficient system — installing the right unit the first time matters. Our licensed Springfield MO plumbers size, select, and install your new water heater correctly, brought fully up to current Missouri plumbing code.',
+    intro: 'When your water heater is beyond repair — or you are building, remodeling, or want a more efficient system — installing the right replacement unit the first time matters. Our licensed Springfield MO plumbers size, select, and install your new water heater correctly, brought fully up to current Missouri plumbing code.',
     image: '/water-heater-installation-springfield-mo.webp',
     features: ['Old unit removal & disposal included', 'Code-compliant installation', 'Same-day for most tank installs'],
     problems: ['Undersized tank — running out of hot water', 'Aging unit rusting or leaking at seams', 'Rumbling noise from sediment buildup', 'Choosing gas vs. electric vs. tankless'],
     benefits: ['Tank & tankless installation', 'All major brands', 'Expansion tank when required', 'Full permit handling'],
     longContent: [
-      { h3: 'Is It Time to Replace Your Water Heater?', p: 'Repair makes sense for most units under 8 years old with an isolated problem. Replacement becomes the smarter decision when your unit is over 10–12 years old, repair costs exceed roughly half the price of a new unit, or you are seeing repeated failures. Rust-colored water, a visibly rusting or leaking tank, and popping or rumbling noises from sediment are all signs your unit is nearing the end of its life.' },
-      { h3: 'Choosing the Right New Water Heater', p: 'Tank water heaters cost less upfront and are simpler to install — the right choice for most homes with predictable demand. Tankless units cost more initially but heat water on demand and typically last 20+ years vs. 10–12 for a tank. Sizing matters most: an undersized tank is the most common installation mistake we see, and the top cause of "running out of hot water" complaints. We calculate your household peak demand before recommending a size.' },
-      { h3: 'Our Water Heater Installation Process', p: 'We assess your household demand and existing gas/electric/venting setup, provide a written quote including removal and disposal of your old unit, then perform code-compliant installation — proper venting, expansion tank where Missouri code requires it, pressure relief valve, and a full system test before we leave.' },
-      { h3: 'Water Heater Installation Pricing in Springfield, MO', p: 'A standard 40–50 gallon tank installation typically runs $1,200–$2,200 including unit, labor, and code-required upgrades. Tankless installations range $2,800–$4,500 depending on capacity and whether new gas line or electrical work is required. Every quote is written and provided before work begins.' },
+      { h3: 'Water Heater Replacement vs. Repair — Is It Time to Replace?', p: 'Repair makes sense for most units under 8 years old with an isolated problem. Replacement becomes the smarter decision when your unit is over 10–12 years old, repair costs exceed roughly half the price of a new unit, or you are seeing repeated failures. Rust-colored water, a visibly rusting or leaking tank, and popping or rumbling noises from sediment are all signs your unit needs replacement rather than another repair.' },
+      { h3: 'Choosing the Right Replacement Water Heater', p: 'Tank water heaters cost less upfront and are simpler to install — the right choice for most homes with predictable demand. Tankless units cost more initially but heat water on demand and typically last 20+ years vs. 10–12 for a tank. Sizing matters most: an undersized tank is the most common installation mistake we see, and the top cause of "running out of hot water" complaints. We calculate your household peak demand before recommending a replacement size.' },
+      { h3: 'Our Water Heater Replacement Process', p: 'We assess your household demand and existing gas/electric/venting setup, provide a written quote including removal and disposal of your old unit, then perform code-compliant replacement installation — proper venting, expansion tank where Missouri code requires it, pressure relief valve, and a full system test before we leave.' },
+      { h3: 'Water Heater Replacement Cost in Springfield, MO', p: 'A standard 40–50 gallon tank replacement typically runs $1,200–$2,200 including unit, labor, and code-required upgrades. Tankless replacement installations range $2,800–$4,500 depending on capacity and whether new gas line or electrical work is required. Every replacement quote is written and provided before work begins.' },
     ],
   },
   {
@@ -200,7 +200,8 @@ export const SERVICES = [
     longContent: [
       { h3: 'Signs You Need a Water Softener in Springfield', p: 'White or chalky scale buildup on faucets and glass shower doors, reduced water pressure from mineral buildup narrowing pipes, soap that leaves skin and hair dry, spots on dishes even after washing, and a water heater failing sooner than its expected lifespan are all common indicators.' },
       { h3: 'How a Water Softener Protects Your Plumbing', p: "Hard water minerals accumulate inside pipes, water heater tanks, and appliance components, gradually restricting flow and reducing efficiency. A tankless heat exchanger is especially vulnerable without softened water. Installing a whole-home softener at your main line treats every fixture in the house, not just one point of use." },
-      { h3: 'Whole-House Filtration vs. Water Softening', p: 'A softener specifically targets hardness minerals through ion exchange. A whole-house filtration system addresses sediment, chlorine taste, or other contaminants. Many Springfield homes benefit from both — filtration for water quality, softening for hardness.' },
+      { h3: 'Water Softening vs. Water Purification — What\'s the Difference?', p: 'These solve two different problems, and it\'s worth understanding both before deciding what your home needs. A water softener uses ion exchange to remove hardness minerals (calcium and magnesium) — it protects pipes, water heaters, and appliances from scale buildup, but does not remove chlorine taste, sediment, or other contaminants. Water purification (carbon filtration, reverse osmosis, or UV treatment) targets taste, odor, chlorine, sediment, and in some cases bacteria or dissolved contaminants — but does nothing for hardness. Springfield\'s municipal water carries moderate hardness (which softening addresses) and typical municipal chlorination (which filtration addresses). Many homes benefit from both working together: a softener at the main line protecting your whole plumbing system, plus a point-of-use or whole-home filtration stage improving taste and water quality. We assess your specific water — not just your symptoms — before recommending one, the other, or a combined system.' },
+      { h3: 'Whole-House Filtration vs. Point-of-Use Filtration', p: 'Whole-house filtration treats water at the main line, covering every faucet, shower, and appliance in the home — the right choice if chlorine taste/smell or sediment is a whole-home concern. Point-of-use filtration (typically an under-sink or reverse osmosis unit at the kitchen tap) is a lower-cost option when drinking and cooking water quality is the only concern and you\'re not trying to protect plumbing or bathing water. We can install either, or combine a whole-home softener with a dedicated drinking-water filtration stage — whichever matches what you\'re actually trying to solve.' },
       { h3: 'Water Softener Installation Pricing in Springfield, MO', p: 'Whole-home systems typically run $1,500–$3,500 installed, depending on capacity and whether combined filtration is included. We test your water and recommend the right system rather than a one-size-fits-all package.' },
     ],
   },
@@ -543,6 +544,7 @@ export const SERVICE_AREAS = [
   { name: 'Mount Vernon, MO', label: '' },
   { name: 'Aurora, MO', label: '' },
   { name: 'Highlandville & Spokane, MO', label: '' },
+  { name: 'Neosho, MO', label: '' },
 ]
 
 export const REVIEWS = [

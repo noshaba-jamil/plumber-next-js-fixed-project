@@ -1,14 +1,115 @@
- 'use client'
+'use client'
 
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import CtaBanner from '@/components/CtaBanner'
 import RelatedServices from '@/components/RelatedServices'
 import { SERVICES, CONTACT_INFO } from '@/data/services'
+import { FAQ_SCHEMAS } from '@/lib/seo'
+
+// ── NEW: city links for the "Areas We Also Serve" section below. Mirrors
+// the same 16-city list used in CityPageClient.jsx/Navbar/Home for
+// consistency. Each service page links to every city page using
+// service-specific anchor text ("{Service} in {City}, MO") — this closes
+// the internal-linking loop, since city pages already link out to every
+// service but no service page previously linked back to the cities. ──
+const AREA_LINKS = [
+  { slug: 'springfield-mo',           name: 'Springfield' },
+  { slug: 'nixa-mo',                  name: 'Nixa' },
+  { slug: 'ozark-mo',                 name: 'Ozark' },
+  { slug: 'republic-battlefield-mo',  name: 'Republic & Battlefield' },
+  { slug: 'willard-mo',               name: 'Willard' },
+  { slug: 'rogersville-mo',           name: 'Rogersville' },
+  { slug: 'strafford-mo',             name: 'Strafford' },
+  { slug: 'clever-billings-mo',       name: 'Clever & Billings' },
+  { slug: 'ash-grove-mo',             name: 'Ash Grove' },
+  { slug: 'walnut-grove-mo',          name: 'Walnut Grove' },
+  { slug: 'fair-grove-mo',            name: 'Fair Grove' },
+  { slug: 'marshfield-mo',            name: 'Marshfield' },
+  { slug: 'bolivar-mo',               name: 'Bolivar' },
+  { slug: 'mount-vernon-mo',          name: 'Mount Vernon' },
+  { slug: 'aurora-mo',                name: 'Aurora' },
+  { slug: 'highlandville-spokane-mo', name: 'Highlandville & Spokane' },
+  { slug: 'neosho-mo', name: 'Neosho' },
+]
 
 export default function ServiceDetailClient({ serviceId, h1 }) {
   const service = SERVICES.find(s => s.id === serviceId)
   if (!service) return null
+
+  // ── FIX: previously a ternary chain only covered emergency/drain/leak/
+  // heater/sewer and silently fell back to "Quality Pipe Work That Lasts
+  // for Years" (the Pipe Repair service's own tagline) for every other
+  // service — including Water Softener, Gas Line, Tankless, Sump Pump,
+  // etc. That's why the water softener page showed a pipe-repair phrase
+  // twice. Every service now gets its own heading pair, with a safe
+  // name-based fallback for any service not explicitly listed. ──
+  const HEADING_MAP = {
+    emergency:          ['Fast Emergency Plumbing Response', 'Why Choose Our Emergency Plumbing Services'],
+    drain:              ['Professional Drain Cleaning Solutions', 'Signs You Need Drain Cleaning'],
+    leak:               ['Advanced Leak Detection Technology', 'Reliable Leak Repair Solutions'],
+    heater:             ['Water Heater Problems We Fix', 'Tank and Tankless Water Heater Repair'],
+    sewer:              ['Common Sewer Line Problems', 'Sewer Line Inspection & Repair'],
+    pipe:               ['Quality Pipe Work That Lasts for Years', 'Pipe Repair Done Right the First Time'],
+    'water-heater-install': ['New Water Heater Installation Done Right', 'Sized and Installed to Last'],
+    'tankless-install': ['Endless Hot Water, Installed Right', 'Why Homeowners Choose Tankless'],
+    'water-softener':   ['Water Softener Installation Done Right', 'Protect Your Plumbing From Hard Water'],
+    'gas-line':         ['Safe, Code-Compliant Gas Line Work', 'Gas Line Repair Done Right'],
+    repiping:           ['Whole-Home Repiping Done Right', 'Eliminate Recurring Pipe Leaks for Good'],
+    'sewer-camera':     ['See the Problem Before You Pay for Repair', 'HD Sewer Camera Inspection'],
+    trenchless:         ['No-Dig Sewer Repair Done Right', 'Protect Your Yard With Trenchless Repair'],
+    'hydro-jetting':    ['Deep Drain Cleaning That Actually Works', 'Clears What Snaking Leaves Behind'],
+    'slab-leak':        ['Slab Leak Detection Without the Guesswork', 'Non-Invasive Slab Leak Repair'],
+    'sump-pump':        ['Protect Your Basement Before Storms Hit', 'Sump Pump Installation & Repair Done Right'],
+    'toilet-repair':    ['Toilet Repair Done Right, Same Day', 'From a Simple Fix to Full Replacement'],
+    'faucet-fixture':   ['Faucet & Fixture Work Done Right', 'Leak-Free Installation, Every Time'],
+    'garbage-disposal': ['Garbage Disposal Repair Done Right', 'Fixed Fast, or Replaced Properly'],
+    'backflow-testing': ['Backflow Testing Done Right, On Schedule', 'Stay Compliant Without the Hassle'],
+    'frozen-pipe':      ['Frozen Pipe Repair Done Right', 'Fast Response Before It Bursts'],
+    'remodel-plumbing': ['Remodel Plumbing Done Right', 'Rough-In Timing That Keeps Your Project Moving'],
+    commercial:         ['Commercial Plumbing Done Right', 'Fast Response When Downtime Costs Money'],
+    'new-construction': ['New Construction Plumbing Done Right', 'Built to Code, On Your Schedule'],
+  }
+  const [primaryHeading, secondaryHeading] = HEADING_MAP[service.id] || [
+    `${service.name} Done Right`,
+    `Quality ${service.name} That Lasts`,
+  ]
+
+  // ── NEW: pull the matching FAQ set (if any) for visible rendering.
+  // FAQ_SCHEMAS entries were previously only injected as invisible JSON-LD
+  // in the route file — Google's guidance is structured data should match
+  // visible page content, and answer engines scan visible text, not schema
+  // alone. This renders the same Q&As as a real accordion. ──
+  // ── FIX: FAQ_SCHEMAS in seo.js uses camelCase keys (waterSoftener,
+  // gasLine, sumpPump...) but service.id is kebab-case (water-softener,
+  // gas-line, sump-pump...). The direct lookup FAQ_SCHEMAS[serviceId] only
+  // ever matched the 8 single-word ids (emergency, drain, leak, heater,
+  // sewer, repiping, trenchless, commercial) — every other service's FAQ
+  // content existed in seo.js but never rendered on its page. This map
+  // bridges the two naming conventions so all services with FAQ content
+  // actually display it. ──
+  const FAQ_KEY_MAP = {
+    'water-heater-install': 'waterHeaterInstall',
+    'tankless-install':     'tanklessInstall',
+    'water-softener':       'waterSoftener',
+    'gas-line':             'gasLine',
+    'sewer-camera':         'sewerCamera',
+    'hydro-jetting':        'hydroJetting',
+    'slab-leak':            'slabLeak',
+    'sump-pump':            'sumpPump',
+    'toilet-repair':        'toiletRepair',
+    'faucet-fixture':       'faucetFixture',
+    'garbage-disposal':     'garbageDisposal',
+    'backflow-testing':     'backflowTesting',
+    'frozen-pipe':          'frozenPipe',
+    'remodel-plumbing':     'remodelPlumbing',
+    'new-construction':     'newConstruction',
+  }
+  const faqKey = FAQ_KEY_MAP[serviceId] || serviceId
+  const faqData = FAQ_SCHEMAS[faqKey]?.mainEntity?.map(q => ({
+    q: q.name,
+    a: q.acceptedAnswer.text,
+  }))
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
@@ -31,17 +132,31 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
             <div className="stag">{service.name}</div>
 
             {/* H2 — single per section, no duplicates */}
-            <h2 className="sh">
-              {service.id === 'emergency' ? <>Fast Emergency <em>Plumbing Response</em></> :
-               service.id === 'drain'     ? <>Professional Drain Cleaning <em>Solutions</em></> :
-               service.id === 'leak'      ? <>Advanced Leak Detection <em>Technology</em></> :
-               service.id === 'heater'    ? <>Water Heater Problems <em>We Fix</em></> :
-               service.id === 'sewer'     ? <>Common Sewer Line <em>Problems</em></> :
-               <>Quality Pipe Work That <em>Lasts for Years</em></>}
-            </h2>
+            <h2 className="sh">{primaryHeading}</h2>
 
             <div className="content-block" style={{ marginTop: 20 }}>
               <p>{service.intro}</p>
+
+              {/* ── NEW: AEO "Quick Answer" box — a short, bolded, directly
+                  extractable answer near the top of the page. This is the
+                  format Google featured snippets and AI answer engines
+                  (ChatGPT, Perplexity, Google AI Overviews) preferentially
+                  pull from. Uses the existing service.desc field — no new
+                  content invented, just repositioned for extractability. ── */}
+              <div
+                style={{
+                  background: 'rgba(212,169,65,0.06)',
+                  border: '1px solid rgba(212,169,65,0.25)',
+                  borderLeft: '3px solid var(--gold)',
+                  padding: '16px 20px',
+                  margin: '20px 0 28px',
+                  borderRadius: 2,
+                }}
+              >
+                <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.7, color: '#fff' }}>
+                  <strong>Quick answer:</strong> {service.desc}
+                </p>
+              </div>
 
               {/* ── Styled inline image — appears once, not duplicated with hero ── */}
               <figure style={{ margin: '28px 0', borderRadius: 4, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -69,7 +184,7 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                  service.id === 'leak'   ? 'Signs You May Have a Hidden Leak' :
                  service.id === 'heater' ? 'Water Heater Problems We Fix' :
                  service.id === 'sewer'  ? 'Common Sewer Line Problems' :
-                 'Common Issues We Handle'}
+                 `Common ${service.shortName || service.name} Issues We Handle`}
               </h3>
             </div>
 
@@ -81,12 +196,7 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
 
             {/* FIX: was <h2> — changed to <h3> */}
             <h3 style={{ color: '#fff', fontSize: 17, marginTop: 28, marginBottom: 10 }}>
-              {service.id === 'emergency' ? 'Why Choose Our Emergency Plumbing Services' :
-               service.id === 'drain'  ? 'Signs You Need Drain Cleaning' :
-               service.id === 'leak'   ? 'Reliable Leak Repair Solutions' :
-               service.id === 'heater' ? 'Tank and Tankless Water Heater Repair' :
-               service.id === 'sewer'  ? 'Sewer Line Inspection & Repair' :
-               'Quality Pipe Work That Lasts for Years'}
+              {secondaryHeading}
             </h3>
             <div className="ctags" style={{ marginTop: 16 }}>
               {service.benefits.map((b, i) => (
@@ -108,6 +218,79 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
             {service.id === 'emergency' && (
               <div className="content-block" style={{ marginTop: 36 }}>
                 <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginBottom: 16 }}>
+                  Common Plumbing Emergencies —{' '}
+                  <em>What to Do Before We Arrive</em>
+                </h2>
+                <p style={{ marginBottom: 24 }}>
+                  Not every plumbing emergency looks the same, and what you do in the first few
+                  minutes matters. Here is exactly what to do for each type of emergency while
+                  our plumber is on the way.
+                </p>
+
+                {[
+                  {
+                    title: 'Burst Pipe',
+                    icon: 'ri-water-flash-fill',
+                    steps: [
+                      'Shut off your main water valve immediately — usually near the water meter, basement, or crawlspace',
+                      'Turn off the affected fixture if the shutoff is isolated to one area',
+                      'Move furniture, electronics, and valuables away from standing water',
+                      'Do not attempt a permanent repair yourself — a temporary clamp can fail and cause more damage',
+                    ],
+                  },
+                  {
+                    title: 'Major Water Leak',
+                    icon: 'ri-drop-fill',
+                    steps: [
+                      'Identify the source if visible — under a sink, behind a toilet, or at a supply line connection',
+                      'Shut off the local fixture valve, or the main if the source is unclear',
+                      'Place towels or a container to limit spread while you wait',
+                      'Photograph the damage for your insurance claim before cleanup begins',
+                    ],
+                  },
+                  {
+                    title: 'Sewer Backup',
+                    icon: 'ri-recycle-fill',
+                    steps: [
+                      'Avoid all contact with the contaminated water — it poses a real health risk',
+                      'Keep children and pets away from the affected area entirely',
+                      'Stop using every drain and toilet in the house until we arrive',
+                      'Do not attempt to plunge or snake it yourself — this can push the blockage further in',
+                    ],
+                  },
+                  {
+                    title: 'Overflowing Toilet',
+                    icon: 'ri-checkbox-blank-circle-fill',
+                    steps: [
+                      'Turn the shutoff valve behind the toilet base clockwise to stop the water supply',
+                      'If the valve is stuck or missing, remove the tank lid and lift the float to stop the fill cycle',
+                      'Avoid flushing again until the blockage is cleared',
+                      'Lay towels down to contain any overflow while you wait',
+                    ],
+                  },
+                  {
+                    title: 'No Hot Water / Water Heater Failure',
+                    icon: 'ri-fire-fill',
+                    steps: [
+                      'Check the breaker (electric units) or pilot light (gas units) — this resolves the issue in some cases',
+                      'If you see water pooling at the base of the tank, turn off the water supply and power/gas to the unit',
+                      'Note any unusual sounds, smells, or error codes to tell your plumber',
+                      'A leaking tank is not repairable — only shut it down and wait, do not attempt a fix',
+                    ],
+                  },
+                ].map((item, i) => (
+                  <div key={i} style={{ marginBottom: 24, background: 'var(--card)', border: '1px solid rgba(255,255,255,0.07)', padding: '20px 24px', borderLeft: '3px solid var(--gold)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                      <i className={item.icon} style={{ color: 'var(--gold)', fontSize: 20 }} />
+                      <h3 style={{ color: '#fff', fontSize: 16, margin: 0, fontFamily: "'Syne', sans-serif", fontWeight: 800 }}>{item.title}</h3>
+                    </div>
+                    <ul style={{ margin: 0, paddingLeft: 20, color: 'var(--text-dim)', fontSize: 14, lineHeight: 1.8 }}>
+                      {item.steps.map((s, j) => <li key={j}>{s}</li>)}
+                    </ul>
+                  </div>
+                ))}
+
+                <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginTop: 40, marginBottom: 16 }}>
                   Emergency Plumbing Costs in Springfield MO —{' '}
                   <em>What to Expect</em>
                 </h2>
@@ -387,6 +570,84 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                 </p>
               </div>
             )}
+
+            {/* ── NEW: Visible FAQ accordion — renders for any service with a
+                matching FAQ_SCHEMAS entry (currently emergency and heater).
+                Makes the JSON-LD schema match real page content per Day 11
+                AEO requirements, instead of the schema-only setup that
+                existed before. ── */}
+            {faqData && faqData.length > 0 && (
+              <div className="content-block" style={{ marginTop: 40 }}>
+                <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginBottom: 20 }}>
+                  Frequently Asked Questions —{' '}
+                  <em>{service.name} in Springfield MO</em>
+                </h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {faqData.map((f, i) => (
+                    <details
+                      key={i}
+                      style={{
+                        background: 'var(--card)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        borderLeft: '3px solid var(--gold)',
+                        padding: '4px 22px',
+                        borderRadius: 2,
+                      }}
+                    >
+                      <summary
+                        style={{
+                          cursor: 'pointer',
+                          fontFamily: "'Syne', sans-serif",
+                          fontWeight: 700,
+                          fontSize: 15,
+                          color: '#fff',
+                          listStyle: 'none',
+                          padding: '16px 0',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: 16,
+                        }}
+                      >
+                        <span>{f.q}</span>
+                        <i className="ri-add-line" style={{ color: 'var(--gold)', fontSize: 20, flexShrink: 0 }} />
+                      </summary>
+                      <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.7, paddingBottom: 18, marginTop: -6 }}>
+                        {f.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* ── NEW: Areas We Also Serve — closes the internal-linking
+                loop. City pages already link to every service; no service
+                page previously linked back to the cities. Anchor text is
+                service-specific ("{Service} in {City}, MO"), reinforcing
+                the service+location combination for both classic SEO and
+                LLM/AI answer engines mapping service coverage by area. ── */}
+            <div className="content-block" style={{ marginTop: 40 }}>
+              <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginBottom: 12 }}>
+                Areas We Also <em>Serve</em>
+              </h2>
+              <p style={{ marginBottom: 20 }}>
+                {service.name} is available throughout Springfield MO and every community we serve nearby:
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                {AREA_LINKS.map(area => (
+                  <Link
+                    key={area.slug}
+                    href={`/service-areas/${area.slug}`}
+                    className="ctag"
+                    style={{ textDecoration: 'none' }}
+                    title={`${service.name} in ${area.name}, MO`}
+                  >
+                    <i className="ri-map-pin-fill" />{area.name}, MO
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 28 }}>
               <a href={CONTACT_INFO.phoneHref} className="btn-primary">
