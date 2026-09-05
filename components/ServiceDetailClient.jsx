@@ -135,7 +135,9 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
             <h2 className="sh">{primaryHeading}</h2>
 
             <div className="content-block" style={{ marginTop: 20 }}>
-              <p>{service.intro}</p>
+              {/* ── FIX: service.intro was rendered here AND as the PageHero
+                  subtitle above — literal duplicate text on the same page.
+                  The hero already carries it; removed the redundant copy. ── */}
 
               {/* ── NEW: AEO "Quick Answer" box — a short, bolded, directly
                   extractable answer near the top of the page. This is the
@@ -309,7 +311,7 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                     <span key={i} className="ctag"><i className="ri-check-fill" />{item}</span>
                   ))}
                 </div>
-                <p style={{ marginBottom: 28 }}>
+                <p style={{ marginBottom: 0 }}>
                   We provide a written upfront quote before starting. You always know the price
                   first. Call{' '}
                   <a href={CONTACT_INFO.phoneHref} style={{ color: 'var(--gold)', fontWeight: 700 }}>
@@ -318,14 +320,12 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                   for an immediate estimate.
                 </p>
 
-                <h3 style={{ color: '#fff', fontSize: 17, marginTop: 8, marginBottom: 10 }}>
-                  Do Emergency Plumbers Charge More at Night?
-                </h3>
-                <p style={{ marginBottom: 0 }}>
-                  Some plumbers add a large after-hours surcharge. We provide upfront pricing on
-                  every call — day or night. Our goal is honest, transparent pricing that you
-                  approve before work begins.
-                </p>
+                {/* ── FIX: this H3 asked and answered "Do emergency plumbers
+                    charge more at night?" with near-identical wording to a
+                    question already in FAQ_SCHEMAS.emergency, which renders
+                    visibly further down this same page. Removed the
+                    standalone duplicate; the FAQ accordion is the version
+                    that's schema-matched, so it's the one that stays. ── */}
 
                 {/* NEW H2 — After Hours / Neighborhoods */}
                 <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginTop: 40, marginBottom: 16 }}>

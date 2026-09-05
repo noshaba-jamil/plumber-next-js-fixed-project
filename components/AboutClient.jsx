@@ -40,7 +40,7 @@ export default function AboutClient({ h1 }) {
       <PageHero
         image="/aboutus.webp"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About Us' }]}
-        h1={ 'Licensed Plumbers Serving Springfield, MO — Meet Our Team'}
+        h1={h1 || 'Licensed Plumbers Serving Springfield, MO — Meet Our Team'}
         subtitle="Finding a reliable plumber is important when you want dependable service and long-lasting plumbing solutions. Our company is dedicated to providing professional plumbing services for homeowners and businesses in Springfield."
       />
 
@@ -103,7 +103,7 @@ export default function AboutClient({ h1 }) {
               <div className="stag">Our Team</div>
               <h2 className="sh">Experienced Plumbing <em>Professionals</em></h2>
               <div className="content-block" style={{ marginTop: 16 }}>
-                <p>We work with experienced and qualified plumbing professionals.Our plumbing technicians are trained to handle a wide range of plumbing issues, from simple repairs to complex system problems. With years of experience working with residential and commercial plumbing systems, our team understands the challenges that property owners face when plumbing problems occur.</p>
+                <p>We work with experienced and qualified plumbing professionals. Our plumbing technicians are trained to handle a wide range of plumbing issues, from simple repairs to complex system problems. With years of experience working with residential and commercial plumbing systems, our team understands the challenges that property owners face when plumbing problems occur.</p>
                 <p>Using modern equipment and proven repair methods, we ensure that every plumbing service is completed safely and effectively. Our goal is to provide reliable solutions that prevent future issues and keep your plumbing system working smoothly.</p>
                 <h3 style={{ color: '#fff', fontSize: 17, marginTop: 20, marginBottom: 8 }}>Commitment to Quality and Customer Satisfaction</h3>
                 <p>Customer satisfaction is the foundation of our business. We believe that clear communication, honest pricing, and professional workmanship are essential to building long-term relationships with our customers.</p>
@@ -226,10 +226,10 @@ export default function AboutClient({ h1 }) {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24, marginTop: 40 }}>
             {[
-               
+              { icon: "ri-shield-star-fill", title: "Licensed Plumbers", val: "Licensed by the State of Missouri — every technician verified before stepping on your property" },
               { icon: "ri-award-fill", title: "Fully Insured", val: "General Liability + Workers Comp — Your home is protected on every job" },
+              { icon: "ri-user-search-fill", title: "Background-Checked Team", val: "Every plumber is background-checked before joining our team" },
               { icon: "ri-map-pin-fill", title: "Local Springfield Business", val: "Serving Springfield MO · Nixa · Ozark · Republic · Battlefield" },
-              
             ].map(({ icon, title, val }, i) => (
               <div key={i} style={{ background: "var(--card)", border: "1px solid rgba(255,255,255,0.06)", borderTop: "3px solid var(--teal)", padding: "28px 24px" }}>
                 <i className={icon} style={{ fontSize: 28, color: "var(--teal)", display: "block", marginBottom: 14 }} />

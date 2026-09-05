@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* SERVICES */}
           <div className="ft-col">
-            <h5>Services</h5>
+            <h4>Services</h4>
             {SERVICES.map(s => (
               <Link key={s.id} href={s.slug}>{s.name} Springfield MO</Link>
             ))}
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* COMPANY */}
           <div className="ft-col">
-            <h5>Company</h5>
+            <h4>Company</h4>
             <Link href="/">Home</Link>
             <Link href="/about">About Us</Link>
             <Link href="/services">All Services</Link>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* CONTACT */}
           <div className="ft-col">
-            <h5>Contact</h5>
+            <h4>Contact</h4>
             <div className="fci2"><i className="ri-phone-fill"/><a href={CONTACT_INFO.phoneHref}>{CONTACT_INFO.phone}</a></div>
             <div className="fci2"><i className="ri-mail-fill"/><a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a></div>
             <div className="fci2"><i className="ri-map-pin-fill"/><span>Springfield ,MO
