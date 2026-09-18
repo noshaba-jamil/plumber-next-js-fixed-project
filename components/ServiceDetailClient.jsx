@@ -165,6 +165,10 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                 <img
                   src={service.image}
                   alt={`${service.name} Springfield MO`}
+                  width={1400}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: '100%', height: 'clamp(240px, 40vw, 420px)', objectFit: 'cover', display: 'block' }}
                 />
                 <figcaption
@@ -180,12 +184,15 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                 </figcaption>
               </figure>
 
-              {/* FIX: was <h2> — changed to <h3> to prevent duplicate H2 issues */}
+              {/* FIX: was <h2> — changed to <h3> to prevent duplicate H2 issues.
+                  FURTHER FIX: heater and sewer previously repeated their
+                  HEADING_MAP primaryHeading verbatim here — an identical
+                  H2->H3 duplicate on both pages. Removed those two branches;
+                  they now fall through to the generic fallback below, which
+                  is already distinct from primaryHeading for every service. ── */}
               <h3 style={{ color: '#fff', fontSize: 17, marginTop: 20, marginBottom: 10 }}>
                 {service.id === 'drain'  ? 'Common Causes of Drain Blockages' :
                  service.id === 'leak'   ? 'Signs You May Have a Hidden Leak' :
-                 service.id === 'heater' ? 'Water Heater Problems We Fix' :
-                 service.id === 'sewer'  ? 'Common Sewer Line Problems' :
                  `Common ${service.shortName || service.name} Issues We Handle`}
               </h3>
             </div>
@@ -211,7 +218,19 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
               {service.longContent && service.longContent.map((block, i) => (
                 <div key={i}>
                   {block.h3 && <h3 style={{ color: '#fff', fontSize: 17, marginTop: 20, marginBottom: 8 }}>{block.h3}</h3>}
-                  <p style={{ marginBottom: 12 }}>{block.p}</p>
+                  <p style={{ marginBottom: block.link ? 4 : 12 }}>{block.p}</p>
+                  {/* ── NEW: optional contextual link on a longContent block —
+                      e.g. pointing the heater repair page's cost section to
+                      the dedicated installation page. Previously longContent
+                      only rendered plain text with no way to link out. ── */}
+                  {block.link && (
+                    <Link
+                      href={block.link.href}
+                      style={{ color: 'var(--gold)', fontWeight: 700, fontSize: 14.5, display: 'inline-block', marginBottom: 12, textDecoration: 'none' }}
+                    >
+                      {block.link.text} →
+                    </Link>
+                  )}
                 </div>
               ))}
             </div>
@@ -366,10 +385,13 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                   ))}
                 </div>
 
-                {/* H2 — Repair vs Replacement */}
+                {/* H2 — Repair vs Replacement. FIX: dropped the unnecessary
+                    "Springfield MO Guide 2026" suffix — evergreen content
+                    doesn't need a year, and a dated heading needs annual
+                    upkeep or reads as stale. Kept the existing em-accent-word
+                    style used throughout this file for consistency. ── */}
                 <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginTop: 40, marginBottom: 16 }}>
-                  Water Heater Repair vs Replacement —{' '}
-                  <em>Springfield MO Guide 2026</em>
+                  Water Heater Repair <em>vs. Replacement</em>
                 </h2>
                 <p style={{ marginBottom: 16 }}>
                   The decision to repair or replace your water heater depends on three factors:
@@ -580,7 +602,7 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
               <div className="content-block" style={{ marginTop: 40 }}>
                 <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginBottom: 20 }}>
                   Frequently Asked Questions —{' '}
-                  <em>{service.name} in Springfield MO</em>
+                  <em>{service.name}</em>
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {faqData.map((f, i) => (

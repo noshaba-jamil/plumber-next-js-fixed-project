@@ -80,19 +80,28 @@ export const SERVICES = [
     icon: 'ri-fire-fill',
     h1: 'Water Heater Repair Springfield MO — Hot Water System Experts',
     tagline: 'No hot water? We restore it — same day in most cases',
-    desc: 'Woke up to cold water this morning? We diagnose and repair your water heater the same day — restoring hot water to your home fast, without the runaround.',
-    intro: 'No hot water means no showers, no dishes, no comfort. When your water heater fails, you need it fixed today — not next week. Our Springfield plumbers repair all tank and tankless water heaters from every major brand. We diagnose fast, quote upfront, and restore your hot water the same visit in most cases.',
-     image: '/water-heater-repair-springfield-mo.webp',
+    desc: 'Woke up to cold water this morning? We diagnose and repair your water heater the same day — restoring hot water to your home fast, without the runaround.',intro: 'No hot water means no showers, no dishes, no comfort. When your water heater fails, you need it fixed today — not next week. Our Springfield plumbers repair all tank and tankless water heaters from every major brand. We diagnose fast, quote upfront, and restore your hot water the same visit in most cases.',
+    image: '/water-heater-repair-springfield-mo.webp',
     features: ['Same-day hot water restoration', 'Tank & tankless — all brands repaired', 'Upfront diagnosis — no surprise charges'],
     problems: ['No hot water at all — restored fast', 'Inconsistent or lukewarm temperature', 'Strange popping or rumbling noises from tank', 'Water pooling around heater base', 'Pilot light keeps going out'],
     benefits: ['Traditional tank water heaters', 'Modern tankless systems', 'Gas, electric & propane models', 'All major brands serviced'],
+    // ── FIX (content-duplication pass): removed the "Water Heater
+    // Replacement vs. Repair — How to Decide" blsock that lived here —
+    // it duplicated the concise repair-vs-replace section already
+    // hardcoded directly on the page in ServiceDetailClient.jsx (same
+    // age-bracket/50%-rule logic, just longer prose). Keeping both was
+    // the confirmed content-duplication bug; the page-level version
+    // stays since it's already scannable and page-specific.
+    // Also trimmed the installation-pricing sentences out of the cost
+    // block below — new-unit pricing belongs on the dedicated
+    // installation page (which has its own, different figures), not
+    // duplicated/conflicting here. ──
     longContent: [
       { h3: 'Common Water Heater Problems in Springfield MO Homes', p: 'The most frequent water heater issue we see in Springfield MO is complete loss of hot water — usually caused by a failed heating element in electric heaters or a faulty thermocouple or gas valve in gas models. Other common problems include sediment buildup causing rumbling or popping noises, anode rod failure leading to rust-colored water, pressure relief valve issues, and pilot light failures on older gas units. Most of these are repairable same-day with the right parts.' },
       { h3: 'Tank Water Heater Repair in Springfield MO', p: 'Traditional tank water heaters store 30–80 gallons of heated water continuously. When they fail, it is typically the heating elements, thermostats, dip tube, or anode rod. Electric heater repairs generally run $150–$400. Gas heater repairs are similar in cost. If the tank itself has corroded or is leaking from the bottom, replacement is necessary — a failing tank cannot be repaired and will eventually fail catastrophically.' },
       { h3: 'Tankless Water Heater Repair in Springfield MO', p: 'Tankless water heaters heat water on demand and typically last 20+ years. When they develop problems, the culprits are usually mineral scale buildup on the heat exchanger (common in Springfield MO due to moderately hard water), faulty flow sensors, ignition problems in gas models, or error codes indicating overheating. We service and repair all major tankless brands including Navien, Rinnai, Rheem, Noritz, and Bradford White.' },
-      { h3: 'Water Heater Replacement vs. Repair — How to Decide', p: 'If your water heater is under 8 years old, repair is almost always the right choice. Between 8–12 years, we evaluate the repair cost against replacement cost — if repair exceeds 50% of a new unit cost, replacement often makes more sense. Units over 12 years old with significant repairs needed are typically more economically replaced. We give you honest guidance on the right choice — we never recommend replacement when repair is more appropriate.' },
       { h3: 'How to Extend the Life of Your Water Heater in Springfield MO', p: 'Annual water heater maintenance significantly extends unit life. Key maintenance tasks include flushing the tank to remove sediment (which causes overheating and noise), inspecting and replacing the anode rod every 3–5 years, testing the pressure relief valve annually, and checking all connections for corrosion. Our technicians can perform full water heater maintenance during any service visit.' },
-      { h3: 'Water Heater Repair Costs in Springfield MO', p: 'Water heater repair costs in Springfield MO range from $150 for a simple thermostat replacement to $400 for more complex repairs on gas units. Tankless water heater repairs typically run $200–$600 depending on the issue. New tank water heater installation runs $800–$1,500 fully installed. New tankless installation runs $1,500–$3,000 depending on the unit selected. We provide full written estimates before any work begins.' },
+      { h3: 'Water Heater Repair Costs in Springfield MO', p: 'Water heater repair costs in Springfield MO range from $150 for a simple thermostat replacement to $400 for more complex repairs on gas units. Tankless water heater repairs typically run $200–$600 depending on the issue. We provide full written estimates before any work begins.', link: { text: 'See water heater installation & replacement pricing', href: '/water-heater-installation-springfield-mo' } },
     ],
   },
   {

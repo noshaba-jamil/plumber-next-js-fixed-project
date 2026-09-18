@@ -1091,20 +1091,23 @@ export default function BlogPostPage({ params }) {
   const breadcrumb = buildBreadcrumbSchema([
     { name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }, { name: post.title, path: `/blog/${post.slug}` },
   ])
-  const today = new Date().toISOString().split('T')[0]
   const articleSchema = {
     '@context': 'https://schema.org', '@type': 'Article',
     headline: post.title, description: post.description,
     image: { '@type': 'ImageObject', url: `${SITE_URL}${post.image}`, width: 800, height: 500, caption: post.title },
-    datePublished: post.date, dateModified: today,
-    author: { '@type': 'Organization', name: 'Springfield Emergency Plumbing', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: 'Springfield Emergency Plumbing', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` } },
+    datePublished: post.date,
+    // dateModified intentionally omitted — BLOG_POSTS has no genuine
+    // modification date, and faking one as "today" on every render
+    // misrepresents freshness to Google. Add this field back only if
+    // post data ever gains a real lastModified value.
+    author: { '@type': 'Organization', name: 'Springfield MO Plumber', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'Springfield MO Plumber', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${params.slug}` },
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.bp-intro', '.bp-section h2'] },
   }
   const localBusinessSchema = {
     '@context': 'https://schema.org', '@type': 'Plumber',
-    name: 'Springfield Emergency Plumbing',
+    name: 'Springfield MO Plumber',
     url: SITE_URL,
     telephone: '+14173734862',
     priceRange: '$$',
@@ -1196,7 +1199,7 @@ export default function BlogPostPage({ params }) {
               <i className="ri-tools-fill" style={{ fontSize: 22, color: '#fff' }} />
             </div>
             <div>
-              <div className="bp-author-name" style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 15, color: '#fff', marginBottom: 4 }}>Springfield Emergency Plumbing Team</div>
+              <div className="bp-author-name" style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 15, color: '#fff', marginBottom: 4 }}>Springfield MO Plumber Team</div>
               <div className="bp-author-bio" style={{ color: 'var(--text-dim)', fontSize: 14, lineHeight: 1.6 }}>Licensed plumbers serving Springfield, Nixa, Ozark, Republic &amp; Battlefield, MO. 24/7 emergency service with upfront, transparent pricing.</div>
             </div>
           </div>
