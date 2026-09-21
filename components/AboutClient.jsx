@@ -63,7 +63,7 @@ export default function AboutClient({ h1 }) {
           <div className="split-img">
     <img
   src="/plummberimag.webp"
-  alt="We work with experienced and qualified plumbing professionals and Springfield MO providing professional plumbing services"
+  alt="Licensed plumber working on a residential plumbing repair in Springfield, MO"
   width={800}
   height={600}
   loading="lazy"
@@ -257,7 +257,7 @@ export default function AboutClient({ h1 }) {
                 onMouseEnter={e => { e.currentTarget.style.background = 'var(--card2)'; e.currentTarget.style.borderBottomColor = 'var(--gold)' }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'var(--card)'; e.currentTarget.style.borderBottomColor = 'transparent' }}>
                 <div style={{ height: 180, overflow: 'hidden' }}>
-                  <img src={img} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s ease' }} />
+                  <img src={img} alt={title} width={600} height={400} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s ease' }} />
                 </div>
                 <div style={{ padding: '28px 28px 36px' }}>
                   <div style={{ width: 48, height: 48, borderRadius: 'var(--r)', background: 'var(--blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>

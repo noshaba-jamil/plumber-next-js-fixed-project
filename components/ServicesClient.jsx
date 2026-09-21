@@ -95,7 +95,7 @@ export default function Services() {
               <i className={icon} />
             </div>
             <div>
-              <h4>{title}</h4>
+              <h3>{title}</h3>
               <p>{desc}</p>
             </div>
           </div>

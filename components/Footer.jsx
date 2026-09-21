@@ -53,8 +53,13 @@ export default function Footer() {
           </div>
 
           {/* SERVICES */}
+          {/* FIX (heading-audit): was <h4> — every page ends its main
+              content with an H2 (final CTA / "Other Plumbing Services" /
+              "Related Plumbing Guides"), so an H4 here skipped a level on
+              every single page site-wide. Changed to <h3>, which is valid
+              directly after an H2. Matching CSS selector updated below. */}
           <div className="ft-col">
-            <h4>Services</h4>
+            <h3>Services</h3>
             {SERVICES.map(s => (
               <Link key={s.id} href={s.slug}>{s.name} Springfield MO</Link>
             ))}
@@ -62,7 +67,7 @@ export default function Footer() {
 
           {/* COMPANY */}
           <div className="ft-col">
-            <h4>Company</h4>
+            <h3>Company</h3>
             <Link href="/">Home</Link>
             <Link href="/about">About Us</Link>
             <Link href="/services">All Services</Link>
@@ -73,7 +78,7 @@ export default function Footer() {
 
           {/* CONTACT */}
           <div className="ft-col">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <div className="fci2"><i className="ri-phone-fill"/><a href={CONTACT_INFO.phoneHref}>{CONTACT_INFO.phone}</a></div>
             <div className="fci2"><i className="ri-mail-fill"/><a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a></div>
             <div className="fci2"><i className="ri-map-pin-fill"/><span>Springfield ,MO

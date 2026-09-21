@@ -403,7 +403,7 @@ export const CITY_DATA = {
   'republic-battlefield-mo': {
     name: 'Republic & Battlefield',
     state: 'MO',
-    title: 'Plumber in Republic & Battlefield, MO | New Construction Pros',
+    title: 'Republic & Battlefield, MO Plumber | New Construction Pros',
     h1: 'Trusted Plumber Serving Republic & Battlefield, MO',
     zip: '65738, 65619',
     population: '~18,000+',
