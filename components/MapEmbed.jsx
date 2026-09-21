@@ -23,12 +23,12 @@ export default function MapEmbed({ height = 480 }) {
       <div className="map-avail">
         <span className="map-avail-dot" />
         Plumbers Available Now in Springfield
-      </div>
+      </div>{/*
       <div className="map-rating">
         <div className="stars">★★★★★</div>
-        <div className="score">4.8/5</div>
+        <div className="scosre">4.8/5</div>
         <div className="sub">Springfield, MO</div>
-      </div>
+      </div>*/}
     </div>
   )
 }

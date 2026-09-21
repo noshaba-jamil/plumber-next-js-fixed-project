@@ -604,12 +604,12 @@ export default function Home() {
             <div className="split-badge">
               <div className="big">24/7</div>
               <div className="sm">We Answer. Every. Call.</div>
-            </div>
+            </div>{/*
             <div className="split-rating">
               <div className="stars">★★★★★</div>
               <div className="score">4.8/5</div>
               <div className="cnt">Springfield, MO</div>
-            </div>
+            </div>*/}
           </div>
           <div className="split-content" data-aos="fr">
             <div className="stag">{SECTION_COPY.whyUs.tag}</div>
@@ -1281,12 +1281,12 @@ export default function Home() {
               <span className="map-avail-dot" />
               Plumbers Available Now — Ready to Dispatch
             </div>
-
+{/*   fake ratting commment out 
             <div className="map-rating-badge">
               <div className="stars">★★★★★</div>
               <div className="score">4.8/5</div>
               <div className="sub">Springfield, MO</div>
-            </div>
+            </div>*/}
           </div>
         </div>
       </section>
@@ -1354,6 +1354,7 @@ export default function Home() {
                       marginTop: 2,
                     }}
                   >
+
                     <i
                       className="ri-question-line"
                       style={{ color: "var(--gold)", fontSize: 15 }}
