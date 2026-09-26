@@ -7,30 +7,21 @@ import RelatedServices from '@/components/RelatedServices'
 import { SERVICES, CONTACT_INFO } from '@/data/services'
 import { FAQ_SCHEMAS } from '@/lib/seo'
 
-// ── NEW: city links for the "Areas We Also Serve" section below. Mirrors
-// the same 16-city list used in CityPageClient.jsx/Navbar/Home for
-// consistency. Each service page links to every city page using
-// service-specific anchor text ("{Service} in {City}, MO") — this closes
-// the internal-linking loop, since city pages already link out to every
-// service but no service page previously linked back to the cities. ──
+// ── FIX (service-template cleanup pass): trimmed from all 17 service-area
+// cities down to 5 — the primary city plus the 4 largest/closest areas.
+// Unlike city pages (where each city has genuinely different local content
+// that justifies a link to it), there's no service-specific reason for,
+// say, the Water Heater Repair page to link equally to all 17 towns. This
+// was one leg of the ~64-outbound-link-per-page problem flagged in the
+// site audit (24 related services + 24 quick links + 17 cities, on every
+// single service page). Kept short and consistent across all service
+// pages rather than inventing per-service city relevance that isn't real. ──
 const AREA_LINKS = [
   { slug: 'springfield-mo',           name: 'Springfield' },
   { slug: 'nixa-mo',                  name: 'Nixa' },
   { slug: 'ozark-mo',                 name: 'Ozark' },
   { slug: 'republic-battlefield-mo',  name: 'Republic & Battlefield' },
   { slug: 'willard-mo',               name: 'Willard' },
-  { slug: 'rogersville-mo',           name: 'Rogersville' },
-  { slug: 'strafford-mo',             name: 'Strafford' },
-  { slug: 'clever-billings-mo',       name: 'Clever & Billings' },
-  { slug: 'ash-grove-mo',             name: 'Ash Grove' },
-  { slug: 'walnut-grove-mo',          name: 'Walnut Grove' },
-  { slug: 'fair-grove-mo',            name: 'Fair Grove' },
-  { slug: 'marshfield-mo',            name: 'Marshfield' },
-  { slug: 'bolivar-mo',               name: 'Bolivar' },
-  { slug: 'mount-vernon-mo',          name: 'Mount Vernon' },
-  { slug: 'aurora-mo',                name: 'Aurora' },
-  { slug: 'highlandville-spokane-mo', name: 'Highlandville & Spokane' },
-  { slug: 'neosho-mo', name: 'Neosho' },
 ]
 
 export default function ServiceDetailClient({ serviceId, h1 }) {
@@ -385,34 +376,29 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
                   ))}
                 </div>
 
-                {/* H2 — Repair vs Replacement. FIX: dropped the unnecessary
-                    "Springfield MO Guide 2026" suffix — evergreen content
-                    doesn't need a year, and a dated heading needs annual
-                    upkeep or reads as stale. Kept the existing em-accent-word
-                    style used throughout this file for consistency. ── */}
+                {/* H2 — Repair vs Replacement decision point only. This
+                    used to carry a full age-based replacement matrix that
+                    duplicated content that should live on the Installation
+                    & Replacement page — trimmed to a short decision prompt
+                    that hands off intent instead of competing for it. ── */}
                 <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginTop: 40, marginBottom: 16 }}>
-                  Water Heater Repair <em>vs. Replacement</em>
+                  Should You Repair <em>or Replace?</em>
                 </h2>
                 <p style={{ marginBottom: 16 }}>
-                  The decision to repair or replace your water heater depends on three factors:
-                  age, repair cost, and energy efficiency.
+                  If your water heater is leaking from the tank, over 10 years old, or the repair
+                  cost is close to half the price of a new unit, replacement is usually the better
+                  value. Otherwise, repair is almost always the faster and cheaper fix.
                 </p>
-                <div className="ctags" style={{ flexDirection: 'column', gap: 10, marginBottom: 20 }}>
-                  {[
-                    'Under 8 years old: Almost always repair. Parts are available and the tank still has life.',
-                    '8–12 years old: Compare repair cost vs. a new unit. If repair exceeds 50% of replacement cost, replace.',
-                    'Over 12 years old: Replacement is usually the smarter long-term investment.',
-                    'Leaking from bottom: Always replace — a leaking tank cannot be repaired safely.',
-                  ].map((item, i) => (
-                    <span key={i} className="ctag"><i className="ri-check-fill" />{item}</span>
-                  ))}
-                </div>
                 <p style={{ marginBottom: 0 }}>
-                  Not sure which option is right for you? Call{' '}
+                  Not sure which makes sense for your situation?{' '}
+                  <Link href="/water-heater-installation-springfield-mo" style={{ color: 'var(--gold)', fontWeight: 700, textDecoration: 'none' }}>
+                    See Water Heater Installation & Replacement →
+                  </Link>{' '}
+                  or call{' '}
                   <a href={CONTACT_INFO.phoneHref} style={{ color: 'var(--gold)', fontWeight: 700 }}>
                     (417) 373-4862
                   </a>{' '}
-                  and we will give you an honest recommendation — no upselling.
+                  for an honest recommendation.
                 </p>
               </div>
             )}
@@ -643,18 +629,16 @@ export default function ServiceDetailClient({ serviceId, h1 }) {
               </div>
             )}
 
-            {/* ── NEW: Areas We Also Serve — closes the internal-linking
-                loop. City pages already link to every service; no service
-                page previously linked back to the cities. Anchor text is
-                service-specific ("{Service} in {City}, MO"), reinforcing
-                the service+location combination for both classic SEO and
-                LLM/AI answer engines mapping service coverage by area. ── */}
+            {/* ── Areas We Also Serve — trimmed to 5 cities (see AREA_LINKS
+                comment above) instead of all 17. Still closes the internal-
+                linking loop back to the city pages, just no longer at the
+                same density as the removed related-services list. ── */}
             <div className="content-block" style={{ marginTop: 40 }}>
               <h2 className="sh" style={{ fontSize: 'clamp(20px, 3vw, 28px)', marginBottom: 12 }}>
                 Areas We Also <em>Serve</em>
               </h2>
               <p style={{ marginBottom: 20 }}>
-                {service.name} is available throughout Springfield MO and every community we serve nearby:
+                {service.name} is available throughout Springfield MO and nearby communities:
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                 {AREA_LINKS.map(area => (

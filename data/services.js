@@ -80,13 +80,14 @@ export const SERVICES = [
     icon: 'ri-fire-fill',
     h1: 'Water Heater Repair Springfield MO — Hot Water System Experts',
     tagline: 'No hot water? We restore it — same day in most cases',
-    desc: 'Woke up to cold water this morning? We diagnose and repair your water heater the same day — restoring hot water to your home fast, without the runaround.',intro: 'No hot water means no showers, no dishes, no comfort. When your water heater fails, you need it fixed today — not next week. Our Springfield plumbers repair all tank and tankless water heaters from every major brand. We diagnose fast, quote upfront, and restore your hot water the same visit in most cases.',
+    desc: 'Woke up to cold water this morning? We diagnose and repair your water heater the same day — restoring hot water to your home fast, without the runaround.',
+    intro: 'No hot water means no showers, no dishes, no comfort. When your water heater fails, you need it fixed today — not next week. Our Springfield plumbers repair all tank and tankless water heaters from every major brand. We diagnose fast, quote upfront, and restore your hot water the same visit in most cases.',
     image: '/water-heater-repair-springfield-mo.webp',
     features: ['Same-day hot water restoration', 'Tank & tankless — all brands repaired', 'Upfront diagnosis — no surprise charges'],
     problems: ['No hot water at all — restored fast', 'Inconsistent or lukewarm temperature', 'Strange popping or rumbling noises from tank', 'Water pooling around heater base', 'Pilot light keeps going out'],
     benefits: ['Traditional tank water heaters', 'Modern tankless systems', 'Gas, electric & propane models', 'All major brands serviced'],
     // ── FIX (content-duplication pass): removed the "Water Heater
-    // Replacement vs. Repair — How to Decide" blsock that lived here —
+    // Replacement vs. Repair — How to Decide" block that lived here —
     // it duplicated the concise repair-vs-replace section already
     // hardcoded directly on the page in ServiceDetailClient.jsx (same
     // age-bracket/50%-rule logic, just longer prose). Keeping both was
@@ -164,8 +165,17 @@ export const SERVICES = [
     features: ['Old unit removal & disposal included', 'Code-compliant installation', 'Same-day for most tank installs'],
     problems: ['Undersized tank — running out of hot water', 'Aging unit rusting or leaking at seams', 'Rumbling noise from sediment buildup', 'Choosing gas vs. electric vs. tankless'],
     benefits: ['Tank & tankless installation', 'All major brands', 'Expansion tank when required', 'Full permit handling'],
+    // ── FIX (water-heater intent-separation pass): this page's opening
+    // block used to carry a full symptom list — rust-colored water,
+    // rusting/leaking tank, popping/rumbling noises — that duplicated
+    // the repair page's "Common Water Heater Problems" content almost
+    // verbatim, and had no link back to the repair page at all. Trimmed
+    // to a short decision prompt (this page owns installation +
+    // replacement, not repair symptoms) and added the missing
+    // install→repair link, closing the loop with the repair page's
+    // existing repair→install link. ──
     longContent: [
-      { h3: 'Water Heater Replacement vs. Repair — Is It Time to Replace?', p: 'Repair makes sense for most units under 8 years old with an isolated problem. Replacement becomes the smarter decision when your unit is over 10–12 years old, repair costs exceed roughly half the price of a new unit, or you are seeing repeated failures. Rust-colored water, a visibly rusting or leaking tank, and popping or rumbling noises from sediment are all signs your unit needs replacement rather than another repair.' },
+      { h3: 'Is It Time to Replace Your Water Heater?', p: "Replacement makes sense when your unit is over 10–12 years old, repair costs are close to half the price of a new unit, or you're dealing with repeated failures. A tank that's rusting or leaking from the bottom should always be replaced, not repaired.", link: { text: 'Not sure? See signs it might just need a repair', href: '/water-heater-repair-springfield-mo' } },
       { h3: 'Choosing the Right Replacement Water Heater', p: 'Tank water heaters cost less upfront and are simpler to install — the right choice for most homes with predictable demand. Tankless units cost more initially but heat water on demand and typically last 20+ years vs. 10–12 for a tank. Sizing matters most: an undersized tank is the most common installation mistake we see, and the top cause of "running out of hot water" complaints. We calculate your household peak demand before recommending a replacement size.' },
       { h3: 'Our Water Heater Replacement Process', p: 'We assess your household demand and existing gas/electric/venting setup, provide a written quote including removal and disposal of your old unit, then perform code-compliant replacement installation — proper venting, expansion tank where Missouri code requires it, pressure relief valve, and a full system test before we leave.' },
       { h3: 'Water Heater Replacement Cost in Springfield, MO', p: 'A standard 40–50 gallon tank replacement typically runs $1,200–$2,200 including unit, labor, and code-required upgrades. Tankless replacement installations range $2,800–$4,500 depending on capacity and whether new gas line or electrical work is required. Every replacement quote is written and provided before work begins.' },
@@ -185,11 +195,20 @@ export const SERVICES = [
     features: ['Continuous on-demand hot water', 'Compact wall-mounted footprint', '20+ year expected lifespan'],
     problems: ['Running out of hot water during peak use', 'Bulky tank taking up utility space', 'High long-term water heating costs', 'Gas line sizing for larger units'],
     benefits: ['Gas & electric units installed', 'Sizing based on peak demand', 'Annual flush service available', 'Tank-to-tankless conversions'],
+    // ── FIX (water-heater intent-separation pass): this page previously
+    // had zero internal links to either the repair page or the standard
+    // install/replacement page, leaving it an island in the water-heater
+    // cluster. Added two contextual links — one from the "is this right
+    // for you" block to the standard tank install page (for shoppers who
+    // decide tankless isn't the fit), and one from the pricing block to
+    // the repair page (for visitors who already own a tankless unit and
+    // need it fixed, not replaced). No wording changed beyond adding the
+    // link objects. ──
     longContent: [
-      { h3: 'Is a Tankless Water Heater Right for Your Springfield Home?', p: 'Tankless systems make the most sense for larger households with multiple bathrooms, homeowners staying long-term to recoup the higher upfront cost, and anyone tired of running out of hot water. They mount on a wall, taking a fraction of the footprint of a 40–50 gallon tank. Smaller households with modest demand may not see enough savings to justify the cost, and older homes may need gas line or electrical upgrades — we give you an honest recommendation either way.' },
+      { h3: 'Is a Tankless Water Heater Right for Your Springfield Home?', p: 'Tankless systems make the most sense for larger households with multiple bathrooms, homeowners staying long-term to recoup the higher upfront cost, and anyone tired of running out of hot water. They mount on a wall, taking a fraction of the footprint of a 40–50 gallon tank. Smaller households with modest demand may not see enough savings to justify the cost, and older homes may need gas line or electrical upgrades — we give you an honest recommendation either way.', link: { text: 'Prefer a standard tank? See tank installation & replacement', href: '/water-heater-installation-springfield-mo' } },
       { h3: 'Gas vs. Electric Tankless Units', p: 'Gas tankless units are the more common choice with existing natural gas service, offering faster recovery and lower operating costs, but often require larger gas line sizing than a standard tank unit — something we evaluate during your quote. Electric tankless units avoid gas line work but typically require a dedicated high-amperage circuit.' },
       { h3: 'Hard Water and Tankless Water Heaters in Springfield', p: "Springfield's moderately hard water accelerates mineral scale buildup inside a tankless unit's heat exchanger faster than in a tank. Without regular flushing (recommended annually), scale buildup reduces efficiency and can trigger error codes or premature failure. We recommend pairing a new install with a whole-home water softener in hard-water areas." },
-      { h3: 'Tankless Installation Pricing in Springfield, MO', p: 'Installed cost typically runs $2,800–$4,500, depending on unit capacity and whether gas line or electrical upgrades are required. Tankless units save 8–34% on water heating costs depending on usage, since they only heat water on demand.' },
+      { h3: 'Tankless Installation Pricing in Springfield, MO', p: 'Installed cost typically runs $2,800–$4,500, depending on unit capacity and whether gas line or electrical upgrades are required. Tankless units save 8–34% on water heating costs depending on usage, since they only heat water on demand.', link: { text: 'Already have a tankless unit with a problem? See tankless repair', href: '/water-heater-repair-springfield-mo' } },
     ],
   },
   {

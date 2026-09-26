@@ -1,46 +1,73 @@
- import Link from 'next/link'
+import Link from 'next/link'
 import { SERVICES } from '@/data/services'
 import '@/components/RelatedServices.css'
 
-// ── NEW: exact-match anchor text overrides. Your target keyword is
-// "emergency plumber springfield mo" — but SERVICES entries use the name
-// "Emergency Plumbing", so every internal link site-wide was passing the
-// anchor text "Emergency Plumbing Springfield MO" to your #1 money page
-// instead of the actual phrase you're trying to rank for. Anchor text is
-// one of the strongest internal relevance signals Google uses, so this
-// was silently working against the Day 5–12 cannibalization fixes. ──
-const ANCHOR_OVERRIDES = {
-  emergency: 'Emergency Plumber Springfield MO',
-}
-
-function anchorFor(service) {
-  return ANCHOR_OVERRIDES[service.id] || `${service.name} Springfield MO`
+// ── FIX (service-template cleanup pass): previously this component linked
+// to ALL 23 other services twice on every page — once as a card grid, once
+// again as a "Quick Links" text list immediately below with the same
+// targets. That's ~46 outbound links to "everything else on the site" on
+// every single service page (×24 pages), which is the dense, undifferentiated
+// internal-link graph the site audit flagged as reducing Google's ability to
+// infer which pages are actually related to which.
+//
+// Replaced with a curated map of 3–5 genuinely related services per page
+// (e.g. Water Heater Repair links to Water Heater Installation, Tankless
+// Install, Water Softener, and Gas Line — not Toilet Repair or Sump Pump).
+// The duplicate "Quick Links" text section is removed entirely — the card
+// grid already provides those links once.
+//
+// Also removed: the forced "pin Emergency first" sort and the exact-match
+// anchor override (ANCHOR_OVERRIDES). Both were called out directly in the
+// original site audit (point 21) — over-optimized internal anchor text is a
+// pattern to move away from, not increase. Emergency still appears in the
+// curated map wherever it's a genuinely relevant related service (frozen
+// pipe, sump pump, pipe repair, sewer, water heater), using its normal
+// service name as anchor text like every other link. ──
+const RELATED_MAP = {
+  emergency:          ['pipe', 'heater', 'sewer', 'frozen-pipe', 'sump-pump'],
+  drain:              ['hydro-jetting', 'sewer', 'sewer-camera', 'trenchless'],
+  leak:               ['slab-leak', 'pipe', 'repiping', 'sewer-camera'],
+  heater:             ['water-heater-install', 'tankless-install', 'water-softener', 'gas-line'],
+  sewer:              ['sewer-camera', 'trenchless', 'hydro-jetting', 'drain'],
+  pipe:               ['repiping', 'slab-leak', 'frozen-pipe', 'leak'],
+  'water-heater-install': ['heater', 'tankless-install', 'water-softener', 'gas-line'],
+  'tankless-install': ['water-heater-install', 'heater', 'water-softener', 'gas-line'],
+  'water-softener':   ['heater', 'tankless-install', 'pipe'],
+  'gas-line':         ['heater', 'tankless-install', 'new-construction', 'commercial'],
+  repiping:           ['pipe', 'leak', 'slab-leak', 'frozen-pipe'],
+  'sewer-camera':     ['sewer', 'trenchless', 'drain', 'hydro-jetting'],
+  trenchless:         ['sewer', 'sewer-camera', 'hydro-jetting'],
+  'hydro-jetting':    ['drain', 'sewer', 'sewer-camera'],
+  'slab-leak':        ['leak', 'pipe', 'repiping'],
+  'sump-pump':        ['emergency', 'frozen-pipe', 'pipe'],
+  'toilet-repair':    ['faucet-fixture', 'garbage-disposal', 'remodel-plumbing'],
+  'faucet-fixture':   ['toilet-repair', 'garbage-disposal', 'remodel-plumbing'],
+  'garbage-disposal': ['faucet-fixture', 'toilet-repair', 'drain'],
+  'backflow-testing': ['commercial', 'new-construction', 'gas-line'],
+  'frozen-pipe':      ['emergency', 'pipe', 'sump-pump'],
+  'remodel-plumbing': ['toilet-repair', 'faucet-fixture', 'new-construction', 'gas-line'],
+  commercial:         ['backflow-testing', 'gas-line', 'new-construction', 'emergency'],
+  'new-construction': ['commercial', 'gas-line', 'remodel-plumbing', 'backflow-testing'],
 }
 
 export default function RelatedServices({ currentId }) {
-  const others = SERVICES.filter(s => s.id !== currentId)
+  const relatedIds = RELATED_MAP[currentId] || []
+  const related = relatedIds
+    .map(id => SERVICES.find(s => s.id === id))
+    .filter(Boolean)
 
-  // ── NEW: pin Emergency Plumbing first in the related grid (when it's
-  // not the current page) so it gets top visual placement and the
-  // earliest link position on every other service page — both help
-  // signal its priority to search engines and steer more real click
-  // traffic toward it. ──
-  const emergencyFirst = [...others].sort((a, b) => {
-    if (a.id === 'emergency') return -1
-    if (b.id === 'emergency') return 1
-    return 0
-  })
+  if (related.length === 0) return null
 
   return (
     <>
-      {/* RELATED SERVICES GRID */}
+      {/* RELATED SERVICES GRID — curated, not every service on the site */}
       <section className="related-svc">
         <div className="container">
           <div className="related-header">
             <div>
-              <div className="stag">More Services</div>
+              <div className="stag">Related Services</div>
               <h2 className="sh" style={{ fontSize: 'clamp(22px,2.5vw,32px)' }}>
-                Other Plumbing Services in <em>Springfield MO</em>
+                You Might Also <em>Need</em>
               </h2>
             </div>
             <Link href="/services" className="btn-secondary" style={{ fontSize: 13, padding: '10px 20px' }}>
@@ -48,55 +75,21 @@ export default function RelatedServices({ currentId }) {
             </Link>
           </div>
           <div className="related-svc-grid">
-            {emergencyFirst.map(s => (
+            {related.map(s => (
               <Link
                 key={s.id}
                 href={s.slug}
                 className="rsvc-card"
-                title={anchorFor(s)}
-                style={s.id === 'emergency' ? { borderColor: 'var(--gold, #d4a941)', position: 'relative' } : undefined}
+                title={`${s.name} Springfield MO`}
               >
-                {s.id === 'emergency' && (
-                  <span
-                    style={{
-                      position: 'absolute', top: 10, right: 10,
-                      fontSize: 10, fontWeight: 800, letterSpacing: '0.06em',
-                      textTransform: 'uppercase', color: 'var(--gold, #d4a941)',
-                      background: 'rgba(212,169,65,0.12)',
-                      border: '1px solid rgba(212,169,65,0.35)',
-                      padding: '3px 8px', borderRadius: 99,
-                    }}
-                  >
-                    24/7
-                  </span>
-                )}
                 <div className="ricon"><i className={s.icon} /></div>
-                <div className="rname">{s.id === 'emergency' ? 'Emergency Plumber' : s.name}</div>
+                <div className="rname">{s.name}</div>
                 <div className="rdesc">Springfield MO</div>
               </Link>
             ))}
           </div>
         </div>
       </section>
-
-      {/* INTERNAL SEO LINKS */}
-      <div className="ilinks-section">
-        <div className="ilinks-inner container">
-          <div className="ilinks-title">Quick Links — Springfield Plumbing Services</div>
-          <div className="ilinks-grid">
-            <Link className="ilink" href="/"><i className="ri-home-4-fill" />Home</Link>
-            <Link className="ilink" href="/services"><i className="ri-apps-fill" />All Plumbing Services Springfield MO</Link>
-            {SERVICES.map(s => (
-              <Link key={s.id} className="ilink" href={s.slug}>
-                <i className={s.icon} />{anchorFor(s)}
-              </Link>
-            ))}
-            <Link className="ilink" href="/service-areas"><i className="ri-map-pin-fill" />Service Areas — Nixa, Ozark, Republic</Link>
-            <Link className="ilink" href="/about"><i className="ri-information-fill" />About Our Company</Link>
-            <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Contact Us — Free Estimate</Link>
-          </div>
-        </div>
-      </div>
     </>
   )
 }

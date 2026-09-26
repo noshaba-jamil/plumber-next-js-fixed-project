@@ -150,17 +150,13 @@ export default function Services() {
   `}</style>
 </div>
 
-          {/* Internal links */}
-          <div className="ilinks-section" style={{ marginTop: 3, padding: '40px 0' }}>
-            <div className="ilinks-title">Direct Links — All Springfield Plumbing Service Pages</div>
-            <div className="ilinks-grid">
-              {SERVICES.map(s => (
-                <Link key={s.id} className="ilink" href={s.slug}><i className={s.icon} />{s.name} Springfield MO</Link>
-              ))}
-              <Link className="ilink" href="/service-areas"><i className="ri-map-pin-fill" />Service Areas</Link>
-              <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Contact Us — Free Estimate</Link>
-            </div>
-          </div>
+          {/* ── FIX (service-template cleanup pass): removed the "Direct
+              Links — All Springfield Plumbing Service Pages" text-link
+              section that used to sit here. It repeated the exact same 24
+              service links as the ServiceCard grid above, just as plain
+              text instead of cards — a literal duplicate of the same
+              targets on the same page. The grid above already provides
+              every one of these links once. ── */}
         </div>
       </section>
 
