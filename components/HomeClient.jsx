@@ -1398,7 +1398,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FULL INTERNAL LINKS FOOTER ── */}
+      {/* ── FULL INTERNAL LINKS FOOTER ──
+          FIX (homepage cleanup pass): removed the SERVICES.map (24 services)
+          and CITIES.map (17 cities) repeats from this block — same targets
+          already shown once above as the Services section's card grid and
+          the Areas + Map section's city-card grid. Same duplicate-link
+          anti-pattern already fixed on every other page type on this site.
+          Kept everything here that wasn't duplicated elsewhere: Home, the
+          two hub links (All Plumbing Services / All Service Areas), the
+          blog listing + individual post links, About, FAQ, and Contact. ── */}
       <section
         className="section"
         style={{ paddingTop: 40, paddingBottom: 40 }}
@@ -1406,7 +1414,7 @@ export default function Home() {
         <div className="container">
           <div className="ilinks-section">
             <div className="ilinks-title">
-              Quick Links — Springfield MO Plumbing Services &amp; Areas
+              Quick Links — Springfield MO Plumbing
             </div>
             <div className="ilinks-grid">
               <Link className="ilink" href="/">
@@ -1417,22 +1425,10 @@ export default function Home() {
                 <i className="ri-apps-fill" />
                 All Plumbing Services
               </Link>
-              {SERVICES.map((s) => (
-                <Link key={s.id} className="ilink" href={s.slug}>
-                  <i className={s.icon} />
-                  {s.name} Springfield MO
-                </Link>
-              ))}
               <Link className="ilink" href="/service-areas">
                 <i className="ri-map-fill" />
                 All Service Areas
               </Link>
-              {CITIES.map((c) => (
-                <Link key={c.slug} className="ilink" href={c.slug}>
-                  <i className="ri-map-pin-fill" />
-                  Plumber in {c.name}
-                </Link>
-              ))}
               <Link className="ilink" href="/blog">
                 <i className="ri-article-fill" />
                 Plumbing Blog &amp; Tips
