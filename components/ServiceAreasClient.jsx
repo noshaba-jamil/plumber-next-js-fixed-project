@@ -416,23 +416,21 @@ export default function ServiceAreasClient({ h1 }) {
         </div>
       </section>
 
-      {/* Internal links */}
+      {/* ── FIX (service-areas hub cleanup pass): this "Quick Links" block
+          used to repeat all 17 cities (AREA_DETAILS.map) and all 24
+          services (SERVICES.map) a second time on this page — the exact
+          same targets already shown once above as the rich city-card grid
+          and the "Services Available Throughout the Region" strip. Same
+          duplicate-link anti-pattern already fixed on the service pages,
+          the Services hub, and the city pages. Trimmed to just the three
+          links that weren't already on this page anywhere else: Home,
+          About, and Contact. ── */}
       <section className="section section-alt" style={{ paddingTop: 40, paddingBottom: 40 }}>
         <div className="container">
           <div className="ilinks-section">
-            <div className="ilinks-title">Quick Links — Springfield MO Plumbing &amp; Service Areas</div>
+            <div className="ilinks-title">Quick Links</div>
             <div className="ilinks-grid">
               <Link className="ilink" href="/"><i className="ri-home-4-fill" />Home</Link>
-              {AREA_DETAILS.map(area => (
-                <Link key={area.slug} className="ilink" href={`/service-areas/${area.slug}`}>
-                  <i className="ri-map-pin-fill" />Plumber in {area.name}
-                </Link>
-              ))}
-              {SERVICES.map(s => (
-                <Link key={s.id} className="ilink" href={s.slug}>
-                  <i className={s.icon} />{s.name} Springfield MO
-                </Link>
-              ))}
               <Link className="ilink" href="/about"><i className="ri-information-fill" />About Our Company</Link>
               <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Free Estimate — Contact Us</Link>
             </div>

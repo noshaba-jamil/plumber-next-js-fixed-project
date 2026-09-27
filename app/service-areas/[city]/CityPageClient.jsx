@@ -580,9 +580,17 @@ export default function CityPageClient({ city, citySlug }) {
         </div>
       </section>
 
-      {/* ── INTERNAL LINKS — nearby cities kept to a curated, geographically
-          logical set (see NEARBY_CITIES) rather than linking all 15 other
-          city pages from every page. ── */}
+      {/* ── FIX (city-page template cleanup pass): removed the "Related
+          Plumbing Services in {city.name}" block that used to sit here —
+          it repeated all 24 services as flat text links, duplicating the
+          same 24 services already shown once above as categorized cards in
+          "Plumbing Services We Provide in {city.name}, MO" (SERVICE_GROUPS).
+          Same anti-pattern already fixed on the service pages and the
+          Services hub: don't link to the same 24 targets twice on one page.
+          Kept the "Free Estimate — Contact Us" link by folding it into the
+          nearby-cities block below instead of a standalone duplicate list.
+          Nearby cities were already curated (see NEARBY_CITIES) rather than
+          linking all 16 other city pages — no change needed there. ── */}
       <section className="section section-alt" style={{ paddingTop: 48, paddingBottom: 48 }}>
         <div className="container">
           <div className="ilinks-section">
@@ -592,16 +600,6 @@ export default function CityPageClient({ city, citySlug }) {
               {nearby.map(c => (
                 <Link key={c.slug} className="ilink" href={`/service-areas/${c.slug}`}>
                   <i className="ri-map-pin-fill" />Plumber in {c.name}, MO
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="ilinks-section" style={{ marginTop: 28 }}>
-            <div className="ilinks-title">Related Plumbing Services in {city.name}</div>
-            <div className="ilinks-grid">
-              {SERVICES.map(s => (
-                <Link key={s.slug} className="ilink" href={s.slug}>
-                  <i className={s.icon} />{s.name} — Springfield MO
                 </Link>
               ))}
               <Link className="ilink" href="/contact"><i className="ri-phone-fill" />Free Estimate — Contact Us</Link>
